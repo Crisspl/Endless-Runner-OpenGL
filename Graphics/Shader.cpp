@@ -58,7 +58,7 @@ const Shader& Shader::setVec4f(const GLchar* _name, const glm::vec4& _value) con
 
 const Shader& Shader::setColor(const GLchar* _name, const Color& _value) const
 {
-   glm::vec4 val = _value.normalized();
+   glm::vec4 val = _value.asNormalizedVec4();
    return setVec4f(_name, val);
 }
 

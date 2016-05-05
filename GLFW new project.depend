@@ -1944,3 +1944,372 @@
 	"OrientedRect.h"
 	"../Graphics/Transformable.h"
 
+1458432785 source:d:\dropbox\kody\c++\pandarun-like_opengl\boxcollider.cpp
+	"BoxCollider.h"
+
+1458432775 d:\dropbox\kody\c++\pandarun-like_opengl\boxcollider.h
+	<vector>
+	<glm/glm.hpp>
+	<iostream>
+	"Collider.h"
+	"Utility/OrientedRect.h"
+
+1458406942 d:\dropbox\kody\c++\pandarun-like_opengl\collider.h
+
+1458509736 d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.h
+	<array>
+	<vector>
+	"Rect.h"
+	"../Graphics/Sprite.h"
+
+1458485125 d:\dropbox\kody\c++\pandarun-like_opengl\utility\rect.h
+	<glm/glm.hpp>
+	<array>
+
+1458486032 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<memory>
+	"../Utility/ResMgr.h"
+	"Vao.h"
+	"Texture.h"
+	"Shader.h"
+	"Color.h"
+	"Configurator.h"
+	"Transformable.h"
+	"Sizeable.h"
+	"Drawable.h"
+	"Litable.h"
+
+1456950847 d:\dropbox\kody\c++\pandarun-like_opengl\utility\resmgr.h
+	<map>
+	"../Graphics/Shader.h"
+	"../Graphics/Texture.h"
+
+1457833964 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.h
+	<GL/glew.h>
+	<algorithm>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"Texture.h"
+	"Color.h"
+	"Light.h"
+
+1457150873 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\texture.h
+	<GL/glew.h>
+	<SOIL/SOIL.h>
+	<glm/glm.hpp>
+	<string>
+	<vector>
+	<tuple>
+	<iostream>
+
+1462487201 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\color.h
+	<glm/glm.hpp>
+	<algorithm>
+
+1458330513 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\light.h
+	<glm/glm.hpp>
+	"Color.h"
+
+1457811327 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.h
+	<GL/glew.h>
+	<map>
+	<string>
+	"Buffer.h"
+
+1457806239 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.h
+	<GL/glew.h>
+	<iostream>
+
+1457797964 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\configurator.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<SDL.h>
+	<iostream>
+	"Buffer.h"
+
+1458509525 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transformable.h
+	<GL/glew.h>
+	<utility>
+	"Transform.h"
+	"Configurator.h"
+
+1456278490 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transform.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"Configurator.h"
+
+1457797177 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sizeable.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	"Buffer.h"
+
+1456169490 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\drawable.h
+
+1458394055 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.h
+	<vector>
+	"WithShader.h"
+	"Light.h"
+
+1457190424 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.h
+	"Shader.h"
+
+1456027824 source:d:\dropbox\kody\c++\pandarun-like_opengl\circlecollider.cpp
+	"CircleCollider.h"
+	"RectsCollider.h"
+
+1458407348 d:\dropbox\kody\c++\pandarun-like_opengl\circlecollider.h
+	<glm/glm.hpp>
+	<cmath>
+	<iostream>
+	"Collider.h"
+
+1458407264 d:\dropbox\kody\c++\pandarun-like_opengl\rectscollider.h
+	<glm/glm.hpp>
+	<cmath>
+	<vector>
+	"Collider.h"
+	"Utility/Rect.h"
+
+1458408818 source:d:\dropbox\kody\c++\pandarun-like_opengl\collideable.cpp
+	"Collideable.h"
+
+1458407883 d:\dropbox\kody\c++\pandarun-like_opengl\collideable.h
+	<utility>
+	<memory>
+	<iostream>
+	"Collider.h"
+	"RectsCollider.h"
+	"CircleCollider.h"
+	"BoxCollider.h"
+
+1458481896 source:d:\dropbox\kody\c++\pandarun-like_opengl\game.cpp
+	"Game.h"
+	"Graphics/Configurator.h"
+
+1456782192 d:\dropbox\kody\c++\pandarun-like_opengl\game.h
+	<GL/glew.h>
+	<SDL.h>
+	<vector>
+	<memory>
+	"Global.h"
+	"Utility/Clock.h"
+	"Graphics/Configurator.h"
+	"Utility/ResMgr.h"
+	"Hero.h"
+	"Sphere.h"
+	"Island.h"
+	"ScreenRenderer.h"
+	"Graphics/VertexArray.h"
+	"Graphics/ColoredRect.h"
+	"Graphics/Model.h"
+
+1456092800 d:\dropbox\kody\c++\pandarun-like_opengl\global.h
+	<random>
+
+1455727283 d:\dropbox\kody\c++\pandarun-like_opengl\utility\clock.h
+	<chrono>
+	<ratio>
+
+1456169516 d:\dropbox\kody\c++\pandarun-like_opengl\hero.h
+	"Graphics/Sprite.h"
+	"Collideable.h"
+	"Graphics/Drawable.h"
+	"Global.h"
+
+1456169529 d:\dropbox\kody\c++\pandarun-like_opengl\sphere.h
+	<glm/glm.hpp>
+	<cmath>
+	"Utility/ResMgr.h"
+	"Collideable.h"
+	"Graphics/Sprite.h"
+	"Hero.h"
+	"Graphics/Drawable.h"
+
+1456169535 d:\dropbox\kody\c++\pandarun-like_opengl\island.h
+	<vector>
+	<random>
+	"Global.h"
+	"Utility/ResMgr.h"
+	"Collideable.h"
+	"Graphics/Sprite.h"
+	"Graphics/Drawable.h"
+
+1458349452 d:\dropbox\kody\c++\pandarun-like_opengl\screenrenderer.h
+	"Utility/ResMgr.h"
+	"Graphics/RenderTexture.h"
+	"Graphics/Shader.h"
+	"Graphics/Drawable.h"
+	"Graphics/Configurator.h"
+	"Graphics/Sprite.h"
+
+1456373649 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\rendertexture.h
+	<GL/glew.h>
+	<iostream>
+	"Texture.h"
+	"Drawable.h"
+
+1456276840 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vertexarray.h
+	<GL/glew.h>
+	<vector>
+	"Drawable.h"
+	"../Utility/ResMgr.h"
+	"Vertex.h"
+	"Shader.h"
+	"Configurator.h"
+
+1456102908 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vertex.h
+	<glm/glm.hpp>
+	"Color.h"
+
+1457807250 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\coloredrect.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<memory>
+	"Drawable.h"
+	"Vao.h"
+	"Transformable.h"
+	"Sizeable.h"
+	"Shader.h"
+	"Vertex.h"
+	"../Utility/ResMgr.h"
+	"Litable.h"
+
+1458324110 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.h
+	<vector>
+	<string>
+	<iostream>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"../Utility/ResMgr.h"
+	"Mesh.h"
+	"Texture.h"
+	"Drawable.h"
+	"Transformable3D.h"
+	"Litable.h"
+
+1456878867 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\mesh.h
+	<GL/glew.h>
+	<string>
+	<vector>
+	<algorithm>
+	<tuple>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"Configurator.h"
+	"Shader.h"
+
+1456858624 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transformable3d.h
+	"Transform.h"
+	"Configurator.h"
+
+1456092766 source:d:\dropbox\kody\c++\pandarun-like_opengl\global.cpp
+	"Global.h"
+
+1457806678 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.cpp
+	"Buffer.h"
+
+1462486746 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\color.cpp
+	"Color.h"
+
+1462487060 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\coloredrect.cpp
+	"ColoredRect.h"
+
+1461315920 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\configurator.cpp
+	"Configurator.h"
+
+1458330537 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\light.cpp
+	"Light.h"
+
+1458394061 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.cpp
+	"Litable.h"
+
+1456878831 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\mesh.cpp
+	"Mesh.h"
+
+1458394060 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.cpp
+	"Model.h"
+
+1456373661 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\rendertexture.cpp
+	"RenderTexture.h"
+
+1462487077 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.cpp
+	"Shader.h"
+
+1457798594 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sizeable.cpp
+	"Sizeable.h"
+
+1458485720 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.cpp
+	"Sprite.h"
+	<iostream>
+	<algorithm>
+	"../Utility/OrientedRect.h"
+
+1457150313 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\texture.cpp
+	"Texture.h"
+
+1458399964 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transformable.cpp
+	"Transformable.h"
+
+1456283381 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transformable3d.cpp
+	"Transformable3D.h"
+
+1457810301 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.cpp
+	"Vao.h"
+
+1456107704 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vertex.cpp
+	"Vertex.h"
+
+1459252760 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vertexarray.cpp
+	"VertexArray.h"
+
+1457192394 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.cpp
+	"WithShader.h"
+
+1458488714 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
+	"Hero.h"
+
+1458484513 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
+	"Island.h"
+
+1455845451 source:d:\dropbox\kody\c++\pandarun-like_opengl\main glfw.cpp
+	<GL/glew.h>
+	<iostream>
+	"Game.h"
+
+1455729119 source:d:\dropbox\kody\c++\pandarun-like_opengl\rectscollider.cpp
+	"RectsCollider.h"
+	"CircleCollider.h"
+
+1458349412 source:d:\dropbox\kody\c++\pandarun-like_opengl\screenrenderer.cpp
+	"ScreenRenderer.h"
+
+1457541638 source:d:\dropbox\kody\c++\pandarun-like_opengl\sphere.cpp
+	"Sphere.h"
+
+1459624681 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\clock.cpp
+	"Clock.h"
+
+1458509862 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.cpp
+	"OrientedRect.h"
+	"../Graphics/Transformable.h"
+
+1458413197 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\rect.cpp
+	"Rect.h"
+	"../Graphics/Transformable.h"
+
+1456339766 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\resmgr.cpp
+	"ResMgr.h"
+
