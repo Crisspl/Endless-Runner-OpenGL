@@ -1,0 +1,1946 @@
+# depslib dependency file v1.0
+1454943578 source:d:\dropbox\kody\c++\pandarun-like opengl\configurator.cpp
+	"Configurator.h"
+
+1454943764 d:\dropbox\kody\c++\pandarun-like opengl\configurator.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<SDL.h>
+
+1439236490 c:\program files (x86)\codeblocks\mingw\glew\glew-1.13.0\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\_fixes.hpp
+	<cmath>
+
+1438464936 c:\program files (x86)\codeblocks\mingw\glm\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1441569934 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<__config>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1438465103 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1441038560 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\precision.hpp
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\_swizzle.hpp
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\_swizzle_func.hpp
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec4.hpp
+	"setup.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
+
+1441038892 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec4_sse2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec4_avx.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec4_avx2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1440864226 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1438470808 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1438468469 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1438470737 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1438468425 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1438470573 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat2x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1438468285 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1438470418 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1438468227 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1438470302 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1438468095 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1438470191 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat3x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1438468017 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1438470017 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1438467958 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1438470532 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1438467899 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1438469995 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_mat4x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1441051837 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1441052446 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1441568189 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_vec1.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_vector_relational.inl
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\common.hpp
+	"detail/func_common.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1437262117 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\type_half.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1426538703 c:\program files (x86)\codeblocks\mingw\glm\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+
+1455630063 source:d:\dropbox\kody\c++\pandarun-like opengl\shader.cpp
+	"Shader.h"
+
+1455630052 d:\dropbox\kody\c++\pandarun-like opengl\shader.h
+	<GL/glew.h>
+	<string>
+	<fstream>
+	<iostream>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1455676144 source:d:\dropbox\kody\c++\pandarun-like opengl\sprite.cpp
+	"Sprite.h"
+	<iostream>
+	<algorithm>
+
+1455652286 d:\dropbox\kody\c++\pandarun-like opengl\sprite.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"ResMgr.h"
+	"Texture.h"
+	"Shader.h"
+	"Transformable.h"
+	"Rect.h"
+	"Configurator.h"
+	"Drawable.h"
+
+1441038256 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1441051454 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1441052694 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\constants.inl
+	<limits>
+
+1426538469 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1438471086 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1438472000 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\glm\glm\gtc\type_ptr.inl
+	<cstring>
+
+1455591584 d:\dropbox\kody\c++\pandarun-like opengl\texture.h
+	<GL/glew.h>
+	<SOIL/SOIL.h>
+	<glm/glm.hpp>
+	<string>
+	<vector>
+	<tuple>
+	<iostream>
+
+1215447208 c:\program files (x86)\codeblocks\mingw\soil\src\soil\soil.h
+
+1455672198 d:\dropbox\kody\c++\pandarun-like opengl\transformable.h
+	"Transform.h"
+	"Configurator.h"
+
+1454873697 d:\dropbox\kody\c++\pandarun-like opengl\transform.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"Configurator.h"
+
+1455591592 source:d:\dropbox\kody\c++\pandarun-like opengl\texture.cpp
+	"Texture.h"
+
+1454777484 source:d:\dropbox\kody\c++\pandarun-like opengl\transform.cpp
+	"Transform.h"
+
+1455672202 source:d:\dropbox\kody\c++\pandarun-like opengl\transformable.cpp
+	"Transformable.h"
+
+1455845451 source:d:\dropbox\kody\c++\pandarun-like opengl\main glfw.cpp
+	<GL/glew.h>
+	<iostream>
+	"Game.h"
+
+1444673878 c:\program files (x86)\codeblocks\mingw\glfw\include\glfw\glfw3.h
+	<stddef.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES3/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES3/gl2ext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/View.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+	<SFML/Window/Touch.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1441973290 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1436030425 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\utf.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\string.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\thread.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\threadlocalptr.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\vector2.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\system\vector3.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\context.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\export.hpp
+	<SFML/Config.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\glresource.hpp
+	<SFML/Window/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\contextsettings.hpp
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+
+1436030425 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\joystick.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\keyboard.hpp
+	<SFML/Window/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\mouse.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\sensor.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/System/Time.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\touch.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\videomode.hpp
+	<SFML/Window/Export.hpp>
+	<vector>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\window.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/String.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\window\windowstyle.hpp
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\blendmode.hpp
+	<SFML/Graphics/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\export.hpp
+	<SFML/Config.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\circleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\shape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/Vector2.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\drawable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+
+1436030425 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\renderstates.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\transform.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\rect.hpp
+	<SFML/System/Vector2.hpp>
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\rect.inl
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\transformable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\vertexarray.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\vertex.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\color.hpp
+	<SFML/Graphics/Export.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\primitivetype.hpp
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\convexshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<vector>
+
+1441973290 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\font.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/String.hpp>
+	<map>
+	<string>
+	<vector>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\glyph.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1441973290 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\texture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/GlResource.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\image.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\rectangleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\rendertarget.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\view.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/System/Vector2.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\rendertexture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1429776853 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
+
+1436030425 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\shader.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<map>
+	<string>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1430984344 c:\program files (x86)\codeblocks\mingw\sfml-2.3.2\include\sfml\graphics\text.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1456169516 d:\dropbox\kody\c++\pandarun-like opengl\hero.h
+	"Graphics/Sprite.h"
+	"Collideable.h"
+	"Graphics/Drawable.h"
+	"Global.h"
+
+1458488714 source:d:\dropbox\kody\c++\pandarun-like opengl\hero.cpp
+	"Hero.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_config.h
+	"SDL_platform.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\begin_code.h
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\close_code.h
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394257193 c:\program files (x86)\codeblocks\mingw\sdl2\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1458481896 source:d:\dropbox\kody\c++\pandarun-like opengl\game.cpp
+	"Game.h"
+	"Graphics/Configurator.h"
+
+1456782192 d:\dropbox\kody\c++\pandarun-like opengl\game.h
+	<GL/glew.h>
+	<SDL.h>
+	<vector>
+	<memory>
+	"Global.h"
+	"Utility/Clock.h"
+	"Graphics/Configurator.h"
+	"Utility/ResMgr.h"
+	"Hero.h"
+	"Sphere.h"
+	"Island.h"
+	"ScreenRenderer.h"
+	"Graphics/VertexArray.h"
+	"Graphics/ColoredRect.h"
+	"Graphics/Model.h"
+
+1456169535 d:\dropbox\kody\c++\pandarun-like opengl\island.h
+	<vector>
+	<random>
+	"Global.h"
+	"Utility/ResMgr.h"
+	"Collideable.h"
+	"Graphics/Sprite.h"
+	"Graphics/Drawable.h"
+
+1458484513 source:d:\dropbox\kody\c++\pandarun-like opengl\island.cpp
+	"Island.h"
+
+1332136811 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1382856099 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2settings.h
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1322352523 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2draw.h
+	<Box2D/Common/b2Math.h>
+
+1382856060 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
+1375422143 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2timer.h
+	<Box2D/Common/b2Settings.h>
+
+1300987018 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\shapes\b2circleshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1313977792 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1300987018 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1382854526 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
+
+1314856386 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\shapes\b2edgeshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1382857618 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\shapes\b2chainshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1324249490 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\shapes\b2polygonshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1332054490 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\b2broadphase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1332054496 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\b2dynamictree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1383025930 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<memory.h>
+
+1300987018 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
+
+1375422134 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\collision\b2timeofimpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1382854090 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1315068741 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1314070000 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2worldcallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1315805530 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2timestep.h
+	<Box2D/Common/b2Math.h>
+
+1383020095 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2world.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1300987018 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1300987018 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1383025930 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\contacts\b2contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1315159382 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2distancejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1332136763 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
+
+1315170677 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2frictionjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315170932 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2gearjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382483582 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2motorjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1332051882 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2mousejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315362326 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2prismaticjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382542844 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2pulleyjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315168772 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2revolutejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315190613 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2ropejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315167063 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2weldjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1382542900 c:\program files (x86)\codeblocks\mingw\box2d\include\box2d\dynamics\joints\b2wheeljoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1454518276 d:\dropbox\kody\c++\pandarun-like opengl\b2data.h
+	<Box2D/Box2D.h>
+
+1455499996 d:\dropbox\kody\c++\pandarun-like opengl\rect.h
+	<glm/glm.hpp>
+	<array>
+
+1458407883 d:\dropbox\kody\c++\pandarun-like opengl\collideable.h
+	<utility>
+	<memory>
+	<iostream>
+	"Collider.h"
+	"RectsCollider.h"
+	"CircleCollider.h"
+	"BoxCollider.h"
+
+1458406942 d:\dropbox\kody\c++\pandarun-like opengl\collider.h
+
+1458407264 d:\dropbox\kody\c++\pandarun-like opengl\rectscollider.h
+	<glm/glm.hpp>
+	<cmath>
+	<vector>
+	"Collider.h"
+	"Utility/Rect.h"
+
+1458407348 d:\dropbox\kody\c++\pandarun-like opengl\circlecollider.h
+	<glm/glm.hpp>
+	<cmath>
+	<iostream>
+	"Collider.h"
+
+1456027824 source:d:\dropbox\kody\c++\pandarun-like opengl\circlecollider.cpp
+	"CircleCollider.h"
+	"RectsCollider.h"
+
+1458408818 source:d:\dropbox\kody\c++\pandarun-like opengl\collideable.cpp
+	"Collideable.h"
+
+1455500108 source:d:\dropbox\kody\c++\pandarun-like opengl\rect.cpp
+	"Rect.h"
+
+1455729119 source:d:\dropbox\kody\c++\pandarun-like opengl\rectscollider.cpp
+	"RectsCollider.h"
+	"CircleCollider.h"
+
+1456169529 d:\dropbox\kody\c++\pandarun-like opengl\sphere.h
+	<glm/glm.hpp>
+	<cmath>
+	"Utility/ResMgr.h"
+	"Collideable.h"
+	"Graphics/Sprite.h"
+	"Hero.h"
+	"Graphics/Drawable.h"
+
+1457541638 source:d:\dropbox\kody\c++\pandarun-like opengl\sphere.cpp
+	"Sphere.h"
+
+1455500825 d:\dropbox\kody\c++\pandarun-like opengl\drawable.h
+
+1455634511 d:\dropbox\kody\c++\pandarun-like opengl\rendertexture.h
+	<GL/glew.h>
+	<iostream>
+	"Texture.h"
+	"Sprite.h"
+	"Drawable.h"
+
+1455670960 source:d:\dropbox\kody\c++\pandarun-like opengl\rendertexture.cpp
+	"RenderTexture.h"
+
+1458349452 d:\dropbox\kody\c++\pandarun-like opengl\screenrenderer.h
+	"Utility/ResMgr.h"
+	"Graphics/RenderTexture.h"
+	"Graphics/Shader.h"
+	"Graphics/Drawable.h"
+	"Graphics/Configurator.h"
+	"Graphics/Sprite.h"
+
+1458349412 source:d:\dropbox\kody\c++\pandarun-like opengl\screenrenderer.cpp
+	"ScreenRenderer.h"
+
+1455725236 d:\dropbox\kody\c++\pandarun-like opengl\resmgr.h
+	<map>
+	"Graphics/Shader.h"
+	"Graphics/Texture.h"
+
+1455725576 source:d:\dropbox\kody\c++\pandarun-like opengl\resmgr.cpp
+	"ResMgr.h"
+
+1455727283 d:\dropbox\kody\c++\pandarun-like opengl\utility\clock.h
+	<chrono>
+	<ratio>
+
+1459624681 source:d:\dropbox\kody\c++\pandarun-like opengl\utility\clock.cpp
+	"Clock.h"
+
+1458485125 d:\dropbox\kody\c++\pandarun-like opengl\utility\rect.h
+	<glm/glm.hpp>
+	<array>
+
+1457797964 d:\dropbox\kody\c++\pandarun-like opengl\graphics\configurator.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<SDL.h>
+	<iostream>
+	"Buffer.h"
+
+1457833964 d:\dropbox\kody\c++\pandarun-like opengl\graphics\shader.h
+	<GL/glew.h>
+	<algorithm>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"Texture.h"
+	"Color.h"
+	"Light.h"
+
+1457150873 d:\dropbox\kody\c++\pandarun-like opengl\graphics\texture.h
+	<GL/glew.h>
+	<SOIL/SOIL.h>
+	<glm/glm.hpp>
+	<string>
+	<vector>
+	<tuple>
+	<iostream>
+
+1458486032 d:\dropbox\kody\c++\pandarun-like opengl\graphics\sprite.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<memory>
+	"../Utility/ResMgr.h"
+	"Vao.h"
+	"Texture.h"
+	"Shader.h"
+	"Color.h"
+	"Configurator.h"
+	"Transformable.h"
+	"Sizeable.h"
+	"Drawable.h"
+	"Litable.h"
+
+1458509525 d:\dropbox\kody\c++\pandarun-like opengl\graphics\transformable.h
+	<GL/glew.h>
+	<utility>
+	"Transform.h"
+	"Configurator.h"
+
+1456278490 d:\dropbox\kody\c++\pandarun-like opengl\graphics\transform.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"Configurator.h"
+
+1456169490 d:\dropbox\kody\c++\pandarun-like opengl\graphics\drawable.h
+
+1456373649 d:\dropbox\kody\c++\pandarun-like opengl\graphics\rendertexture.h
+	<GL/glew.h>
+	<iostream>
+	"Texture.h"
+	"Drawable.h"
+
+1458314801 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\configurator.cpp
+	"Configurator.h"
+
+1456373661 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\rendertexture.cpp
+	"RenderTexture.h"
+
+1458394480 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\shader.cpp
+	"Shader.h"
+
+1458485720 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\sprite.cpp
+	"Sprite.h"
+	<iostream>
+	<algorithm>
+	"../Utility/OrientedRect.h"
+
+1457150313 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\texture.cpp
+	"Texture.h"
+
+1458399964 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\transformable.cpp
+	"Transformable.h"
+
+1458413197 source:d:\dropbox\kody\c++\pandarun-like opengl\utility\rect.cpp
+	"Rect.h"
+	"../Graphics/Transformable.h"
+
+1456950847 d:\dropbox\kody\c++\pandarun-like opengl\utility\resmgr.h
+	<map>
+	"../Graphics/Shader.h"
+	"../Graphics/Texture.h"
+
+1456339766 source:d:\dropbox\kody\c++\pandarun-like opengl\utility\resmgr.cpp
+	"ResMgr.h"
+
+1456092800 d:\dropbox\kody\c++\pandarun-like opengl\global.h
+	<random>
+
+1456092766 source:d:\dropbox\kody\c++\pandarun-like opengl\global.cpp
+	"Global.h"
+
+1456276840 d:\dropbox\kody\c++\pandarun-like opengl\graphics\vertexarray.h
+	<GL/glew.h>
+	<vector>
+	"Drawable.h"
+	"../Utility/ResMgr.h"
+	"Vertex.h"
+	"Shader.h"
+	"Configurator.h"
+
+1456102908 d:\dropbox\kody\c++\pandarun-like opengl\graphics\vertex.h
+	<glm/glm.hpp>
+	"Color.h"
+
+1457399936 d:\dropbox\kody\c++\pandarun-like opengl\graphics\color.h
+	<glm/glm.hpp>
+	<algorithm>
+
+1457400141 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\color.cpp
+	"Color.h"
+
+1456107704 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\vertex.cpp
+	"Vertex.h"
+
+1459252760 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\vertexarray.cpp
+	"VertexArray.h"
+
+1457807250 d:\dropbox\kody\c++\pandarun-like opengl\graphics\coloredrect.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<memory>
+	"Drawable.h"
+	"Vao.h"
+	"Transformable.h"
+	"Sizeable.h"
+	"Shader.h"
+	"Vertex.h"
+	"../Utility/ResMgr.h"
+	"Litable.h"
+
+1458394090 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\coloredrect.cpp
+	"ColoredRect.h"
+
+1458324110 d:\dropbox\kody\c++\pandarun-like opengl\graphics\model.h
+	<vector>
+	<string>
+	<iostream>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"../Utility/ResMgr.h"
+	"Mesh.h"
+	"Texture.h"
+	"Drawable.h"
+	"Transformable3D.h"
+	"Litable.h"
+
+1456878867 d:\dropbox\kody\c++\pandarun-like opengl\graphics\mesh.h
+	<GL/glew.h>
+	<string>
+	<vector>
+	<algorithm>
+	<tuple>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"Configurator.h"
+	"Shader.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\importer.hpp
+	"types.h"
+	"config.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\types.h
+	<sys/types.h>
+	<memory.h>
+	<math.h>
+	<stddef.h>
+	<string.h>
+	<limits.h>
+	"defs.h"
+	"vector3.h"
+	"vector2.h"
+	"color4.h"
+	"matrix3x3.h"
+	"matrix4x4.h"
+	"quaternion.h"
+	<cstring>
+	<new>
+	<string>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"vector2.inl"
+	"vector3.inl"
+	"color4.inl"
+	"quaternion.inl"
+	"matrix3x3.inl"
+	"matrix4x4.inl"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\defs.h
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\vector3.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\compiler\pushpack1.h
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\compiler\poppack1.h
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\vector2.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\color4.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\matrix3x3.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\matrix4x4.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\quaternion.h
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\vector2.inl
+	"vector2.h"
+	<cmath>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\vector3.inl
+	"vector3.h"
+	<cmath>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\color4.inl
+	"color4.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\quaternion.inl
+	"quaternion.h"
+	<cmath>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\matrix3x3.inl
+	"matrix3x3.h"
+	"matrix4x4.h"
+	<algorithm>
+	<cmath>
+	<limits>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\matrix4x4.inl
+	"matrix4x4.h"
+	"matrix3x3.h"
+	"quaternion.h"
+	<algorithm>
+	<limits>
+	<cmath>
+	<math.h>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\config.h
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\scene.h
+	"types.h"
+	"texture.h"
+	"mesh.h"
+	"light.h"
+	"camera.h"
+	"material.h"
+	"anim.h"
+	"metadata.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\texture.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\mesh.h
+	"types.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\light.h
+	"types.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\camera.h
+	"types.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\material.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"material.inl"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\material.inl
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\anim.h
+	"types.h"
+	"quaternion.h"
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\metadata.h
+	<assert.h>
+	"Compiler/pstdint.h"
+	<stdint.h>
+	<string>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\compiler\pstdint.h
+	<stddef.h>
+	<limits.h>
+	<signal.h>
+	<stdint.h>
+	<wchar.h>
+
+1402765209 c:\program files (x86)\codeblocks\mingw\assimp\include\assimp\postprocess.h
+	"types.h"
+
+1456878831 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\mesh.cpp
+	"Mesh.h"
+
+1458394060 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\model.cpp
+	"Model.h"
+
+1456283381 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\transformable3d.cpp
+	"Transformable3D.h"
+
+1456858624 d:\dropbox\kody\c++\pandarun-like opengl\graphics\transformable3d.h
+	"Transform.h"
+	"Configurator.h"
+
+1458330513 d:\dropbox\kody\c++\pandarun-like opengl\graphics\light.h
+	<glm/glm.hpp>
+	"Color.h"
+
+1458330537 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\light.cpp
+	"Light.h"
+
+1458394055 d:\dropbox\kody\c++\pandarun-like opengl\graphics\litable.h
+	<vector>
+	"WithShader.h"
+	"Light.h"
+
+1457190424 d:\dropbox\kody\c++\pandarun-like opengl\graphics\withshader.h
+	"Shader.h"
+
+1458394061 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\litable.cpp
+	"Litable.h"
+
+1457192394 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\withshader.cpp
+	"WithShader.h"
+
+1457797177 d:\dropbox\kody\c++\pandarun-like opengl\graphics\sizeable.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	"Buffer.h"
+
+1457798594 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\sizeable.cpp
+	"Sizeable.h"
+
+1457806239 d:\dropbox\kody\c++\pandarun-like opengl\graphics\buffer.h
+	<GL/glew.h>
+	<iostream>
+
+1457811327 d:\dropbox\kody\c++\pandarun-like opengl\graphics\vao.h
+	<GL/glew.h>
+	<map>
+	<string>
+	"Buffer.h"
+
+1457806678 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\buffer.cpp
+	"Buffer.h"
+
+1457810301 source:d:\dropbox\kody\c++\pandarun-like opengl\graphics\vao.cpp
+	"Vao.h"
+
+1458432785 source:d:\dropbox\kody\c++\pandarun-like opengl\boxcollider.cpp
+	"BoxCollider.h"
+
+1458432775 d:\dropbox\kody\c++\pandarun-like opengl\boxcollider.h
+	<vector>
+	<glm/glm.hpp>
+	<iostream>
+	"Collider.h"
+	"Utility/OrientedRect.h"
+
+1458509736 d:\dropbox\kody\c++\pandarun-like opengl\utility\orientedrect.h
+	<array>
+	<vector>
+	"Rect.h"
+	"../Graphics/Sprite.h"
+
+1458509862 source:d:\dropbox\kody\c++\pandarun-like opengl\utility\orientedrect.cpp
+	"OrientedRect.h"
+	"../Graphics/Transformable.h"
+

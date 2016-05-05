@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="OGL learning" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/GLFW new project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/GLEW/glew-1.13.0/include" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SOIL/src" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/GLM" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SFML-2.3.2/include" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SDL2/include" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/Assimp/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lglew32s" />
+					<Add option="-lSDL2" />
+					<Add option="-lSDL2main" />
+					<Add library="libSOIL" />
+					<Add library="gdi32" />
+					<Add library="opengl32" />
+					<Add library="glew32s" />
+					<Add library="SDL2" />
+					<Add library="SDL2main" />
+					<Add library="libassimp" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/GLEW/glew-1.13.0/lib/Release/Win32" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SOIL/lib" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SFML-2.3.2/lib" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SDL2/libsx86" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/Assimp/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="BoxCollider.cpp" />
+		<Unit filename="BoxCollider.h" />
+		<Unit filename="CircleCollider.cpp" />
+		<Unit filename="CircleCollider.h" />
+		<Unit filename="Collideable.cpp" />
+		<Unit filename="Collideable.h" />
+		<Unit filename="Collider.h" />
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
+		<Unit filename="Global.cpp" />
+		<Unit filename="Global.h" />
+		<Unit filename="Graphics/Buffer.cpp" />
+		<Unit filename="Graphics/Buffer.h" />
+		<Unit filename="Graphics/Color.cpp" />
+		<Unit filename="Graphics/Color.h" />
+		<Unit filename="Graphics/ColoredRect.cpp" />
+		<Unit filename="Graphics/ColoredRect.h" />
+		<Unit filename="Graphics/Configurator.cpp" />
+		<Unit filename="Graphics/Configurator.h" />
+		<Unit filename="Graphics/Drawable.h" />
+		<Unit filename="Graphics/Light.cpp" />
+		<Unit filename="Graphics/Light.h" />
+		<Unit filename="Graphics/Litable.cpp" />
+		<Unit filename="Graphics/Litable.h" />
+		<Unit filename="Graphics/Mesh.cpp" />
+		<Unit filename="Graphics/Mesh.h" />
+		<Unit filename="Graphics/Model.cpp" />
+		<Unit filename="Graphics/Model.h" />
+		<Unit filename="Graphics/RenderTexture.cpp" />
+		<Unit filename="Graphics/RenderTexture.h" />
+		<Unit filename="Graphics/Shader.cpp" />
+		<Unit filename="Graphics/Shader.h" />
+		<Unit filename="Graphics/Sizeable.cpp" />
+		<Unit filename="Graphics/Sizeable.h" />
+		<Unit filename="Graphics/Sprite.cpp" />
+		<Unit filename="Graphics/Sprite.h" />
+		<Unit filename="Graphics/Texture.cpp" />
+		<Unit filename="Graphics/Texture.h" />
+		<Unit filename="Graphics/Transform.h" />
+		<Unit filename="Graphics/Transformable.cpp" />
+		<Unit filename="Graphics/Transformable.h" />
+		<Unit filename="Graphics/Transformable3D.cpp" />
+		<Unit filename="Graphics/Transformable3D.h" />
+		<Unit filename="Graphics/Vao.cpp" />
+		<Unit filename="Graphics/Vao.h" />
+		<Unit filename="Graphics/Vertex.cpp" />
+		<Unit filename="Graphics/Vertex.h" />
+		<Unit filename="Graphics/VertexArray.cpp" />
+		<Unit filename="Graphics/VertexArray.h" />
+		<Unit filename="Graphics/WithShader.cpp" />
+		<Unit filename="Graphics/WithShader.h" />
+		<Unit filename="Hero.cpp" />
+		<Unit filename="Hero.h" />
+		<Unit filename="Island.cpp" />
+		<Unit filename="Island.h" />
+		<Unit filename="RectsCollider.cpp" />
+		<Unit filename="RectsCollider.h" />
+		<Unit filename="ScreenRenderer.cpp" />
+		<Unit filename="ScreenRenderer.h" />
+		<Unit filename="Sphere.cpp" />
+		<Unit filename="Sphere.h" />
+		<Unit filename="Utility/Clock.cpp" />
+		<Unit filename="Utility/Clock.h" />
+		<Unit filename="Utility/OrientedRect.cpp" />
+		<Unit filename="Utility/OrientedRect.h" />
+		<Unit filename="Utility/Rect.cpp" />
+		<Unit filename="Utility/Rect.h" />
+		<Unit filename="Utility/ResMgr.cpp" />
+		<Unit filename="Utility/ResMgr.h" />
+		<Unit filename="main glfw.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
