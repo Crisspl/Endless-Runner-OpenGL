@@ -7,13 +7,13 @@ SDL_GLContext Game::m_context;
 
 Game::Game()
       : m_running(true),
-        m_model("cliff/Cliff_new.obj")
+        m_model("Resources/cliff/Cliff_new.obj")
 {
    ut::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader");
 
-   ut::ResMgr::loadTexture("Tex/hero_sheet.png", "heroTex");
-   ut::ResMgr::loadTexture("Tex/ball2.png", "sphereTex");
-   ut::ResMgr::loadTexture("Tex/island1.png", "islandTex");
+   ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex");
+   ut::ResMgr::loadTexture("Resources/Tex/ball2.png", "sphereTex");
+   ut::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
    ut::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex");
 
    m_renderer = std::make_shared<ScreenRenderer>();
