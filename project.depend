@@ -1956,7 +1956,7 @@
 
 1458406942 d:\dropbox\kody\c++\pandarun-like_opengl\collider.h
 
-1458509736 d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.h
+1464394864 d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.h
 	<array>
 	<vector>
 	"Rect.h"
@@ -2091,7 +2091,7 @@
 	"CircleCollider.h"
 	"BoxCollider.h"
 
-1458481896 source:d:\dropbox\kody\c++\pandarun-like_opengl\game.cpp
+1462665137 source:d:\dropbox\kody\c++\pandarun-like_opengl\game.cpp
 	"Game.h"
 	"Graphics/Configurator.h"
 
@@ -2278,10 +2278,10 @@
 1457192394 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.cpp
 	"WithShader.h"
 
-1458488714 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
+1464392354 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
 	"Hero.h"
 
-1458484513 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
+1464394815 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
 	"Island.h"
 
 1455845451 source:d:\dropbox\kody\c++\pandarun-like_opengl\main glfw.cpp
@@ -2302,7 +2302,7 @@
 1459624681 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\clock.cpp
 	"Clock.h"
 
-1458509862 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.cpp
+1464394553 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.cpp
 	"OrientedRect.h"
 	"../Graphics/Transformable.h"
 
@@ -2312,4 +2312,9 @@
 
 1456339766 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\resmgr.cpp
 	"ResMgr.h"
+
+1455845451 source:d:\dropbox\kody\c++\pandarun-like_opengl\main.cpp
+	<GL/glew.h>
+	<iostream>
+	"Game.h"
 

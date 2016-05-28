@@ -26,6 +26,7 @@ std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
    return std::shared_ptr<Collider>(new RectsCollider(rects));
 */
    ut::OrientedRect rect = m_vecElements[0].getOBB();
+
    rect.addWidth(m_vecElements.size() * 32 - 32);
    //rect.applyTransformData(m_vecElements[0].getTransformData());
 

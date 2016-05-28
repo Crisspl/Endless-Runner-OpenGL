@@ -116,7 +116,7 @@
 		<Unit filename="Utility/Rect.h" />
 		<Unit filename="Utility/ResMgr.cpp" />
 		<Unit filename="Utility/ResMgr.h" />
-		<Unit filename="main glfw.cpp" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

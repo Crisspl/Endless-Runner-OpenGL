@@ -39,9 +39,7 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 */
 
    ut::OrientedRect rect = m_heroSprite.getOBB();
-   std::cout << "axes: \n";
-   for(short i = 0; i < 2; i++)
-      std::cout << rect.getAxes()[i].x << ' ' << rect.getAxes()[i].y << std::endl;
+
    rect.addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});
 

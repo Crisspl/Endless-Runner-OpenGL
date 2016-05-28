@@ -37,13 +37,18 @@ bool OrientedRect::intersects(const Rect& _rect) const
 
    axes.insert(axes.begin(), m_axes.begin(), m_axes.end());
 
-   const OrientedRect& rect = dynamic_cast<const OrientedRect&>(_rect);
-   axes.insert(axes.begin(), rect.getAxes().begin(), rect.getAxes().end());
-
-   for(short i = 0; i < axes.size(); i++)
+   if(const OrientedRect* pRect = dynamic_cast<const OrientedRect*>(&_rect))
+      axes.insert(axes.begin(), pRect->getAxes().begin(), pRect->getAxes().end());
+   else
    {
-      Projection p1 = this->project(axes[i]);
-      Projection p2 = rect.project(axes[i]);
+      axes.push_back({1, 0});
+      axes.push_back({0, 1});
+   }
+
+   for(const glm::vec2& axe : axes)
+   {
+      Projection p1 = this->project(axe);
+      Projection p2 = _rect.project(axe);
 
       if(!p1.overlap(p2) && !p2.overlap(p1))
          return false;

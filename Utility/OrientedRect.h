@@ -20,8 +20,6 @@ public:
    explicit OrientedRect(glm::vec2 _size);
    OrientedRect(glm::vec2 _size, gr::TransformData _data);
 
-   const std::array<glm::vec2, 2>& getAxes() const { return m_axes; }
-
    bool contains(glm::vec2 _p) const override;
    bool intersects(const Rect& _rect) const override;
 
@@ -30,6 +28,7 @@ public:
    Rect& move(glm::vec2 _offset) override;
 
 private:
+   const std::array<glm::vec2, 2>& getAxes() const { return m_axes; }
    void applyTransformData(const gr::TransformData& _data);
    void rotate(glm::vec2 _ori, float _angle);
    void calcAxes();

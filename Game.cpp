@@ -139,16 +139,17 @@ void Game::update()
    }
 
    int collidingIslandNum = isHeroOnIsland();
+   static auto onIsland = [&]() -> bool { return collidingIslandNum >= 0; };
 
    if(m_hero->getState() == Hero::State_Move &&
       m_hero->getPosition().y < WIN_Y &&
-      collidingIslandNum < 0)
+      !onIsland())
    {
       m_hero->changeState(Hero::State_Fall);
    }
 
    if(m_hero->getState() == Hero::State_Fall &&
-      collidingIslandNum >= 0 )
+      onIsland() )
    {
       m_hero->setPosY(m_vecIslands[collidingIslandNum].getSurfaceHeight() + 5.f);
       m_hero->changeState(Hero::State_Move);
