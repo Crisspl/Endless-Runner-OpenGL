@@ -46,16 +46,13 @@ void Mesh::draw(Shader& _shader) const
    glActiveTexture(GL_TEXTURE0);
 }
 
-std::tuple<glm::vec2, glm::vec2, glm::vec2>
-   Mesh::getMinMaxCoords()
+Mesh::T_tuple3Vec2 Mesh::getMinMaxCoords()
 {
-   auto compX = [](Vertex& a, Vertex& b)->bool { return a.position.x < b.position.x; };
-   auto compY = [](Vertex& a, Vertex& b)->bool { return a.position.y < b.position.y; };
-   auto compZ = [](Vertex& a, Vertex& b)->bool { return a.position.z < b.position.z; };
+#define comp(dim) [](Vertex& a, Vertex& b)->bool { return a.position.dim < b.position.dim; }
 
-   auto minMaxX = std::minmax_element(m_vertices.begin(), m_vertices.end(), compX);
-   auto minMaxY = std::minmax_element(m_vertices.begin(), m_vertices.end(), compY);
-   auto minMaxZ = std::minmax_element(m_vertices.begin(), m_vertices.end(), compZ);
+   auto minMaxX = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(x));
+   auto minMaxY = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(y));
+   auto minMaxZ = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(z));
 
    return std::make_tuple
                (
@@ -63,6 +60,7 @@ std::tuple<glm::vec2, glm::vec2, glm::vec2>
                   glm::vec2(minMaxY.first->position.y, minMaxY.second->position.y),
                   glm::vec2(minMaxZ.first->position.z, minMaxZ.second->position.z)
                );
+#undef comp
 }
 
 void Mesh::setUp()

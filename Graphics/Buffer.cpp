@@ -34,7 +34,6 @@ void Buffer::setData(GLuint _size, const void* _data)
 
 void Buffer::updateData(GLuint _offset, GLuint _size, const void* _data)
 {
-   //assert(_offset + _size <= size);
    glBufferSubData(target, _offset, _size, _data);
 }
 

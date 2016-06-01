@@ -1956,7 +1956,7 @@
 
 1458406942 d:\dropbox\kody\c++\pandarun-like_opengl\collider.h
 
-1464394864 d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.h
+1464395269 d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.h
 	<array>
 	<vector>
 	"Rect.h"
@@ -2017,13 +2017,14 @@
 	<glm/glm.hpp>
 	"Color.h"
 
-1457811327 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.h
+1464564189 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.h
 	<GL/glew.h>
 	<map>
 	<string>
+	<utility>
 	"Buffer.h"
 
-1457806239 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.h
+1464563908 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.h
 	<GL/glew.h>
 	<iostream>
 
@@ -2095,7 +2096,7 @@
 	"Game.h"
 	"Graphics/Configurator.h"
 
-1456782192 d:\dropbox\kody\c++\pandarun-like_opengl\game.h
+1464801886 d:\dropbox\kody\c++\pandarun-like_opengl\game.h
 	<GL/glew.h>
 	<SDL.h>
 	<vector>
@@ -2218,7 +2219,7 @@
 1456092766 source:d:\dropbox\kody\c++\pandarun-like_opengl\global.cpp
 	"Global.h"
 
-1457806678 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.cpp
+1464563781 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\buffer.cpp
 	"Buffer.h"
 
 1462486746 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\color.cpp
@@ -2236,7 +2237,7 @@
 1458394061 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.cpp
 	"Litable.h"
 
-1456878831 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\mesh.cpp
+1464737339 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\mesh.cpp
 	"Mesh.h"
 
 1458394060 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.cpp
@@ -2266,7 +2267,7 @@
 1456283381 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\transformable3d.cpp
 	"Transformable3D.h"
 
-1457810301 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.cpp
+1464529266 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vao.cpp
 	"Vao.h"
 
 1456107704 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\vertex.cpp
@@ -2278,10 +2279,10 @@
 1457192394 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.cpp
 	"WithShader.h"
 
-1464392354 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
+1464801332 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
 	"Hero.h"
 
-1464394815 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
+1464395150 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
 	"Island.h"
 
 1455845451 source:d:\dropbox\kody\c++\pandarun-like_opengl\main glfw.cpp
@@ -2293,16 +2294,16 @@
 	"RectsCollider.h"
 	"CircleCollider.h"
 
-1458349412 source:d:\dropbox\kody\c++\pandarun-like_opengl\screenrenderer.cpp
+1464801750 source:d:\dropbox\kody\c++\pandarun-like_opengl\screenrenderer.cpp
 	"ScreenRenderer.h"
 
-1457541638 source:d:\dropbox\kody\c++\pandarun-like_opengl\sphere.cpp
+1464801967 source:d:\dropbox\kody\c++\pandarun-like_opengl\sphere.cpp
 	"Sphere.h"
 
 1459624681 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\clock.cpp
 	"Clock.h"
 
-1464394553 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.cpp
+1464395036 source:d:\dropbox\kody\c++\pandarun-like_opengl\utility\orientedrect.cpp
 	"OrientedRect.h"
 	"../Graphics/Transformable.h"
 

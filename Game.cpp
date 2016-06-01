@@ -6,21 +6,13 @@ SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
 
 Game::Game()
-      : m_running(true),
+      : m_sphere(&m_hero),
+        m_running(true),
         m_model("Resources/cliff/Cliff_new.obj")
 {
-   ut::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader");
-
-   ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex");
-   ut::ResMgr::loadTexture("Resources/Tex/ball2.png", "sphereTex");
    ut::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
-   ut::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex");
 
-   m_renderer = std::make_shared<ScreenRenderer>();
-   m_hero = std::make_shared<Hero>();
-   m_sphere = std::make_shared<Sphere>(m_hero.get());
-
-   m_hero->setPosition({200.f, WIN_Y});
+   m_hero.setPosition({200.f, WIN_Y});
 
    m_model.setScale(glm::vec3(12.f));
    m_model.setPosition({m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
@@ -95,17 +87,17 @@ void Game::handleEvents()
                break;
            case SDL_KEYDOWN:
                if(event.key.keysym.sym == SDLK_SPACE)
-                  m_hero->changeState(Hero::State_Jump);
+                  m_hero.changeState(Hero::State_Jump);
                if(event.key.keysym.sym == SDLK_e)
                {
                   m_vecIslands.emplace_back(glm::vec2(1e3, sup::getRand(200, 400)));
                }
                break;
            case SDL_MOUSEBUTTONDOWN:
-               if(m_sphere->getState() == Sphere::State_Idle)
+               if(m_sphere.getState() == Sphere::State_Idle)
                {
-                  m_sphere->setDirection(countThrowDir());
-                  m_sphere->changeState(Sphere::State_Thrown);
+                  m_sphere.setDirection(countThrowDir());
+                  m_sphere.changeState(Sphere::State_Thrown);
                }
                break;
        }
@@ -114,8 +106,8 @@ void Game::handleEvents()
 
 void Game::update()
 {
-   m_hero->update(dt);
-   m_sphere->update(dt);
+   m_hero.update(dt);
+   m_sphere.update(dt);
 /*
    if(m_sphere->getState() == Sphere::State_Return &&
       m_hero->isCollision(*m_sphere))
@@ -132,27 +124,27 @@ void Game::update()
          it++;
    }
 
-   if(m_hero->getPosition().y > WIN_Y)
+   if(m_hero.getPosition().y > WIN_Y)
    {
-      m_hero->setPosY(WIN_Y);
-      m_hero->changeState(Hero::State_Move);
+      m_hero.setPosY(WIN_Y);
+      m_hero.changeState(Hero::State_Move);
    }
 
    int collidingIslandNum = isHeroOnIsland();
    static auto onIsland = [&]() -> bool { return collidingIslandNum >= 0; };
 
-   if(m_hero->getState() == Hero::State_Move &&
-      m_hero->getPosition().y < WIN_Y &&
+   if(m_hero.getState() == Hero::State_Move &&
+      m_hero.getPosition().y < WIN_Y &&
       !onIsland())
    {
-      m_hero->changeState(Hero::State_Fall);
+      m_hero.changeState(Hero::State_Fall);
    }
 
-   if(m_hero->getState() == Hero::State_Fall &&
+   if(m_hero.getState() == Hero::State_Fall &&
       onIsland() )
    {
-      m_hero->setPosY(m_vecIslands[collidingIslandNum].getSurfaceHeight() + 5.f);
-      m_hero->changeState(Hero::State_Move);
+      m_hero.setPosY(m_vecIslands[collidingIslandNum].getSurfaceHeight() + 5.f);
+      m_hero.changeState(Hero::State_Move);
    }
 
    m_model.move({-1.f, 0, 0});
@@ -160,7 +152,7 @@ void Game::update()
    std::vector<gr::Light> lights;
 
    gr::Light light;
-   light.position = glm::vec3(m_hero->getPosition(), 300.f);
+   light.position = glm::vec3(m_hero.getPosition(), 300.f);
    light.color = gr::Color(129, 240, 232);
    //light.color = gr::Color(237, 183, 223);
    light.linear = 0.005f;
@@ -184,16 +176,16 @@ void Game::draw()
    glClearColor(0.f, 0.f, 0.f, 1.f);
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-   m_renderer->clearColor(glm::vec4(0.f, 0.f, 0.f, 1.f));
+   m_renderer.clearColor(glm::vec4(0.f, 0.f, 0.f, 1.f));
 
-   m_renderer->drawToTex(m_model);
+   m_renderer.drawToTex(m_model);
 
    for(Island& isl : m_vecIslands)
-      m_renderer->drawToTex(isl);
-   //m_renderer->drawToTex(*m_sphere);
-   m_renderer->drawToTex(*m_hero);
+      m_renderer.drawToTex(isl);
+   //m_renderer.drawToTex(m_sphere);
+   m_renderer.drawToTex(m_hero);
 
-   m_renderer->drawToScreen();
+   m_renderer.drawToScreen();
 
    SDL_GL_SwapWindow(m_window);
 }
@@ -203,7 +195,7 @@ int Game::isHeroOnIsland()
    int num = 0;
    for(Island& isl : m_vecIslands)
    {
-      if(m_hero->isCollision(isl))
+      if(m_hero.isCollision(isl))
          return num;
       num++;
    }
@@ -212,7 +204,7 @@ int Game::isHeroOnIsland()
 
 glm::vec2 Game::countThrowDir()
 {
-   glm::vec2 dir = gr::Configurator::getMousePosition() - m_hero->getPosition();
+   glm::vec2 dir = gr::Configurator::getMousePosition() - m_hero.getPosition();
    dir = glm::normalize(dir);
 
    return dir;

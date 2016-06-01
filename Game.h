@@ -40,10 +40,10 @@ private:
 private:
    static SDL_Window* m_window;
    static SDL_GLContext m_context;
-   std::shared_ptr<ScreenRenderer> m_renderer;
+   ScreenRenderer m_renderer;
 
-   std::shared_ptr<Hero> m_hero;
-   std::shared_ptr<Sphere> m_sphere;
+   Hero m_hero;
+   Sphere m_sphere;
    std::vector<Island> m_vecIslands;
    gr::Model m_model;
 

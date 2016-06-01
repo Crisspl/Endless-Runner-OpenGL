@@ -10,7 +10,7 @@ Vao::Vao()
 
 Vao::Vao(Vao&& _src)
    : id(_src.id),
-     m_buffers(_src.m_buffers)
+     m_buffers(std::move(_src.m_buffers))
 {
    for(auto& el : _src.m_buffers)
       el.second = nullptr;

@@ -1,8 +1,8 @@
 #include "ScreenRenderer.h"
 
 ScreenRenderer::ScreenRenderer()
-      : m_shader(ut::ResMgr::getShader("screenShader")),
-        m_renderTex(ut::ResMgr::getTexture("screenTex")),
+      : m_shader(ut::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader")),
+        m_renderTex(ut::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex")),
         m_screen(m_renderTex.getTexture())
 {
    m_renderTex.create();

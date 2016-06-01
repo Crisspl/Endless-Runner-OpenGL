@@ -13,7 +13,7 @@ Hero::Hero()
         m_currentState(StateCount),
         m_currentFrameTime(0),
         m_frameCounter(0),
-        m_heroSprite(ut::ResMgr::getTexture("heroTex"))
+        m_heroSprite(ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex"))
 {
    REGISTER_HERO_STATES(Move)
    REGISTER_HERO_STATES(Jump)
