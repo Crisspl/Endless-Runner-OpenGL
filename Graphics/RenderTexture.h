@@ -10,7 +10,7 @@
 namespace gr
 {
 
-class RenderTexture
+class RenderTexture // TODO
 {
 public:
    explicit RenderTexture(Texture& _tex);

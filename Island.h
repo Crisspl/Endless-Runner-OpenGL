@@ -23,9 +23,9 @@ public:
    void draw() const override;
    void move(float _offset);
 
-   glm::vec2 getPosition() const { return m_vecElements.rbegin()->getPosition(); }
+   glm::vec2 getPosition() const { return m_sprite.getPosition(); }
    float getSurfaceHeight() const;
 
 private:
-   std::vector<gr::Sprite> m_vecElements;
+   gr::Sprite m_sprite;
 };

@@ -20,7 +20,7 @@ class Rect
    using Tverts = std::array<glm::vec2, 4>;
 
 public:
-   enum VerticlePos /* Note Y axis ! */
+   enum VerticlePos /* Note Y axis can be inverted ! */
    {
       BL, // Bottom-left
       BR, // Bottom-right
@@ -31,6 +31,8 @@ public:
 public:
    Rect();
    Rect(glm::vec2 _botLeft, glm::vec2 _size);
+   virtual ~Rect() { }
+
 protected:
    explicit Rect(glm::vec2 _size);
 
@@ -47,11 +49,16 @@ public:
    virtual Rect& addHeight(float _height);
    virtual Rect& move(glm::vec2 _offset);
 
+   virtual const std::array<glm::vec2, 2>& getAxes() const { return s_axes; }
+
 public:
    float width, height;
 
 protected:
    Tverts m_verts;
+
+private:
+   static std::array<glm::vec2, 2> s_axes;
 };
 
 } //ns

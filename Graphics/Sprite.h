@@ -4,16 +4,13 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include <memory>
-
 #include "../Utility/ResMgr.h"
-#include "Vao.h"
 #include "Texture.h"
 #include "Shader.h"
 #include "Color.h"
 #include "Configurator.h"
 #include "Transformable.h"
-#include "Sizeable.h"
+#include "TexturedSizeable.h"
 #include "Drawable.h"
 #include "Litable.h"
 
@@ -24,20 +21,13 @@ namespace gr
 
 class Sprite
       : public Transformable,
-        public Sizeable,
+        public TexturedSizeable,
         public Drawable,
         public Litable
 {
 public:
    Sprite();
    explicit Sprite(Texture& _tex);
-
-private:
-   enum class AttLoc : GLuint
-   {
-      Position = 0,
-      TexCoords
-   };
 
 public:
    const Texture& getTexture() const { return *m_ptexture; }
@@ -52,16 +42,10 @@ public:
    ut::OrientedRect getOBB() const;
 
 private:
-   void initTexCoordsArray();
-   void uploadTexCoordsArray();
    void setUp();
 
 private:
-   std::shared_ptr<Vao> m_vao;
-
-   Texture* m_ptexture;
    Color m_color;
-   glm::vec2 m_texCoordsArray[4];
    bool m_usingOriginalShader;
 
    static bool LIGHT_SHADER_LOADED;

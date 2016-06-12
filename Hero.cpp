@@ -27,20 +27,9 @@ Hero::Hero()
 
 std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 {
-/*
-   ut::Rect rect = m_heroSprite.getRect();
+   ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getOBB());
 
-   if(_objType == Collideable::Coll_Island)
-      rect.addHeight(-m_heroSprite.getSize().y * 0.8f)
-          .move({0, m_heroSprite.getSize().y * 0.8f});
-
-   std::vector<ut::Rect> vec(1, rect);
-   return std::shared_ptr<Collider>(new RectsCollider(vec));
-*/
-
-   ut::OrientedRect rect = m_heroSprite.getOBB();
-
-   rect.addHeight(-m_heroSprite.getSize().y * 0.8f)
+   rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});
 
    return std::shared_ptr<Collider>(new BoxCollider(rect));

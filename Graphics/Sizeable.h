@@ -5,7 +5,10 @@
 
 #include <glm/glm.hpp>
 
+#include <memory>
+
 #include "Buffer.h"
+#include "Vao.h"
 
 namespace gr
 {
@@ -15,7 +18,7 @@ class Sizeable
 public:
    explicit Sizeable(glm::vec2 _size = {1, 1});
 
-   void setSize(glm::vec2 _size);
+   virtual void setSize(glm::vec2 _size);
    glm::vec2 getSize() const { return m_size; }
 
 protected:
@@ -23,8 +26,9 @@ protected:
    void uploadPosArray();
 
 protected:
+   std::shared_ptr<Vao> m_vao;
+
    glm::vec2 m_size;
-   Buffer* m_posBuffer;
    glm::vec2 m_posArray[4];
 };
 

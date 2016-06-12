@@ -1,6 +1,5 @@
 #pragma once
 
-#include <array>
 #include <vector>
 
 #include "Rect.h"
@@ -27,8 +26,9 @@ public:
    Rect& addHeight(float _height) override;
    Rect& move(glm::vec2 _offset) override;
 
+   const std::array<glm::vec2, 2>& getAxes() const override { return m_axes; }
+
 private:
-   const std::array<glm::vec2, 2>& getAxes() const { return m_axes; }
    void applyTransformData(const gr::TransformData& _data);
    void rotate(glm::vec2 _ori, float _angle);
    void calcAxes();

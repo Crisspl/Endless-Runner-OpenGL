@@ -32,7 +32,6 @@
 					<Add library="SDL2" />
 					<Add library="SDL2main" />
 					<Add library="libassimp" />
-					<Add library="sfml-audio" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/GLEW/glew-1.13.0/lib/Release/Win32" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SOIL/lib" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SFML-2.3.2/lib" />
@@ -83,6 +82,8 @@
 		<Unit filename="Graphics/Sprite.h" />
 		<Unit filename="Graphics/Texture.cpp" />
 		<Unit filename="Graphics/Texture.h" />
+		<Unit filename="Graphics/TexturedSizeable.cpp" />
+		<Unit filename="Graphics/TexturedSizeable.h" />
 		<Unit filename="Graphics/Transform.h" />
 		<Unit filename="Graphics/Transformable.cpp" />
 		<Unit filename="Graphics/Transformable.h" />

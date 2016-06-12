@@ -27,12 +27,10 @@ private:
    typedef unsigned char uchar;
    typedef glm::tvec2<GLint> vec2i;
 
-public:
+private:
    enum WrapOption
    {
       Repeat = GL_REPEAT,
-      MirroredRepeat = GL_MIRRORED_REPEAT,
-      ClampToEdge = GL_CLAMP_TO_EDGE,
       ClampToBorder = GL_CLAMP_TO_BORDER
    };
 
@@ -41,18 +39,22 @@ private:
    explicit Texture(vec2i _size);
    explicit Texture(std::string _filePath);
 
-public:
    const Texture& setWrapOption(WrapOption _option) const;
 
-   static std::tuple<uchar*, glm::vec2, GLuint> loadImage(std::string _filePath);
+   std::tuple<uchar*, glm::vec2, GLuint> loadImage(std::string _filePath);
 
+public:
    const GLuint& getId() const { return m_texId; }
    glm::vec2 getSize() const { return glm::vec2(m_size.x, m_size.y); }
+
+   Texture& setRepeated(bool _r);
+   bool isRepeated() { return m_repeated; }
 
 private:
    GLuint m_texId;
    vec2i m_size;
    uchar* m_imageData;
+   bool m_repeated;
 };
 
 } // ns

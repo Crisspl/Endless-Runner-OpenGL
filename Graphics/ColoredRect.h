@@ -19,10 +19,10 @@ namespace gr
 {
 
 class ColoredRect
-   : public Drawable,
-     public Transformable,
-     public Litable,
-     public Sizeable
+   : public Transformable,
+     public Sizeable,
+     public Drawable,
+     public Litable
 {
 public:
    explicit ColoredRect(glm::vec2 _size);
@@ -41,8 +41,6 @@ private:
 
 private:
    Color m_color;
-
-   std::shared_ptr<Vao> m_vao;
 
    bool m_usingOriginalShader;
 

@@ -36,14 +36,7 @@ bool OrientedRect::intersects(const Rect& _rect) const
    std::vector<glm::vec2> axes;
 
    axes.insert(axes.begin(), m_axes.begin(), m_axes.end());
-
-   if(const OrientedRect* pRect = dynamic_cast<const OrientedRect*>(&_rect))
-      axes.insert(axes.begin(), pRect->getAxes().begin(), pRect->getAxes().end());
-   else
-   {
-      axes.push_back({1, 0});
-      axes.push_back({0, 1});
-   }
+   axes.insert(axes.begin(), _rect.getAxes().begin(), _rect.getAxes().end());
 
    for(const glm::vec2& axe : axes)
    {

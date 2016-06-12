@@ -7,10 +7,8 @@ bool ColoredRect::LIGHT_SHADER_LOADED = false;
 
 ColoredRect::ColoredRect(glm::vec2 _size)
    : Sizeable(_size),
-     WithShader(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     Litable(*m_shader),
+     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::Transparent),
-     m_vao(new Vao()),
      m_usingOriginalShader(true)
 {
    setUp();
@@ -58,14 +56,7 @@ void ColoredRect::setUp()
    }
 
    m_vao->bind();
-
    Configurator::rectShapeEbo->bind();
-
-   m_posBuffer->bind();
-
-   glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
-   glEnableVertexAttribArray(0);
-
    m_vao->unbind();
 }
 

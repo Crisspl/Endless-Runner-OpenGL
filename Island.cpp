@@ -3,12 +3,14 @@
 Island::Island(glm::vec2 _pos)
           : Collideable(Collideable::Coll_Island)
 {
-   m_vecElements = std::vector<gr::Sprite>(sup::getRand(7, 14), gr::Sprite(ut::ResMgr::getTexture("islandTex")));
-   for(short i = 0; i < m_vecElements.size(); i++)
-   {
-      m_vecElements[i].setOrigin({32.f, 0.f})
-            .setPosition({_pos.x + i * (m_vecElements[0].getSize().x ), _pos.y});
-   }
+   m_sprite.setTexture(ut::ResMgr::getTexture("islandTex"));
+   ut::ResMgr::getTexture("islandTex").setRepeated(true);
+
+   std::size_t size = sup::getRand(7, 14);
+
+   m_sprite.setSize({ size * 32, 32 });
+   m_sprite.setOrigin({32.f * size , 0.f})
+           .setPosition(_pos);
 }
 
 Island::~Island()
@@ -17,35 +19,22 @@ Island::~Island()
 
 std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
 {
-/*
-   std::vector<ut::Rect> rects;
-
-   for(auto& el : m_vecElements)
-      rects.push_back(el.getRect());
-
-   return std::shared_ptr<Collider>(new RectsCollider(rects));
-*/
-   ut::OrientedRect rect = m_vecElements[0].getOBB();
-
-   rect.addWidth(m_vecElements.size() * 32 - 32);
-   //rect.applyTransformData(m_vecElements[0].getTransformData());
+   ut::Rect *rect = new ut::Rect(m_sprite.getAABB());
 
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }
 
 void Island::draw() const
 {
-   for(const gr::Sprite& el : m_vecElements)
-      el.draw();
+   m_sprite.draw();
 }
 
 void Island::move(float _offset)
 {
-   for(gr::Sprite& el : m_vecElements)
-      el.move({_offset, 0});
+   m_sprite.move({_offset, 0});
 }
 
 float Island::getSurfaceHeight() const
 {
-   return m_vecElements[0].getPosition().y;
+   return m_sprite.getPosition().y;
 }

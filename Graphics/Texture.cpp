@@ -4,7 +4,8 @@ namespace gr
 {
 
 Texture::Texture(vec2i _size)
-         : m_size(_size)
+         : m_size(_size),
+           m_repeated(false)
 {
    glGenTextures(1, &m_texId);
    glBindTexture(GL_TEXTURE_2D, m_texId);
@@ -17,6 +18,8 @@ Texture::Texture(vec2i _size)
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _size.x, _size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
    glBindTexture(GL_TEXTURE_2D, 0);
+
+   setRepeated(false);
 }
 
 Texture::Texture(std::string _filePath)
@@ -30,7 +33,7 @@ Texture::Texture(std::string _filePath)
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-   setWrapOption(ClampToEdge);
+   setRepeated(false);
 }
 
 const Texture& Texture::setWrapOption(Texture::WrapOption _option) const
@@ -61,5 +64,15 @@ std::tuple<unsigned char*, glm::vec2, GLuint> Texture::loadImage(std::string _fi
 
    return std::make_tuple(image, size, id);
 }
+
+Texture& Texture::setRepeated(bool _r)
+{
+   if(_r)
+      setWrapOption(Repeat);
+   else
+      setWrapOption(ClampToBorder);
+   m_repeated = _r;
+   return *this;
+ }
 
 } // ns

@@ -5,6 +5,8 @@
 namespace ut
 {
 
+std::array<glm::vec2, 2> Rect::s_axes = {{ {1, 0}, {0, 1} }};
+
 Rect::Rect()
       : width(0.f),
         height(0.f)

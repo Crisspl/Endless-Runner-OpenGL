@@ -11,27 +11,20 @@ namespace gr
 bool Sprite::LIGHT_SHADER_LOADED = false;
 
 Sprite::Sprite()
-   : WithShader(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     Litable(*m_shader),
-     m_vao(new Vao()),
-     m_ptexture(nullptr),
+   : Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     TexturedSizeable(nullptr),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
-   initTexCoordsArray();
    setUp();
 }
 
 Sprite::Sprite(Texture& _tex)
-   : Sizeable(_tex.getSize()),
-     WithShader(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     Litable(*m_shader),
-     m_vao(new Vao()),
-     m_ptexture(&_tex),
+   : TexturedSizeable(&_tex, _tex.getSize()),
+     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
-   initTexCoordsArray();
    setUp();
 }
 
@@ -43,8 +36,8 @@ void Sprite::setShader(Shader& _shader)
 
 void Sprite::setTexture(Texture& _tex)
 {
-   setSize(_tex.getSize());
    m_ptexture = &_tex;
+   setSize(_tex.getSize());
 }
 
 void Sprite::setTextureRect(ut::Rect _rect, bool _changeSize)
@@ -57,7 +50,7 @@ void Sprite::setTextureRect(ut::Rect _rect, bool _changeSize)
    for(short i = 0; i < 4; i++)
       m_texCoordsArray[i] = _rect[i] / texSize;
 
-   uploadTexCoordsArray();
+   TexturedSizeable::uploadTexCoordsArray();
 }
 
 void Sprite::setLight(const Light& _light)
@@ -109,22 +102,6 @@ ut::OrientedRect Sprite::getOBB() const
    return rect;
 }
 
-void Sprite::initTexCoordsArray()
-{
-   m_texCoordsArray[0] = glm::vec2(0.f, 0.f);
-   m_texCoordsArray[1] = glm::vec2(1.f, 0.f);
-   m_texCoordsArray[2] = glm::vec2(1.f, 1.f);
-   m_texCoordsArray[3] = glm::vec2(0.f, 1.f);
-}
-
-void Sprite::uploadTexCoordsArray()
-{
-   Buffer* buffer = m_vao->getBuffer("texCoordsBuffer");
-   buffer->bind();
-   buffer->updateData(0, sizeof(m_texCoordsArray), m_texCoordsArray);
-   buffer->unbind();
-}
-
 void Sprite::setUp()
 {
    if(!LIGHT_SHADER_LOADED)
@@ -133,27 +110,8 @@ void Sprite::setUp()
       LIGHT_SHADER_LOADED = true;
    }
 
-   Buffer* texCoordsBuffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
-
    m_vao->bind();
-
-   texCoordsBuffer->bind();
-   texCoordsBuffer->setData(sizeof(m_texCoordsArray), m_texCoordsArray);
-   m_vao->addBuffer("texCoordsBuffer", texCoordsBuffer);
-
    Configurator::rectShapeEbo->bind();
-
-   m_posBuffer->bind();
-   m_vao->addBuffer("posBuffer", m_posBuffer);
-
-   glVertexAttribPointer((GLuint)AttLoc::Position, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
-   glEnableVertexAttribArray((GLuint)AttLoc::Position);
-
-   texCoordsBuffer->bind();
-
-   glVertexAttribPointer((GLuint)AttLoc::TexCoords, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
-   glEnableVertexAttribArray((GLuint)AttLoc::TexCoords);
-
    m_vao->unbind();
 }
 

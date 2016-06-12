@@ -9,8 +9,8 @@ namespace gr
 {
 
 class Litable
-   : virtual public WithShader
-{
+   : public WithShader /* Make it virtual inheritance if comes more children classes of WithShader */
+{                      /* and add WithShader ctor calls in Sprite, ColoredRect, etc. */
 public:
    Litable(Shader& _shader);
    virtual ~Litable() { }

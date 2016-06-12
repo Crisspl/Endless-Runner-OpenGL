@@ -7,8 +7,7 @@ unsigned Model::m_createdNumber = 0;
 bool Model::s_lightShaderLoaded = false;
 
 Model::Model(std::string _path)
-   : WithShader(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     Litable(*m_shader),
+   : Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_usingOriginalShader(true)
 {
    loadModel(_path);
@@ -200,7 +199,7 @@ std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr,
          std::string filePath = m_directory + '/' + str.C_Str();
          std::string modelName = 'M' + std::to_string(m_createdNumber);
 
-         texture.id = ut::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setWrapOption(Texture::Repeat)
+         texture.id = ut::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
                                                                                                      .getId();
          texture.type = _texTypeName;
          texture.fileName = str;
