@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -55,3 +56,5 @@ private:
 public:
    constexpr static GLuint WIN_X = 800, WIN_Y = 600;
 };
+
+#endif

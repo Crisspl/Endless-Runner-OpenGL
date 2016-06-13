@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TRANSFORMABLE_H
+#define TRANSFORMABLE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -13,10 +14,12 @@ namespace gr
 
 struct TransformData
 {
-   glm::vec2 position;
+   glm::vec2 botLeft;
    glm::vec2 scale;
    glm::vec2 origin;
    float rotation;
+
+   glm::vec2 position() { return botLeft + origin; }
 };
 
 class Transformable
@@ -61,3 +64,5 @@ protected:
 };
 
 } // ns
+
+#endif // TRANSFORMABLE_H

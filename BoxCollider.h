@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BOXCOLLIDER_H
+#define BOXCOLLIDER_H
 
 #include <vector>
 #include <glm/glm.hpp>
@@ -23,3 +24,5 @@ public:
 private:
    ut::Rect *m_rect;
 };
+
+#endif // BOXCOLLIDER_H

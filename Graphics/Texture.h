@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -58,4 +59,6 @@ private:
 };
 
 } // ns
+
+#endif // TEXTURE_H
 

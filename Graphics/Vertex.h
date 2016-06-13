@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VERTEX_H
+#define VERTEX_H
 
 #include <glm/glm.hpp>
 
@@ -16,3 +17,5 @@ struct Vertex
 };
 
 } // ns
+
+#endif

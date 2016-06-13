@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BUFFER_H
+#define BUFFER_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -28,3 +29,5 @@ public:
 };
 
 }
+
+#endif // BUFFER_H

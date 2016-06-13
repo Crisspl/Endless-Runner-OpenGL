@@ -60,7 +60,7 @@ Transformable& Transformable::setOrigin(glm::vec2 _origin)
 TransformData Transformable::getTransformData() const
 {
    return {
-            m_position,
+            m_position - m_transform.origin,
             m_scale,
             m_transform.origin,
             m_rotation

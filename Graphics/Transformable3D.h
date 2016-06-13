@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TRANSFORMABLE3D_H
+#define TRANSFORMABLE3D_H
 
 #include "Transform.h"
 #include "Configurator.h"
@@ -56,3 +57,5 @@ protected:
 };
 
 } // ns
+
+#endif // TRANSFORMABLE3D_H

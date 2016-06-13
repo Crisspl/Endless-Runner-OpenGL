@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MESH_H
+#define MESH_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -59,3 +60,5 @@ private:
 };
 
 } // ns
+
+#endif // MESH_H

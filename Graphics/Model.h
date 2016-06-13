@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODEL_H
+#define MODEL_H
 
 #include <vector>
 #include <string>
@@ -60,3 +61,5 @@ private:
 };
 
 } // ns
+
+#endif // MODEL_H

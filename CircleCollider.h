@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIRCLECOLLIDER_H
+#define CIRCLECOLLDIER_H
+
 #include <glm/glm.hpp>
 #include <cmath>
 #include <iostream>
@@ -33,3 +35,5 @@ private:
    float m_radius;
 
 };
+
+#endif // CIRCLECOLLDIER_H

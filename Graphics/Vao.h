@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VAO_H
+#define VAO_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -34,3 +35,5 @@ private:
 };
 
 }
+
+#endif // VAO_H

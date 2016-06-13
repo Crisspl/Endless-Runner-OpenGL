@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HERO_H
+#define HERO_H
 
 #include "Graphics/Sprite.h"
 #include "Collideable.h"
@@ -66,3 +67,5 @@ private:
    constexpr static const float JUMP_VEL = -700.f;
    constexpr static const float SINGLE_FRAME_TIME = 0.15f;
 };
+
+#endif // HERO_H

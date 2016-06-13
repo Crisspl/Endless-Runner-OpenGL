@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GLOBAL_H
+#define GLOBAL_H
 
 #include <random>
 
@@ -8,3 +9,5 @@ namespace sup
 
    extern unsigned getRand(unsigned a, unsigned b);
 }
+
+#endif // GLOBAL_H

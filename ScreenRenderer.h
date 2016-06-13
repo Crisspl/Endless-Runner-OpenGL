@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCREENRENDERER_H
+#define SCREENRENDERER_H
 
 #include "Utility/ResMgr.h"
 #include "Graphics/RenderTexture.h"
@@ -22,3 +23,5 @@ private:
    gr::RenderTexture m_renderTex;
    gr::Sprite m_screen;
 };
+
+#endif // SCREENRENDERER_H

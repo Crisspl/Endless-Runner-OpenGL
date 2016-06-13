@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RECT_H
+#define RECT_H
 
 #include <glm/glm.hpp>
 #include <array>
@@ -62,3 +63,5 @@ private:
 };
 
 } //ns
+
+#endif // RECT_H

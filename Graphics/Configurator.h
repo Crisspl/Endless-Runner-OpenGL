@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONFIGURATOR_H
+#define CONFIGURATOR_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -57,3 +58,5 @@ private:
 };
 
 } // ns
+
+#endif // CONFIGURATOR_H

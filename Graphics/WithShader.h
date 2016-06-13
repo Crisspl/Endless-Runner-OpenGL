@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WITHSHADER_H
+#define WITHSHADER_H
 
 #include "Shader.h"
 
@@ -19,3 +20,5 @@ protected:
 };
 
 } // ns
+
+#endif // WITHSHADER_H

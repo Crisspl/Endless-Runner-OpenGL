@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COLLIDER_H
+#define COLLIDER_H
 
 class CircleCollider;
 class RectsCollider;
@@ -29,4 +30,6 @@ public:
 
    Type type;
 };
+
+#endif // COLLIDER_H
 

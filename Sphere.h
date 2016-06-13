@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SPHERE_H
+#define SPHERE_H
 
 #include <glm/glm.hpp>
 #include <cmath>
@@ -61,3 +62,5 @@ private:
    Hero* m_owner;
    State m_currentState;
 };
+
+#endif // SPHERE_H

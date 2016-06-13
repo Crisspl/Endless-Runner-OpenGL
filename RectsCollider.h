@@ -1,4 +1,7 @@
-#pragma once
+#ifndef RECTSCOLLIDER_H
+#define RECTSCOLLIDER_H
+
+
 #include <glm/glm.hpp>
 #include <cmath>
 #include <vector>
@@ -26,3 +29,5 @@ public:
 private:
    std::vector<ut::Rect> m_vecRects;
 };
+
+#endif // RECTSCOLLIDER_H

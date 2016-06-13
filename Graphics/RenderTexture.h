@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RENDERTEXTURE_H
+#define RENDERTEXTURE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -26,3 +27,5 @@ private:
 };
 
 } // ns
+
+#endif // RENDERTEXTURE_H

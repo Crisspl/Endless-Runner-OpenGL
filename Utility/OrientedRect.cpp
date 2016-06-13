@@ -12,8 +12,8 @@ OrientedRect::OrientedRect(glm::vec2 _size, gr::TransformData _data)
    applyTransformData(_data);
 }
 
-OrientedRect::OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, float _rot)
-   : OrientedRect(_size, { _botLeft, {1, 1}, {0, 0}, _rot })
+OrientedRect::OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, glm::vec2 _origin, float _rot)
+   : OrientedRect(_size, { _botLeft, {1, 1}, _origin, _rot })
 {
 }
 
@@ -81,9 +81,8 @@ Rect& OrientedRect::move(glm::vec2 _offset)
 
 void OrientedRect::applyTransformData(const gr::TransformData& _data)
 {
-   glm::vec2 botLeft = _data.position - _data.origin;
    rotate(_data.origin, _data.rotation);
-   Rect::move(botLeft);
+   Rect::move(_data.botLeft);
 
    m_radAngle = glm::radians(_data.rotation);
 

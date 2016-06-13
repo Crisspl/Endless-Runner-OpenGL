@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LITABLE_H
+#define LITABLE_H
 
 #include <vector>
 
@@ -20,3 +21,5 @@ public:
 };
 
 }
+
+#endif // LITABLE_H

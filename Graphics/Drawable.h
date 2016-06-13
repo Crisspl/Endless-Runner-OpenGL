@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DRAWABLE_H
+#define DRAWABLE_H
 
 namespace gr
 {
@@ -11,3 +12,5 @@ public:
 };
 
 } // ns
+
+#endif // DRAWABLE_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COLLIDEABLE_H
+#define COLLIDEABLE_H
 
 #include <utility>
 #include <memory>
@@ -38,3 +39,5 @@ public:
 private:
    CollideableObjType m_objType;
 };
+
+#endif // COLLIDEABLE_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ISLAND_H
+#define ISLAND_H
 
 #include <vector>
 #include <random>
@@ -29,3 +30,5 @@ public:
 private:
    gr::Sprite m_sprite;
 };
+
+#endif // ISLAND_H

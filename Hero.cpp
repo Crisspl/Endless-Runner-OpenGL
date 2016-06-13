@@ -29,6 +29,8 @@ Hero::Hero()
 std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 {
    ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getOBB());
+   //ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
+   //ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 
    rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COLOR_H
+#define COLOR_H
 
 #include <glm/glm.hpp>
 #include <algorithm>
@@ -28,3 +29,5 @@ public:
 };
 
 } // ns
+
+#endif // COLOR_H

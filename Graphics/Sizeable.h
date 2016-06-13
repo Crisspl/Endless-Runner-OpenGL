@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SIZEABLE_H
+#define SIZEABLE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -17,6 +18,7 @@ class Sizeable
 {
 public:
    explicit Sizeable(glm::vec2 _size = {1, 1});
+   virtual ~Sizeable() { }
 
    virtual void setSize(glm::vec2 _size);
    glm::vec2 getSize() const { return m_size; }
@@ -33,3 +35,5 @@ protected:
 };
 
 } // ns
+
+#endif // SIZEABLE_H

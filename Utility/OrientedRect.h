@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ORIENTEDRECT_H
+#define ORIENTEDRECT_H
 
 #include <vector>
 
@@ -15,7 +16,7 @@ class OrientedRect
 {
 public:
    OrientedRect(glm::vec2 _size, gr::TransformData _data);
-   OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, float _rot);
+   OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, glm::vec2 _origin, float _rot);
 
    bool contains(glm::vec2 _p) const override;
    bool intersects(const Rect& _rect) const override;
@@ -38,3 +39,5 @@ private:
 
 
 } // ns
+
+#endif // ORIENTEDRECT_H

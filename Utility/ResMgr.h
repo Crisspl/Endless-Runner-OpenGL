@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RESMGR_H
+#define RESMGR_H
 
 #include <map>
 
@@ -31,3 +32,5 @@ private:
 };
 
 } // ns
+
+#endif // RESMGR_H

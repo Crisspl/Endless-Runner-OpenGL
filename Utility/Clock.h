@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CLOCK_H
+#define CLOCK_H
 
 #include <chrono>
 #include <ratio>
@@ -27,3 +28,5 @@ private:
 };
 
 } // ns
+
+#endif // CLOCK_H
