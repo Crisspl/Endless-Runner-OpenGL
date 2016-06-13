@@ -5,17 +5,16 @@
 namespace ut
 {
 
-OrientedRect::OrientedRect(glm::vec2 _size)
-   : Rect(_size),
-     m_radAngle(0.f)
-{
-   calcAxes();
-}
-
 OrientedRect::OrientedRect(glm::vec2 _size, gr::TransformData _data)
-   : OrientedRect(_size)
+   : Rect(_size),
+     m_radAngle(0)
 {
    applyTransformData(_data);
+}
+
+OrientedRect::OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, float _rot)
+   : OrientedRect(_size, { _botLeft, {1, 1}, {0, 0}, _rot })
+{
 }
 
 bool OrientedRect::contains(glm::vec2 _p) const

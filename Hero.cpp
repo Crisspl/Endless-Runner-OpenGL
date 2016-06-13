@@ -19,6 +19,7 @@ Hero::Hero()
    REGISTER_HERO_STATES(Jump)
    REGISTER_HERO_STATES(Fall)
 
+   m_heroSprite.setSize({50, 50});
    m_heroSprite.setOrigin({25.f, 50.f})
                .rotate(25.f);
 
@@ -46,9 +47,7 @@ void Hero::update(float dt)
    if(m_currentFrameTime >= SINGLE_FRAME_TIME)
    {
       m_currentFrameTime = 0;
-      m_heroSprite.setTextureRect(ut::Rect({m_frameCounter * 50.f, m_currentState * 50.f}, {50.f, 50.f}),
-                                  true
-                                 );
+      m_heroSprite.setTextureRect(ut::Rect({m_frameCounter * 50.f, m_currentState * 50.f}, {50.f, 50.f}));
       if(++m_frameCounter == m_heroSprite.getTexture().getSize().x / 50.f)
          m_frameCounter = 0;
    }

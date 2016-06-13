@@ -24,7 +24,7 @@ public:
    void move(float _offset);
 
    glm::vec2 getPosition() const { return m_sprite.getPosition(); }
-   float getSurfaceHeight() const;
+   float getSurfaceHeight() const { return m_sprite.getPosition().y; }
 
 private:
    gr::Sprite m_sprite;

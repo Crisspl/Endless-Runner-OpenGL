@@ -13,11 +13,9 @@ namespace ut
 class OrientedRect
    : public Rect
 {
-   friend OrientedRect gr::Sprite::getOBB() const;
-
 public:
-   explicit OrientedRect(glm::vec2 _size);
    OrientedRect(glm::vec2 _size, gr::TransformData _data);
+   OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, float _rot);
 
    bool contains(glm::vec2 _p) const override;
    bool intersects(const Rect& _rect) const override;

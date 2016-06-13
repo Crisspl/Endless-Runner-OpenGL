@@ -33,8 +33,3 @@ void Island::move(float _offset)
 {
    m_sprite.move({_offset, 0});
 }
-
-float Island::getSurfaceHeight() const
-{
-   return m_sprite.getPosition().y;
-}

@@ -27,7 +27,6 @@ void TexturedSizeable::setSize(glm::vec2 _size)
    Sizeable::setSize(_size);
 
    glm::vec2 h = m_size / m_ptexture->getSize();
-   std::cout << "stesize: " << h.x << ' ' << h.y << '\n';
    if(m_ptexture->isRepeated())
       fillTxcArray(h);
    else

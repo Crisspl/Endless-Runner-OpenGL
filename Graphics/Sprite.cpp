@@ -96,8 +96,7 @@ ut::Rect Sprite::getAABB() const
 
 ut::OrientedRect Sprite::getOBB() const
 {
-   ut::OrientedRect rect(m_size);
-   rect.applyTransformData(getTransformData());
+   ut::OrientedRect rect(m_size, getTransformData());
 
    return rect;
 }

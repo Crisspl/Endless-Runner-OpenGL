@@ -90,7 +90,7 @@ void Game::handleEvents()
                   m_hero.changeState(Hero::State_Jump);
                if(event.key.keysym.sym == SDLK_e)
                {
-                  m_vecIslands.emplace_back(glm::vec2(1e3, sup::getRand(200, 400)));
+                  m_vecIslands.emplace_back(glm::vec2(1200, sup::getRand(200, 400)));
                }
                break;
            case SDL_MOUSEBUTTONDOWN:
