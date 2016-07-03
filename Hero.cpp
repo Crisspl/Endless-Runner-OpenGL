@@ -11,9 +11,8 @@
 Hero::Hero()
       : Collideable(Collideable::Coll_Hero),
         m_currentState(StateCount),
-        m_currentFrameTime(0),
-        m_frameCounter(0),
-        m_heroSprite(ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex"))
+        m_heroSprite(ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex")),
+        m_animMgr(&m_heroSprite, 0.15f, {50, 50})
 {
    REGISTER_HERO_STATES(Move)
    REGISTER_HERO_STATES(Jump)
@@ -45,14 +44,7 @@ void Hero::draw() const
 
 void Hero::update(float dt)
 {
-   m_currentFrameTime += dt;
-   if(m_currentFrameTime >= SINGLE_FRAME_TIME)
-   {
-      m_currentFrameTime = 0;
-      m_heroSprite.setTextureRect(ut::Rect({m_frameCounter * 50.f, m_currentState * 50.f}, {50.f, 50.f}));
-      if(++m_frameCounter == m_heroSprite.getTexture().getSize().x / 50.f)
-         m_frameCounter = 0;
-   }
+   m_animMgr.update(dt);
    (this->*m_update[m_currentState])(dt);
 }
 
@@ -67,6 +59,7 @@ void Hero::changeState(const Hero::State _newState)
    const Hero::State prevState(m_currentState);
 
    m_currentState = _newState;
+   m_animMgr.setRow(_newState);
 
    (this->*m_onEnter[m_currentState])(prevState);
 }

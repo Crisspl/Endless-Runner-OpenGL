@@ -5,6 +5,7 @@
 #include "Collideable.h"
 #include "Graphics/Drawable.h"
 #include "Global.h"
+#include "AnimationMgr.h"
 
 #define DECLARE_HERO_STATE_METHODS(stateName) \
    void stateName##_onEnter(const Hero::State); \
@@ -57,15 +58,14 @@ private:
 
 private:
    State m_currentState;
-   float m_currentFrameTime;
-   float m_frameCounter;
 
    gr::Sprite m_heroSprite;
+
+   AnimationMgr m_animMgr;
 
    glm::vec2 m_velocity;
 
    constexpr static const float JUMP_VEL = -700.f;
-   constexpr static const float SINGLE_FRAME_TIME = 0.15f;
 };
 
 #endif // HERO_H

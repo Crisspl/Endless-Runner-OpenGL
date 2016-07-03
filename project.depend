@@ -1965,7 +1965,7 @@
 	<glm/glm.hpp>
 	<array>
 
-1465860320 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.h
+1467587478 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.h
 	<GL/glew.h>
 	<glm/glm.hpp>
 	"../Utility/ResMgr.h"
@@ -1977,6 +1977,7 @@
 	"TexturedSizeable.h"
 	"Drawable.h"
 	"Litable.h"
+	"../Utility/OrientedRect.h"
 
 1465860711 d:\dropbox\kody\c++\pandarun-like_opengl\utility\resmgr.h
 	<map>
@@ -2119,11 +2120,12 @@
 	<chrono>
 	<ratio>
 
-1465859777 d:\dropbox\kody\c++\pandarun-like_opengl\hero.h
+1467587517 d:\dropbox\kody\c++\pandarun-like_opengl\hero.h
 	"Graphics/Sprite.h"
 	"Collideable.h"
 	"Graphics/Drawable.h"
 	"Global.h"
+	"AnimationMgr.h"
 
 1465859934 d:\dropbox\kody\c++\pandarun-like_opengl\sphere.h
 	<glm/glm.hpp>
@@ -2251,11 +2253,10 @@
 1465772291 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sizeable.cpp
 	"Sizeable.h"
 
-1465838080 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.cpp
+1467571709 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sprite.cpp
 	"Sprite.h"
 	<iostream>
 	<algorithm>
-	"../Utility/OrientedRect.h"
 
 1465760661 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\texture.cpp
 	"Texture.h"
@@ -2278,7 +2279,7 @@
 1457192394 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.cpp
 	"WithShader.h"
 
-1465855079 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
+1467587349 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
 	"Hero.h"
 
 1465774198 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
@@ -2324,4 +2325,14 @@
 
 1465773485 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\texturedsizeable.cpp
 	"TexturedSizeable.h"
+
+1465860711 d:\dropbox\kody\c++\pandarun-like_opengl\\utility
+
+1467571495 d:\dropbox\kody\c++\pandarun-like_opengl\animationmgr.h
+	<glm/glm.hpp>
+	"Utility/Rect.h"
+	"Graphics/Sprite.h"
+
+1467571863 source:d:\dropbox\kody\c++\pandarun-like_opengl\animationmgr.cpp
+	"AnimationMgr.h"
 

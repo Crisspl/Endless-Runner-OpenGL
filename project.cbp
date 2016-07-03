@@ -44,6 +44,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AnimationMgr.cpp" />
+		<Unit filename="AnimationMgr.h" />
 		<Unit filename="BoxCollider.cpp" />
 		<Unit filename="BoxCollider.h" />
 		<Unit filename="CircleCollider.cpp" />

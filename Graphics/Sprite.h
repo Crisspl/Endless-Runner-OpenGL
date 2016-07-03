@@ -14,8 +14,9 @@
 #include "TexturedSizeable.h"
 #include "Drawable.h"
 #include "Litable.h"
+#include "../Utility/OrientedRect.h"
 
-namespace ut { class Rect; class OrientedRect; }
+namespace ut { class OrientedRect; }
 
 namespace gr
 {

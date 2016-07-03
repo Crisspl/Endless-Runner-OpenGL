@@ -3,8 +3,6 @@
 #include <iostream>
 #include <algorithm>
 
-#include "../Utility/OrientedRect.h"
-
 namespace gr
 {
 
