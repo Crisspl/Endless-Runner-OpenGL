@@ -149,8 +149,6 @@ void Game::update()
 
    m_model.move({-1.f, 0, 0});
 
-   std::vector<gr::Light> lights;
-
    gr::Light light;
    light.position = glm::vec3(m_hero.getPosition(), 300.f);
    light.color = gr::Color(129, 240, 232);
@@ -160,15 +158,13 @@ void Game::update()
    light.cutOffAngle = 30.f;
    light.illuminance = 1.6f;
    light.type = gr::Light::Spot;
-   lights.push_back(light);
 
    gr::Light light2;
    light2.direction = {-0.4f, 0.5f, -0.1f};
    light2.color = gr::Color::Red;
-   light.type = gr::Light::Directional;
-   lights.push_back(light2);
+   light2.type = gr::Light::Directional;
 
-   m_model.setLights(lights);
+   m_model.setLights({light, light2});
 }
 
 void Game::draw()

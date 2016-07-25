@@ -32,6 +32,7 @@
 					<Add library="SDL2" />
 					<Add library="SDL2main" />
 					<Add library="libassimp" />
+					<Add library="sfml-audio" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/GLEW/glew-1.13.0/lib/Release/Win32" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SOIL/lib" />
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/SFML-2.3.2/lib" />

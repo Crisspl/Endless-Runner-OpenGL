@@ -1,8 +1,6 @@
 #ifndef LITABLE_H
 #define LITABLE_H
 
-#include <vector>
-
 #include "WithShader.h"
 #include "Light.h"
 
@@ -17,7 +15,7 @@ public:
    virtual ~Litable() { }
 
    virtual void setLight(const Light& _light);
-   virtual void setLights(const std::vector<Light>& _lights);
+   virtual void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights);
 };
 
 }

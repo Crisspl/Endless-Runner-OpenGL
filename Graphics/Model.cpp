@@ -55,7 +55,7 @@ void Model::setLight(const Light& _light)
    Litable::setLight(_light);
 }
 
-void Model::setLights(const std::vector<Light>& _lights)
+void Model::setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights)
 {
    m_shader = &ut::ResMgr::getShader(LIGHT_SHADER_NAME);
    m_usingOriginalShader = true;

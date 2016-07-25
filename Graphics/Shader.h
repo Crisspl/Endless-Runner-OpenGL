@@ -13,6 +13,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <initializer_list>
+#include <functional>
+
 #include "Texture.h"
 #include "Color.h"
 #include "Light.h"
@@ -47,7 +50,7 @@ public:
    const Shader& setMat4(const GLchar* _name, const glm::mat4& _matrix) const;
    const Shader& setLight(const GLchar* _name, const Light& _light) const;
    const Shader& setLight(const GLchar* _name, const Light& _light, int _num) const;
-   const Shader& setLights(const GLchar* _name, const std::vector<Light>& _lights) const;
+   const Shader& setLights(const GLchar* _name, const std::initializer_list<std::reference_wrapper<Light>>& _lights) const;
 
    bool operator==(const Shader&);
    bool operator!=(const Shader&);

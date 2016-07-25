@@ -30,7 +30,7 @@ public:
 
    void setShader(Shader& _shader = ut::ResMgr::getShader(SHADER_NAME)) override;
    void setLight(const Light& _light) override;
-   void setLights(const std::vector<Light>& _lights) override;
+   void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights) override;
 
 private:
    void loadModel(std::string _path);

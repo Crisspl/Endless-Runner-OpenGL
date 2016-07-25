@@ -1984,7 +1984,7 @@
 	"../Graphics/Shader.h"
 	"../Graphics/Texture.h"
 
-1465860272 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.h
+1469445549 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.h
 	<GL/glew.h>
 	<algorithm>
 	<vector>
@@ -1994,6 +1994,8 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
+	<initializer_list>
+	<functional>
 	"Texture.h"
 	"Color.h"
 	"Light.h"
@@ -2055,8 +2057,7 @@
 
 1465860090 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\drawable.h
 
-1465860157 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.h
-	<vector>
+1469445549 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.h
 	"WithShader.h"
 	"Light.h"
 
@@ -2092,7 +2093,7 @@
 	"CircleCollider.h"
 	"BoxCollider.h"
 
-1469405073 source:d:\dropbox\kody\c++\pandarun-like_opengl\game.cpp
+1469409042 source:d:\dropbox\kody\c++\pandarun-like_opengl\game.cpp
 	"Game.h"
 	"Graphics/Configurator.h"
 
@@ -2185,7 +2186,7 @@
 	"../Utility/ResMgr.h"
 	"Litable.h"
 
-1465860203 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.h
+1469445549 d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.h
 	<vector>
 	<string>
 	<iostream>
@@ -2235,19 +2236,19 @@
 1458330537 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\light.cpp
 	"Light.h"
 
-1458394061 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.cpp
+1469445350 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\litable.cpp
 	"Litable.h"
 
 1464737339 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\mesh.cpp
 	"Mesh.h"
 
-1465759691 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.cpp
+1469445381 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\model.cpp
 	"Model.h"
 
 1456373661 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\rendertexture.cpp
 	"RenderTexture.h"
 
-1462487077 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.cpp
+1469445315 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\shader.cpp
 	"Shader.h"
 
 1465772291 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\sizeable.cpp
@@ -2279,7 +2280,7 @@
 1457192394 source:d:\dropbox\kody\c++\pandarun-like_opengl\graphics\withshader.cpp
 	"WithShader.h"
 
-1469405465 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
+1469406221 source:d:\dropbox\kody\c++\pandarun-like_opengl\hero.cpp
 	"Hero.h"
 
 1465774198 source:d:\dropbox\kody\c++\pandarun-like_opengl\island.cpp
@@ -2333,6 +2334,6 @@
 	"Utility/Rect.h"
 	"Graphics/Sprite.h"
 
-1467571863 source:d:\dropbox\kody\c++\pandarun-like_opengl\animationmgr.cpp
+1469405830 source:d:\dropbox\kody\c++\pandarun-like_opengl\animationmgr.cpp
 	"AnimationMgr.h"
 

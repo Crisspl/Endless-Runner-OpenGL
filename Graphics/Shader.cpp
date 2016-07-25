@@ -106,10 +106,11 @@ const Shader& Shader::setLight(const GLchar* _name, const Light& _light, int _nu
    return setLight(name.c_str(), _light);
 }
 
-const Shader& Shader::setLights(const GLchar* _name, const std::vector<Light>& _lights) const
+const Shader& Shader::setLights(const GLchar* _name, const std::initializer_list<std::reference_wrapper<Light>>& _lights) const
 {
-   for(short i = 0; i < _lights.size(); i++)
-      setLight(_name, _lights[i], i);
+   size_t n = 0;
+   for(auto& l : _lights)
+      setLight(_name, l, n++);
    return setInt("lightsCount", _lights.size());
 }
 
@@ -140,7 +141,7 @@ void Shader::compileShader(std::string _path, GLenum _type)
    if(!success)
    {
       glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-      std::cout<<"Failed to compile a shader " << _path << " !\n" << infoLog << std::endl;
+      std::cerr<<"Failed to compile a shader " << _path << " !\n" << infoLog << std::endl;
    }
 
    glAttachShader(m_shaderProgram, shader);
