@@ -9,8 +9,8 @@ namespace gr
 bool Sprite::LIGHT_SHADER_LOADED = false;
 
 Sprite::Sprite()
-   : Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     TexturedSizeable(nullptr),
+   : TexturedSizeable(nullptr),
+     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
@@ -32,14 +32,18 @@ void Sprite::setShader(Shader& _shader)
    m_usingOriginalShader = ( _shader == ut::ResMgr::getShader(SHADER_NAME) || _shader == ut::ResMgr::getShader(LIGHT_SHADER_NAME));
 }
 
-void Sprite::setTexture(Texture& _tex)
+void Sprite::setTexture(Texture& _tex, bool _changeSize)
 {
    m_ptexture = &_tex;
-   setSize(_tex.getSize());
+   if(_changeSize)
+      setSize(_tex.getSize());
 }
 
 void Sprite::setTextureRect(ut::Rect _rect, bool _changeSize)
 {
+   if(!m_ptexture)
+      return;
+
    glm::vec2 texSize = glm::vec2(m_ptexture->getSize().x, m_ptexture->getSize().y);
 
    if(_changeSize)
@@ -67,7 +71,8 @@ void Sprite::draw() const
    shader.setInt("texSampler", 0);
    shader.setColor("color", m_color);
 
-   glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
+   if(m_ptexture)
+      glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
 
    if(m_usingOriginalShader)
    {

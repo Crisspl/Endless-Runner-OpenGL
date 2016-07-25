@@ -24,6 +24,9 @@ TexturedSizeable::TexturedSizeable(Texture* _tex, glm::vec2 _size)
 
 void TexturedSizeable::setSize(glm::vec2 _size)
 {
+   if(!m_ptexture)
+      return;
+
    Sizeable::setSize(_size);
 
    glm::vec2 h = m_size / m_ptexture->getSize();

@@ -32,10 +32,10 @@ public:
    explicit Sprite(Texture& _tex);
 
 public:
-   const Texture& getTexture() const { return *m_ptexture; }
+   const Texture* getTexture() const { return m_ptexture; }
 
    void setShader(Shader& _shader = ut::ResMgr::getShader(SHADER_NAME)) override;
-   void setTexture(Texture& _tex);
+   void setTexture(Texture& _tex, bool _changeSize = true);
    void setTextureRect(ut::Rect _rect, bool _changeSize = false);
    void setColor(const Color _color) { m_color = _color; }
    void setLight(const Light& _light) override;

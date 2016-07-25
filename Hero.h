@@ -46,9 +46,9 @@ public:
 private:
    void move(glm::vec2 _offset);
 
-   DECLARE_HERO_STATE_METHODS(Move);
-   DECLARE_HERO_STATE_METHODS(Jump);
-   DECLARE_HERO_STATE_METHODS(Fall);
+   DECLARE_HERO_STATE_METHODS(Move)
+   DECLARE_HERO_STATE_METHODS(Jump)
+   DECLARE_HERO_STATE_METHODS(Fall)
 
    void (Hero:: *m_onEnter[StateCount])
                   (const Hero::State prevState);
@@ -58,11 +58,8 @@ private:
 
 private:
    State m_currentState;
-
    gr::Sprite m_heroSprite;
-
    AnimationMgr m_animMgr;
-
    glm::vec2 m_velocity;
 
    constexpr static const float JUMP_VEL = -700.f;
