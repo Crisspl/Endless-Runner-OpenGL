@@ -6,7 +6,7 @@
 #include "Rect.h"
 #include "../Graphics/Sprite.h"
 
-namespace gr { class TransformData; class Sprite; }
+namespace gr { struct TransformData; class Sprite; }
 
 namespace ut
 {

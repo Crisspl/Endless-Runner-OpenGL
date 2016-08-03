@@ -1,4 +1,5 @@
 #include "BoxCollider.h"
+#include "CircleCollider.h"
 
 BoxCollider::BoxCollider(ut::Rect *_rect)
    : Collider(Collider::Box),
@@ -8,7 +9,7 @@ BoxCollider::BoxCollider(ut::Rect *_rect)
 
 bool BoxCollider::isCollision(const CircleCollider& _collider) const
 {
-   return false;
+	return _collider.isCollision(*this);
 }
 
 bool BoxCollider::isCollision(const RectsCollider& _collider) const

@@ -42,6 +42,8 @@ public:
    virtual bool intersects(const Rect& _rect) const;
 
    glm::vec2 operator[](unsigned _i) const { return m_verts[_i]; }
+   const Tverts& getVerts() const { return m_verts; }
+
    glm::vec2 botLeft() const { return m_verts[BL]; }
    glm::vec2 getSize() const { return m_verts[UR] - m_verts[BL]; }
    Projection project(glm::vec2 _axis) const;

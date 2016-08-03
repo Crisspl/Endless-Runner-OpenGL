@@ -38,16 +38,6 @@ void Sphere::draw() const
 void Sphere::update(float dt)
 {
    (this->*m_update[m_currentState])(dt);
-
-   gr::Light light;
-   light.position = {m_sprite.getPosition().x, 300.f, 50.f};
-   light.direction = {0, 0, -1};
-   light.color = gr::Color::Green;
-   light.linear = 0.005f;
-   light.quadratic = 0.00004f;
-   light.cutOffAngle = 40.f;
-   light.type = gr::Light::Type::Spot;
-   m_sprite.setLight(light);
 }
 
 void Sphere::changeState(const State _newState)

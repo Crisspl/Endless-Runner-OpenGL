@@ -108,13 +108,13 @@ void Game::update()
 {
    m_hero.update(dt);
    m_sphere.update(dt);
-/*
-   if(m_sphere->getState() == Sphere::State_Return &&
-      m_hero->isCollision(*m_sphere))
+
+   if(m_sphere.getState() == Sphere::State_Return &&
+      m_hero.isCollision(m_sphere))
    {
-      m_sphere->changeState(Sphere::State_Idle);
+      m_sphere.changeState(Sphere::State_Idle);
    }
-*/
+
    for(auto it = m_vecIslands.begin(); it != m_vecIslands.end();)
    {
       it->move(-dt * 600.f);
@@ -164,7 +164,14 @@ void Game::update()
    light2.color = gr::Color::Red;
    light2.type = gr::Light::Directional;
 
-   m_model.setLights({light, light2});
+   gr::Light light3;
+   light3.color = gr::Color::Blue;
+   light3.illuminance = 1.f;
+   light3.position = glm::vec3(m_sphere.getPosition(), 300.f);
+   light3.cutOffAngle = 15;
+   light3.type = gr::Light::Spot;
+
+   m_model.setLights({light, light2, light3});
 }
 
 void Game::draw()
@@ -178,8 +185,8 @@ void Game::draw()
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);
-   //m_renderer.drawToTex(m_sphere);
    m_renderer.drawToTex(m_hero);
+   m_renderer.drawToTex(m_sphere);
 
    m_renderer.drawToScreen();
 

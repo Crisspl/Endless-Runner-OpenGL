@@ -20,7 +20,7 @@ public:
 public:
    virtual bool isCollision(const CircleCollider& _collider) const override;
    virtual bool isCollision(const RectsCollider& _collider) const override;
-   virtual bool isCollision(const BoxCollider& _collider) const override { return false; }
+   virtual bool isCollision(const BoxCollider& _collider) const override;
 
    bool contains(glm::vec2 _p) const;
 

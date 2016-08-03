@@ -69,11 +69,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.3.2\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.3.2\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

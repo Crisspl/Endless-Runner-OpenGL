@@ -1,6 +1,6 @@
 #include "CircleCollider.h"
-
 #include "RectsCollider.h"
+#include "BoxCollider.h"
 
 CircleCollider::CircleCollider(glm::vec2 _center, float _radius) : Collider(Collider::Circle),
                                                                    m_center(_center),
@@ -33,6 +33,13 @@ bool CircleCollider::isCollision(const RectsCollider& _collider) const
          return true;
    }
    return false;
+}
+
+bool CircleCollider::isCollision(const BoxCollider& _collider) const
+{
+	for (const auto & vert : _collider.getRect().getVerts())
+		if (distance(m_center, vert) <= m_radius)
+			return true;
 }
 
 bool CircleCollider::contains(glm::vec2 _p) const
