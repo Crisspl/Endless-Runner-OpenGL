@@ -167,6 +167,7 @@
     <ClInclude Include="src\CircleCollider.h" />
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
+    <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Global.h" />
     <ClInclude Include="src\Graphics\Buffer.h" />
@@ -193,6 +194,10 @@
     <ClInclude Include="src\Graphics\WithShader.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Island.h" />
+    <ClInclude Include="src\Maths\Vec2.h" />
+    <ClInclude Include="src\Maths\Vec3.h" />
+    <ClInclude Include="src\Maths\Vec4.h" />
+    <ClInclude Include="src\Maths\Vectors.h" />
     <ClInclude Include="src\RectsCollider.h" />
     <ClInclude Include="src\ScreenRenderer.h" />
     <ClInclude Include="src\Sphere.h" />

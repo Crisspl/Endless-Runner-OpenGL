@@ -2,6 +2,10 @@
 
 #include "Graphics/Configurator.h"
 
+#include "Maths/Vectors.h"
+
+#include "Debug.h"
+
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
 
@@ -34,7 +38,7 @@ void Game::initSystems()
    SDL_Init(SDL_INIT_EVERYTHING);
 
    m_window = SDL_CreateWindow(
-                 "PandaRun-like",
+                 "EndlessRunner",
                  SDL_WINDOWPOS_UNDEFINED,
                  SDL_WINDOWPOS_UNDEFINED,
                  WIN_X,
@@ -170,6 +174,10 @@ void Game::update()
    light3.position = glm::vec3(m_sphere.getPosition(), 300.f);
    light3.cutOffAngle = 15;
    light3.type = gr::Light::Spot;
+
+   mt::Vec4f vec(5);
+   vec.p = 4.f;
+   DebugLog << vec << '\n';
 
    m_model.setLights({light, light2, light3});
 }

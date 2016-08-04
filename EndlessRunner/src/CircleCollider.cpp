@@ -40,6 +40,7 @@ bool CircleCollider::isCollision(const BoxCollider& _collider) const
 	for (const auto & vert : _collider.getRect().getVerts())
 		if (distance(m_center, vert) <= m_radius)
 			return true;
+	return false;
 }
 
 bool CircleCollider::contains(glm::vec2 _p) const

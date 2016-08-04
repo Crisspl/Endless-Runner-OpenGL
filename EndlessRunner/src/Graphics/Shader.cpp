@@ -12,11 +12,11 @@ Shader::Shader(std::string _vPath, std::string _fPath)
    glLinkProgram(m_shaderProgram);
 
    GLint success;
-   GLchar infoLog[512];
+   GLchar infoLog[0x200];
    glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success);
    if(!success)
    {
-      glGetProgramInfoLog(m_shaderProgram, 512, nullptr, infoLog);
+      glGetProgramInfoLog(m_shaderProgram, 0x200, nullptr, infoLog);
       std::cout<<"Linking of shader program failed.\n"<<infoLog<<std::endl;
    }
 }
@@ -133,14 +133,14 @@ void Shader::compileShader(std::string _path, GLenum _type)
    const GLchar* source = sourceStr.c_str();
 
    GLuint shader = glCreateShader(_type);
-   glShaderSource(shader, 1, &source, nullptr); //attach shader source to its object
+   glShaderSource(shader, 1, &source, nullptr);
    glCompileShader(shader);
    GLint success;
-   GLchar infoLog[512];
+   GLchar infoLog[0x200];
    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
    if(!success)
    {
-      glGetShaderInfoLog(shader, 512, nullptr, infoLog);
+      glGetShaderInfoLog(shader, 0x200, nullptr, infoLog);
       std::cerr<<"Failed to compile a shader " << _path << " !\n" << infoLog << std::endl;
    }
 
