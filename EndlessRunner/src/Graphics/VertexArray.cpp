@@ -5,7 +5,8 @@ namespace gr
 
 VertexArray::VertexArray(Mode _mode)
    : m_shader(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
-     m_mode(_mode)
+     m_mode(_mode),
+	 m_vao(new Vao())
 {
    setUp();
 }
@@ -13,9 +14,11 @@ VertexArray::VertexArray(Mode _mode)
 VertexArray& VertexArray::addVertex(Vertex _vert)
 {
    m_vertices.push_back(_vert);
-   glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-   glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * m_vertices.size(), &m_vertices[0], GL_STATIC_DRAW);
-   glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+   auto buffer = m_vao->getBuffer("vertexBuffer");
+   buffer->bind();
+   buffer->setData(sizeof(Vertex) * m_vertices.size(), &m_vertices[0]);
+   buffer->unbind();
 
    return *this;
 }
@@ -27,28 +30,30 @@ void VertexArray::draw() const
    m_shader.setMat4("projection", Configurator::projection())
            .setMat4("view", Configurator::view());
 
-   glBindVertexArray(m_vao);
+   m_vao->bind();
    glDrawArrays(m_mode, 0, m_vertices.size());
-   glBindVertexArray(0);
+   m_vao->unbind();
 
    Shader::unUse();
 }
 
 void VertexArray::setUp()
 {
-   glGenVertexArrays(1, &m_vao);
-   glBindVertexArray(m_vao);
+	Buffer* buffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
 
-   glGenBuffers(1, &m_vbo);
-   glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	m_vao->bind();
 
-   glVertexAttribPointer((GLuint)AttLoc::Position, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
-   glEnableVertexAttribArray((GLuint)AttLoc::Position);
+	m_vao->addBuffer("vertexBuffer", buffer);
 
-   glVertexAttribPointer((GLuint)AttLoc::Color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, color));
-   glEnableVertexAttribArray((GLuint)AttLoc::Color);
+	buffer->bind();
 
-   glBindVertexArray(0);
+	glVertexAttribPointer((GLuint)AttLoc::Position, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
+	glEnableVertexAttribArray((GLuint)AttLoc::Position);
+
+	glVertexAttribPointer((GLuint)AttLoc::Color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, color));
+	glEnableVertexAttribArray((GLuint)AttLoc::Color);
+
+	m_vao->unbind();
 }
 
 } // ns

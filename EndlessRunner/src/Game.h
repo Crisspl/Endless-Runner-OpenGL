@@ -18,6 +18,7 @@
 #include "Graphics/VertexArray.h"
 #include "Graphics/ColoredRect.h"
 #include "Graphics/Model.h"
+#include "Graphics/VertexArray.h"
 
 class Game
 {

@@ -175,10 +175,6 @@ void Game::update()
    light3.cutOffAngle = 15;
    light3.type = gr::Light::Spot;
 
-   mt::Vec4f vec(5);
-   vec.p = 4.f;
-   DebugLog << vec << '\n';
-
    m_model.setLights({light, light2, light3});
 }
 

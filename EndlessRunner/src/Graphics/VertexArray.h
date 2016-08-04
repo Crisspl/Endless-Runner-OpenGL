@@ -5,12 +5,14 @@
 #include <GL/glew.h>
 
 #include <vector>
+#include <memory>
 
 #include "Drawable.h"
 #include "../Utility/ResMgr.h"
 #include "Vertex.h"
 #include "Shader.h"
 #include "Configurator.h"
+#include "Vao.h"
 
 namespace gr
 {
@@ -61,7 +63,7 @@ private:
    GLenum m_mode;
    std::vector<Vertex> m_vertices;
 
-   GLuint m_vao, m_vbo;
+   std::shared_ptr<Vao> m_vao;
 
    constexpr static const char* SHADER_NAME = "arrayShader";
    constexpr static const char* VSHADER_PATH = "Graphics/Shaders/array_vs.glsl";
