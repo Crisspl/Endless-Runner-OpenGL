@@ -26,17 +26,15 @@ void Configurator::init(GLuint _width, GLuint _height)
 
    glewExperimental = GL_TRUE;
 
-   GLenum glewerror = glewInit();
-   if (glewerror != GLEW_OK)
-   {
-	   std::cerr << "GLEW init error: " << glewGetErrorString(glewerror) << std::endl;
-   }
+   GLenum glewError = glewInit();
+
+   if (glewError != GLEW_OK)
+	   std::cerr << "GLEW init error: " << glewGetErrorString(glewError) << '\n';
 
    glViewport(0, 0, _width, _height);
 
-   GLint vpSize[4];
-   glGetIntegerv(GL_VIEWPORT, vpSize);
-   m_vpSize = glm::vec2((float)vpSize[2], (float)vpSize[3]);
+   m_vpSize = glm::vec2(static_cast<float>(_width),
+						static_cast<float>(_height));
 
    rectShapeEbo = new Buffer(GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW);
    rectShapeEbo->bind();
