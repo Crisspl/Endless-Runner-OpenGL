@@ -28,7 +28,7 @@ public:
    };
 
 public:
-   static void init();
+   static void init(GLuint _width, GLuint _height);
 
    static glm::vec2 viewPortSize();
 

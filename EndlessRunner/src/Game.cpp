@@ -54,17 +54,7 @@ void Game::initSystems()
 
    SDL_GL_SetSwapInterval(1);
 
-   glewExperimental = GL_TRUE;
-
-   GLenum glewerror = glewInit();
-   if(glewerror != GLEW_OK)
-   {
-      std::cerr << "GLEW init error: " << glewGetErrorString(glewerror) << std::endl;
-   }
-
-   glViewport(0, 0, WIN_X, WIN_Y);
-
-   gr::Configurator::init();
+   gr::Configurator::init(WIN_X, WIN_Y);
 }
 
 void Game::mainLoop()

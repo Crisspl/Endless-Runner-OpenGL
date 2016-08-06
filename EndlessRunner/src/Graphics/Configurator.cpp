@@ -19,10 +19,20 @@ Configurator::DisplayMode Configurator::m_displMode = Configurator::Perspective;
 glm::mat4* Configurator::m_view;
 glm::mat4* Configurator::m_projection;
 
-void Configurator::init()
+void Configurator::init(GLuint _width, GLuint _height)
 {
    if(m_initialized)
       return;
+
+   glewExperimental = GL_TRUE;
+
+   GLenum glewerror = glewInit();
+   if (glewerror != GLEW_OK)
+   {
+	   std::cerr << "GLEW init error: " << glewGetErrorString(glewerror) << std::endl;
+   }
+
+   glViewport(0, 0, _width, _height);
 
    GLint vpSize[4];
    glGetIntegerv(GL_VIEWPORT, vpSize);
