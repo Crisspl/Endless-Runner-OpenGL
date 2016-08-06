@@ -4,7 +4,7 @@
 #include "Sizeable.h"
 #include "Texture.h"
 
-namespace gr
+namespace fhl
 {
 
 class TexturedSizeable

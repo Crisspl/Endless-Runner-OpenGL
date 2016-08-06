@@ -1,8 +1,8 @@
 #include "ScreenRenderer.h"
 
 ScreenRenderer::ScreenRenderer()
-      : m_shader(ut::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader")),
-        m_renderTex(ut::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex")),
+      : m_shader(fhl::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader")),
+        m_renderTex(fhl::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex")),
         m_screen(m_renderTex.getTexture())
 {
    m_renderTex.create();
@@ -15,7 +15,7 @@ void ScreenRenderer::clearColor(glm::vec4 _color)
    m_renderTex.clearColor(_color);
 }
 
-void ScreenRenderer::drawToTex(gr::Drawable& _obj)
+void ScreenRenderer::drawToTex(fhl::Drawable& _obj)
 {
    m_renderTex.drawToTex(_obj);
 }

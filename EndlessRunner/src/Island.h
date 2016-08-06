@@ -12,7 +12,7 @@
 
 class Island
       : public Collideable,
-        public gr::Drawable
+        public fhl::Drawable
 {
 public:
    explicit Island(glm::vec2 _pos);
@@ -28,7 +28,7 @@ public:
    float getSurfaceHeight() const { return m_sprite.getPosition().y; }
 
 private:
-   gr::Sprite m_sprite;
+   fhl::Sprite m_sprite;
 };
 
 #endif // ISLAND_H

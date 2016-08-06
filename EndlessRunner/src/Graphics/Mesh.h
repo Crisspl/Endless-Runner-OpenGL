@@ -19,7 +19,7 @@
 #include "Configurator.h"
 #include "Shader.h"
 
-namespace gr
+namespace fhl
 {
 
 class Mesh

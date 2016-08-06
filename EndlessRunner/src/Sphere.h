@@ -17,7 +17,7 @@
 
 class Sphere
       : public Collideable,
-        public gr::Drawable
+        public fhl::Drawable
 {
 public:
    enum State
@@ -54,7 +54,7 @@ private:
    void (Sphere:: *m_update[StateCount])(float);
 
 private:
-   gr::Sprite m_sprite;
+   fhl::Sprite m_sprite;
 
    glm::vec2 m_direction;
    float m_startVelociy;

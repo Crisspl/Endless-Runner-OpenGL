@@ -21,7 +21,7 @@ bool CircleCollider::isCollision(const RectsCollider& _collider) const
 {
    for(short i = 0; i < _collider.getRectsCount(); i++)
    {
-      const ut::Rect& rect = _collider[i];
+      const fhl::Rect& rect = _collider[i];
       glm::vec2 halfExtens = rect.getSize() / 2.f;
       glm::vec2 rectCenter = rect.botLeft() + halfExtens;
       glm::vec2 distanceVec = m_center - rectCenter;

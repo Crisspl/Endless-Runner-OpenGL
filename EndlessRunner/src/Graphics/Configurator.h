@@ -13,7 +13,7 @@
 
 #include "Buffer.h"
 
-namespace gr
+namespace fhl
 {
 
 class Configurator

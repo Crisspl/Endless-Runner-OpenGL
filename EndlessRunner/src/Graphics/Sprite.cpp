@@ -3,14 +3,14 @@
 #include <iostream>
 #include <algorithm>
 
-namespace gr
+namespace fhl
 {
 
 bool Sprite::LIGHT_SHADER_LOADED = false;
 
 Sprite::Sprite()
    : TexturedSizeable(nullptr),
-     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
@@ -19,7 +19,7 @@ Sprite::Sprite()
 
 Sprite::Sprite(Texture& _tex)
    : TexturedSizeable(&_tex, _tex.getSize()),
-     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
@@ -29,7 +29,7 @@ Sprite::Sprite(Texture& _tex)
 void Sprite::setShader(Shader& _shader)
 {
    m_shader = &_shader;
-   m_usingOriginalShader = ( _shader == ut::ResMgr::getShader(SHADER_NAME) || _shader == ut::ResMgr::getShader(LIGHT_SHADER_NAME));
+   m_usingOriginalShader = ( _shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
 }
 
 void Sprite::setTexture(Texture& _tex, bool _changeSize)
@@ -39,7 +39,7 @@ void Sprite::setTexture(Texture& _tex, bool _changeSize)
       setSize(_tex.getSize());
 }
 
-void Sprite::setTextureRect(ut::Rect _rect, bool _changeSize)
+void Sprite::setTextureRect(fhl::Rect _rect, bool _changeSize)
 {
    if(!m_ptexture)
       return;
@@ -57,7 +57,7 @@ void Sprite::setTextureRect(ut::Rect _rect, bool _changeSize)
 
 void Sprite::setLight(const Light& _light)
 {
-   m_shader = &ut::ResMgr::getShader(LIGHT_SHADER_NAME);
+   m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
    m_usingOriginalShader = true;
    m_shader->setLight("light", _light);
 }
@@ -91,15 +91,15 @@ void Sprite::draw() const
    glUseProgram(0);
 }
 
-ut::Rect Sprite::getAABB() const
+fhl::Rect Sprite::getAABB() const
 {
    glm::vec2 bl = getPosition() - getOrigin();
-   return ut::Rect(bl, m_size);
+   return fhl::Rect(bl, m_size);
 }
 
-ut::OrientedRect Sprite::getOBB() const
+fhl::OrientedRect Sprite::getOBB() const
 {
-   ut::OrientedRect rect(m_size, getTransformData());
+   fhl::OrientedRect rect(m_size, getTransformData());
 
    return rect;
 }
@@ -108,7 +108,7 @@ void Sprite::setUp()
 {
    if(!LIGHT_SHADER_LOADED)
    {
-      ut::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
       LIGHT_SHADER_LOADED = true;
    }
 

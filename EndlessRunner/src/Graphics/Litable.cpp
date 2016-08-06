@@ -1,6 +1,6 @@
 #include "Litable.h"
 
-namespace gr
+namespace fhl
 {
 
 Litable::Litable(Shader& _shader)

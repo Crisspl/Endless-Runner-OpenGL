@@ -3,8 +3,8 @@
 Island::Island(glm::vec2 _pos)
           : Collideable(Collideable::Coll_Island)
 {
-   m_sprite.setTexture(ut::ResMgr::getTexture("islandTex"));
-   ut::ResMgr::getTexture("islandTex").setRepeated(true);
+   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex"));
+   fhl::ResMgr::getTexture("islandTex").setRepeated(true);
 
    std::size_t size = sup::getRand(7, 14);
 
@@ -19,7 +19,7 @@ Island::~Island()
 
 std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
 {
-   ut::Rect *rect = new ut::Rect(m_sprite.getAABB());
+   fhl::Rect *rect = new fhl::Rect(m_sprite.getAABB());
 
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }

@@ -6,7 +6,7 @@
 #include "../Graphics/Shader.h"
 #include "../Graphics/Texture.h"
 
-namespace ut
+namespace fhl
 {
 
 class ResMgr final
@@ -14,12 +14,12 @@ class ResMgr final
    ResMgr() = delete;
 
 public:
-   static gr::Shader& loadShader(std::string _vertPath, std::string _fragPath, std::string _name);
-   static gr::Texture& loadTexture(std::string _path, std::string _name);
-   static gr::Texture& loadTexture(glm::tvec2<GLint> _size, std::string _name);
+   static fhl::Shader& loadShader(std::string _vertPath, std::string _fragPath, std::string _name);
+   static fhl::Texture& loadTexture(std::string _path, std::string _name);
+   static fhl::Texture& loadTexture(glm::tvec2<GLint> _size, std::string _name);
 
-   static gr::Shader& getShader(std::string _name);
-   static gr::Texture& getTexture(std::string _name);
+   static fhl::Shader& getShader(std::string _name);
+   static fhl::Texture& getTexture(std::string _name);
 
    static bool isShaderLoaded(std::string _name);
    static bool isTextureLoaded(std::string _name);
@@ -27,8 +27,8 @@ public:
    static void clear();
 
 private:
-   static std::map<std::string, gr::Shader> m_shaders;
-   static std::map<std::string, gr::Texture> m_textures;
+   static std::map<std::string, fhl::Shader> m_shaders;
+   static std::map<std::string, fhl::Texture> m_textures;
 };
 
 } // ns

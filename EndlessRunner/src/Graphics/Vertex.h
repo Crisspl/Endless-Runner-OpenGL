@@ -5,7 +5,7 @@
 
 #include "Color.h"
 
-namespace gr
+namespace fhl
 {
 
 struct Vertex

@@ -47,9 +47,9 @@ private:
    Hero m_hero;
    Sphere m_sphere;
    std::vector<Island> m_vecIslands;
-   gr::Model m_model;
+   fhl::Model m_model;
 
-   ut::Clock m_timer;
+   fhl::Clock m_timer;
    float dt;
 
    bool m_running;

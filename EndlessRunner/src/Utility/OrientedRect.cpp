@@ -2,10 +2,10 @@
 
 #include "../Graphics/Transformable.h"
 
-namespace ut
+namespace fhl
 {
 
-OrientedRect::OrientedRect(glm::vec2 _size, gr::TransformData _data)
+OrientedRect::OrientedRect(glm::vec2 _size, fhl::TransformData _data)
    : Rect(_size),
      m_radAngle(0)
 {
@@ -79,7 +79,7 @@ Rect& OrientedRect::move(glm::vec2 _offset)
    return Rect::move(offset);
 }
 
-void OrientedRect::applyTransformData(const gr::TransformData& _data)
+void OrientedRect::applyTransformData(const fhl::TransformData& _data)
 {
    rotate(_data.origin, _data.rotation);
    Rect::move(_data.botLeft);

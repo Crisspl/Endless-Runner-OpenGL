@@ -14,7 +14,7 @@ Game::Game()
         m_running(true),
         m_model("Resources/cliff/Cliff_new.obj")
 {
-   ut::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
+   fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
 
    m_hero.setPosition({200.f, WIN_Y});
 
@@ -54,7 +54,7 @@ void Game::initSystems()
 
    SDL_GL_SetSwapInterval(1);
 
-   gr::Configurator::init(WIN_X, WIN_Y);
+   fhl::Configurator::init(WIN_X, WIN_Y);
 }
 
 void Game::mainLoop()
@@ -143,27 +143,27 @@ void Game::update()
 
    m_model.move({-1.f, 0, 0});
 
-   gr::Light light;
+   fhl::Light light;
    light.position = glm::vec3(m_hero.getPosition(), 300.f);
-   light.color = gr::Color(129, 240, 232);
-   //light.color = gr::Color(237, 183, 223);
+   light.color = fhl::Color(129, 240, 232);
+   //light.color = fhl::Color(237, 183, 223);
    light.linear = 0.005f;
    light.quadratic = 0.00004f;
    light.cutOffAngle = 15.f;
    light.illuminance = 1.6f;
-   light.type = gr::Light::Spot;
+   light.type = fhl::Light::Spot;
 
-   gr::Light light2;
+   fhl::Light light2;
    light2.direction = {-0.4f, 0.5f, -0.1f};
-   light2.color = gr::Color::Red;
-   light2.type = gr::Light::Directional;
+   light2.color = fhl::Color::Red;
+   light2.type = fhl::Light::Directional;
 
-   gr::Light light3;
-   light3.color = gr::Color::Blue;
+   fhl::Light light3;
+   light3.color = fhl::Color::Blue;
    light3.illuminance = 1.f;
    light3.position = glm::vec3(m_sphere.getPosition(), 300.f);
    light3.cutOffAngle = 15;
-   light3.type = gr::Light::Spot;
+   light3.type = fhl::Light::Spot;
 
    m_model.setLights({light, light2, light3});
 }
@@ -201,7 +201,7 @@ int Game::isHeroOnIsland()
 
 glm::vec2 Game::countThrowDir()
 {
-   glm::vec2 dir = gr::Configurator::getMousePosition() - m_hero.getPosition();
+   glm::vec2 dir = fhl::Configurator::getMousePosition() - m_hero.getPosition();
    dir = glm::normalize(dir);
 
    return dir;

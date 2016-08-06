@@ -1,13 +1,13 @@
 #include "ColoredRect.h"
 
-namespace gr
+namespace fhl
 {
 
 bool ColoredRect::LIGHT_SHADER_LOADED = false;
 
 ColoredRect::ColoredRect(glm::vec2 _size)
    : Sizeable(_size),
-     Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_color(Color::Transparent),
      m_usingOriginalShader(true)
 {
@@ -17,12 +17,12 @@ ColoredRect::ColoredRect(glm::vec2 _size)
 void ColoredRect::setShader(Shader& _shader)
 {
    m_shader = &_shader;
-   m_usingOriginalShader = ( _shader == ut::ResMgr::getShader(SHADER_NAME) || _shader == ut::ResMgr::getShader(LIGHT_SHADER_NAME));
+   m_usingOriginalShader = ( _shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
 }
 
 void ColoredRect::setLight(const Light& _light)
 {
-   m_shader = &ut::ResMgr::getShader(LIGHT_SHADER_NAME);
+   m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
    m_usingOriginalShader = true;
    m_shader->setLight("light", _light);
 }
@@ -51,7 +51,7 @@ void ColoredRect::setUp()
 {
    if(!LIGHT_SHADER_LOADED)
    {
-      ut::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
       LIGHT_SHADER_LOADED = true;
    }
 

@@ -14,7 +14,7 @@
 #include "Configurator.h"
 #include "Vao.h"
 
-namespace gr
+namespace fhl
 {
 
 class VertexArray

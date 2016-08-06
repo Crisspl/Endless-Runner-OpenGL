@@ -1,6 +1,6 @@
 #include "Light.h"
 
-namespace gr
+namespace fhl
 {
 
 Light::Light()

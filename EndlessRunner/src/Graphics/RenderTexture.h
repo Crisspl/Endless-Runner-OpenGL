@@ -8,7 +8,7 @@
 #include "Texture.h"
 #include "Drawable.h"
 
-namespace gr
+namespace fhl
 {
 
 class RenderTexture // TODO

@@ -9,7 +9,7 @@
 class AnimationMgr
 {
 public:
-   AnimationMgr(gr::Sprite* _sprt, float _interval, glm::vec2 _fSize);
+   AnimationMgr(fhl::Sprite* _sprt, float _interval, glm::vec2 _fSize);
 
 public:
    void update(float _dt);
@@ -18,7 +18,7 @@ public:
    AnimationMgr& setFrameSize(glm::vec2 _size) { m_frameSize = _size; return *this; }
 
 private:
-   gr::Sprite* m_ptrSprite;
+   fhl::Sprite* m_ptrSprite;
    float m_currentFrameTime;
    std::size_t m_currentRow;
    std::size_t m_frameCounter;

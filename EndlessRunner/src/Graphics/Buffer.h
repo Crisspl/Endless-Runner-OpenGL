@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-namespace gr
+namespace fhl
 {
 
 struct Buffer

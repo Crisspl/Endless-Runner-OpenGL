@@ -1,35 +1,35 @@
 #include "ResMgr.h"
 
-namespace ut
+namespace fhl
 {
 
-std::map<std::string, gr::Shader> ResMgr::m_shaders;
-std::map<std::string, gr::Texture> ResMgr::m_textures;
+std::map<std::string, fhl::Shader> ResMgr::m_shaders;
+std::map<std::string, fhl::Texture> ResMgr::m_textures;
 
-gr::Shader& ResMgr::loadShader(std::string _vertPath, std::string _fragPath, std::string _name)
+fhl::Shader& ResMgr::loadShader(std::string _vertPath, std::string _fragPath, std::string _name)
 {
    m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vertPath, _fragPath));
    return m_shaders[_name];
 }
 
-gr::Texture& ResMgr::loadTexture(std::string _path, std::string _name)
+fhl::Texture& ResMgr::loadTexture(std::string _path, std::string _name)
 {
    m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
    return m_textures[_name];
 }
 
-gr::Texture& ResMgr::loadTexture(glm::tvec2<GLint> _size, std::string _name)
+fhl::Texture& ResMgr::loadTexture(glm::tvec2<GLint> _size, std::string _name)
 {
-   m_textures[_name] = gr::Texture(_size);
+   m_textures[_name] = fhl::Texture(_size);
    return m_textures[_name];
 }
 
-gr::Shader& ResMgr::getShader(std::string _name)
+fhl::Shader& ResMgr::getShader(std::string _name)
 {
    return m_shaders[_name];
 }
 
-gr::Texture& ResMgr::getTexture(std::string _name)
+fhl::Texture& ResMgr::getTexture(std::string _name)
 {
    return m_textures[_name];
 }

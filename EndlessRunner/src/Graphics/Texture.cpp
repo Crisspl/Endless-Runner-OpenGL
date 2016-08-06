@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-namespace gr
+namespace fhl
 {
 
 Texture::Texture(vec2i _size)

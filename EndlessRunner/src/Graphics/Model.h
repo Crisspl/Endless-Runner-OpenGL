@@ -16,7 +16,7 @@
 #include "Transformable3D.h"
 #include "Litable.h"
 
-namespace gr
+namespace fhl
 {
 
 class Model
@@ -28,7 +28,7 @@ public:
    explicit Model(std::string _path);
    void draw() const override;
 
-   void setShader(Shader& _shader = ut::ResMgr::getShader(SHADER_NAME)) override;
+   void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
    void setLight(const Light& _light) override;
    void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights) override;
 

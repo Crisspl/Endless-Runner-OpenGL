@@ -2,7 +2,7 @@
 
 #include "../Graphics/Transformable.h"
 
-namespace ut
+namespace fhl
 {
 
 std::array<glm::vec2, 2> Rect::s_axes = {{ {1, 0}, {0, 1} }};

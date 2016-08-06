@@ -11,7 +11,7 @@
 #include "Buffer.h"
 #include "Vao.h"
 
-namespace gr
+namespace fhl
 {
 
 class Sizeable

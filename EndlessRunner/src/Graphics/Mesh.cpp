@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-namespace gr
+namespace fhl
 {
 
 Mesh::Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures)

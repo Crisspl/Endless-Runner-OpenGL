@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 
-namespace mt {
+namespace fhl {
 
 	template<typename _T>
 	struct Vec3

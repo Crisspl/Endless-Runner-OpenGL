@@ -6,16 +6,16 @@
 #include "Rect.h"
 #include "../Graphics/Sprite.h"
 
-namespace gr { struct TransformData; class Sprite; }
+namespace fhl { struct TransformData; class Sprite; }
 
-namespace ut
+namespace fhl
 {
 
 class OrientedRect
    : public Rect
 {
 public:
-   OrientedRect(glm::vec2 _size, gr::TransformData _data);
+   OrientedRect(glm::vec2 _size, fhl::TransformData _data);
    OrientedRect(glm::vec2 _botLeft, glm::vec2 _size, glm::vec2 _origin, float _rot);
 
    bool contains(glm::vec2 _p) const override;
@@ -28,7 +28,7 @@ public:
    const std::array<glm::vec2, 2>& getAxes() const override { return m_axes; }
 
 private:
-   void applyTransformData(const gr::TransformData& _data);
+   void applyTransformData(const fhl::TransformData& _data);
    void rotate(glm::vec2 _ori, float _angle);
    void calcAxes();
 

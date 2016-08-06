@@ -1,6 +1,6 @@
 #include "WithShader.h"
 
-namespace gr
+namespace fhl
 {
 
 WithShader::WithShader(Shader& _shader)
@@ -18,4 +18,4 @@ void WithShader::setShader(Shader& _shader)
    m_shader = &_shader;
 }
 
-} // gr
+} // ns

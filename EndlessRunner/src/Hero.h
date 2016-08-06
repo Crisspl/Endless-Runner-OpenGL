@@ -14,7 +14,7 @@
 
 class Hero
       : public Collideable,
-        public gr::Drawable
+        public fhl::Drawable
 {
 public:
    enum State
@@ -58,7 +58,7 @@ private:
 
 private:
    State m_currentState;
-   gr::Sprite m_heroSprite;
+   fhl::Sprite m_heroSprite;
    AnimationMgr m_animMgr;
    glm::vec2 m_velocity;
 

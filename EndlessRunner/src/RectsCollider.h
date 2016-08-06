@@ -15,7 +15,7 @@ class RectsCollider
    : public Collider
 {
 public:
-   RectsCollider(std::vector<ut::Rect> _rects);
+   RectsCollider(std::vector<fhl::Rect> _rects);
    ~RectsCollider(){ }
 
 public:
@@ -23,11 +23,11 @@ public:
    virtual bool isCollision(const RectsCollider& _collider) const override;
    virtual bool isCollision(const BoxCollider& _collider) const override { return false; }
 
-   ut::Rect operator[](unsigned _index) const;
+   fhl::Rect operator[](unsigned _index) const;
    unsigned getRectsCount() const { return m_vecRects.size(); }
 
 private:
-   std::vector<ut::Rect> m_vecRects;
+   std::vector<fhl::Rect> m_vecRects;
 };
 
 #endif // RECTSCOLLIDER_H

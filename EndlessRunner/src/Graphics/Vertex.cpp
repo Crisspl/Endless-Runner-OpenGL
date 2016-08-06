@@ -1,6 +1,6 @@
 #include "Vertex.h"
 
-namespace gr
+namespace fhl
 {
 
 Vertex::Vertex(glm::vec2 _pos, Color _col)

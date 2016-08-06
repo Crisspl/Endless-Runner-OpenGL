@@ -4,7 +4,7 @@
 #include "WithShader.h"
 #include "Light.h"
 
-namespace gr
+namespace fhl
 {
 
 class Litable

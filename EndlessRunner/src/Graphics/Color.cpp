@@ -1,6 +1,6 @@
 #include "Color.h"
 
-namespace gr
+namespace fhl
 {
 
 const Color Color::White = Color(glm::vec4(255.f));

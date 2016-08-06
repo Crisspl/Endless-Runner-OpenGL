@@ -1,6 +1,6 @@
 #include "RenderTexture.h"
 
-namespace gr
+namespace fhl
 {
 
 RenderTexture::RenderTexture(Texture& _tex)

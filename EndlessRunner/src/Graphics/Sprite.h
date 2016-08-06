@@ -16,9 +16,9 @@
 #include "Litable.h"
 #include "../Utility/OrientedRect.h"
 
-namespace ut { class OrientedRect; }
+namespace fhl { class OrientedRect; }
 
-namespace gr
+namespace fhl
 {
 
 class Sprite
@@ -34,14 +34,14 @@ public:
 public:
    const Texture* getTexture() const { return m_ptexture; }
 
-   void setShader(Shader& _shader = ut::ResMgr::getShader(SHADER_NAME)) override;
+   void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
    void setTexture(Texture& _tex, bool _changeSize = true);
-   void setTextureRect(ut::Rect _rect, bool _changeSize = false);
+   void setTextureRect(fhl::Rect _rect, bool _changeSize = false);
    void setColor(const Color _color) { m_color = _color; }
    void setLight(const Light& _light) override;
    void draw() const override;
-   ut::Rect getAABB() const;
-   ut::OrientedRect getOBB() const;
+   fhl::Rect getAABB() const;
+   fhl::OrientedRect getOBB() const;
 
 private:
    void setUp();

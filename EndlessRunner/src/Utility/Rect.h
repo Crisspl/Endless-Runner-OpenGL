@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 #include <array>
 
-namespace ut{
+namespace fhl{
 
 struct Projection
 {

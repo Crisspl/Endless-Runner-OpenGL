@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
    Game::get().run();
 
-   ut::ResMgr::clear();
+   fhl::ResMgr::clear();
 
    return 0;
 }

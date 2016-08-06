@@ -1,6 +1,6 @@
 #include "TexturedSizeable.h"
 
-namespace gr
+namespace fhl
 {
 
 TexturedSizeable::TexturedSizeable(Texture* _tex, glm::vec2 _size)

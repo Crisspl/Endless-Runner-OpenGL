@@ -1,7 +1,7 @@
 #include "BoxCollider.h"
 #include "CircleCollider.h"
 
-BoxCollider::BoxCollider(ut::Rect *_rect)
+BoxCollider::BoxCollider(fhl::Rect *_rect)
    : Collider(Collider::Box),
      m_rect(_rect)
 {

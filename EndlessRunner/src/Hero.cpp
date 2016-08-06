@@ -11,7 +11,7 @@
 Hero::Hero()
       : Collideable(Collideable::Coll_Hero),
         m_currentState(StateCount),
-        m_heroSprite(ut::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex")),
+        m_heroSprite(fhl::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex")),
         m_animMgr(&m_heroSprite, 0.15f, {50, 50})
 {
    REGISTER_HERO_STATES(Move)
@@ -27,9 +27,9 @@ Hero::Hero()
 
 std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 {
-   ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getOBB());
-   //ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
-   //ut::Rect *rect = new ut::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
+   fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getOBB());
+   //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
+   //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 
    rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});

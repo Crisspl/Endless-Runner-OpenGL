@@ -1,6 +1,6 @@
 #include "Vao.h"
 
-namespace gr
+namespace fhl
 {
 
 Vao::Vao()

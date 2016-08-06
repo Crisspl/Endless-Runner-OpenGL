@@ -16,7 +16,7 @@
 #include "../Utility/ResMgr.h"
 #include "Litable.h"
 
-namespace gr
+namespace fhl
 {
 
 class ColoredRect
@@ -32,7 +32,7 @@ public:
 
    Transformable& setColor(Color _color) { m_color = _color;
                                            return *this; }
-   void setShader(Shader& _shader = ut::ResMgr::getShader(SHADER_NAME)) override;
+   void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
    void setLight(const Light& _light) override;
 
    void draw() const override;

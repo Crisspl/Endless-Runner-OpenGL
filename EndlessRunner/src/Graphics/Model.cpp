@@ -1,13 +1,13 @@
 #include "Model.h"
 
-namespace gr
+namespace fhl
 {
 
 unsigned Model::m_createdNumber = 0;
 bool Model::s_lightShaderLoaded = false;
 
 Model::Model(std::string _path)
-   : Litable(ut::ResMgr::isShaderLoaded(SHADER_NAME) ? ut::ResMgr::getShader(SHADER_NAME) : ut::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+   : Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
      m_usingOriginalShader(true)
 {
    loadModel(_path);
@@ -16,7 +16,7 @@ Model::Model(std::string _path)
 
    if(!s_lightShaderLoaded)
    {
-      ut::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
       s_lightShaderLoaded = true;
    }
 }
@@ -45,19 +45,19 @@ void Model::draw() const
 void Model::setShader(Shader& _shader)
 {
    m_shader = &_shader;
-   m_usingOriginalShader = ( _shader == ut::ResMgr::getShader(SHADER_NAME) || _shader == ut::ResMgr::getShader(LIGHT_SHADER_NAME));
+   m_usingOriginalShader = ( _shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
 }
 
 void Model::setLight(const Light& _light)
 {
-   m_shader = &ut::ResMgr::getShader(LIGHT_SHADER_NAME);
+   m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
    m_usingOriginalShader = true;
    Litable::setLight(_light);
 }
 
 void Model::setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights)
 {
-   m_shader = &ut::ResMgr::getShader(LIGHT_SHADER_NAME);
+   m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
    m_usingOriginalShader = true;
    Litable::setLights(_lights);
 }
@@ -199,7 +199,7 @@ std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr,
          std::string filePath = m_directory + '/' + str.C_Str();
          std::string modelName = 'M' + std::to_string(m_createdNumber);
 
-         texture.id = ut::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
+         texture.id = fhl::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
                                                                                                      .getId();
          texture.type = _texTypeName;
          texture.fileName = str;

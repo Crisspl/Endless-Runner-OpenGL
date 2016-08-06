@@ -2,7 +2,7 @@
 
 #include "CircleCollider.h"
 
-RectsCollider::RectsCollider(std::vector<ut::Rect> _rects)
+RectsCollider::RectsCollider(std::vector<fhl::Rect> _rects)
                         : Collider(Collider::Rects),
                           m_vecRects(_rects)
 {
@@ -27,7 +27,7 @@ bool RectsCollider::isCollision(const RectsCollider& _collider) const
    return false;
 }
 
-ut::Rect RectsCollider::operator[](unsigned _index) const
+fhl::Rect RectsCollider::operator[](unsigned _index) const
 {
    return m_vecRects[_index];
 }

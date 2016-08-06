@@ -1,6 +1,6 @@
 #include "Configurator.h"
 
-namespace gr
+namespace fhl
 {
 glm::mat4 Configurator::ortView;
 glm::mat4 Configurator::ortProjection;

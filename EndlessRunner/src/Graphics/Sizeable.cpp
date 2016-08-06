@@ -1,6 +1,6 @@
 #include "Sizeable.h"
 
-namespace gr
+namespace fhl
 {
 
 Sizeable::Sizeable(glm::vec2 _size)

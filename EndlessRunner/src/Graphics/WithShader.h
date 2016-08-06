@@ -3,7 +3,7 @@
 
 #include "Shader.h"
 
-namespace gr
+namespace fhl
 {
 
 class WithShader

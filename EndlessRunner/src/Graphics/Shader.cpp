@@ -1,6 +1,6 @@
 #include "Shader.h"
 
-namespace gr
+namespace fhl
 {
 
 Shader::Shader(std::string _vPath, std::string _fPath)

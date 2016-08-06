@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 #include <algorithm>
 
-namespace gr
+namespace fhl
 {
 
 struct Color

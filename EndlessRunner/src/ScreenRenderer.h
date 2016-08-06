@@ -15,13 +15,13 @@ public:
 
 public:
    void clearColor(glm::vec4 _color);
-   void drawToTex(gr::Drawable& _obj);
+   void drawToTex(fhl::Drawable& _obj);
    void drawToScreen();
 
 private:
-   gr::Shader& m_shader;
-   gr::RenderTexture m_renderTex;
-   gr::Sprite m_screen;
+   fhl::Shader& m_shader;
+   fhl::RenderTexture m_renderTex;
+   fhl::Sprite m_screen;
 };
 
 #endif // SCREENRENDERER_H

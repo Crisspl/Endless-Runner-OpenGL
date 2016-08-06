@@ -11,15 +11,15 @@
 #include <tuple>
 #include <iostream>
 
-namespace ut { class ResMgr; }
+namespace fhl { class ResMgr; }
 
-namespace gr
+namespace fhl
 {
 
 class Texture
 {
 
-   friend class ut::ResMgr;
+   friend class fhl::ResMgr;
 
    template<class A, class B>
       friend struct std::pair;

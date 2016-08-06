@@ -1,6 +1,6 @@
 #include "Buffer.h"
 
-namespace gr
+namespace fhl
 {
 
 Buffer::Buffer(GLuint _target, GLuint _usage)
