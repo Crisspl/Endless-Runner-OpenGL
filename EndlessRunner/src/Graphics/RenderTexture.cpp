@@ -1,5 +1,7 @@
 #include "RenderTexture.h"
 
+#include "../Utility/Debug.h"
+
 namespace fhl
 {
 
@@ -23,7 +25,7 @@ bool RenderTexture::create()
 
    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
    {
-      std::cout << "Framebuffer is not complete! <RenderTexture>" << std::endl;
+      fhl::DebugLog << "Framebuffer is not complete! <fhl::RenderTexture>" << '\n';
       return false;
    }
    glBindFramebuffer(GL_FRAMEBUFFER, 0);

@@ -1,5 +1,7 @@
 #include "Shader.h"
 
+#include "../Utility/Debug.h"
+
 namespace fhl
 {
 
@@ -17,7 +19,7 @@ Shader::Shader(std::string _vPath, std::string _fPath)
    if(!success)
    {
       glGetProgramInfoLog(m_shaderProgram, 0x200, nullptr, infoLog);
-      std::cout<<"Linking of shader program failed.\n"<<infoLog<<std::endl;
+      fhl::DebugLog << "Linking of shader program failed.\n" << infoLog << '\n';
    }
 }
 
@@ -141,7 +143,7 @@ void Shader::compileShader(std::string _path, GLenum _type)
    if(!success)
    {
       glGetShaderInfoLog(shader, 0x200, nullptr, infoLog);
-      std::cerr<<"Failed to compile a shader " << _path << " !\n" << infoLog << std::endl;
+      fhl::DebugLog << "Failed to compile a shader " << _path << '\n' << infoLog << '\n';
    }
 
    glAttachShader(m_shaderProgram, shader);

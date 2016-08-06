@@ -156,6 +156,7 @@
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\Utility\Clock.cpp" />
+    <ClCompile Include="src\Utility\Debug.cpp" />
     <ClCompile Include="src\Utility\OrientedRect.cpp" />
     <ClCompile Include="src\Utility\Rect.cpp" />
     <ClCompile Include="src\Utility\ResMgr.cpp" />
@@ -167,7 +168,6 @@
     <ClInclude Include="src\CircleCollider.h" />
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
-    <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Global.h" />
     <ClInclude Include="src\Graphics\Buffer.h" />
@@ -202,6 +202,7 @@
     <ClInclude Include="src\ScreenRenderer.h" />
     <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Utility\Clock.h" />
+    <ClInclude Include="src\Utility\Debug.h" />
     <ClInclude Include="src\Utility\OrientedRect.h" />
     <ClInclude Include="src\Utility\Rect.h" />
     <ClInclude Include="src\Utility\ResMgr.h" />

@@ -53,8 +53,6 @@ std::tuple<unsigned char*, glm::vec2, GLuint> Texture::loadImage(std::string _fi
    GLuint id;
    vec2i size;
    unsigned char* image = SOIL_load_image(_filePath.c_str(), &size.x, &size.y, 0, SOIL_LOAD_RGBA);
-   std::cout << "load tex: " << _filePath << std::endl;
-   std::cout << size.x << ' ' << size.y <<std::endl;
 
    glGenTextures(1, &id);
    glBindTexture(GL_TEXTURE_2D, id);

@@ -1,5 +1,7 @@
 #include "Configurator.h"
 
+#include "../Utility/Debug.h"
+
 namespace fhl
 {
 glm::mat4 Configurator::ortView;
@@ -29,7 +31,7 @@ void Configurator::init(GLuint _width, GLuint _height)
    GLenum glewError = glewInit();
 
    if (glewError != GLEW_OK)
-	   std::cerr << "GLEW init error: " << glewGetErrorString(glewError) << '\n';
+	   fhl::DebugLog << "GLEW init error: " << glewGetErrorString(glewError) << '\n';
 
    glViewport(0, 0, _width, _height);
 

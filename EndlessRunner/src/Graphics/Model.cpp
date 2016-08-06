@@ -1,5 +1,7 @@
 #include "Model.h"
 
+#include "../Utility/Debug.h"
+
 namespace fhl
 {
 
@@ -69,7 +71,7 @@ void Model::loadModel(std::string _path)
 
    if(!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
    {
-      std::cout << "Error loading model: " << importer.GetErrorString() << std::endl;
+	  fhl::DebugLog << "Error loading model: " << importer.GetErrorString() << '\n';
       return;
    }
 
@@ -169,8 +171,6 @@ void Model::calcSize()
                *y.second - *y.first,
                *z.second - *z.first
             };
-
-   std::cout << m_size.x << ' ' << m_size.y << ' ' << m_size.z << std::endl;
 }
 
 std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName)

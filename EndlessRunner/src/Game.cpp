@@ -4,7 +4,7 @@
 
 #include "Maths/Vectors.h"
 
-#include "Debug.h"
+#include "Utility/Debug.h"
 
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
