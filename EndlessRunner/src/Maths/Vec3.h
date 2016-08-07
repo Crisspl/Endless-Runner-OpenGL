@@ -13,6 +13,14 @@ namespace fhl {
 		explicit Vec3(_T _scalar) : x(_scalar), y(_scalar), z(_scalar) { }
 		Vec3(_T _x, _T _y, _T _z) : x(_x), y(_y), z(_z) { }
 
+		template<typename _U>
+		explicit Vec3(const Vec3<_U>& _other)
+			: x(static_cast<_T>(_other.x)),
+			  y(static_cast<_T>(_other.y)),
+			  z(static_cast<_T>(_other.z))
+		{ }
+
+
 		friend Vec3<_T> operator+(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x + _right.x, _left.y + _right.y, _left.z + _right.z }; }
 
 		friend Vec3<_T> operator-(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x - _right.x, _left.y - _right.y, _left.z - _right.z }; }

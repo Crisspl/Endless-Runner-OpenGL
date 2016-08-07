@@ -13,6 +13,13 @@ struct Vec2
    explicit Vec2(_T _scalar) : x(_scalar), y(_scalar) { }
    Vec2(_T _x, _T _y) : x(_x), y(_y) { }
 
+   template<typename _U>
+	explicit Vec2(const Vec2<_U>& _other) 
+		: x(static_cast<_T>(_other.x)),
+		  y(static_cast<_T>(_other.y))
+	{ }
+
+
    friend Vec2<_T> operator+(const Vec2<_T>& _left, const Vec2<_T>& _right) { return { _left.x + _right.x, _left.y + _right.y }; }
 
    friend Vec2<_T> operator-(const Vec2<_T>& _left, const Vec2<_T>& _right) { return { _left.x - _right.x, _left.y - _right.y }; }

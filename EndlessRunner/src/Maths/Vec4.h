@@ -13,6 +13,15 @@ namespace fhl {
 		explicit Vec4(_T _scalar) : x(_scalar), y(_scalar), z(_scalar), w(_scalar) { }
 		Vec4(_T _x, _T _y, _T _z, _T _w) : x(_x), y(_y), z(_z), w(_w) { }
 
+		template<typename _U>
+		explicit Vec4(const Vec4<_U>& _other)
+			: x(static_cast<_T>(_other.x)),
+			  y(static_cast<_T>(_other.y)),
+			  z(static_cast<_T>(_other.z)),
+			  w(static_cast<_T>(_other.w))
+		{ }
+
+
 		friend Vec4<_T> operator+(const Vec4<_T>& _left, const Vec4<_T>& _right) { return{ _left.x + _right.x, _left.y + _right.y, _left.z + _right.z, _left.w + _right.w }; }
 
 		friend Vec4<_T> operator-(const Vec4<_T>& _left, const Vec4<_T>& _right) { return{ _left.x - _right.x, _left.y - _right.y, _left.z - _right.z, _left.w - _right.w }; }
