@@ -36,6 +36,8 @@ struct Mat4
 	static Mat4 transpose(Mat4 _mat);
 	Mat4 transposed();
 
+	float* data() { return m_elements; }
+
 
 private:
 	union
