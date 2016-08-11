@@ -64,6 +64,13 @@ void Model::setLights(const std::initializer_list<std::reference_wrapper<Light>>
    Litable::setLights(_lights);
 }
 
+void Model::setLights(std::vector<Light>& _lights)
+{
+	m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
+	m_usingOriginalShader = true;
+	Litable::setLights(_lights);
+}
+
 void Model::loadModel(std::string _path)
 {
    Assimp::Importer importer;

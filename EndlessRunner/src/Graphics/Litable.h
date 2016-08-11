@@ -16,6 +16,7 @@ public:
 
    virtual void setLight(const Light& _light);
    virtual void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights);
+   virtual void setLights(std::vector<Light> & _lights);
 };
 
 }

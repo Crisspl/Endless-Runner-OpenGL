@@ -18,4 +18,9 @@ void Litable::setLights(const std::initializer_list<std::reference_wrapper<Light
    m_shader->setLights("light", _lights);
 }
 
+void Litable::setLights(std::vector<Light>& _lights)
+{
+	m_shader->setLights("light", _lights);
+}
+
 } // ns

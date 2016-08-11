@@ -101,7 +101,7 @@ const Shader& Shader::setLight(const GLchar* _name, const Light& _light) const
    return *this;
 }
 
-const Shader& Shader::setLight(const GLchar* _name, const Light& _light, int _num) const
+const Shader& Shader::setLight(const GLchar* _name, const Light& _light, size_t _num) const
 {
    std::string name(_name);
    name += '[' + std::to_string(_num) + ']';
@@ -114,6 +114,14 @@ const Shader& Shader::setLights(const GLchar* _name, const std::initializer_list
    for(auto& l : _lights)
       setLight(_name, l, n++);
    return setInt("lightsCount", _lights.size());
+}
+
+const Shader & Shader::setLights(const GLchar * _name, std::vector<Light>& _lights) const
+{
+	size_t n = 0;
+	for (auto& l : _lights)
+		setLight(_name, l, n++);
+	return setInt("lightsCount", _lights.size());
 }
 
 bool Shader::operator==(const Shader& _outer)

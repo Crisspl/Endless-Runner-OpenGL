@@ -15,6 +15,7 @@
 
 #include <initializer_list>
 #include <functional>
+#include <type_traits>
 
 #include "Texture.h"
 #include "Color.h"
@@ -48,9 +49,11 @@ public:
    const Shader& setVec4f(const GLchar* _name, const glm::vec4& _value) const;
    const Shader& setColor(const GLchar* _name, const Color& _value) const;
    const Shader& setMat4(const GLchar* _name, const glm::mat4& _matrix) const;
+
    const Shader& setLight(const GLchar* _name, const Light& _light) const;
-   const Shader& setLight(const GLchar* _name, const Light& _light, int _num) const;
+   const Shader& setLight(const GLchar* _name, const Light& _light, size_t _num) const;
    const Shader& setLights(const GLchar* _name, const std::initializer_list<std::reference_wrapper<Light>>& _lights) const;
+   const Shader& setLights(const GLchar* _name, std::vector<Light> & _lights) const;
 
    bool operator==(const Shader&);
    bool operator!=(const Shader&);

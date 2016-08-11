@@ -12,7 +12,7 @@ SDL_GLContext Game::m_context;
 Game::Game()
       : m_sphere(&m_hero),
         m_running(true),
-        m_model("Resources/cliff/Cliff_new.obj")
+        m_model("Resources/cliff/Cliff_new.obj"), m_va(fhl::VertexArray::Triangles)
 {
    fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
 
@@ -20,6 +20,10 @@ Game::Game()
 
    m_model.setScale(glm::vec3(12.f));
    m_model.setPosition({m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
+
+   m_va.addVertex({ {500, 500}, fhl::Color::Blue })
+	   .addVertex({ {100, 190}, fhl::Color::Red })
+	   .addVertex({ {500, 50}, fhl::Color::Green });
 }
 
 Game& Game::get()
@@ -145,7 +149,7 @@ void Game::update()
 
    fhl::Light light;
    light.position = glm::vec3(m_hero.getPosition(), 300.f);
-   light.color = fhl::Color(129, 240, 232);
+   light.color = fhl::Color(129.f / 255, 240.f / 255, 232.f / 255);
    //light.color = fhl::Color(237, 183, 223);
    light.linear = 0.005f;
    light.quadratic = 0.00004f;
@@ -176,6 +180,8 @@ void Game::draw()
    m_renderer.clearColor(glm::vec4(0.f, 0.f, 0.f, 1.f));
 
    m_renderer.drawToTex(m_model);
+
+   m_renderer.drawToTex(m_va);
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);

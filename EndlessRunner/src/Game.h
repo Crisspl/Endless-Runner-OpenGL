@@ -48,6 +48,7 @@ private:
    Sphere m_sphere;
    std::vector<Island> m_vecIslands;
    fhl::Model m_model;
+   fhl::VertexArray m_va;
 
    fhl::Clock m_timer;
    float dt;
