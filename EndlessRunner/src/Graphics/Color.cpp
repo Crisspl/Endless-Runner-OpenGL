@@ -39,7 +39,6 @@ Color::Color(std::initializer_list<float> _rgba)
 	auto it = _rgba.begin();
 	for (size_t i = 0; i < 4; i++, it++)
 		rgba[i] = _clamp(*it, 0.f, 1.f);
-	fhl::DebugLog << "init list color\n";
 }
 
 #undef _clamp

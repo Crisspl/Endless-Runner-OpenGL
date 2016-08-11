@@ -144,6 +144,12 @@
     <ClCompile Include="src\Utility\Debug.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="src\Maths\Mat4.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Maths\Maths_funcs.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AnimationMgr.h">
@@ -277,6 +283,12 @@
     </ClInclude>
     <ClInclude Include="src\Utility\Debug.h">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Mat4.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Maths_funcs.h">
+      <Filter>Header Files\Maths</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

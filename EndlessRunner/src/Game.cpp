@@ -181,7 +181,7 @@ void Game::draw()
 
    m_renderer.drawToTex(m_model);
 
-   m_renderer.drawToTex(m_va);
+   //m_renderer.drawToTex(m_va);
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);

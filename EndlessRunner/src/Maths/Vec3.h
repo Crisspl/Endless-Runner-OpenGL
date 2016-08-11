@@ -41,7 +41,7 @@ namespace fhl {
 		void operator/=(const Vec3<_T>& _other) { *this = *this / _other; }
 		void operator/=(_T _scalar) { *this = *this / _scalar; }
 
-		Vec3 operator-() const { return{ -x, -y }; }
+		Vec3<_T> operator-() const { return { -x, -y }; }
 
 		bool operator==(const Vec3<_T>& _other) const { return _other.x == x && _other.y == y && _other.z == z; }
 		bool operator!=(const Vec3<_T>& _other) const { return !(*this == _other); }
@@ -59,11 +59,11 @@ namespace fhl {
 		Vec3<_T> cross(const Vec3<_T>& _right) 
 		{
 			return
-			{
+			Vec3<_T>(
 				y * _right.z - z * _right.y,
-				z * _right.x -.x * _right.z,
+				z * _right.x - x * _right.z,
 				x * _right.y - y * _right.x
-			};
+			);
 		}
 
 		friend std::ostream& operator<<(std::ostream& _os, const Vec3<_T>& _v)

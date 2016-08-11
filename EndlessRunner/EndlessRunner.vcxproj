@@ -152,6 +152,8 @@
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Maths\Mat4.cpp" />
+    <ClCompile Include="src\Maths\Maths_funcs.cpp" />
     <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
@@ -194,6 +196,8 @@
     <ClInclude Include="src\Graphics\WithShader.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Island.h" />
+    <ClInclude Include="src\Maths\Mat4.h" />
+    <ClInclude Include="src\Maths\Maths_funcs.h" />
     <ClInclude Include="src\Maths\Vec2.h" />
     <ClInclude Include="src\Maths\Vec3.h" />
     <ClInclude Include="src\Maths\Vec4.h" />
