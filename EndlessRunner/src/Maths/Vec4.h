@@ -54,7 +54,7 @@ namespace fhl {
 
 		const _T* data() const { return &x; }
 
-		friend float dot(const Vec4<_T>& _left, const Vec4<_T>& _right) { return _left.x * _right.x + _left.y * _right.y + _left.z * _right.z + _left.w * _right.w; }
+		float dot(const Vec4<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z + w * _right.w; }
 
 		friend std::ostream& operator<<(std::ostream& _os, const Vec4<_T>& _v)
 		{

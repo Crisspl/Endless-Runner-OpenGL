@@ -55,14 +55,14 @@ namespace fhl {
 		Vec3<_T> normalized() const { return *this / length(); }
 		const _T* data() const { return &x; }
 
-		friend float dot(const Vec3<_T>& _left, const Vec3<_T>& _right) { return _left.x * _right.x + _left.y * _right.y + _left.z * _right.z; }
-		friend Vec3<_T> cross(const Vec3<_T>& _left, const Vec3<_T>& _right) 
+		float dot(const Vec3<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z; }
+		Vec3<_T> cross(const Vec3<_T>& _right) 
 		{
 			return
 			{
-				_left.y * _right.z - _left.z * _right.y,
-				_left.z * _right.x - _left.x * _right.z,
-				_left.x * _right.y - _left.y * _right.x
+				y * _right.z - z * _right.y,
+				z * _right.x -.x * _right.z,
+				x * _right.y - y * _right.x
 			};
 		}
 
