@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cmath>
 
+#include "Vec2.h"
+
 namespace fhl {
 
 	template<typename _T>
@@ -12,6 +14,7 @@ namespace fhl {
 		Vec3() : Vec3(0) { }
 		explicit Vec3(_T _scalar) : x(_scalar), y(_scalar), z(_scalar) { }
 		Vec3(_T _x, _T _y, _T _z) : x(_x), y(_y), z(_z) { }
+		Vec3(Vec2<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_n) { }
 
 		template<typename _U>
 		explicit Vec3(const Vec3<_U>& _other)
