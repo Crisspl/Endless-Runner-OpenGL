@@ -133,6 +133,7 @@
     <ClCompile Include="src\Graphics\Color.cpp" />
     <ClCompile Include="src\Graphics\ColoredRect.cpp" />
     <ClCompile Include="src\Graphics\Configurator.cpp" />
+    <ClCompile Include="src\Graphics\DrawConf.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Litable.cpp" />
     <ClCompile Include="src\Graphics\Mesh.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="src\Graphics\ColoredRect.h" />
     <ClInclude Include="src\Graphics\Configurator.h" />
     <ClInclude Include="src\Graphics\Drawable.h" />
+    <ClInclude Include="src\Graphics\DrawConf.h" />
     <ClInclude Include="src\Graphics\Light.h" />
     <ClInclude Include="src\Graphics\Litable.h" />
     <ClInclude Include="src\Graphics\Mesh.h" />

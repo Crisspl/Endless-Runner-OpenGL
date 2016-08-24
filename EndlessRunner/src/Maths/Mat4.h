@@ -31,12 +31,15 @@ struct Mat4
 	static Mat4 perspective(float _fov, float _aspectRatio, float _near, float _far);
 	static Mat4 lookAt(const Vec3f& _eye, const Vec3f& _center, const Vec3f& _up);
 	static Mat4 translate(const Vec3f& _t);
+	static Mat4 translate(Mat4 _mat, const Vec3f& _t);
 	static Mat4 scale(const Vec3f& _s);
+	static Mat4 scale(Mat4 _mat, const Vec3f& _s);
 	static Mat4 rotate(float _angle, const Vec3f& _axe);
+	static Mat4 rotate(Mat4 _mat, float _angle, const Vec3f& _axe);
 	static Mat4 transpose(Mat4 _mat);
 	Mat4 transposed();
 
-	float* data() { return m_elements; }
+	const float* data() const { return m_elements; }
 
 
 private:

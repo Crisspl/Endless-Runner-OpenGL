@@ -15,7 +15,7 @@ namespace fhl {
 		Vec4() : Vec4(0) { }
 		explicit Vec4(_T _scalar) : x(_scalar), y(_scalar), z(_scalar), w(_scalar) { }
 		Vec4(_T _x, _T _y, _T _z, _T _w) : x(_x), y(_y), z(_z), w(_w) { }
-		Vec4(Vec2<_T> _v0, Vec<_T> _v1) : x(_v0.x), y(_v0.y), z(_v1.x), w(_v1.y) { }
+		Vec4(Vec2<_T> _v0, Vec2<_T> _v1) : x(_v0.x), y(_v0.y), z(_v1.x), w(_v1.y) { }
 		Vec4(Vec3<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_v.z), w(_n) { }
 
 		template<typename _U>

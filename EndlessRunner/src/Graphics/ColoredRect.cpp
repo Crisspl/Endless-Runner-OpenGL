@@ -31,7 +31,7 @@ void ColoredRect::draw() const
 {
    m_shader->use();
 
-   glm::vec4 normColor = m_color.asNormalizedVec4();
+   glm::vec4 normColor = m_color.asVec4();
 
    m_shader->setMat4("translation", m_transform.translation)
            .setMat4("rotation", m_transform.rotation)

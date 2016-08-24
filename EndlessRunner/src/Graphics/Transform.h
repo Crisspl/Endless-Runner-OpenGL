@@ -65,6 +65,19 @@ struct Transform
       return *this;
    }
 
+   bool operator==(const Transform & _other) const
+   {
+	   return translation == _other.translation &&
+		   rotation == _other.rotation &&
+		   scale == _other.scale &&
+		   origin == _other.origin;
+   }
+
+   bool operator!=(const Transform & _other) const
+   {
+	   return !(*this == _other);
+   }
+
    glm::mat4 translation, rotation, scale;
    glm::vec2 origin;
 };

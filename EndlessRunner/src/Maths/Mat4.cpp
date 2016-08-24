@@ -151,6 +151,11 @@ Mat4 Mat4::translate(const Vec3f& _t)
 	return ret;
 }
 
+Mat4 Mat4::translate(Mat4 _mat, const Vec3f & _t)
+{
+	return _mat * translate(_t);
+}
+
 Mat4 Mat4::scale(const Vec3f & _s)
 {
 	Mat4 ret(1.f);
@@ -160,6 +165,11 @@ Mat4 Mat4::scale(const Vec3f & _s)
 	ret.m_elements[2 + 4 * 2] = _s.z;
 
 	return ret;
+}
+
+Mat4 Mat4::scale(Mat4 _mat, const Vec3f & _s)
+{
+	return _mat * scale(_s);
 }
 
 Mat4 Mat4::rotate(float _angle, const Vec3f & _axe)
@@ -188,6 +198,11 @@ Mat4 Mat4::rotate(float _angle, const Vec3f & _axe)
 	ret.m_elements[2 + 2 * 4] = z * z * omc + c;
 
 	return ret;
+}
+
+Mat4 Mat4::rotate(Mat4 _mat, float _angle, const Vec3f & _axe)
+{
+	return _mat * rotate(_angle, _axe);
 }
 
 Mat4 Mat4::transpose(Mat4 _mat)
