@@ -3,6 +3,8 @@
 namespace fhl
 {
 
+DrawConf DrawConf::Default;
+
 DrawConf::DrawConf(const Transform & _transform, Texture * _texture)
 	: transform(_transform),
 	  texture(_texture)

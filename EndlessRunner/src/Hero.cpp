@@ -37,9 +37,9 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }
 
-void Hero::draw() const
+void Hero::draw(const fhl::DrawConf &) const
 {
-   m_heroSprite.draw();
+	fhl::draw(m_heroSprite);
 }
 
 void Hero::update(float dt)

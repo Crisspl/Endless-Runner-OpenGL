@@ -60,7 +60,6 @@ protected:
    float m_rotation;
    glm::vec2 m_position, m_scale;
    Transform m_transform;
-   std::pair<Transform, bool> m_drawWithTransform;
 };
 
 } // ns

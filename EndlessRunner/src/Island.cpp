@@ -24,10 +24,11 @@ std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }
 
-void Island::draw() const
+void Island::draw(const fhl::DrawConf &) const
 {
-   m_sprite.draw();
+	fhl::draw(m_sprite);
 }
+
 
 void Island::move(float _offset)
 {

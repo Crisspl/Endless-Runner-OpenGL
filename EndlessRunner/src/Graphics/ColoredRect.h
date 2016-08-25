@@ -35,7 +35,7 @@ public:
    void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
    void setLight(const Light& _light) override;
 
-   void draw() const override;
+   void draw(const DrawConf & _conf) const override;
 
 private:
    void setUp();

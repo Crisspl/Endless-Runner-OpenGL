@@ -62,7 +62,7 @@ void Sprite::setLight(const Light& _light)
    m_shader->setLight("light", _light);
 }
 
-void Sprite::draw() const
+void Sprite::draw(const DrawConf & _conf) const
 {
    Shader& shader = *m_shader;
    shader.use();
@@ -71,14 +71,17 @@ void Sprite::draw() const
    shader.setInt("texSampler", 0);
    shader.setColor("color", m_color);
 
-   if(m_ptexture)
-      glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
+   const Texture* texture = (_conf == DrawConf::Default) ? m_ptexture : _conf.texture;
+   const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+
+   if(texture)
+      glBindTexture(GL_TEXTURE_2D, texture->getId());
 
    if(m_usingOriginalShader)
    {
-      shader.setMat4("translation", m_transform.translation)
-            .setMat4("rotation", m_transform.rotation)
-            .setMat4("scale", m_transform.scale)
+      shader.setMat4("translation", transform->translation)
+            .setMat4("rotation", transform->rotation)
+            .setMat4("scale", transform->scale)
             .setMat4("view", Configurator::view())
             .setMat4("projection", Configurator::projection());
    }

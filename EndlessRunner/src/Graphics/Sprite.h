@@ -39,7 +39,7 @@ public:
    void setTextureRect(fhl::Rect _rect, bool _changeSize = false);
    void setColor(const Color _color) { m_color = _color; }
    void setLight(const Light& _light) override;
-   void draw() const override;
+   void draw(const DrawConf & _conf) const override;
    fhl::Rect getAABB() const;
    fhl::OrientedRect getOBB() const;
 

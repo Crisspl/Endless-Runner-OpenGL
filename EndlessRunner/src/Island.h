@@ -9,6 +9,7 @@
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/Drawable.h"
+#include "Graphics/DrawFuncs.h"
 
 class Island
       : public Collideable,
@@ -21,7 +22,7 @@ public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
    void onCollision(CollideableObjType _objType) override { }
 
-   void draw() const override;
+   void draw(const fhl::DrawConf &) const override;
    void move(float _offset);
 
    glm::vec2 getPosition() const { return m_sprite.getPosition(); }

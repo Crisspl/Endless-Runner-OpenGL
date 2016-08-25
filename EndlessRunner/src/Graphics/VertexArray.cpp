@@ -23,7 +23,7 @@ VertexArray& VertexArray::addVertex(Vertex _vert)
    return *this;
 }
 
-void VertexArray::draw() const
+void VertexArray::draw(const DrawConf &) const
 {
    m_shader.use();
 

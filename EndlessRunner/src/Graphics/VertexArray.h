@@ -47,7 +47,7 @@ private:
 public:
    explicit VertexArray(Mode _mode);
 
-   void draw() const override;
+   void draw(const DrawConf &) const override;
 
    Vertex operator[](unsigned _i) const { return m_vertices[_i]; }
    Vertex& operator[](unsigned _i) { return m_vertices[_i]; }

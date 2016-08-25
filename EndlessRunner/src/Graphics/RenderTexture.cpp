@@ -1,6 +1,7 @@
 #include "RenderTexture.h"
 
 #include "../Utility/Debug.h"
+#include "DrawFuncs.h"
 
 namespace fhl
 {
@@ -43,7 +44,7 @@ void RenderTexture::clearColor(glm::vec4 _color)
 void RenderTexture::drawToTex(Drawable& _obj)
 {
    glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-   _obj.draw();
+   fhl::draw(_obj);
    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 

@@ -26,7 +26,7 @@ class Model
 {
 public:
    explicit Model(std::string _path);
-   void draw() const override;
+   void draw(const DrawConf &) const override;
 
    void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
    void setLight(const Light& _light) override;

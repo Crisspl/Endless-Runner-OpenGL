@@ -27,15 +27,17 @@ void ColoredRect::setLight(const Light& _light)
    m_shader->setLight("light", _light);
 }
 
-void ColoredRect::draw() const
+void ColoredRect::draw(const DrawConf & _conf) const
 {
    m_shader->use();
 
    glm::vec4 normColor = m_color.asVec4();
 
-   m_shader->setMat4("translation", m_transform.translation)
-           .setMat4("rotation", m_transform.rotation)
-           .setMat4("scale", m_transform.scale)
+   const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+
+   m_shader->setMat4("translation", transform->translation)
+           .setMat4("rotation", transform->rotation)
+           .setMat4("scale", transform->scale)
            .setMat4("projection", Configurator::projection())
            .setMat4("view", Configurator::view())
            .setVec4f("vertColor", normColor);

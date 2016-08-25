@@ -23,7 +23,7 @@ Model::Model(std::string _path)
    }
 }
 
-void Model::draw() const
+void Model::draw(const DrawConf &) const
 {
    glEnable(GL_DEPTH_TEST);
 
