@@ -8,8 +8,12 @@ namespace fhl
 
 class Drawable
 {
+   friend void draw(const Drawable &, const DrawConf &);
+
 public:
    virtual ~Drawable() { }
+
+protected:
    virtual void draw(const DrawConf &) const = 0;
 };
 

@@ -40,6 +40,8 @@ DrawConf & DrawConf::operator+=(Texture * _t)
 
 bool DrawConf::operator==(const DrawConf & _other) const
 {
+	if (this == &_other) 
+		return true;
 	return transform == _other.transform && texture == _other.texture;
 }
 

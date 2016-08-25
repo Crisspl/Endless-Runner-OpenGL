@@ -11,4 +11,4 @@ namespace fhl
 
 } // ns
 
-#endif // !DRAWFUNCS_H
+#endif // DRAWFUNCS_H
