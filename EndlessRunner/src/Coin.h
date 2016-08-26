@@ -5,7 +5,7 @@
 #include "Graphics/Drawable.h"
 #include "Graphics/Transformable.h"
 #include "Graphics/Sprite.h"
-#include "Utility/ResMgr.h"
+#include "Graphics/ResMgr.h"
 #include "Collideable.h"
 #include "CircleCollider.h"
 #include "AnimationMgr.h"

@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include "../Utility/ResMgr.h"
+#include "ResMgr.h"
 #include "Texture.h"
 #include "Shader.h"
 #include "Color.h"

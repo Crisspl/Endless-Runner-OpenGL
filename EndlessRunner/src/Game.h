@@ -10,7 +10,7 @@
 #include "Global.h"
 #include "Utility/Clock.h"
 #include "Graphics/Configurator.h"
-#include "Utility/ResMgr.h"
+#include "Graphics/ResMgr.h"
 #include "Hero.h"
 #include "Sphere.h"
 #include "Island.h"

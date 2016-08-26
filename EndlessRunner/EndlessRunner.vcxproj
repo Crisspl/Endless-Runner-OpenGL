@@ -141,6 +141,7 @@
     <ClCompile Include="src\Graphics\Mesh.cpp" />
     <ClCompile Include="src\Graphics\Model.cpp" />
     <ClCompile Include="src\Graphics\RenderTexture.cpp" />
+    <ClCompile Include="src\Graphics\ResMgr.cpp" />
     <ClCompile Include="src\Graphics\Shader.cpp" />
     <ClCompile Include="src\Graphics\Sizeable.cpp" />
     <ClCompile Include="src\Graphics\Sprite.cpp" />
@@ -164,7 +165,6 @@
     <ClCompile Include="src\Utility\Debug.cpp" />
     <ClCompile Include="src\Utility\OrientedRect.cpp" />
     <ClCompile Include="src\Utility\Rect.cpp" />
-    <ClCompile Include="src\Utility\ResMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper.h" />
@@ -188,6 +188,7 @@
     <ClInclude Include="src\Graphics\Mesh.h" />
     <ClInclude Include="src\Graphics\Model.h" />
     <ClInclude Include="src\Graphics\RenderTexture.h" />
+    <ClInclude Include="src\Graphics\ResMgr.h" />
     <ClInclude Include="src\Graphics\Shader.h" />
     <ClInclude Include="src\Graphics\Sizeable.h" />
     <ClInclude Include="src\Graphics\Sprite.h" />
@@ -215,7 +216,6 @@
     <ClInclude Include="src\Utility\Debug.h" />
     <ClInclude Include="src\Utility\OrientedRect.h" />
     <ClInclude Include="src\Utility\Rect.h" />
-    <ClInclude Include="src\Utility\ResMgr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

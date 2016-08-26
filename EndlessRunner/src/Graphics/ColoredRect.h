@@ -13,7 +13,7 @@
 #include "Sizeable.h"
 #include "Shader.h"
 #include "Vertex.h"
-#include "../Utility/ResMgr.h"
+#include "ResMgr.h"
 #include "Litable.h"
 
 namespace fhl

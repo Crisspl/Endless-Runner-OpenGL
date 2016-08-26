@@ -138,9 +138,6 @@
     <ClCompile Include="src\Utility\Rect.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utility\ResMgr.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="src\Utility\Debug.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
@@ -158,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="src\Coin.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\ResMgr.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,9 +204,6 @@
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Utility\Rect.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility\ResMgr.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\TexturedSizeable.h">
@@ -307,6 +304,9 @@
     </ClInclude>
     <ClInclude Include="src\Coin.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\ResMgr.h">
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
