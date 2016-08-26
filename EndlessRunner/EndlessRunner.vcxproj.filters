@@ -156,6 +156,9 @@
     <ClCompile Include="src\Graphics\DrawFuncs.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Coin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AnimationMgr.h">
@@ -301,6 +304,9 @@
     </ClInclude>
     <ClInclude Include="src\Graphics\DrawFuncs.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coin.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

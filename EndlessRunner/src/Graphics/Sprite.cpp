@@ -71,11 +71,10 @@ void Sprite::draw(const DrawConf & _conf) const
    shader.setInt("texSampler", 0);
    shader.setColor("color", m_color);
 
-   const Texture* texture = (_conf == DrawConf::Default) ? m_ptexture : _conf.texture;
    const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
 
-   if(texture)
-      glBindTexture(GL_TEXTURE_2D, texture->getId());
+   if(m_ptexture)
+      glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
 
    if(m_usingOriginalShader)
    {

@@ -15,13 +15,12 @@ namespace fhl
 		DrawConf();
 
 		DrawConf & operator+=(const Transform & _t);
-		DrawConf & operator+=(Texture * _t);
+		//DrawConf & operator+=(Texture * const _t);
 
 		bool operator==(const DrawConf & _other) const;
 		bool operator!=(const DrawConf & _other) const;
 
 		Transform transform;
-		Texture* texture;
 
 		static DrawConf Default;
 	};

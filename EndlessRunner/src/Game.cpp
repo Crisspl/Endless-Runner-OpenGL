@@ -115,6 +115,7 @@ void Game::update()
 
    for(auto it = m_vecIslands.begin(); it != m_vecIslands.end();)
    {
+	  it->update(dt);
       it->move(-dt * 600.f);
       if(it->getPosition().x < -200.f)
          m_vecIslands.erase(it);
@@ -169,7 +170,16 @@ void Game::update()
    light3.cutOffAngle = 15;
    light3.type = fhl::Light::Spot;
 
-   m_model.setLights({light, light2, light3});
+   std::vector<fhl::Light> lights;
+
+   for (const Island & isl : m_vecIslands)
+   {
+	   auto v(isl.getLights());
+	   lights.insert(lights.begin(), v.begin(), v.end());
+   }
+   lights.insert(lights.begin(), { light, light2, light3 });
+
+   m_model.setLights(lights);
 }
 
 void Game::draw()

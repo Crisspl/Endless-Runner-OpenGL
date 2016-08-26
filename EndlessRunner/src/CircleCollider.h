@@ -1,5 +1,5 @@
 #ifndef CIRCLECOLLIDER_H
-#define CIRCLECOLLDIER_H
+#define CIRCLECOLLIDER_H
 
 #include <glm/glm.hpp>
 #include <cmath>
@@ -36,4 +36,4 @@ private:
 
 };
 
-#endif // CIRCLECOLLDIER_H
+#endif // CIRCLECOLLIDER_H

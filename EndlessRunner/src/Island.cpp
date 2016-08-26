@@ -3,14 +3,20 @@
 Island::Island(glm::vec2 _pos)
           : Collideable(Collideable::Coll_Island)
 {
-   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex"));
-   fhl::ResMgr::getTexture("islandTex").setRepeated(true);
+   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex").setRepeated(1));
 
    std::size_t size = sup::getRand(7, 14);
 
    m_sprite.setSize({ size * 32, 32 });
    m_sprite.setOrigin({32.f * size , 0.f})
            .setPosition(_pos);
+   m_coins = std::vector<Coin>(size);
+
+   size_t i = 0;
+   for (Coin & c : m_coins)
+   {
+	   c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + glm::vec2(i++ * 32 + 16, 0));
+   }
 }
 
 Island::~Island()
@@ -24,13 +30,42 @@ std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }
 
+void Island::update(float _dt)
+{
+	for (Coin & c : m_coins)
+		c.update(_dt);
+}
+
 void Island::draw(const fhl::DrawConf &) const
 {
 	fhl::draw(m_sprite);
+	for (const Coin & c : m_coins)
+		fhl::draw(c);
 }
 
 
 void Island::move(float _offset)
 {
    m_sprite.move({_offset, 0});
+   for (Coin & c : m_coins)
+	   c.move({ _offset, 0 });
+}
+
+std::vector<fhl::Light> Island::getLights() const
+{
+	fhl::Light light;
+	light.linear = 0.005f;
+	light.quadratic = 0.00004f;
+	light.color = fhl::Color({ 1, 1, 0 });
+	light.illuminance = 0.3f;
+	light.type = fhl::Light::Point;
+
+	std::vector<fhl::Light> v;
+	for (const Coin & c : m_coins)
+	{
+		light.position = glm::vec3(c.getPosition(), 300.f);
+		v.push_back(light);
+	}
+
+	return v;
 }

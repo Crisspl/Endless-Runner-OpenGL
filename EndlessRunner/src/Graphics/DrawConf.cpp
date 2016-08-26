@@ -6,8 +6,8 @@ namespace fhl
 DrawConf DrawConf::Default;
 
 DrawConf::DrawConf(const Transform & _transform, Texture * _texture)
-	: transform(_transform),
-	  texture(_texture)
+	: transform(_transform)
+	 // texture(_texture)
 {
 }
 
@@ -31,18 +31,18 @@ DrawConf & DrawConf::operator+=(const Transform & _t)
 	transform = _t;
 	return *this;
 }
-
-DrawConf & DrawConf::operator+=(Texture * _t)
+/*
+DrawConf & DrawConf::operator+=(Texture * const _t)
 {
 	texture = _t;
 	return *this;
 }
-
+*/
 bool DrawConf::operator==(const DrawConf & _other) const
 {
 	if (this == &_other) 
 		return true;
-	return transform == _other.transform && texture == _other.texture;
+	return transform == _other.transform;
 }
 
 bool DrawConf::operator!=(const DrawConf & _other) const

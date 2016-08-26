@@ -1,5 +1,7 @@
 #version 330 core
 
+#define LIGHTS_COUNT_MAX 50
+
 struct Light
 {
 	vec3 direction;
@@ -27,7 +29,7 @@ in vec2 TexCoords;
 out vec4 color;
 
 uniform Material material;
-uniform Light light[20];
+uniform Light light[LIGHTS_COUNT_MAX];
 uniform int lightsCount;
 
 vec3 calcLight(Light _light, vec3 _normal, vec3 _viewDir);

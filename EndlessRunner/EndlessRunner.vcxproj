@@ -126,6 +126,7 @@
     <ClCompile Include="src\AnimationMgr.cpp" />
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\CircleCollider.cpp" />
+    <ClCompile Include="src\Coin.cpp" />
     <ClCompile Include="src\Collideable.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Global.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="src\AnimationMgr.h" />
     <ClInclude Include="src\BoxCollider.h" />
     <ClInclude Include="src\CircleCollider.h" />
+    <ClInclude Include="src\Coin.h" />
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
     <ClInclude Include="src\Game.h" />

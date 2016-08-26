@@ -10,6 +10,8 @@
 #include "Graphics/Sprite.h"
 #include "Graphics/Drawable.h"
 #include "Graphics/DrawFuncs.h"
+#include "Graphics/Light.h"
+#include "Coin.h"
 
 class Island
       : public Collideable,
@@ -22,14 +24,17 @@ public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
    void onCollision(CollideableObjType _objType) override { }
 
+   void update(float _dt);
    void draw(const fhl::DrawConf &) const override;
    void move(float _offset);
 
    glm::vec2 getPosition() const { return m_sprite.getPosition(); }
    float getSurfaceHeight() const { return m_sprite.getPosition().y; }
+   std::vector<fhl::Light> getLights() const;
 
 private:
    fhl::Sprite m_sprite;
+   std::vector<Coin> m_coins;
 };
 
 #endif // ISLAND_H
