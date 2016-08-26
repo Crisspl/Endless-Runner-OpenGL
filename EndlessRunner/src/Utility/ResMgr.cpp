@@ -36,12 +36,12 @@ fhl::Texture& ResMgr::getTexture(std::string _name)
 
 bool ResMgr::isShaderLoaded(std::string _name)
 {
-   return m_shaders.find(_name) == m_shaders.end() ? false : true;
+	return m_shaders.find(_name) != m_shaders.end();
 }
 
 bool ResMgr::isTextureLoaded(std::string _name)
 {
-   return m_textures.find(_name) == m_textures.end() ? false : true;
+	return m_textures.find(_name) != m_textures.end();
 }
 
 void ResMgr::clear()
