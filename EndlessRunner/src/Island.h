@@ -5,7 +5,7 @@
 #include <random>
 
 #include "Global.h"
-#include "Utility/ResMgr.h"
+#include "Graphics/ResMgr.h"
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/Drawable.h"
@@ -31,6 +31,7 @@ public:
    glm::vec2 getPosition() const { return m_sprite.getPosition(); }
    float getSurfaceHeight() const { return m_sprite.getPosition().y; }
    std::vector<fhl::Light> getLights() const;
+   std::vector<Coin> & getCoins() { return m_coins; }
 
 private:
    fhl::Sprite m_sprite;

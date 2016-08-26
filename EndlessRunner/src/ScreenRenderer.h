@@ -1,7 +1,7 @@
 #ifndef SCREENRENDERER_H
 #define SCREENRENDERER_H
 
-#include "Utility/ResMgr.h"
+#include "Graphics/ResMgr.h"
 #include "Graphics/RenderTexture.h"
 #include "Graphics/Shader.h"
 #include "Graphics/Drawable.h"

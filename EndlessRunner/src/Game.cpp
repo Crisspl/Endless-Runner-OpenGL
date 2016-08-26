@@ -113,10 +113,22 @@ void Game::update()
       m_sphere.changeState(Sphere::State_Idle);
    }
 
-   for(auto it = m_vecIslands.begin(); it != m_vecIslands.end();)
+   for (auto it = m_vecIslands.begin(); it != m_vecIslands.end();)
    {
-	  it->update(dt);
-      it->move(-dt * 600.f);
+	   it->update(dt);
+	   it->move(-dt * 600.f);
+
+	   auto & coins = it->getCoins();
+
+	   for (auto itc = coins.begin(); itc != coins.end();)
+	   {
+		   if (itc->isCollision(m_hero))
+			   coins.erase(itc);
+		   else
+			   itc++;
+
+	   }
+
       if(it->getPosition().x < -200.f)
          m_vecIslands.erase(it);
       else

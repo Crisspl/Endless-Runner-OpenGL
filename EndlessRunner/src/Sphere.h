@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 #include <cmath>
 
-#include "Utility/ResMgr.h"
+#include "Graphics/ResMgr.h"
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
 #include "Hero.h"

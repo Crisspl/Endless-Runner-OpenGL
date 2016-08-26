@@ -9,7 +9,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "../Utility/ResMgr.h"
+#include "ResMgr.h"
 #include "Mesh.h"
 #include "Texture.h"
 #include "Drawable.h"

@@ -8,7 +8,7 @@
 #include <memory>
 
 #include "Drawable.h"
-#include "../Utility/ResMgr.h"
+#include "ResMgr.h"
 #include "Vertex.h"
 #include "Shader.h"
 #include "Configurator.h"
