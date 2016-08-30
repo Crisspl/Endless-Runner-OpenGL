@@ -22,8 +22,6 @@ void Coin::update(float _dt)
 		m_currCell = (m_currCell > 3) ? 0 : m_currCell;
 		m_sprite.setTextureRect(fhl::Rect({ 40 * m_currCell, 0 }, { 40, 40 }));
 	}
-	
-	//m_animMgr.update(_dt);
 }
 
 void Coin::draw(const fhl::DrawConf &) const

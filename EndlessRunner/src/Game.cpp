@@ -122,11 +122,10 @@ void Game::update()
 
 	   for (auto itc = coins.begin(); itc != coins.end();)
 	   {
-		   if (itc->isCollision(m_hero))
+		   if (itc->isCollision(m_hero) || itc->isCollision(m_sphere))
 			   coins.erase(itc);
 		   else
 			   itc++;
-
 	   }
 
       if(it->getPosition().x < -200.f)
