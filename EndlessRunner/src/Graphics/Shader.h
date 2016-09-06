@@ -13,10 +13,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <initializer_list>
-#include <functional>
-#include <type_traits>
-
 #include "Texture.h"
 #include "Color.h"
 #include "Light.h"
@@ -32,9 +28,16 @@ class Shader
 
    template<class A, class B>
       friend struct std::pair;
+
 private:
+	enum class SourceFrom
+	{
+		FromFile = 0,
+		FromString
+	};
+
    Shader() = default;
-   Shader(std::string _vPath, std::string _fPath);
+   Shader(const GLchar * _vert, const GLchar * _frag, const SourceFrom _srcFrom = SourceFrom::FromFile);
 
 public:
    void use() const { glUseProgram(m_shaderProgram); }
@@ -59,7 +62,8 @@ public:
    bool operator!=(const Shader&);
 
 private:
-   void compileShader(std::string _path, GLenum _type);
+   void compileShaderFromString(const GLchar * _src, GLenum _type);
+   void compileShaderFromFile(const GLchar * _path, GLenum _type);
 
 private:
    GLuint m_shaderProgram;

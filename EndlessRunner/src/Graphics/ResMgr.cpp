@@ -8,7 +8,7 @@ std::map<std::string, fhl::Texture> ResMgr::m_textures;
 
 fhl::Shader& ResMgr::loadShader(std::string _vertPath, std::string _fragPath, std::string _name)
 {
-   m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vertPath, _fragPath));
+   m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vertPath.c_str(), _fragPath.c_str(), Shader::SourceFrom::FromFile));
    return m_shaders[_name];
 }
 

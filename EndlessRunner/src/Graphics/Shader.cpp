@@ -5,11 +5,19 @@
 namespace fhl
 {
 
-Shader::Shader(std::string _vPath, std::string _fPath)
+Shader::Shader(const GLchar * _vert, const GLchar * _frag, SourceFrom _srcFrom)
       : m_shaderProgram(glCreateProgram())
 {
-   compileShader(_vPath, GL_VERTEX_SHADER);
-   compileShader(_fPath, GL_FRAGMENT_SHADER);
+	if (_srcFrom == SourceFrom::FromFile)
+	{
+		compileShaderFromFile(_vert, GL_VERTEX_SHADER);
+		compileShaderFromFile(_frag, GL_FRAGMENT_SHADER);
+	}
+	else
+	{
+		compileShaderFromString(_vert, GL_VERTEX_SHADER);
+		compileShaderFromString(_frag, GL_FRAGMENT_SHADER);
+	}
 
    glLinkProgram(m_shaderProgram);
 
@@ -133,17 +141,10 @@ bool Shader::operator!=(const Shader& _outer)
    return m_shaderProgram != _outer.getId();
 }
 
-void Shader::compileShader(std::string _path, GLenum _type)
+void Shader::compileShaderFromString(const GLchar * _src, GLenum _type)
 {
-   std::string sourceStr = "";
-   std::string line;
-   std::ifstream srcFile(_path);
-   while(getline(srcFile, line))
-      sourceStr += line + '\n';
-   const GLchar* source = sourceStr.c_str();
-
    GLuint shader = glCreateShader(_type);
-   glShaderSource(shader, 1, &source, nullptr);
+   glShaderSource(shader, 1, &_src, nullptr);
    glCompileShader(shader);
    GLint success;
    GLchar infoLog[0x200];
@@ -151,11 +152,23 @@ void Shader::compileShader(std::string _path, GLenum _type)
    if(!success)
    {
       glGetShaderInfoLog(shader, 0x200, nullptr, infoLog);
-      fhl::DebugLog << "Failed to compile a shader " << _path << '\n' << infoLog << '\n';
+      fhl::DebugLog << "Failed to compile a shader \n" << infoLog << '\n';
    }
 
    glAttachShader(m_shaderProgram, shader);
    glDeleteShader(shader);
+}
+
+void Shader::compileShaderFromFile(const GLchar * _path, GLenum _type)
+{
+	std::string sourceStr;
+	std::string line;
+	std::ifstream srcFile(_path);
+	while (getline(srcFile, line))
+		sourceStr += line + '\n';
+	const GLchar * source = sourceStr.c_str();
+
+	compileShaderFromString(source, _type);
 }
 
 } // ns
