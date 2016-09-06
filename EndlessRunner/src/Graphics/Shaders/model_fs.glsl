@@ -1,19 +1,19 @@
-#version 330 core
-
-struct Material
-{
-	sampler2D texture_diffuse1;
-	sampler2D texture_specular1;
-	float shininess;
-};
-
-in vec2 TexCoords;
-
-out vec4 color;
-
-uniform Material material;
-
-void main()
-{	
-	color = texture(material.texture_diffuse1, TexCoords);
-}
+"#version 330 core\n"
+"\n"
+"struct Material\n"
+"{\n"
+"	sampler2D texture_diffuse1;\n"
+"	sampler2D texture_specular1;\n"
+"	float shininess;\n"
+"};\n"
+"\n"
+"in vec2 TexCoords;\n"
+"\n"
+"out vec4 color;\n"
+"\n"
+"uniform Material material;\n"
+"\n"
+"void main()\n"
+"{	\n"
+"	color = texture(material.texture_diffuse1, TexCoords);\n"
+"}\n"

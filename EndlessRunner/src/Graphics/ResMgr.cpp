@@ -6,9 +6,9 @@ namespace fhl
 std::map<std::string, fhl::Shader> ResMgr::m_shaders;
 std::map<std::string, fhl::Texture> ResMgr::m_textures;
 
-fhl::Shader& ResMgr::loadShader(std::string _vertPath, std::string _fragPath, std::string _name)
+fhl::Shader& ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
 {
-   m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vertPath.c_str(), _fragPath.c_str(), Shader::SourceFrom::FromFile));
+   m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
    return m_shaders[_name];
 }
 

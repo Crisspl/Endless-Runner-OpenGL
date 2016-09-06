@@ -14,7 +14,7 @@ class ResMgr final
    ResMgr() = delete;
 
 public:
-   static fhl::Shader& loadShader(std::string _vertPath, std::string _fragPath, std::string _name);
+   static fhl::Shader& loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
    static fhl::Texture& loadTexture(std::string _path, std::string _name);
    static fhl::Texture& loadTexture(glm::tvec2<GLint> _size, std::string _name);
 

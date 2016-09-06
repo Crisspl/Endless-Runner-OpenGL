@@ -10,7 +10,7 @@ bool Sprite::LIGHT_SHADER_LOADED = false;
 
 Sprite::Sprite()
    : TexturedSizeable(nullptr),
-     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
@@ -19,7 +19,7 @@ Sprite::Sprite()
 
 Sprite::Sprite(Texture& _tex)
    : TexturedSizeable(&_tex, _tex.getSize()),
-     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
      m_color(Color::White),
      m_usingOriginalShader(true)
 {
@@ -110,7 +110,7 @@ void Sprite::setUp()
 {
    if(!LIGHT_SHADER_LOADED)
    {
-      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_LightVertex, fhl::shaderSrcs::sprite_LightFragment, LIGHT_SHADER_NAME, Shader::FromString);
       LIGHT_SHADER_LOADED = true;
    }
 

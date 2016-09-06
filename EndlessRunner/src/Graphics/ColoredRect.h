@@ -48,12 +48,7 @@ private:
    static bool LIGHT_SHADER_LOADED;
 
    constexpr static const char* SHADER_NAME = "rectShader";
-   constexpr static const char* VSHADER_PATH = "Graphics/Shaders/rect_vs.glsl";
-   constexpr static const char* FSHADER_PATH = "Graphics/Shaders/rect_fs.glsl";
-
    constexpr static const char* LIGHT_SHADER_NAME = "rectLightShader";
-   constexpr static const char* LIGHT_VSHADER_PATH = "Graphics/Shaders/rectLight_vs.glsl";
-   constexpr static const char* LIGHT_FSHADER_PATH = "Graphics/Shaders/rectLight_fs.glsl";
 };
 
 }

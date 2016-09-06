@@ -9,7 +9,7 @@ unsigned Model::m_createdNumber = 0;
 bool Model::s_lightShaderLoaded = false;
 
 Model::Model(std::string _path)
-   : Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+   : Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::model_Vertex, fhl::shaderSrcs::model_Fragment, SHADER_NAME, Shader::FromString)),
      m_usingOriginalShader(true)
 {
    loadModel(_path);
@@ -18,7 +18,7 @@ Model::Model(std::string _path)
 
    if(!s_lightShaderLoaded)
    {
-      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(fhl::shaderSrcs::model_LightVertex, fhl::shaderSrcs::model_LightFragment, LIGHT_SHADER_NAME, Shader::FromString);
       s_lightShaderLoaded = true;
    }
 }

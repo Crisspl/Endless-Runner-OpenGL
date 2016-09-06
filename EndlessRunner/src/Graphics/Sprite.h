@@ -53,12 +53,7 @@ private:
    static bool LIGHT_SHADER_LOADED;
 
    constexpr static const char* SHADER_NAME = "spriteShader";
-   constexpr static const char* VSHADER_PATH = "Graphics/Shaders/sprite_vs.glsl";
-   constexpr static const char* FSHADER_PATH = "Graphics/Shaders/sprite_fs.glsl";
-
    constexpr static const char* LIGHT_SHADER_NAME = "spriteLightShader";
-   constexpr static const char* LIGHT_VSHADER_PATH = "Graphics/Shaders/spriteLight_vs.glsl";
-   constexpr static const char* LIGHT_FSHADER_PATH = "Graphics/Shaders/spriteLight_fs.glsl";
 };
 
 } // ns

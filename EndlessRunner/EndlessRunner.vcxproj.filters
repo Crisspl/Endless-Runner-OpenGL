@@ -308,5 +308,8 @@
     <ClInclude Include="src\Graphics\ResMgr.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\ShaderSrcs.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

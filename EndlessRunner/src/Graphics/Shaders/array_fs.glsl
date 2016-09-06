@@ -1,14 +1,14 @@
-#version 330 core
+"#version 330 core\n"
 
-in vec4 outColor;
+"in vec4 outColor;\n"
 
-out vec4 col;
+"out vec4 col;\n"
 
-void main()
-{
-	vec4 tempColor = outColor;
-	if(tempColor.a == 0)
-		discard;
+"void main()\n"
+"{\n"
+	"vec4 tempColor = outColor;\n"
+	"if(tempColor.a == 0)\n"
+		"discard;\n"
 		
-	col = tempColor;
-}
+	"col = tempColor;\n"
+"}"

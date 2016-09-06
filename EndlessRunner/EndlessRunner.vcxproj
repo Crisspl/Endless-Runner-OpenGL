@@ -190,6 +190,7 @@
     <ClInclude Include="src\Graphics\RenderTexture.h" />
     <ClInclude Include="src\Graphics\ResMgr.h" />
     <ClInclude Include="src\Graphics\Shader.h" />
+    <ClInclude Include="src\Graphics\ShaderSrcs.h" />
     <ClInclude Include="src\Graphics\Sizeable.h" />
     <ClInclude Include="src\Graphics\Sprite.h" />
     <ClInclude Include="src\Graphics\Texture.h" />

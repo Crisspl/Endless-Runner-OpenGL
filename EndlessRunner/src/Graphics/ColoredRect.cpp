@@ -7,7 +7,7 @@ bool ColoredRect::LIGHT_SHADER_LOADED = false;
 
 ColoredRect::ColoredRect(glm::vec2 _size)
    : Sizeable(_size),
-     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+     Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_Vertex, fhl::shaderSrcs::coloredRect_Fragment, SHADER_NAME, Shader::FromString)),
      m_color(Color::Transparent),
      m_usingOriginalShader(true)
 {
@@ -53,7 +53,7 @@ void ColoredRect::setUp()
 {
    if(!LIGHT_SHADER_LOADED)
    {
-      fhl::ResMgr::loadShader(LIGHT_VSHADER_PATH, LIGHT_FSHADER_PATH, LIGHT_SHADER_NAME);
+      fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_LightVertex, fhl::shaderSrcs::coloredRect_LightFragment, LIGHT_SHADER_NAME);
       LIGHT_SHADER_LOADED = true;
    }
 

@@ -1,17 +1,17 @@
-#version 330 core
-
-in vec2 fragTexCoords;
-
-uniform sampler2D texSampler;
-uniform vec4 color;
-
-out vec4 outColor;
-
-void main()
-{
-	vec4 tempColor = texture(texSampler, fragTexCoords);
-	if(tempColor.a == 0)
-		discard;
-		
-	outColor = tempColor * color;
-}
+"#version 330 core\n"
+"\n"
+"in vec2 fragTexCoords;\n"
+"\n"
+"uniform sampler2D texSampler;\n"
+"uniform vec4 color;\n"
+"\n"
+"out vec4 outColor;\n"
+"\n"
+"void main()\n"
+"{\n"
+"	vec4 tempColor = texture(texSampler, fragTexCoords);\n"
+"	if(tempColor.a == 0)\n"
+"		discard;\n"
+"		\n"
+"	outColor = tempColor * color;\n"
+"}\n"

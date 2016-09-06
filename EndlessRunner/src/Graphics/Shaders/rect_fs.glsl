@@ -1,10 +1,10 @@
-#version 330 core
-
-uniform vec4 vertColor;
-
-out vec4 color;
-
-void main()
-{
-	color = vertColor;
-}
+"#version 330 core\n"
+"\n"
+"uniform vec4 vertColor;\n"
+"\n"
+"out vec4 color;\n"
+"\n"
+"void main()\n"
+"{\n"
+"	color = vertColor;\n"
+"}\n"

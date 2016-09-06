@@ -4,7 +4,7 @@ namespace fhl
 {
 
 VertexArray::VertexArray(Mode _mode)
-   : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(VSHADER_PATH, FSHADER_PATH, SHADER_NAME)),
+   : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::vertexArray_Vertex, fhl::shaderSrcs::vertexArray_Fragment, SHADER_NAME, Shader::FromString)),
      m_mode(_mode),
 	 m_vao(new Vao())
 {

@@ -53,12 +53,7 @@ private:
    static bool s_lightShaderLoaded;
 
    constexpr static const char* SHADER_NAME = "modelShader";
-   constexpr static const char* VSHADER_PATH = "Graphics/Shaders/model_vs.glsl";
-   constexpr static const char* FSHADER_PATH = "Graphics/Shaders/model_fs.glsl";
-
    constexpr static const char* LIGHT_SHADER_NAME = "modelLightShader";
-   constexpr static const char* LIGHT_VSHADER_PATH = "Graphics/Shaders/modelLight_vs.glsl";
-   constexpr static const char* LIGHT_FSHADER_PATH = "Graphics/Shaders/modelLight_fs.glsl";
 };
 
 } // ns

@@ -66,8 +66,6 @@ private:
    std::shared_ptr<Vao> m_vao;
 
    constexpr static const char* SHADER_NAME = "arrayShader";
-   constexpr static const char* VSHADER_PATH = "Graphics/Shaders/array_vs.glsl";
-   constexpr static const char* FSHADER_PATH = "Graphics/Shaders/array_fs.glsl";
 };
 
 } // ns

@@ -16,6 +16,7 @@
 #include "Texture.h"
 #include "Color.h"
 #include "Light.h"
+#include "ShaderSrcs.h"
 
 namespace fhl { class ResMgr; }
 
@@ -29,13 +30,14 @@ class Shader
    template<class A, class B>
       friend struct std::pair;
 
-private:
-	enum class SourceFrom
+public:
+	enum SourceFrom
 	{
 		FromFile = 0,
 		FromString
 	};
 
+private:
    Shader() = default;
    Shader(const GLchar * _vert, const GLchar * _frag, const SourceFrom _srcFrom = SourceFrom::FromFile);
 

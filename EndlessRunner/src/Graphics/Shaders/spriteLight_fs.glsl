@@ -1,52 +1,52 @@
-#version 330 core
-
-struct Light
-{
-	vec3 direction;
-	vec3 position;
-	vec4 color;
-	float linear;
-	float quadratic;
-	float cutOff;
-	float outerCutOff;
-	int type;
-};
-
-in vec2 fragTexCoords;
-in vec3 FragPos;
-
-uniform sampler2D texSampler;
-uniform vec4 color;
-uniform Light light;
-
-out vec4 outColor;
-
-void main()
-{
-	vec4 tempColor = texture(texSampler, fragTexCoords);
-	if(tempColor.a == 0)
-		discard;
-		
-	vec3 ambient;
-	
-	if(light.type == 0)
-		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords));
-	else if(light.type == 1)
-	{
-		float distance = length(light.position - FragPos);
-		float attenuation = 1.f / (1.f + light.linear * distance + light.quadratic * pow(distance, 2));
-			
-		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords)) * attenuation;
-	}
-	else if(light.type == 2)
-	{
-		vec3 lightDir = normalize(light.position - FragPos); 
-		float angleCos = dot(lightDir, normalize(-light.direction));
-		float intensity = clamp((angleCos - light.outerCutOff) / (light.cutOff - light.outerCutOff), 0.f, 1.f);
-		
-		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords)) * intensity;
-	}
-		
-	outColor = tempColor * color * vec4(ambient, 1.f);
-}
-
+"#version 330 core\n"
+"\n"
+"struct Light\n"
+"{\n"
+"	vec3 direction;\n"
+"	vec3 position;\n"
+"	vec4 color;\n"
+"	float linear;\n"
+"	float quadratic;\n"
+"	float cutOff;\n"
+"	float outerCutOff;\n"
+"	int type;\n"
+"};\n"
+"\n"
+"in vec2 fragTexCoords;\n"
+"in vec3 FragPos;\n"
+"\n"
+"uniform sampler2D texSampler;\n"
+"uniform vec4 color;\n"
+"uniform Light light;\n"
+"\n"
+"out vec4 outColor;\n"
+"\n"
+"void main()\n"
+"{\n"
+"	vec4 tempColor = texture(texSampler, fragTexCoords);\n"
+"	if(tempColor.a == 0)\n"
+"		discard;\n"
+"		\n"
+"	vec3 ambient;\n"
+"	\n"
+"	if(light.type == 0)\n"
+"		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords));\n"
+"	else if(light.type == 1)\n"
+"	{\n"
+"		float distance = length(light.position - FragPos);\n"
+"		float attenuation = 1.f / (1.f + light.linear * distance + light.quadratic * pow(distance, 2));\n"
+"			\n"
+"		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords)) * attenuation;\n"
+"	}\n"
+"	else if(light.type == 2)\n"
+"	{\n"
+"		vec3 lightDir = normalize(light.position - FragPos); \n"
+"		float angleCos = dot(lightDir, normalize(-light.direction));\n"
+"		float intensity = clamp((angleCos - light.outerCutOff) / (light.cutOff - light.outerCutOff), 0.f, 1.f);\n"
+"		\n"
+"		ambient = light.color.xyz * vec3(texture(texSampler, fragTexCoords)) * intensity;\n"
+"	}\n"
+"		\n"
+"	outColor = tempColor * color * vec4(ambient, 1.f);\n"
+"}\n"
+"\n"
