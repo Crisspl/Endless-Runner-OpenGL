@@ -2,7 +2,7 @@
 #include "Graphics/DrawFuncs.h"
 
 ScreenRenderer::ScreenRenderer()
-      : m_shader(fhl::ResMgr::loadShader("Graphics/Shaders/screen_vs.glsl", "Graphics/Shaders/screen_fs.glsl", "screenShader", fhl::Shader::FromFile)),
+      : m_shader(fhl::ResMgr::loadShader("Resources/ShaderSrcs/screen_vs.glsl", "Resources/ShaderSrcs/screen_fs.glsl", "screenShader", fhl::Shader::FromFile)),
         m_renderTex(fhl::ResMgr::loadTexture(glm::tvec2<GLint>(800, 600), "screenTex")),
         m_screen(m_renderTex.getTexture())
 {
