@@ -1,10 +1,8 @@
 #include "Coin.h"
 
 Coin::Coin()
-	: m_animMgr(&m_sprite, 0.2f, {40, 40}),
-	  m_elapsedTime(0.f),
+	: m_elapsedTime(0.f),
 	  m_currCell(sup::getRand(0, 3))
-	  //m_gatherSound(SoundMgr::loadSoundBuff("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound"))
 {
 	setOrigin({ 20, 20 });
 	m_sprite.setTexture(fhl::ResMgr::getTexture("coinTex"), 0);
@@ -39,5 +37,5 @@ std::shared_ptr<Collider> Coin::getCollider(Collideable::CollideableObjType)
 
 void Coin::onCollision(Collideable::CollideableObjType)
 {
-	//m_gatherSound.play();
+	SoundMgr::getSound("coinGatherSound").play();
 }

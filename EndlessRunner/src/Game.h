@@ -51,8 +51,6 @@ private:
    fhl::VertexArray m_va;
 
    fhl::Clock m_timer;
-   fhl::Clock clock;
-   size_t fps;
    float dt;
 
    bool m_running;

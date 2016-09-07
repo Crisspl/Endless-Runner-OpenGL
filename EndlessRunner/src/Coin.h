@@ -8,7 +8,6 @@
 #include "Graphics/ResMgr.h"
 #include "Collideable.h"
 #include "CircleCollider.h"
-#include "AnimationMgr.h"
 #include "Global.h"
 #include "SoundMgr.h"
 
@@ -27,10 +26,8 @@ public:
 
 private:
 	fhl::Sprite m_sprite;
-	AnimationMgr m_animMgr;
 	float m_elapsedTime;
 	size_t m_currCell;
-	//sf::Sound m_gatherSound;
 };
 
 #endif // COIN_H

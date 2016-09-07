@@ -16,6 +16,7 @@ Game::Game()
 {
    fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
    fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
+   SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
    m_hero.setPosition({200.f, WIN_Y});
 
@@ -25,6 +26,8 @@ Game::Game()
    m_va.addVertex({ {500, 500}, fhl::Color::Blue })
 	   .addVertex({ {100, 190}, fhl::Color::Red })
 	   .addVertex({ {500, 50}, fhl::Color::Green });
+
+   //s.setBuffer(SoundMgr::getSoundBuffer("coinGatherSound"));
 }
 
 Game& Game::get()
@@ -192,14 +195,6 @@ void Game::update()
    lights.insert(lights.begin(), { light, light2, light3 });
 
    m_model.setLights(lights);
-
-   ++fps;
-   if (clock.getElapsedTime() >= 1)
-   {
-	   clock.restart();
-	   fhl::DebugLog << fps << std::endl;
-	   fps = 0;
-   }
 }
 
 void Game::draw()
@@ -211,7 +206,7 @@ void Game::draw()
 
    m_renderer.drawToTex(m_model);
 
-   m_renderer.drawToTex(m_va);
+  // m_renderer.drawToTex(m_va);
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);
