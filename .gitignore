@@ -5,7 +5,7 @@
 *.exp
 *.iobj
 *.ipdb
-*.tlog
+*.tlog/
 *.tlog
 *.lastbuildstate
 *.VC.db

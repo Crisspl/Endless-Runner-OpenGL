@@ -159,6 +159,9 @@
     <ClCompile Include="src\Graphics\ResMgr.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\SoundMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AnimationMgr.h">
@@ -310,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="src\Graphics\ShaderSrcs.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SoundMgr.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

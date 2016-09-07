@@ -15,6 +15,7 @@ Game::Game()
         m_model("Resources/cliff/Cliff_new.obj"), m_va(fhl::VertexArray::Triangles)
 {
    fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
+   fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
 
    m_hero.setPosition({200.f, WIN_Y});
 
@@ -191,6 +192,14 @@ void Game::update()
    lights.insert(lights.begin(), { light, light2, light3 });
 
    m_model.setLights(lights);
+
+   ++fps;
+   if (clock.getElapsedTime() >= 1)
+   {
+	   clock.restart();
+	   fhl::DebugLog << fps << std::endl;
+	   fps = 0;
+   }
 }
 
 void Game::draw()
@@ -202,7 +211,7 @@ void Game::draw()
 
    m_renderer.drawToTex(m_model);
 
-   //m_renderer.drawToTex(m_va);
+   m_renderer.drawToTex(m_va);
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);

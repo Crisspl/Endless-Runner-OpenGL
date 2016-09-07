@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.3.2\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.4.0\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.3.2\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.3.2\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.4.0\include;D:\Libs\GLM;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -83,7 +83,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -105,7 +105,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -160,6 +160,7 @@
     <ClCompile Include="src\Maths\Maths_funcs.cpp" />
     <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
+    <ClCompile Include="src\SoundMgr.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\Utility\Clock.cpp" />
     <ClCompile Include="src\Utility\Debug.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="src\Maths\Vectors.h" />
     <ClInclude Include="src\RectsCollider.h" />
     <ClInclude Include="src\ScreenRenderer.h" />
+    <ClInclude Include="src\SoundMgr.h" />
     <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Utility\Clock.h" />
     <ClInclude Include="src\Utility\Debug.h" />

@@ -4,9 +4,10 @@ Coin::Coin()
 	: m_animMgr(&m_sprite, 0.2f, {40, 40}),
 	  m_elapsedTime(0.f),
 	  m_currCell(sup::getRand(0, 3))
+	  //m_gatherSound(SoundMgr::loadSoundBuff("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound"))
 {
 	setOrigin({ 20, 20 });
-	m_sprite.setTexture(fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex"), 0);
+	m_sprite.setTexture(fhl::ResMgr::getTexture("coinTex"), 0);
 	m_sprite.setSize({ 40, 40 });
 	m_sprite.setTextureRect(fhl::Rect({ 0, 0 }, { 40, 40 }));
 }
@@ -34,4 +35,9 @@ void Coin::draw(const fhl::DrawConf &) const
 std::shared_ptr<Collider> Coin::getCollider(Collideable::CollideableObjType)
 {
 	return std::shared_ptr<Collider>(new CircleCollider(getPosition(), 20.f));
+}
+
+void Coin::onCollision(Collideable::CollideableObjType)
+{
+	//m_gatherSound.play();
 }

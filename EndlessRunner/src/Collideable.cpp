@@ -8,9 +8,9 @@ bool Collideable::isCollision(Collideable& _colliding)
    bool collided(0);
 
 #define _TRY(type) (type* convertedCollider = dynamic_cast<type*>(outerCollider.get())) \
-         { \
-            collided = myColliderPtr->isCollision(*convertedCollider); \
-         }
+		 { \
+			collided = myColliderPtr->isCollision(*convertedCollider); \
+		 }
 
    if      _TRY(RectsCollider)
    else if _TRY(CircleCollider)
@@ -20,8 +20,8 @@ bool Collideable::isCollision(Collideable& _colliding)
 
    if(collided)
    {
-      _colliding.onCollision(this->getObjType());
-      this->onCollision(_colliding.getObjType());
+	  _colliding.onCollision(this->getObjType());
+	  this->onCollision(_colliding.getObjType());
    }
 
    return collided;
