@@ -12,16 +12,14 @@ SDL_GLContext Game::m_context;
 Game::Game()
       : m_sphere(&m_hero),
         m_running(true),
-        m_model("Resources/cliff/Cliff_new.obj"), m_va(fhl::VertexArray::Triangles)
+        //m_model("Resources/cliff/Cliff_new.obj"),
+	    m_va(fhl::VertexArray::Triangles)
 {
    fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
    fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
    m_hero.setPosition({200.f, WIN_Y});
-
-   m_model.setScale(glm::vec3(12.f));
-   m_model.setPosition({m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
 
    m_va.addVertex({ {500, 500}, fhl::Color::Blue })
 	   .addVertex({ {100, 190}, fhl::Color::Red })
@@ -159,7 +157,7 @@ void Game::update()
       m_hero.changeState(Hero::State_Move);
    }
 
-   m_model.move({-1.f, 0, 0});
+   m_cliff.update(dt);
 
    fhl::Light light;
    light.position = glm::vec3(m_hero.getPosition(), 300.f);
@@ -192,7 +190,7 @@ void Game::update()
    }
    lights.insert(lights.begin(), { light, light2, light3 });
 
-   m_model.setLights(lights);
+   m_cliff.setLights(lights);
 }
 
 void Game::draw()
@@ -202,7 +200,7 @@ void Game::draw()
 
    m_renderer.clearColor(glm::vec4(0.f, 0.f, 0.f, 1.f));
 
-   m_renderer.drawToTex(m_model);
+   m_renderer.drawToTex(m_cliff);
 
   // m_renderer.drawToTex(m_va);
 

@@ -50,6 +50,8 @@ public:
 
    glm::vec2 getOrigin() const { return m_transform.origin; }
 
+   Transform getTransform() const { return m_transform; }
+
 protected:
    RotationType m_rotation;
    glm::vec3 m_size, m_position, m_scale;

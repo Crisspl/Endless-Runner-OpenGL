@@ -141,6 +141,7 @@
     <ClCompile Include="src\CircleCollider.cpp" />
     <ClCompile Include="src\Coin.cpp" />
     <ClCompile Include="src\Collideable.cpp" />
+    <ClCompile Include="src\EndlessCliff.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Global.cpp" />
     <ClCompile Include="src\Graphics\Buffer.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="src\Coin.h" />
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
+    <ClInclude Include="src\EndlessCliff.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Global.h" />
     <ClInclude Include="src\Graphics\Buffer.h" />

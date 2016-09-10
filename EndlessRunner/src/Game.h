@@ -14,6 +14,7 @@
 #include "Hero.h"
 #include "Sphere.h"
 #include "Island.h"
+#include "EndlessCliff.h"
 #include "ScreenRenderer.h"
 #include "Graphics/VertexArray.h"
 #include "Graphics/ColoredRect.h"
@@ -47,7 +48,8 @@ private:
    Hero m_hero;
    Sphere m_sphere;
    std::vector<Island> m_vecIslands;
-   fhl::Model m_model;
+   //fhl::Model m_model;
+   EndlessCliff m_cliff;
    fhl::VertexArray m_va;
 
    fhl::Clock m_timer;

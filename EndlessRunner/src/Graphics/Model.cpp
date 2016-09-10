@@ -23,15 +23,17 @@ Model::Model(std::string _path)
    }
 }
 
-void Model::draw(const DrawConf &) const
+void Model::draw(const DrawConf & _conf) const
 {
    glEnable(GL_DEPTH_TEST);
 
    m_shader->use();
 
-   m_shader->setMat4("translation", m_transform.translation)
-           .setMat4("rotation", m_transform.rotation)
-           .setMat4("scale", m_transform.scale)
+   const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+
+   m_shader->setMat4("translation", transform->translation)
+           .setMat4("rotation", transform->rotation)
+           .setMat4("scale", transform->scale)
            .setMat4("view", Configurator::view())
            .setMat4("projection", Configurator::projection())
            .setFloat("material.shininess", 5.f);
