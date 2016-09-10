@@ -26,8 +26,6 @@ Game::Game()
    m_va.addVertex({ {500, 500}, fhl::Color::Blue })
 	   .addVertex({ {100, 190}, fhl::Color::Red })
 	   .addVertex({ {500, 50}, fhl::Color::Green });
-
-   //s.setBuffer(SoundMgr::getSoundBuffer("coinGatherSound"));
 }
 
 Game& Game::get()

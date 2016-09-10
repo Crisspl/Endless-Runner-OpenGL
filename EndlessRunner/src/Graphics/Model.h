@@ -16,6 +16,8 @@
 #include "Transformable3D.h"
 #include "Litable.h"
 
+#include <iostream>
+
 namespace fhl
 {
 

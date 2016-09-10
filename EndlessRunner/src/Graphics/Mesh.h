@@ -18,13 +18,14 @@
 
 #include "Configurator.h"
 #include "Shader.h"
+#include "../Utility/Debug.h"
 
 namespace fhl
 {
 
 class Mesh
 {
-   using T_tuple3Vec2 = std::tuple<glm::vec2, glm::vec2, glm::vec2>;
+   using T_tuple3pair = std::tuple<std::pair<float, float>, std::pair<float, float>, std::pair<float, float>>;
 
 public:
    struct Vertex
@@ -45,7 +46,7 @@ public:
    Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures);
 
    void draw(Shader& _shader) const;
-   T_tuple3Vec2 getMinMaxCoords();
+   T_tuple3pair getMinMaxCoords();
 
 private:
    void setUp();

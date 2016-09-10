@@ -46,7 +46,7 @@ void Mesh::draw(Shader& _shader) const
    glActiveTexture(GL_TEXTURE0);
 }
 
-Mesh::T_tuple3Vec2 Mesh::getMinMaxCoords()
+Mesh::T_tuple3pair Mesh::getMinMaxCoords()
 {
 #define comp(dim) [](Vertex& a, Vertex& b)->bool { return a.position.dim < b.position.dim; }
 
@@ -56,9 +56,9 @@ Mesh::T_tuple3Vec2 Mesh::getMinMaxCoords()
 
    return std::make_tuple
                (
-                  glm::vec2(minMaxX.first->position.x, minMaxX.second->position.x),
-                  glm::vec2(minMaxY.first->position.y, minMaxY.second->position.y),
-                  glm::vec2(minMaxZ.first->position.z, minMaxZ.second->position.z)
+                  std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
+                  std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
+                  std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
                );
 #undef comp
 }

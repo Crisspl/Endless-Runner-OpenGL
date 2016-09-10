@@ -152,32 +152,31 @@ Mesh Model::processMesh(aiMesh* _meshPtr, const aiScene* _scenePtr)
 void Model::calcSize()
 {
    std::vector<float> xVec, yVec, zVec;
-   auto comp = [](float& a, float& b)->bool { return a < b; };
 
    for(auto& mesh : m_meshes)
    {
-      glm::vec2 minMaxX, minMaxY, minMaxZ;
+      std::pair<float, float> minMaxX, minMaxY, minMaxZ;
       std::tie(minMaxX, minMaxY, minMaxZ) = mesh.getMinMaxCoords();
 
-      xVec.push_back(minMaxX.x);
-      xVec.push_back(minMaxX.y);
+	  xVec.push_back(minMaxX.first);
+	  xVec.push_back(minMaxX.second);
 
-      yVec.push_back(minMaxY.x);
-      yVec.push_back(minMaxY.y);
+	  yVec.push_back(minMaxY.first);
+	  yVec.push_back(minMaxY.second);
 
-      zVec.push_back(minMaxZ.x);
-      zVec.push_back(minMaxZ.y);
+	  zVec.push_back(minMaxZ.first);
+	  zVec.push_back(minMaxZ.second);
    }
 
-   auto x = std::minmax_element(xVec.begin(), xVec.end(), comp);
-   auto y = std::minmax_element(yVec.begin(), yVec.end(), comp);
-   auto z = std::minmax_element(zVec.begin(), zVec.end(), comp);
-
+   auto x = std::minmax_element(xVec.begin(), xVec.end());
+   auto y = std::minmax_element(yVec.begin(), yVec.end());
+   auto z = std::minmax_element(zVec.begin(), zVec.end());
+   
    m_size = {
                *x.second - *x.first,
                *y.second - *y.first,
                *z.second - *z.first
-            };
+            }; 
 }
 
 std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName)
