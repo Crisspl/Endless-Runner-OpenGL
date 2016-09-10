@@ -10,10 +10,8 @@ EndlessCliff::EndlessCliff()
 void EndlessCliff::draw(const fhl::DrawConf &) const
 {
 	fhl::draw(m_model);
-	fhl::Transform t = m_model.getTransform();
-	t.move({ m_model.getScaledSize().x / 2, 0, 0 });
 	fhl::DrawConf conf;
-	conf += t;
+	conf += m_model.getTransform().move({ m_model.getScaledSize().x / 2, 0, 0 });
 	fhl::draw(m_model, conf);
 }
 
