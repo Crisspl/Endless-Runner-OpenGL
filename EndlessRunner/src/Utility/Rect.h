@@ -32,10 +32,8 @@ public:
 public:
    Rect();
    Rect(glm::vec2 _botLeft, glm::vec2 _size);
-   virtual ~Rect() { }
-
-protected:
    explicit Rect(glm::vec2 _size);
+   virtual ~Rect() { }
 
 public:
    virtual bool contains(glm::vec2 _p) const;

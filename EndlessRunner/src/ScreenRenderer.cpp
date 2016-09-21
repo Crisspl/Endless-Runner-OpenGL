@@ -9,6 +9,7 @@ ScreenRenderer::ScreenRenderer()
    m_renderTex.create();
    m_screen.setShader(m_shader);
    m_screen.setSize({2, 2});
+   m_screen.setTextureRect(fhl::Rect(m_renderTex.getTexture().getSize()));
 }
 
 void ScreenRenderer::clearColor(glm::vec4 _color)
