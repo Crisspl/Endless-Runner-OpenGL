@@ -30,10 +30,7 @@ void TexturedSizeable::setSize(glm::vec2 _size)
    Sizeable::setSize(_size);
 
    glm::vec2 h = m_size / m_ptexture->getSize();
-   if(m_ptexture->isRepeated())
-      fillTxcArray(h);
-   else
-      fillTxcArray({1 ,1});
+   fillTxcArray(h);
 
    uploadTexCoordsArray();
 }
