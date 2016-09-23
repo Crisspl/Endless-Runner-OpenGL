@@ -13,6 +13,7 @@ struct Buffer
 {
    Buffer(GLuint _target, GLuint _usage);
    Buffer(const Buffer&) = delete;
+   Buffer(Buffer && _other);
    ~Buffer();
 
    void bind();
@@ -21,7 +22,8 @@ struct Buffer
    void updateData(GLuint _offset, GLuint _size, const void* _data);
 
 private:
-   GLuint id;
+   GLuint m_id;
+   bool m_moved;
 
 public:
    GLuint target, usage;

@@ -4,21 +4,33 @@ namespace fhl
 {
 
 Buffer::Buffer(GLuint _target, GLuint _usage)
-   : target(_target),
+   : m_moved(false),
+	 target(_target),
      usage(_usage),
      size(0)
 {
-   glGenBuffers(1, &id);
+   glGenBuffers(1, &m_id);
+}
+
+Buffer::Buffer(Buffer && _other)
+	: m_id(_other.m_id),
+	  m_moved(false),
+	  target(_other.target),
+	  usage(_other.usage),
+	  size(_other.size)
+{
+	_other.m_moved = true;
 }
 
 Buffer::~Buffer()
 {
-   glDeleteBuffers(1, &id);
+   if(!m_moved)
+	glDeleteBuffers(1, &m_id);
 }
 
 void Buffer::bind()
 {
-   glBindBuffer(target, id);
+   glBindBuffer(target, m_id);
 }
 
 void Buffer::unbind()
