@@ -146,6 +146,14 @@ Mesh Model::processMesh(aiMesh* _meshPtr, const aiScene* _scenePtr)
 
       textures.insert(textures.end(), diffuseTexs.begin(), diffuseTexs.end());
       textures.insert(textures.end(), specularTexs.begin(), specularTexs.end());
+	  /*
+	  std::cout << "diffuse:\n";
+	  for (Mesh::Texture & t : diffuseTexs)
+		  std::cout << t.fileName.C_Str() << '\n';
+	  std::cout << "specular:\n";
+	  for (Mesh::Texture & t : specularTexs)
+		  std::cout << t.fileName.C_Str() << '\n';
+	  */
    }
 
    return Mesh(vertices, indices, textures);
@@ -190,7 +198,7 @@ std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr,
       aiString str;
       _materialPtr->GetTexture(_texType, i, &str);
       GLboolean loaded = false;
-      for(Mesh::Texture tex : textures)
+      for(Mesh::Texture & tex : textures)
       {
          if(tex.fileName == str)
          {
@@ -209,6 +217,8 @@ std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr,
 
          texture.id = fhl::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
                                                                                                      .getId();
+		 std::cout << "start id: " << fhl::ResMgr::getTexture(modelName + _texTypeName + std::to_string(i)).getId() << '\n';
+		 std::cout << str.C_Str() << '\n';
          texture.type = _texTypeName;
          texture.fileName = str;
          textures.push_back(texture);

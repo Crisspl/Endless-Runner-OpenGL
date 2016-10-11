@@ -13,7 +13,7 @@ Game::Game()
       : m_sphere(&m_hero),
         m_running(true),
         //m_model("Resources/cliff/Cliff_new.obj"),
-	    m_va(fhl::VertexArray::Triangles)
+	    m_va(fhl::VertexArray::LineStrip)
 {
    fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
    fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
@@ -21,9 +21,16 @@ Game::Game()
 
    m_hero.setPosition({200.f, WIN_Y});
 
-   m_va.addVertex({ {500, 500}, fhl::Color::Blue })
-	   .addVertex({ {100, 190}, fhl::Color::Red })
-	   .addVertex({ {500, 50}, fhl::Color::Green });
+   m_va.addVertex({ {20, 30}, fhl::Color::White })
+	   .addVertex({ {30, 25}, fhl::Color::White })
+	   .addVertex({ {40, 32}, fhl::Color::White })
+	   .addVertex({ { 45, 37 }, fhl::Color::White })
+	   .addVertex({ { 47, 41 }, fhl::Color::White })
+	   .addVertex({ { 50, 47 }, fhl::Color::White })
+	   .addVertex({ { 48, 53 }, fhl::Color::White })
+	   .addVertex({ { 45, 57 }, fhl::Color::White })
+	   .addVertex({ { 42, 60 }, fhl::Color::White })
+	   .addVertex({ { 40, 66 }, fhl::Color::White });
 }
 
 Game& Game::get()
@@ -202,7 +209,7 @@ void Game::draw()
 
    m_renderer.drawToTex(m_cliff);
 
-  // m_renderer.drawToTex(m_va);
+   //m_renderer.drawToTex(m_va);
 
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);

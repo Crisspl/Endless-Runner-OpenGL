@@ -13,7 +13,7 @@ Mesh::Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, st
 
 void Mesh::draw(Shader& _shader) const
 {
-   GLuint diffuseNr = 0, specularNr = 0;
+   GLuint diffuseNr = 1, specularNr = 1;
 
    _shader.use();
 
@@ -23,6 +23,7 @@ void Mesh::draw(Shader& _shader) const
 
       std::string number;
       std::string name = m_textures[i].type;
+	  std::cout << m_textures[i].fileName.C_Str() << '\n';
 
       if(name == "texture_diffuse")
          number = std::to_string(diffuseNr++);
@@ -30,6 +31,8 @@ void Mesh::draw(Shader& _shader) const
          number = std::to_string(specularNr++);
 
       _shader.setInt(("material." + name + number).c_str(), i);
+	  std::cout << ("material." + name + number).c_str() << '\n';
+	  std::cout << "id: " << m_textures[i].id << "\n\n";
       glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
    }
 

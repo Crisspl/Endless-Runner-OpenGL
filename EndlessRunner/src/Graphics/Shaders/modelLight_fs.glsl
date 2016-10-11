@@ -16,7 +16,7 @@
 "struct Material\n"
 "{\n"
 "	sampler2D texture_diffuse1;\n"
-"	//sampler2D texture_specular1;\n"
+"	sampler2D texture_specular1;\n"
 "	float shininess;\n"
 "};\n"
 "\n"
