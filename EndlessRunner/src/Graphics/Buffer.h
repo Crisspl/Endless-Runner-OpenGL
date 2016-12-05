@@ -11,23 +11,22 @@ namespace fhl
 
 struct Buffer
 {
-   Buffer(GLuint _target, GLuint _usage);
-   Buffer(const Buffer&) = delete;
-   Buffer(Buffer && _other);
-   ~Buffer();
+	Buffer(GLuint _target, GLuint _usage);
+	Buffer(const Buffer&) = delete;
+	Buffer(Buffer && _other);
+	~Buffer();
 
-   void bind();
-   void unbind();
-   void setData(GLuint _size, const void* _data);
-   void updateData(GLuint _offset, GLuint _size, const void* _data);
+	void bind();
+	void unbind();
+	void setData(GLuint _size, const void* _data);
+	void updateData(GLuint _offset, GLuint _size, const void* _data);
 
 private:
-   GLuint m_id;
-   bool m_moved;
+	GLuint m_id;
 
 public:
-   GLuint target, usage;
-   GLuint size;
+	GLuint target, usage;
+	GLuint size;
 };
 
 }

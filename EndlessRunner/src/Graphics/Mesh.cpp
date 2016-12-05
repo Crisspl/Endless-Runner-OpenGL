@@ -31,8 +31,8 @@ void Mesh::draw(Shader& _shader) const
          number = std::to_string(specularNr++);
 
       _shader.setInt(("material." + name + number).c_str(), i);
-	  std::cout << ("material." + name + number).c_str() << '\n';
-	  std::cout << "id: " << m_textures[i].id << "\n\n";
+	  //std::cout << ("material." + name + number).c_str() << '\n';
+	  //std::cout << "id: " << m_textures[i].id << "\n\n";
       glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
    }
 

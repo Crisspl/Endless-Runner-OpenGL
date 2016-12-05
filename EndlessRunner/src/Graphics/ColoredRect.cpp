@@ -58,7 +58,9 @@ void ColoredRect::setUp()
    }
 
    m_vao->bind();
+
    Configurator::rectShapeEbo->bind();
+
    m_vao->unbind();
 }
 

@@ -217,8 +217,8 @@ std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr,
 
          texture.id = fhl::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
                                                                                                      .getId();
-		 std::cout << "start id: " << fhl::ResMgr::getTexture(modelName + _texTypeName + std::to_string(i)).getId() << '\n';
-		 std::cout << str.C_Str() << '\n';
+		 //std::cout << "start id: " << fhl::ResMgr::getTexture(modelName + _texTypeName + std::to_string(i)).getId() << '\n';
+		 //std::cout << str.C_Str() << '\n';
          texture.type = _texTypeName;
          texture.fileName = str;
          textures.push_back(texture);
