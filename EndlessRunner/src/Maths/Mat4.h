@@ -9,9 +9,8 @@ namespace fhl
 
 struct Mat4
 {
-	Mat4();
-	explicit Mat4(float _diagonal);
-	Mat4(Vec4f _r1, Vec4f _r2, Vec4f _r3, Vec4f _r4);
+	explicit Mat4(float _diagonal = 1.f);
+	Mat4(Vec4f _c1, Vec4f _c2, Vec4f _c3, Vec4f _c4);
 
 	friend Mat4 operator*(const Mat4& _mat, float _n);
 	Mat4 operator*(const Mat4 & _other);
@@ -36,16 +35,16 @@ struct Mat4
 	static Mat4 scale(Mat4 _mat, const Vec3f& _s);
 	static Mat4 rotate(float _angle, const Vec3f& _axe);
 	static Mat4 rotate(Mat4 _mat, float _angle, const Vec3f& _axe);
-	static Mat4 transpose(Mat4 _mat);
+	static Mat4 transpose(const Mat4 & _mat);
 	Mat4 transposed();
 
-	const float* data() const { return m_elements; }
+	const float * data() const { return m_elements; }
 
 
 private:
 	union
 	{
-		Vec4f m_rows[4];
+		Vec4f m_cols[4];
 		float m_elements[16];
 	};
 };

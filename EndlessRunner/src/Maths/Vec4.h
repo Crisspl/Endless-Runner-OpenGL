@@ -12,18 +12,17 @@ namespace fhl {
 	template<typename _T>
 	struct Vec4
 	{
-		Vec4() : Vec4(0) { }
-		explicit Vec4(_T _scalar) : x(_scalar), y(_scalar), z(_scalar), w(_scalar) { }
+		explicit Vec4(_T _scalar = 0) : x(_scalar), y(_scalar), z(_scalar), w(_scalar) { }
 		Vec4(_T _x, _T _y, _T _z, _T _w) : x(_x), y(_y), z(_z), w(_w) { }
 		Vec4(Vec2<_T> _v0, Vec2<_T> _v1) : x(_v0.x), y(_v0.y), z(_v1.x), w(_v1.y) { }
 		Vec4(Vec3<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_v.z), w(_n) { }
 
 		template<typename _U>
 		explicit Vec4(const Vec4<_U>& _other)
-			: x(static_cast<_T>(_other.x)),
-			  y(static_cast<_T>(_other.y)),
-			  z(static_cast<_T>(_other.z)),
-			  w(static_cast<_T>(_other.w))
+			: x(_T(_other.x)),
+			  y(_T(_other.y)),
+			  z(_T(_other.z)),
+			  w(_T(_other.w))
 		{ }
 
 
@@ -47,7 +46,7 @@ namespace fhl {
 		void operator/=(const Vec4<_T>& _other) { *this = *this / _other; }
 		void operator/=(_T _scalar) { *this = *this / _scalar; }
 
-		Vec4 operator-() const { return{ -x, -y }; }
+		Vec4<_T> operator-() const { return Vec4<_T>(-x, -y, -z, -w); }
 
 		bool operator==(const Vec4<_T>& _other) const { return _other.x == x && _other.y == y && _other.z == z; }
 		bool operator!=(const Vec4<_T>& _other) const { return !(*this == _other); }
@@ -59,6 +58,9 @@ namespace fhl {
 
 		const _T* data() const { return &x; }
 
+		_T & operator[](size_t _n) { return elements[_n]; }
+		_T operator[](size_t _n) const { return elements[_n]; }
+
 		float dot(const Vec4<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z + w * _right.w; }
 
 		friend std::ostream& operator<<(std::ostream& _os, const Vec4<_T>& _v)
@@ -69,19 +71,23 @@ namespace fhl {
 	public:
 		union
 		{
-			_T x, r, s;
-		};
-		union
-		{
-			_T y, g, t;
-		};
-		union
-		{
-			_T z, b, p;
-		};
-		union
-		{
-			_T w, a, q;
+			union
+			{
+				_T x, r, s;
+			};
+			union
+			{
+				_T y, g, t;
+			};
+			union
+			{
+				_T z, b, p;
+			};
+			union
+			{
+				_T w, a, q;
+			};
+			_T elements[4];
 		};
 	};
 

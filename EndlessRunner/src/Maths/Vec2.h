@@ -9,14 +9,13 @@ namespace fhl {
 template<typename _T>
 struct Vec2
 {
-   Vec2() : Vec2(0) { }
-   explicit Vec2(_T _scalar) : x(_scalar), y(_scalar) { }
+   explicit Vec2(_T _scalar = 0) : x(_scalar), y(_scalar) { }
    Vec2(_T _x, _T _y) : x(_x), y(_y) { }
 
    template<typename _U>
 	explicit Vec2(const Vec2<_U>& _other) 
-		: x(static_cast<_T>(_other.x)),
-		  y(static_cast<_T>(_other.y))
+		: x(_T(_other.x)),
+		  y(_T(_other.y))
 	{ }
 
 
@@ -40,7 +39,7 @@ struct Vec2
    void operator/=(const Vec2<_T>& _other) { *this = *this / _other; }
    void operator/=(_T _scalar) { *this = *this / _scalar; }
 
-   Vec2 operator-() const { return { -x, -y }; }
+   Vec2<_T> operator-() const { return Vec2<_T>(-x, -y); }
 
    bool operator==(const Vec2<_T>& _other) const { return _other.x == x && _other.y == y; }
    bool operator!=(const Vec2<_T>& _other) const { return !(*this == _other); }
@@ -54,6 +53,9 @@ struct Vec2
    Vec2<_T> normalized() const { return *this / length(); }
    const _T* data() const { return &x; }
 
+   _T & operator[](size_t _n) { return elements[_n]; }
+   _T operator[](size_t _n) const { return elements[_n]; }
+
    float dot(const Vec2<_T>& _right) { return x * _right.x + y * _right.y; }
 
    friend std::ostream& operator<<(std::ostream& _os, const Vec2<_T>& _v)
@@ -64,11 +66,15 @@ struct Vec2
 public:
 	union
 	{
-		_T x, r, s;
-	};
-	union
-	{
-		_T y, g, t;
+		union
+		{
+			_T x, r, s;
+		};
+		union
+		{
+			_T y, g, t;
+		};
+		_T elements[2];
 	};
 };
 

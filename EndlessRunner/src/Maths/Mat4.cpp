@@ -6,32 +6,29 @@
 namespace fhl
 {
 
-Mat4::Mat4()
-{
-	std::memset(m_elements, 0, 16 * sizeof(float));
-}
-
 Mat4::Mat4(float _diagonal)
 	: Mat4()
 {
+	std::memset(m_elements, 0, 16 * sizeof(*m_elements));
+
 	m_elements[0 + 0 * 4] = _diagonal;
 	m_elements[1 + 1 * 4] = _diagonal;
 	m_elements[2 + 2 * 4] = _diagonal;
 	m_elements[3 + 3 * 4] = _diagonal;
 }
 
-Mat4::Mat4(Vec4f _r1, Vec4f _r2, Vec4f _r3, Vec4f _r4)
+Mat4::Mat4(Vec4f _c1, Vec4f _c2, Vec4f _c3, Vec4f _c4)
 {
-	m_rows[0] = _r1;
-	m_rows[1] = _r2;
-	m_rows[2] = _r3;
-	m_rows[3] = _r4;
+	m_cols[0] = _c1;
+	m_cols[1] = _c2;
+	m_cols[2] = _c3;
+	m_cols[3] = _c4;
 }
 
 Mat4 operator*(const Mat4& _mat, float _n)
 {
 	Mat4 ret = _mat;
-	for (size_t i = 0; i < 16; i++)
+	for (int i = 0; i < 16; i++)
 		ret.m_elements[i] *= _n;
 	return ret;
 }
@@ -39,10 +36,15 @@ Mat4 operator*(const Mat4& _mat, float _n)
 Mat4 Mat4::operator*(const Mat4 & _other)
 {
 	Mat4 ret;
-	for (size_t i = 0; i < 4; i++)
+	for (int j = 0; j < 4; j++)
 	{
-		for (size_t j = 0; j < 4; j++)
-			ret.m_elements[i + j] = getRow(i).dot(_other.getCol(j));
+		for (int i = 0; i < 4; i++)
+		{
+			float sum = 0;
+			for (int e = 0; e < 4; e++)
+				sum += m_elements[i + e * 4] * _other.m_elements[e + j * 4];
+			ret.m_elements[i + j * 4] = sum;
+		}
 	}
 	return ret;
 }
@@ -59,27 +61,29 @@ void Mat4::operator*=(const Mat4 & _other)
 
 Vec4f Mat4::getRow(size_t _n) const
 {
-	return m_rows[_n];
+	Vec4f row;
+	for (int i = 0; i < 4; i++)
+		row[i] = m_elements[_n + i * 4];
+
+	return row;
 }
 
 Vec4f Mat4::getCol(size_t _n) const
 {
-	return{ m_elements[_n], m_elements[_n + 4], m_elements[_n + 8], m_elements[_n + 12] };
+	return m_cols[_n];
 }
 
 Mat4 & Mat4::setRow(size_t _n, Vec4f _r)
 {
-	m_rows[_n] = _r;
+	for (int i = 0; i < 4; i++)
+		m_elements[_n + i * 4] = _r[i];
+
 	return *this;
 }
 
 Mat4 & Mat4::setCol(size_t _n, Vec4f _c)
 {
-	m_elements[_n] = _c.x;
-	m_elements[_n + 4] = _c.y;
-	m_elements[_n + 8] = _c.z;
-	m_elements[_n + 12] = _c.w;
-
+	m_cols[_n] = _c;
 	return *this;
 }
 
@@ -88,31 +92,29 @@ Mat4 Mat4::ortho(float _left, float _right, float _bottom, float _top, float _ne
 	Mat4 ret;
 
 	ret.m_elements[0 + 0 * 4] = 2.f / (_right - _left);
-	ret.m_elements[3 + 0 * 4] = -(_right + _left) / (_right - _left);
 	ret.m_elements[1 + 1 * 4] = 2.f / (_top - _bottom);
-	ret.m_elements[3 + 1 * 4] = -(_top + _bottom) / (_top - _bottom);
 	ret.m_elements[2 + 2 * 4] = -2.f / (_far - _near);
-	ret.m_elements[3 + 3 * 4] = -(_far + _near) / (_far - _near);
-	ret.m_elements[3 + 3 * 4] = 1.f;
+	ret.setCol(3,
+		{ -((_right + _left) / (_right - _left)),
+			(_top + _bottom) / (_top - _bottom),
+			-((_far + _near) / (_far - _near)),
+			1.f }
+	);
 
 	return ret;
 }
 
 Mat4 Mat4::perspective(float _fov, float _aspectRatio, float _near, float _far)
 {
-	Mat4 ret(1.f);
+	Mat4 ret(0.f);
 
-	float q = 1.f / ::tan(toRadians(0.5f * _fov));
-	float a = q / _aspectRatio;
+	float t = std::tan(toRadians(_fov / 2.f));
 
-	float b = (_near + _far) / (_near - _far);
-	float c = (2.0f * _near * _far) / (_near - _far);
-
-	ret.m_elements[0 + 0 * 4] = a;
-	ret.m_elements[1 + 1 * 4] = q;
-	ret.m_elements[2 + 2 * 4] = b;
-	ret.m_elements[2 + 3 * 4] = -1.0f;
-	ret.m_elements[3 + 2 * 4] = c;
+	ret.m_elements[0 + 0 * 4] = 1.f / (_aspectRatio * t);
+	ret.m_elements[1 + 1 * 4] = 1.f / t;
+	ret.m_elements[2 + 2 * 4] = -(_far + _near) / (_far - _near);
+	ret.m_elements[3 + 2 * 4] = -1.0f;
+	ret.m_elements[2 + 3 * 4] = -2.f * _far * _near / (_far - _near);
 
 	return ret;
 }
@@ -136,17 +138,15 @@ Mat4 Mat4::lookAt(const Vec3f & _eye, const Vec3f& _center, const Vec3f& _up)
 	ret.m_elements[2 + 0 * 4] = -f.x;
 	ret.m_elements[2 + 1 * 4] = -f.y;
 	ret.m_elements[2 + 2 * 4] = -f.z;
+	/* TODO */
 
-	return ret * translate(Vec3f(-_eye.x, -_eye.y, -_eye.z));
+	return ret * translate(-_eye);
 }
 
 Mat4 Mat4::translate(const Vec3f& _t)
 {
 	Mat4 ret(1.f);
-
-	ret.m_elements[3 + 0 * 4] = _t.x;
-	ret.m_elements[3 + 1 * 4] = _t.y;
-	ret.m_elements[3 + 2 * 4] = _t.z;
+	ret.setCol(3, Vec4f(_t, 1.f));
 
 	return ret;
 }
@@ -160,7 +160,7 @@ Mat4 Mat4::scale(const Vec3f & _s)
 {
 	Mat4 ret(1.f);
 
-	ret.m_elements[0] = _s.x;
+	ret.m_elements[0 + 4 * 0] = _s.x;
 	ret.m_elements[1 + 4 * 1] = _s.y;
 	ret.m_elements[2 + 4 * 2] = _s.z;
 
@@ -198,21 +198,22 @@ Mat4 Mat4::rotate(float _angle, const Vec3f & _axe)
 	ret.m_elements[2 + 2 * 4] = z * z * omc + c;
 
 	return ret;
+	/* TODO */
 }
 
 Mat4 Mat4::rotate(Mat4 _mat, float _angle, const Vec3f & _axe)
 {
 	return _mat * rotate(_angle, _axe);
+	/* TODO */
 }
 
-Mat4 Mat4::transpose(Mat4 _mat)
+Mat4 Mat4::transpose(const Mat4 & _mat)
 {
-	return Mat4(
-			Vec4f(_mat.m_rows[0].x, _mat.m_rows[1].x, _mat.m_rows[2].x, _mat.m_rows[3].x),
-			Vec4f(_mat.m_rows[0].y, _mat.m_rows[1].y, _mat.m_rows[2].y, _mat.m_rows[3].y),
-			Vec4f(_mat.m_rows[0].z, _mat.m_rows[1].z, _mat.m_rows[2].z, _mat.m_rows[3].z),
-			Vec4f(_mat.m_rows[0].w, _mat.m_rows[1].w, _mat.m_rows[2].w, _mat.m_rows[3].w)
-	);
+	Mat4 trans;
+	for (int i = 0; i < 4; i++)
+		trans.setCol(i, _mat.getRow(i));
+
+	return trans;
 }
 
 Mat4 Mat4::transposed()

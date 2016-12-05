@@ -11,16 +11,15 @@ namespace fhl {
 	template<typename _T>
 	struct Vec3
 	{
-		Vec3() : Vec3(0) { }
-		explicit Vec3(_T _scalar) : x(_scalar), y(_scalar), z(_scalar) { }
+		explicit Vec3(_T _scalar = 0) : x(_scalar), y(_scalar), z(_scalar) { }
 		Vec3(_T _x, _T _y, _T _z) : x(_x), y(_y), z(_z) { }
 		Vec3(Vec2<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_n) { }
 
 		template<typename _U>
 		explicit Vec3(const Vec3<_U>& _other)
-			: x(static_cast<_T>(_other.x)),
-			  y(static_cast<_T>(_other.y)),
-			  z(static_cast<_T>(_other.z))
+			: x(_T(_other.x)),
+			  y(_T(_other.y)),
+			  z(_T(_other.z))
 		{ }
 
 
@@ -44,7 +43,7 @@ namespace fhl {
 		void operator/=(const Vec3<_T>& _other) { *this = *this / _other; }
 		void operator/=(_T _scalar) { *this = *this / _scalar; }
 
-		Vec3<_T> operator-() const { return { -x, -y }; }
+		Vec3<_T> operator-() const { return Vec3<_T>(-x, -y); }
 
 		bool operator==(const Vec3<_T>& _other) const { return _other.x == x && _other.y == y && _other.z == z; }
 		bool operator!=(const Vec3<_T>& _other) const { return !(*this == _other); }
@@ -57,6 +56,9 @@ namespace fhl {
 		float length() const { return sqrt(x*x + y*y + z*z); }
 		Vec3<_T> normalized() const { return *this / length(); }
 		const _T* data() const { return &x; }
+
+		_T & operator[](size_t _n) { return elements[_n]; }
+		_T operator[](size_t _n) const { return elements[_n]; }
 
 		float dot(const Vec3<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z; }
 		Vec3<_T> cross(const Vec3<_T>& _right) 
@@ -75,17 +77,21 @@ namespace fhl {
 		}
 
 	public:
-		union
+		union 
 		{
-			_T x, r, s;
-		};
-		union
-		{
-			_T y, g, t;
-		};
-		union
-		{
-			_T z, b, p;
+			union
+			{
+				_T x, r, s;
+			};
+			union
+			{
+				_T y, g, t;
+			};
+			union
+			{
+				_T z, b, p;
+			};
+			_T elements[3];
 		};
 	};
 
