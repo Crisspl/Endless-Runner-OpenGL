@@ -36,7 +36,9 @@ struct Mat4
 	static Mat4 rotate(float _angle, const Vec3f& _axe);
 	static Mat4 rotate(Mat4 _mat, float _angle, const Vec3f& _axe);
 	static Mat4 transpose(const Mat4 & _mat);
-	Mat4 transposed();
+	Mat4 transposed() const;
+	static Mat4 invert(const Mat4 & _mat);
+	Mat4 inverted() const;
 
 	const float * data() const { return m_elements; }
 
