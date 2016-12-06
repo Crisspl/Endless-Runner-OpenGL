@@ -1,18 +1,17 @@
 #include "Maths_funcs.h"
+#include "Constants.h"
 
 namespace fhl
 {
 
-double PI = 3.141592653589793238462643383279;
-
 double toRadians(double _deg)
 {
-	return _deg * PI / 180.;
+	return _deg * Constants::Pi() / 180.;
 }
 
 double toDegrees(double _rad)
 {
-	return _rad * 180. / PI;
+	return _rad * 180. / Constants::Pi();
 }
 
 }

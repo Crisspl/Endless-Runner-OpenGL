@@ -43,7 +43,7 @@ namespace fhl {
 		void operator/=(const Vec3<_T>& _other) { *this = *this / _other; }
 		void operator/=(_T _scalar) { *this = *this / _scalar; }
 
-		Vec3<_T> operator-() const { return Vec3<_T>(-x, -y); }
+		Vec3<_T> operator-() const { return Vec3<_T>(-x, -y, -z); }
 
 		bool operator==(const Vec3<_T>& _other) const { return _other.x == x && _other.y == y && _other.z == z; }
 		bool operator!=(const Vec3<_T>& _other) const { return !(*this == _other); }
@@ -96,7 +96,7 @@ namespace fhl {
 	};
 
 	using Vec3f = Vec3<float>;
-	using Vec3d = Vec3<double>;
+	using Vec3lf = Vec3<double>;
 	using Vec3i = Vec3<int>;
 	using Vec3u = Vec3<unsigned>;
 

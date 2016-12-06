@@ -220,6 +220,7 @@
     <ClInclude Include="src\Graphics\WithShader.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Island.h" />
+    <ClInclude Include="src\Maths\Constants.h" />
     <ClInclude Include="src\Maths\Mat4.h" />
     <ClInclude Include="src\Maths\Maths_funcs.h" />
     <ClInclude Include="src\Maths\Vec2.h" />

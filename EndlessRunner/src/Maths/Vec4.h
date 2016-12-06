@@ -92,7 +92,7 @@ namespace fhl {
 	};
 
 	using Vec4f = Vec4<float>;
-	using Vec4d = Vec4<double>;
+	using Vec4lf = Vec4<double>;
 	using Vec4i = Vec4<int>;
 	using Vec4u = Vec4<unsigned>;
 
