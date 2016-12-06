@@ -51,7 +51,7 @@ struct Vec2
 
    float length() const { return sqrt(x*x + y*y); }
    Vec2<_T> normalized() const { return *this / length(); }
-   const _T* data() const { return &x; }
+   const _T* data() const { return elements; }
 
    _T & operator[](size_t _n) { return elements[_n]; }
    _T operator[](size_t _n) const { return elements[_n]; }

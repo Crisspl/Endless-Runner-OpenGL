@@ -56,7 +56,7 @@ namespace fhl {
 		bool operator>(const Vec4<_T>& _other) const { return x > _other.x && y > _other.y && z > _other.z && w > _other.w; }
 		bool operator>=(const Vec4<_T>& _other) const { return x >= _other.x && y >= _other.y && z >= _other.z && w >= _other.w; }
 
-		const _T* data() const { return &x; }
+		const _T* data() const { return elements; }
 
 		_T & operator[](size_t _n) { return elements[_n]; }
 		_T operator[](size_t _n) const { return elements[_n]; }
