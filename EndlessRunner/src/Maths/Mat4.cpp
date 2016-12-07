@@ -127,18 +127,9 @@ Mat4 Mat4::lookAt(const Vec3f & _eye, const Vec3f& _center, const Vec3f& _up)
 	Vec3f s = f.cross(_up.normalized());
 	Vec3f u = s.cross(f);
 
-	ret.m_elements[0 + 0 * 4] = s.x;
-	ret.m_elements[0 + 1 * 4] = s.y;
-	ret.m_elements[0 + 2 * 4] = s.z;
-
-	ret.m_elements[1 + 0 * 4] = u.x;
-	ret.m_elements[1 + 1 * 4] = u.y;
-	ret.m_elements[1 + 2 * 4] = u.z;
-
-	ret.m_elements[2 + 0 * 4] = -f.x;
-	ret.m_elements[2 + 1 * 4] = -f.y;
-	ret.m_elements[2 + 2 * 4] = -f.z;
-	/* TODO */
+	ret.setCol(0, Vec4f(s, 0));
+	ret.setCol(1, Vec4f(u, 0));
+	ret.setCol(2, Vec4f(-f, 0));
 
 	return ret * translate(-_eye);
 }
@@ -181,30 +172,39 @@ Mat4 Mat4::rotate(float _angle, const Vec3f & _axe)
 	float z = _axe.z;
 
 	float angle = toRadians(_angle);
-	float s = ::sin(angle);
-	float c = ::cos(angle);
+	float s = std::sin(angle);
+	float c = std::cos(angle);
 	float omc = 1.f - c;
 
-	ret.m_elements[0 + 0 * 4] = x * x * omc + c;
-	ret.m_elements[0 + 1 * 4] = x * y * omc + z * s;
-	ret.m_elements[0 + 2 * 4] = x * z * omc - y * s;
-	
-	ret.m_elements[1 + 0 * 4] = x * y * omc - z * s;
-	ret.m_elements[1 + 1 * 4] = y * y * omc + c;
-	ret.m_elements[1 + 2 * 4] = y * z * omc + x * s;
 
-	ret.m_elements[2 + 0 * 4] = x * z * omc + y * s;
-	ret.m_elements[2 + 1 * 4] = y * z * omc - x * s;
-	ret.m_elements[2 + 2 * 4] = z * z * omc + c;
+	ret.setRow(0,
+	{
+		x * x * omc + c,
+		x * y * omc - z * s,
+		x * z * omc + y * s,
+		0
+	});
+	ret.setRow(1,
+	{
+		x * y * omc + z * s,
+		y * y * omc + c,
+		y * z * omc - x * s,
+		0
+	});
+	ret.setRow(2,
+	{
+		x * z * omc - y * s,
+		y * z * omc - y * s,
+		z * z * omc + c,
+		0
+	});
 
 	return ret;
-	/* TODO */
 }
 
 Mat4 Mat4::rotate(Mat4 _mat, float _angle, const Vec3f & _axe)
 {
 	return _mat * rotate(_angle, _axe);
-	/* TODO */
 }
 
 Mat4 Mat4::transpose(const Mat4 & _mat)
