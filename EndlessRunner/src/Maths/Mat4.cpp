@@ -7,7 +7,6 @@ namespace fhl
 {
 
 Mat4::Mat4(float _diagonal)
-	: Mat4()
 {
 	std::memset(m_elements, 0, 16 * sizeof(*m_elements));
 
@@ -256,4 +255,6 @@ Mat4 Mat4::invert(const Mat4 & _mat)
 Mat4 fhl::Mat4::inverted() const
 {
 	return invert(*this);
+}
+
 }

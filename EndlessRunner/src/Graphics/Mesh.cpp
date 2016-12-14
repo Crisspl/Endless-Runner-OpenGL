@@ -23,7 +23,7 @@ void Mesh::draw(Shader& _shader) const
 
       std::string number;
       std::string name = m_textures[i].type;
-	  std::cout << m_textures[i].fileName.C_Str() << '\n';
+	  //std::cout << m_textures[i].fileName.C_Str() << '\n';
 
       if(name == "texture_diffuse")
          number = std::to_string(diffuseNr++);

@@ -182,8 +182,8 @@ void Game::update()
    light2.type = fhl::Light::Directional;
 
    fhl::Light light3;
-   light3.color = fhl::Color::Blue;
-   light3.illuminance = 1.f;
+   light3.color = fhl::Color::Red;
+   light3.illuminance = 1.5f;
    light3.position = glm::vec3(m_sphere.getPosition(), 300.f);
    light3.cutOffAngle = 15;
    light3.type = fhl::Light::Spot;
@@ -195,7 +195,9 @@ void Game::update()
 	   auto v(isl.getLights());
 	   lights.insert(lights.begin(), v.begin(), v.end());
    }
-   lights.insert(lights.begin(), { light, light2, light3 });
+   lights.insert(lights.begin(), { light, light2 });
+   if (m_sphere.getState() != Sphere::State_Idle)
+	   lights.push_back(light3);
 
    m_cliff.setLights(lights);
 }
@@ -214,7 +216,8 @@ void Game::draw()
    for(Island& isl : m_vecIslands)
       m_renderer.drawToTex(isl);
    m_renderer.drawToTex(m_hero);
-   m_renderer.drawToTex(m_sphere);
+   if(m_sphere.getState() != Sphere::State_Idle)
+		m_renderer.drawToTex(m_sphere);
 
    m_renderer.drawToScreen();
 
