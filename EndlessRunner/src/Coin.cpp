@@ -19,7 +19,7 @@ void Coin::update(float _dt)
 		m_elapsedTime = 0;
 		++m_currCell;
 		m_currCell = (m_currCell > 3) ? 0 : m_currCell;
-		m_sprite.setTextureRect(fhl::Rect({ 40 * m_currCell, 0 }, { 40, 40 }));
+		m_sprite.setTextureRect(fhl::Rect({ 40.f * m_currCell, 0 }, { 40, 40 }));
 	}
 }
 

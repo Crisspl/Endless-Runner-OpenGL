@@ -3,7 +3,7 @@
 namespace fhl
 {
 
-Sizeable::Sizeable(glm::vec2 _size)
+Sizeable::Sizeable(Vec2f _size)
 	: m_vao(new Vao()),
 	m_size(_size)
 {
@@ -17,13 +17,13 @@ Sizeable::Sizeable(glm::vec2 _size)
 	posBuffer->bind();
 	posBuffer->setData(sizeof(m_posArray), m_posArray);
 
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2f), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 
 	m_vao->unbind();
 }
 
-void Sizeable::setSize(glm::vec2 _size)
+void Sizeable::setSize(Vec2f _size)
 {
 	m_size = _size;
 

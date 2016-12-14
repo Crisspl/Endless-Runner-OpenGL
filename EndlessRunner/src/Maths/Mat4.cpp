@@ -1,6 +1,7 @@
 #include "Mat4.h"
 
 #include <cstring>
+#include <algorithm>
 #include "Maths_funcs.h"
 
 namespace fhl
@@ -56,6 +57,19 @@ void Mat4::operator*=(float _n)
 void Mat4::operator*=(const Mat4 & _other)
 {
 	*this = *this * _other;
+}
+
+bool Mat4::operator==(const Mat4 & _other) const
+{
+	for (int i = 0; i < 16; i++)
+		if (m_elements[i] != _other.m_elements[i])
+			return false;
+	return true;
+}
+
+bool Mat4::operator!=(const Mat4 & _other) const
+{
+	return !(*this == _other);
 }
 
 Vec4f Mat4::getRow(size_t _n) const
@@ -122,15 +136,17 @@ Mat4 Mat4::lookAt(const Vec3f & _eye, const Vec3f& _center, const Vec3f& _up)
 {
 	Mat4 ret(1.f);
 
-	Vec3f f = (_center - _eye).normalized();
-	Vec3f s = f.cross(_up.normalized());
-	Vec3f u = s.cross(f);
+	const Vec3f f = (_center - _eye).normalized();
+	const Vec3f s = f.cross(_up).normalized();
+	const Vec3f u = s.cross(f);
+	const Vec3f t = { -(s.dot(_eye)), -(u.dot(_eye)), f.dot(_eye) };
 
-	ret.setCol(0, Vec4f(s, 0));
-	ret.setCol(1, Vec4f(u, 0));
-	ret.setCol(2, Vec4f(-f, 0));
+	ret.setRow(0, Vec4f(s, 0));
+	ret.setRow(1, Vec4f(u, 0));
+	ret.setRow(2, Vec4f(-f, 0));
+	ret.setCol(3, Vec4f(t, 1));
 
-	return ret * translate(-_eye);
+	return ret;
 }
 
 Mat4 Mat4::translate(const Vec3f& _t)

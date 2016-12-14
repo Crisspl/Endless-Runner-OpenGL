@@ -47,7 +47,7 @@ private:
    std::vector<Mesh> m_meshes;
    std::string m_directory;
 
-   glm::vec3 m_lightPos;
+   Vec3f m_lightPos;
 
    bool m_usingOriginalShader;
 

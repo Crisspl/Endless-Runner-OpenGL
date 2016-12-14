@@ -10,9 +10,9 @@ namespace fhl
 
 struct Vertex
 {
-   Vertex(glm::vec2 _pos, Color _col = Color(0, 0, 0, 0));
+   Vertex(Vec2f _pos, Color _col = Color(0, 0, 0, 0));
 
-   glm::vec2 position;
+   Vec2f position;
    Color color;
 };
 

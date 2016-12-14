@@ -14,7 +14,7 @@ public:
    ScreenRenderer();
 
 public:
-   void clearColor(glm::vec4 _color);
+   void clearColor(fhl::Vec4f _color);
    void drawToTex(fhl::Drawable& _obj);
    void drawToScreen();
 

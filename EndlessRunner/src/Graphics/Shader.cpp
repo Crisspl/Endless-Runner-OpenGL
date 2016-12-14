@@ -1,6 +1,7 @@
 #include "Shader.h"
 
 #include "../Utility/Debug.h"
+#include "../Maths/Maths_funcs.h"
 
 namespace fhl
 {
@@ -45,21 +46,21 @@ const Shader& Shader::setInt(const GLchar* _name, const GLint _value) const
    return *this;
 }
 
-const Shader& Shader::setVec2f(const GLchar* _name, const glm::vec2& _value) const
+const Shader& Shader::setVec2f(const GLchar* _name, const Vec2f& _value) const
 {
    use();
    glUniform2f(glGetUniformLocation(getId(), _name), _value.x, _value.y);
    return *this;
 }
 
-const Shader& Shader::setVec3f(const GLchar* _name, const glm::vec3& _value) const
+const Shader& Shader::setVec3f(const GLchar* _name, const Vec3f& _value) const
 {
    use();
    glUniform3f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z);
    return *this;
 }
 
-const Shader& Shader::setVec4f(const GLchar* _name, const glm::vec4& _value) const
+const Shader& Shader::setVec4f(const GLchar* _name, const Vec4f& _value) const
 {
    use();
    glUniform4f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z, _value.w);
@@ -68,14 +69,14 @@ const Shader& Shader::setVec4f(const GLchar* _name, const glm::vec4& _value) con
 
 const Shader& Shader::setColor(const GLchar* _name, const Color& _value) const
 {
-   glm::vec4 val = _value.asVec4();
+   Vec4f val = _value.asVec4();
    return setVec4f(_name, val);
 }
 
-const Shader& Shader::setMat4(const GLchar* _name, const glm::mat4& _matrix) const
+const Shader& Shader::setMat4(const GLchar* _name, const Mat4& _matrix) const
 {
    use();
-   glUniformMatrix4fv(glGetUniformLocation(getId(), _name), 1, GL_FALSE, glm::value_ptr(_matrix));
+   glUniformMatrix4fv(glGetUniformLocation(getId(), _name), 1, GL_FALSE, _matrix.data());
    return *this;
 }
 
@@ -98,8 +99,8 @@ const Shader& Shader::setLight(const GLchar* _name, const Light& _light) const
          float outerCutOff = std::min(cutOffAngle + 20.f, 90.f);
          setVec3f((name + ".position").c_str(), _light.position);
          setVec3f((name + ".direction").c_str(), _light.direction);
-         setFloat((name + ".cutOff").c_str(), cos(glm::radians(cutOffAngle)));
-         setFloat((name + ".outerCutOff").c_str(), cos(glm::radians(outerCutOff)));
+         setFloat((name + ".cutOff").c_str(), cos(toRadians(cutOffAngle)));
+         setFloat((name + ".outerCutOff").c_str(), cos(toRadians(outerCutOff)));
       }
          break;
    }

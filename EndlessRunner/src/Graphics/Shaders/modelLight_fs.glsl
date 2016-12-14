@@ -27,7 +27,7 @@
 "out vec4 color;\n"
 "\n"
 "uniform Material material;\n"
-"uniform Light light[20];\n"
+"uniform Light light[50];\n"
 "uniform int lightsCount;\n"
 "\n"
 "vec3 calcLight(Light _light, vec3 _normal, vec3 _viewDir);\n"

@@ -5,7 +5,7 @@ namespace fhl
 
 bool ColoredRect::LIGHT_SHADER_LOADED = false;
 
-ColoredRect::ColoredRect(glm::vec2 _size)
+ColoredRect::ColoredRect(Vec2f _size)
    : Sizeable(_size),
      Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_Vertex, fhl::shaderSrcs::coloredRect_Fragment, SHADER_NAME, Shader::FromString)),
      m_color(Color::Transparent),
@@ -31,7 +31,7 @@ void ColoredRect::draw(const DrawConf & _conf) const
 {
    m_shader->use();
 
-   glm::vec4 normColor = m_color.asVec4();
+   Vec4f normColor = m_color.asVec4();
 
    const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
 

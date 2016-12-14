@@ -3,7 +3,7 @@
 EndlessCliff::EndlessCliff()
 	: m_model("Resources/cliff/Cliff_new.obj")
 {
-	m_model.setScale(glm::vec3(12.f));
+	m_model.setScale(fhl::Vec3f(12.f));
 	m_model.setPosition({ m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
 }
 

@@ -1,5 +1,5 @@
-#ifndef MAT4_H
-#define MAT4_H
+#ifndef FHL_MAT4_H
+#define FHL_MAT4_H
 
 #include "Vec3.h"
 #include "Vec4.h"
@@ -17,6 +17,9 @@ struct Mat4
 
 	void operator*=(float _n);
 	void operator*=(const Mat4 & _other);
+
+	bool operator==(const Mat4 & _other) const;
+	bool operator!=(const Mat4 & _other) const;
 
 	Vec4f getRow(size_t _n) const;
 	Vec4f getCol(size_t _n) const;
@@ -43,7 +46,7 @@ struct Mat4
 	const float * data() const { return m_elements; }
 
 
-private:
+public:
 	union
 	{
 		Vec4f m_cols[4];
@@ -53,4 +56,4 @@ private:
 
 }
 
-#endif // MAT4_H
+#endif // FHL_MAT4_H

@@ -19,7 +19,7 @@ struct Light
 
    Light();
 
-   glm::vec3 position, direction;
+   Vec3f position, direction;
    Color color;
    float linear, quadratic;
    float cutOffAngle;

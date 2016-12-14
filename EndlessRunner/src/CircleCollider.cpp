@@ -1,8 +1,9 @@
 #include "CircleCollider.h"
 #include "RectsCollider.h"
 #include "BoxCollider.h"
+#include "Maths/Maths_funcs.h"
 
-CircleCollider::CircleCollider(glm::vec2 _center, float _radius) : Collider(Collider::Circle),
+CircleCollider::CircleCollider(fhl::Vec2f _center, float _radius) : Collider(Collider::Circle),
                                                                    m_center(_center),
                                                                    m_radius(_radius)
 {}
@@ -22,12 +23,12 @@ bool CircleCollider::isCollision(const RectsCollider& _collider) const
    for(short i = 0; i < _collider.getRectsCount(); i++)
    {
       const fhl::Rect& rect = _collider[i];
-      glm::vec2 halfExtens = rect.getSize() / 2.f;
-      glm::vec2 rectCenter = rect.botLeft() + halfExtens;
-      glm::vec2 distanceVec = m_center - rectCenter;
+	  fhl::Vec2f halfExtens = rect.getSize() / 2.f;
+	  fhl::Vec2f rectCenter = rect.botLeft() + halfExtens;
+	  fhl::Vec2f distanceVec = m_center - rectCenter;
 
-      glm::vec2 clamped = glm::clamp(distanceVec, -halfExtens, halfExtens);
-      glm::vec2 closest = rectCenter + clamped;
+	  fhl::Vec2f clamped = fhl::clamp(distanceVec, -halfExtens, halfExtens);
+	  fhl::Vec2f closest = rectCenter + clamped;
 
       if(distance(closest, m_center) < m_radius)
          return true;
@@ -43,12 +44,12 @@ bool CircleCollider::isCollision(const BoxCollider& _collider) const
 	return false;
 }
 
-bool CircleCollider::contains(glm::vec2 _p) const
+bool CircleCollider::contains(fhl::Vec2f _p) const
 {
    return distance(_p, m_center) <= m_radius;
 }
 
-float CircleCollider::distance(const glm::vec2 a, const glm::vec2 b) const
+float CircleCollider::distance(const fhl::Vec2f a, const fhl::Vec2f b) const
 {
-   return glm::length(a - b);
+   return (b - a).length();
 }

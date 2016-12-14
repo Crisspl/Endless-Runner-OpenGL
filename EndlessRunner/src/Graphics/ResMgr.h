@@ -16,7 +16,7 @@ class ResMgr final
 public:
    static fhl::Shader& loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
    static fhl::Texture& loadTexture(std::string _path, std::string _name);
-   static fhl::Texture& loadTexture(glm::tvec2<GLint> _size, std::string _name);
+   static fhl::Texture& loadTexture(Vec2i _size, std::string _name);
 
    static fhl::Shader& getShader(std::string _name);
    static fhl::Texture& getTexture(std::string _name);

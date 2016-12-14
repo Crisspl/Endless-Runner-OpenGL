@@ -25,7 +25,7 @@ Sphere::Sphere(Hero* _owner)
 
 std::shared_ptr<Collider> Sphere::getCollider(CollideableObjType _objType)
 {
-   glm::vec2 center = m_sprite.getPosition();
+	fhl::Vec2f center = m_sprite.getPosition();
 
    return std::shared_ptr<Collider>(new CircleCollider(center, 32.f));
 }
@@ -82,7 +82,7 @@ void Sphere::Thrown_onEnter(const Sphere::State _prevState)
 
 void Sphere::Thrown_onExit(const Sphere::State _newState)
 {
-   m_direction = glm::vec2();
+   m_direction = fhl::Vec2f();
 }
 
 void Sphere::Thrown_update(float dt)
@@ -93,7 +93,7 @@ void Sphere::Thrown_update(float dt)
       changeState(State_Return);
       return;
    }
-   glm::vec2 moveOffset = m_direction * m_velocity;
+   fhl::Vec2f moveOffset = m_direction * m_velocity;
    m_sprite.move(moveOffset);
 }
 
@@ -113,12 +113,11 @@ void Sphere::Return_update(float dt)
 {
    m_velocity -= m_startVelociy * dt;
 
-   glm::vec2 myPos = m_sprite.getPosition();
-   glm::vec2 ownerPos = m_owner->getPosition();
+   fhl::Vec2f myPos = m_sprite.getPosition();
+   fhl::Vec2f ownerPos = m_owner->getPosition();
 
-   glm::vec2 dir(myPos.x - ownerPos.x, myPos.y - ownerPos.y);
-   dir = glm::normalize(dir);
+   fhl::Vec2f dir = (myPos - ownerPos).normalized();
 
-   glm::vec2 moveOffset = dir * m_velocity;
+   fhl::Vec2f moveOffset = dir * m_velocity;
    m_sprite.move(moveOffset);
 }

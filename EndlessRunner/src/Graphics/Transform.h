@@ -1,9 +1,8 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "../Maths/Vectors.h"
+#include "../Maths/Maths_funcs.h"
 
 #include "Configurator.h"
 
@@ -12,56 +11,56 @@ namespace fhl
 
 struct Transform
 {
-   Transform& rotate(float _angle, glm::vec3 _axis = {0, 0, 1})
+   Transform& rotate(float _angle, Vec3f _axis = {0, 0, 1})
    {
-      rotation = glm::translate(rotation, glm::vec3(origin, 0));
-      rotation = glm::rotate(rotation, glm::radians(_angle), _axis);
-      rotation = glm::translate(rotation, glm::vec3(-origin, 0));
+      rotation = Mat4::translate(rotation, Vec3f(origin, 0));
+      rotation = Mat4::rotate(rotation, _angle, _axis);
+      rotation = Mat4::translate(rotation, Vec3f(-origin, 0));
       return *this;
    }
 
-   Transform& setRotation(float _angle, glm::vec3 _axis = {0, 0, 1})
+   Transform& setRotation(float _angle, Vec3f _axis = {0, 0, 1})
    {
-      glm::mat4 newRotation;
-      newRotation = glm::translate(glm::mat4(), glm::vec3(origin, 0));
-      rotation = glm::rotate(newRotation, glm::radians(_angle), _axis);
-      rotation = glm::translate(rotation, glm::vec3(-origin, 0));
+      Mat4 newRotation;
+      newRotation = Mat4::translate(Mat4(), Vec3f(origin, 0));
+      rotation = Mat4::rotate(newRotation, _angle, _axis);
+      rotation = Mat4::translate(rotation, Vec3f(-origin, 0));
       return *this;
    }
 
-   Transform& move(glm::vec2 _offset)
+   Transform& move(Vec2f _offset)
    {
-      translation = glm::translate(translation, glm::vec3(_offset, 0));
+      translation = Mat4::translate(translation, Vec3f(_offset, 0));
       return *this;
    }
 
-   Transform& move(glm::vec3 _offset)
+   Transform& move(Vec3f _offset)
    {
-      translation = glm::translate(translation, _offset);
+      translation = Mat4::translate(translation, _offset);
       return *this;
    }
 
-   Transform& setPosition(glm::vec2 _pos)
+   Transform& setPosition(Vec2f _pos)
    {
-      translation = glm::translate(glm::mat4(), glm::vec3(_pos - origin, 0));
+      translation = Mat4::translate(Mat4(), Vec3f(_pos - origin, 0));
       return *this;
    }
 
-   Transform& setPosition(glm::vec3 _pos)
+   Transform& setPosition(Vec3f _pos)
    {
-      translation = glm::translate(glm::mat4(), _pos - glm::vec3(origin, 0));
+      translation = Mat4::translate(Mat4(), _pos - Vec3f(origin, 0));
       return *this;
    }
 
-   Transform& setScale(glm::vec2 _scale)
+   Transform& setScale(Vec2f _scale)
    {
-      scale = glm::scale(glm::mat4(), glm::vec3(_scale, 1));
+      scale = Mat4::scale(Mat4(), Vec3f(_scale, 1));
       return *this;
    }
 
-   Transform& setScale(glm::vec3 _scale)
+   Transform& setScale(Vec3f _scale)
    {
-      scale = glm::scale(glm::mat4(), _scale);
+      scale = Mat4::scale(Mat4(), _scale);
       return *this;
    }
 
@@ -78,8 +77,8 @@ struct Transform
 	   return !(*this == _other);
    }
 
-   glm::mat4 translation, rotation, scale;
-   glm::vec2 origin;
+   Mat4 translation, rotation, scale;
+   Vec2f origin;
 };
 
 } // ns

@@ -39,14 +39,14 @@ public:
    void update(float dt);
    void changeState(const State _newState);
 
-   glm::vec2 getPosition() const { return m_heroSprite.getPosition(); }
+   fhl::Vec2f getPosition() const { return m_heroSprite.getPosition(); }
    State getState() const { return m_currentState; }
 
-   void setPosition(glm::vec2 _pos) { m_heroSprite.setPosition(_pos); }
+   void setPosition(fhl::Vec2f _pos) { m_heroSprite.setPosition(_pos); }
    void setPosY(float _y) { m_heroSprite.setPosition({getPosition().x, _y}); }
 
 private:
-   void move(glm::vec2 _offset);
+   void move(fhl::Vec2f _offset);
 
    DECLARE_HERO_STATE_METHODS(Move)
    DECLARE_HERO_STATE_METHODS(Jump)
@@ -62,7 +62,7 @@ private:
    State m_currentState;
    fhl::Sprite m_heroSprite;
    AnimationMgr m_animMgr;
-   glm::vec2 m_velocity;
+   fhl::Vec2f m_velocity;
 
    constexpr static const float JUMP_VEL = -700.f;
 };

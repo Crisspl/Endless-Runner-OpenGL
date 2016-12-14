@@ -1,11 +1,11 @@
 #ifndef CIRCLECOLLIDER_H
 #define CIRCLECOLLIDER_H
 
-#include <glm/glm.hpp>
 #include <cmath>
 #include <iostream>
 
 #include "Collider.h"
+#include "Maths/Vectors.h"
 
 class RectsCollider;
 class BoxCollider;
@@ -14,7 +14,7 @@ class CircleCollider
    :public Collider
 {
 public:
-   CircleCollider(glm::vec2 center, float radius);
+   CircleCollider(fhl::Vec2f center, float radius);
    ~CircleCollider() { }
 
 public:
@@ -22,16 +22,16 @@ public:
    virtual bool isCollision(const RectsCollider& _collider) const override;
    virtual bool isCollision(const BoxCollider& _collider) const override;
 
-   bool contains(glm::vec2 _p) const;
+   bool contains(fhl::Vec2f _p) const;
 
-   glm::vec2 getCenter() const { return m_center; }
+   fhl::Vec2f getCenter() const { return m_center; }
    float getRadius() const { return m_radius; }
 
 private:
-   float distance(const glm::vec2 a, const glm::vec2 b) const;
+   float distance(const fhl::Vec2f a, const fhl::Vec2f b) const;
 
 private:
-   glm::vec2 m_center;
+	fhl::Vec2f m_center;
    float m_radius;
 
 };

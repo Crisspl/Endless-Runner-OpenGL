@@ -56,12 +56,10 @@ namespace fhl {
 		bool operator>(const Vec4<_T>& _other) const { return x > _other.x && y > _other.y && z > _other.z && w > _other.w; }
 		bool operator>=(const Vec4<_T>& _other) const { return x >= _other.x && y >= _other.y && z >= _other.z && w >= _other.w; }
 
-		const _T* data() const { return elements; }
+		const _T* data() const { return &x; }
 
-		_T & operator[](size_t _n) { return elements[_n]; }
-		_T operator[](size_t _n) const { return elements[_n]; }
-
-		float dot(const Vec4<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z + w * _right.w; }
+		_T & operator[](size_t _n) { return *(&x + _n); }
+		_T operator[](size_t _n) const { return *(&x + _n); }
 
 		friend std::ostream& operator<<(std::ostream& _os, const Vec4<_T>& _v)
 		{
@@ -69,26 +67,7 @@ namespace fhl {
 		}
 
 	public:
-		union
-		{
-			union
-			{
-				_T x, r, s;
-			};
-			union
-			{
-				_T y, g, t;
-			};
-			union
-			{
-				_T z, b, p;
-			};
-			union
-			{
-				_T w, a, q;
-			};
-			_T elements[4];
-		};
+		_T x, y, z, w;
 	};
 
 	using Vec4f = Vec4<float>;
