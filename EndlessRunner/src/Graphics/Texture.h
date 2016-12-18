@@ -11,6 +11,8 @@
 #include <tuple>
 #include <iostream>
 
+#include "../Maths/Vectors.h"
+
 namespace fhl { class ResMgr; }
 
 namespace fhl
@@ -26,8 +28,6 @@ class Texture
 
 private:
    typedef unsigned char uchar;
-   typedef glm::tvec2<GLint> vec2i;
-
 private:
    enum WrapOption
    {
@@ -37,23 +37,23 @@ private:
 
 private:
    Texture() = default;
-   explicit Texture(vec2i _size);
+   explicit Texture(Vec2i _size);
    explicit Texture(std::string _filePath);
 
    const Texture& setWrapOption(WrapOption _option) const;
 
-   std::tuple<uchar*, glm::vec2, GLuint> loadImage(std::string _filePath);
+   std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
 
 public:
    const GLuint& getId() const { return m_texId; }
-   glm::vec2 getSize() const { return glm::vec2(m_size.x, m_size.y); }
+   Vec2f getSize() const { return Vec2f(m_size.x, m_size.y); }
 
    Texture& setRepeated(bool _r);
    bool isRepeated() { return m_repeated; }
 
 private:
    GLuint m_texId;
-   vec2i m_size;
+   Vec2i m_size;
    uchar* m_imageData;
    bool m_repeated;
 };

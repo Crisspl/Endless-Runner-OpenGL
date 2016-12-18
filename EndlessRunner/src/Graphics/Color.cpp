@@ -7,12 +7,12 @@
 namespace fhl
 {
 
-const Color Color::White = Color(glm::vec4(1.f));
+const Color Color::White = Color(Vec4f(1.f));
 const Color Color::Black;
 const Color Color::Red = Color(1.f, 0.f, 0.f);
 const Color Color::Green = Color(0.f, 1.f, 0.f);
 const Color Color::Blue = Color(0.f, 0.f, 1.f);
-const Color Color::Transparent = Color(glm::vec4(0.f));
+const Color Color::Transparent = Color(Vec4f(0.f));
 
 Color::Color(float _r, float _g, float _b, float _a)
 	: color{
@@ -24,13 +24,13 @@ Color::Color(float _r, float _g, float _b, float _a)
 {
 }
 
-Color::Color(glm::vec4 _color)
+Color::Color(Vec4f _color)
    : Color(_color.x, _color.y, _color.z, _color.w)
 {
 }
 
-Color::Color(glm::vec3 _color)
-	: Color(glm::vec4(_color, 1.f))
+Color::Color(Vec3f _color)
+	: Color(Vec4f(_color, 1.f))
 {
 }
 

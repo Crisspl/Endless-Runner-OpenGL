@@ -26,7 +26,7 @@ class ColoredRect
      public Litable
 {
 public:
-   explicit ColoredRect(glm::vec2 _size);
+   explicit ColoredRect(Vec2f _size);
 
    Color getColor() const { return m_color; }
 

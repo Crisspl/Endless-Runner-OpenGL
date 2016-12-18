@@ -38,7 +38,7 @@ private:
    void draw();
 
    int isHeroOnIsland(); /* If hero collides an island - returns its number in container, otherwise returns -1 */
-   glm::vec2 countThrowDir();
+   fhl::Vec2f countThrowDir();
 
 private:
    static SDL_Window* m_window;

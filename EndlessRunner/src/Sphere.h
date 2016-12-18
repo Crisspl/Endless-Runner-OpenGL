@@ -41,9 +41,9 @@ public:
    void changeState(const State _newState);
 
    State getState() { return m_currentState; }
-   glm::vec2 getPosition() { return m_sprite.getPosition(); }
+   fhl::Vec2f getPosition() { return m_sprite.getPosition(); }
 
-   void setDirection(glm::vec2 _dir) { m_direction = _dir; }
+   void setDirection(fhl::Vec2f _dir) { m_direction = _dir; }
 
 private:
    DECLARE_SPHERE_STATE_METHODS(Idle)
@@ -57,7 +57,7 @@ private:
 private:
    fhl::Sprite m_sprite;
 
-   glm::vec2 m_direction;
+   fhl::Vec2f m_direction;
    float m_startVelociy;
    float m_velocity;
    Hero* m_owner;

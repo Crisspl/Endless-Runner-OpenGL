@@ -55,13 +55,13 @@ namespace fhl {
 
 		float length() const { return sqrt(x*x + y*y + z*z); }
 		Vec3<_T> normalized() const { return *this / length(); }
-		const _T* data() const { return elements; }
+		const _T* data() const { return &x; }
 
-		_T & operator[](size_t _n) { return elements[_n]; }
-		_T operator[](size_t _n) const { return elements[_n]; }
+		_T & operator[](size_t _n) { return *(&x + _n); }
+		_T operator[](size_t _n) const { return *(&x + _n); }
 
-		float dot(const Vec3<_T>& _right) { return x * _right.x + y * _right.y + z * _right.z; }
-		Vec3<_T> cross(const Vec3<_T>& _right) 
+		float dot(const Vec3<_T>& _right) const { return x * _right.x + y * _right.y + z * _right.z; }
+		Vec3<_T> cross(const Vec3<_T>& _right) const
 		{
 			return
 			Vec3<_T>(
@@ -77,22 +77,7 @@ namespace fhl {
 		}
 
 	public:
-		union 
-		{
-			union
-			{
-				_T x, r, s;
-			};
-			union
-			{
-				_T y, g, t;
-			};
-			union
-			{
-				_T z, b, p;
-			};
-			_T elements[3];
-		};
+		_T x, y, z;
 	};
 
 	using Vec3f = Vec3<float>;

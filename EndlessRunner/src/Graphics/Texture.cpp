@@ -3,7 +3,7 @@
 namespace fhl
 {
 
-Texture::Texture(vec2i _size)
+Texture::Texture(Vec2i _size)
          : m_size(_size),
            m_repeated(false)
 {
@@ -48,10 +48,10 @@ const Texture& Texture::setWrapOption(Texture::WrapOption _option) const
    return *this;
 }
 
-std::tuple<unsigned char*, glm::vec2, GLuint> Texture::loadImage(std::string _filePath)
+std::tuple<unsigned char*, Vec2i, GLuint> Texture::loadImage(std::string _filePath)
 {
    GLuint id;
-   vec2i size;
+   Vec2i size;
    unsigned char* image = SOIL_load_image(_filePath.c_str(), &size.x, &size.y, 0, SOIL_LOAD_RGBA);
 
    glGenTextures(1, &id);

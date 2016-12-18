@@ -1,6 +1,6 @@
 #include "AnimationMgr.h"
 
-AnimationMgr::AnimationMgr(fhl::Sprite* _sprt, float _interval, glm::vec2 _fSize)
+AnimationMgr::AnimationMgr(fhl::Sprite* _sprt, float _interval, fhl::Vec2f _fSize)
    : m_ptrSprite(_sprt),
      m_interval(_interval),
      m_frameSize(_fSize)

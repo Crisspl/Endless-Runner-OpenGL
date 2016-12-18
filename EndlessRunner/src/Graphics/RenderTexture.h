@@ -17,7 +17,7 @@ public:
    explicit RenderTexture(Texture& _tex);
 
    bool create();
-   void clearColor(glm::vec4 _color);
+   void clearColor(Vec4f _color);
    void drawToTex(Drawable& _obj);
    Texture& getTexture() { return m_refTex; }
 

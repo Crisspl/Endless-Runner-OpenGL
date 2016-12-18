@@ -4,14 +4,13 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 #include <SDL.h>
 
 #include <iostream>
 
 #include "Buffer.h"
+#include "../Maths/Vectors.h"
+#include "../Maths/Mat4.h"
 
 namespace fhl
 {
@@ -30,11 +29,11 @@ public:
 public:
    static void init(GLuint _width, GLuint _height);
 
-   static glm::vec2 viewPortSize();
+   static Vec2f viewPortSize();
 
-   static const glm::mat4& view() { return *m_view; }
+   static const Mat4& view() { return *m_view; }
 
-   static const glm::mat4& projection() { return *m_projection; }
+   static const Mat4& projection() { return *m_projection; }
 
    static void setDisplayMode(DisplayMode _mode);
 
@@ -42,19 +41,19 @@ public:
 
    static void setPerspViewDistance(float _eyeZ);
 
-   static glm::vec2 getMousePosition();
+   static Vec2f getMousePosition();
 
 public:
-   static glm::mat4 ortView, ortProjection, perspView, perspProjection;
+   static Mat4 ortView, ortProjection, perspView, perspProjection;
    static Buffer* rectShapeEbo;
 
 private:
    static bool m_initialized;
    static GLuint m_rectShapeIndices[6];
-   static glm::vec2 m_vpSize;
+   static Vec2f m_vpSize;
    static DisplayMode m_displMode;
-   static glm::mat4* m_view;
-   static glm::mat4* m_projection;
+   static Mat4* m_view;
+   static Mat4* m_projection;
 };
 
 } // ns

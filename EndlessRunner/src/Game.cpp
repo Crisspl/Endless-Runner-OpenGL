@@ -19,7 +19,7 @@ Game::Game()
    fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
-   m_hero.setPosition({200.f, WIN_Y});
+   m_hero.setPosition({200.f, (float)WIN_Y});
 
    m_va.addVertex({ {20, 30}, fhl::Color::White })
 	   .addVertex({ {30, 25}, fhl::Color::White })
@@ -35,8 +35,8 @@ Game::Game()
 
 Game& Game::get()
 {
-   static Game singleton;
-   return singleton;
+   static Game instance;
+   return instance;
 }
 
 void Game::run()
@@ -95,7 +95,7 @@ void Game::handleEvents()
                   m_hero.changeState(Hero::State_Jump);
                if(event.key.keysym.sym == SDLK_e)
                {
-                  m_vecIslands.emplace_back(glm::vec2(1200, sup::getRand(200, 400)));
+                  m_vecIslands.emplace_back(fhl::Vec2f(1200, sup::getRand(200, 400)));
                }
                break;
            case SDL_MOUSEBUTTONDOWN:
@@ -167,7 +167,7 @@ void Game::update()
    m_cliff.update(dt);
 
    fhl::Light light;
-   light.position = glm::vec3(m_hero.getPosition(), 300.f);
+   light.position = fhl::Vec3f(m_hero.getPosition(), 300.f);
    light.color = fhl::Color(129.f / 255, 240.f / 255, 232.f / 255);
    //light.color = fhl::Color(237, 183, 223);
    light.linear = 0.005f;
@@ -182,9 +182,9 @@ void Game::update()
    light2.type = fhl::Light::Directional;
 
    fhl::Light light3;
-   light3.color = fhl::Color::Red;
+   light3.color = fhl::Color::White;
    light3.illuminance = 1.5f;
-   light3.position = glm::vec3(m_sphere.getPosition(), 300.f);
+   light3.position = fhl::Vec3f(m_sphere.getPosition(), 300.f);
    light3.cutOffAngle = 15;
    light3.type = fhl::Light::Spot;
 
@@ -192,7 +192,7 @@ void Game::update()
 
    for (const Island & isl : m_vecIslands)
    {
-	   auto v(isl.getLights());
+	   auto && v = isl.getLights();
 	   lights.insert(lights.begin(), v.begin(), v.end());
    }
    lights.insert(lights.begin(), { light, light2 });
@@ -207,7 +207,7 @@ void Game::draw()
    glClearColor(0.f, 0.f, 0.f, 1.f);
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-   m_renderer.clearColor(glm::vec4(0.f, 0.f, 0.f, 1.f));
+   m_renderer.clearColor(fhl::Vec4f(0.f, 0.f, 0.f, 1.f));
 
    m_renderer.drawToTex(m_cliff);
 
@@ -236,10 +236,9 @@ int Game::isHeroOnIsland()
    return -1;
 }
 
-glm::vec2 Game::countThrowDir()
+fhl::Vec2f Game::countThrowDir()
 {
-   glm::vec2 dir = fhl::Configurator::getMousePosition() - m_hero.getPosition();
-   dir = glm::normalize(dir);
+	fhl::Vec2f dir = (fhl::Configurator::getMousePosition() - m_hero.getPosition()).normalized();
 
    return dir;
 }

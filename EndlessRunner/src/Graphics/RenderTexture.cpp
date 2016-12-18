@@ -34,7 +34,7 @@ bool RenderTexture::create()
    return true;
 }
 
-void RenderTexture::clearColor(glm::vec4 _color)
+void RenderTexture::clearColor(Vec4f _color)
 {
    glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
    glClearColor(_color.x, _color.y, _color.z, _color.w);

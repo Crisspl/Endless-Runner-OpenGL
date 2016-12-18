@@ -4,12 +4,11 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
-#include <glm/glm.hpp>
-
 #include <memory>
 
 #include "Buffer.h"
 #include "Vao.h"
+#include "../Maths/Vectors.h"
 
 namespace fhl
 {
@@ -17,11 +16,11 @@ namespace fhl
 class Sizeable
 {
 public:
-	explicit Sizeable(glm::vec2 _size = { 1, 1 });
+	explicit Sizeable(Vec2f _size = { 1, 1 });
 	virtual ~Sizeable() { }
 
-	virtual void setSize(glm::vec2 _size);
-	glm::vec2 getSize() const { return m_size; }
+	virtual void setSize(Vec2f _size);
+	Vec2f getSize() const { return m_size; }
 
 protected:
 	void updatePosArray();
@@ -30,8 +29,8 @@ protected:
 protected:
 	std::shared_ptr<Vao> m_vao;
 
-	glm::vec2 m_size;
-	glm::vec2 m_posArray[4];
+	Vec2f m_size;
+	Vec2f m_posArray[4];
 };
 
 } // ns

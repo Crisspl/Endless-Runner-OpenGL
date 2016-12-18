@@ -11,6 +11,7 @@
 #include "Graphics/Drawable.h"
 #include "Graphics/DrawFuncs.h"
 #include "Graphics/Light.h"
+#include "Maths/Vectors.h"
 #include "Coin.h"
 
 class Island
@@ -18,7 +19,7 @@ class Island
         public fhl::Drawable
 {
 public:
-   explicit Island(glm::vec2 _pos);
+   explicit Island(fhl::Vec2f _pos);
    ~Island();
 public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
@@ -28,7 +29,7 @@ public:
    void draw(const fhl::DrawConf &) const override;
    void move(float _offset);
 
-   glm::vec2 getPosition() const { return m_sprite.getPosition(); }
+   fhl::Vec2f getPosition() const { return m_sprite.getPosition(); }
    float getSurfaceHeight() const { return m_sprite.getPosition().y; }
    std::vector<fhl::Light> getLights() const;
    std::vector<Coin> & getCoins() { return m_coins; }

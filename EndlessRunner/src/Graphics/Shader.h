@@ -9,14 +9,11 @@
 #include <fstream>
 #include <iostream>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 #include "Texture.h"
 #include "Color.h"
 #include "Light.h"
 #include "ShaderSrcs.h"
+#include "../Maths/Mat4.h"
 
 namespace fhl { class ResMgr; }
 
@@ -49,11 +46,11 @@ public:
 
    const Shader& setFloat(const GLchar* _name, const GLfloat _value) const;
    const Shader& setInt(const GLchar* _name, const GLint _value) const;
-   const Shader& setVec2f(const GLchar* _name, const glm::vec2& _value) const;
-   const Shader& setVec3f(const GLchar* _name, const glm::vec3& _value) const;
-   const Shader& setVec4f(const GLchar* _name, const glm::vec4& _value) const;
+   const Shader& setVec2f(const GLchar* _name, const Vec2f& _value) const;
+   const Shader& setVec3f(const GLchar* _name, const Vec3f& _value) const;
+   const Shader& setVec4f(const GLchar* _name, const Vec4f& _value) const;
    const Shader& setColor(const GLchar* _name, const Color& _value) const;
-   const Shader& setMat4(const GLchar* _name, const glm::mat4& _matrix) const;
+   const Shader& setMat4(const GLchar* _name, const Mat4& _matrix) const;
 
    const Shader& setLight(const GLchar* _name, const Light& _light) const;
    const Shader& setLight(const GLchar* _name, const Light& _light, size_t _num) const;

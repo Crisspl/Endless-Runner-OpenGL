@@ -51,12 +51,12 @@ struct Vec2
 
    float length() const { return sqrt(x*x + y*y); }
    Vec2<_T> normalized() const { return *this / length(); }
-   const _T* data() const { return elements; }
+   const _T* data() const { return &x; }
 
-   _T & operator[](size_t _n) { return elements[_n]; }
-   _T operator[](size_t _n) const { return elements[_n]; }
+   _T & operator[](size_t _n) { return *(&x + _n); }
+   _T operator[](size_t _n) const { return *(&x + _n); }
 
-   float dot(const Vec2<_T>& _right) { return x * _right.x + y * _right.y; }
+   float dot(const Vec2<_T>& _right) const { return x * _right.x + y * _right.y; }
 
    friend std::ostream& operator<<(std::ostream& _os, const Vec2<_T>& _v)
    {
@@ -64,18 +64,7 @@ struct Vec2
    }
 
 public:
-	union
-	{
-		union
-		{
-			_T x, r, s;
-		};
-		union
-		{
-			_T y, g, t;
-		};
-		_T elements[2];
-	};
+	_T x, y;
 };
 
 using Vec2f = Vec2<float>;

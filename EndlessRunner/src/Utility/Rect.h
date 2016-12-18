@@ -1,8 +1,8 @@
 #ifndef RECT_H
 #define RECT_H
 
-#include <glm/glm.hpp>
 #include <array>
+#include "../Maths/Vectors.h"
 
 namespace fhl{
 
@@ -18,7 +18,7 @@ struct Projection
 
 class Rect
 {
-   using Tverts = std::array<glm::vec2, 4>;
+   using Tverts = std::array<Vec2f, 4>;
 
 public:
    enum VerticlePos /* Note Y axis can be inverted ! */
@@ -31,26 +31,26 @@ public:
 
 public:
    Rect();
-   Rect(glm::vec2 _botLeft, glm::vec2 _size);
-   explicit Rect(glm::vec2 _size);
+   Rect(Vec2f _botLeft, Vec2f _size);
+   explicit Rect(Vec2f _size);
    virtual ~Rect() { }
 
 public:
-   virtual bool contains(glm::vec2 _p) const;
+   virtual bool contains(Vec2f _p) const;
    virtual bool intersects(const Rect& _rect) const;
 
-   glm::vec2 operator[](unsigned _i) const { return m_verts[_i]; }
+   Vec2f operator[](unsigned _i) const { return m_verts[_i]; }
    const Tverts& getVerts() const { return m_verts; }
 
-   glm::vec2 botLeft() const { return m_verts[BL]; }
-   glm::vec2 getSize() const { return m_verts[UR] - m_verts[BL]; }
-   Projection project(glm::vec2 _axis) const;
+   Vec2f botLeft() const { return m_verts[BL]; }
+   Vec2f getSize() const { return m_verts[UR] - m_verts[BL]; }
+   Projection project(Vec2f _axis) const;
 
    virtual Rect& addWidth(float _width);
    virtual Rect& addHeight(float _height);
-   virtual Rect& move(glm::vec2 _offset);
+   virtual Rect& move(Vec2f _offset);
 
-   virtual const std::array<glm::vec2, 2>& getAxes() const { return s_axes; }
+   virtual const std::array<Vec2f, 2>& getAxes() const { return s_axes; }
 
 public:
    float width, height;
@@ -59,7 +59,7 @@ protected:
    Tverts m_verts;
 
 private:
-   static std::array<glm::vec2, 2> s_axes;
+   static std::array<Vec2f, 2> s_axes;
 };
 
 } //ns

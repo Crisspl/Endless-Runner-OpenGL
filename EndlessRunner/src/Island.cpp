@@ -1,13 +1,13 @@
 #include "Island.h"
 
-Island::Island(glm::vec2 _pos)
+Island::Island(fhl::Vec2f _pos)
           : Collideable(Collideable::Coll_Island)
 {
    m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex").setRepeated(1));
 
    std::size_t size = sup::getRand(7, 14);
 
-   m_sprite.setSize({ size * 32, 32 });
+   m_sprite.setSize({ size * 32.f, 32.f });
    m_sprite.setOrigin({32.f * size , 0.f})
            .setPosition(_pos);
    m_coins = std::vector<Coin>(size);
@@ -15,7 +15,7 @@ Island::Island(glm::vec2 _pos)
    size_t i = 0;
    for (Coin & c : m_coins)
    {
-	   c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + glm::vec2(i++ * 32 + 16, 0));
+	   c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + fhl::Vec2f(i++ * 32 + 16, 0));
    }
 }
 
@@ -63,7 +63,7 @@ std::vector<fhl::Light> Island::getLights() const
 	std::vector<fhl::Light> v;
 	for (const Coin & c : m_coins)
 	{
-		light.position = glm::vec3(c.getPosition(), 300.f);
+		light.position = fhl::Vec3f(c.getPosition(), 300.f);
 		v.push_back(light);
 	}
 

@@ -19,7 +19,7 @@ Hero::Hero()
    REGISTER_HERO_STATES(Fall)
 
    m_heroSprite.setSize({50, 50});
-   m_heroSprite.setOrigin({25.f, 50.f})
+   m_heroSprite.setOrigin({ 25.f, 50.f })
                .rotate(25.f);
 
    changeState(State_Move);
@@ -64,7 +64,7 @@ void Hero::changeState(const Hero::State _newState)
    (this->*m_onEnter[m_currentState])(prevState);
 }
 
-void Hero::move(glm::vec2 _offset)
+void Hero::move(fhl::Vec2f _offset)
 {
    m_heroSprite.move(_offset);
 }
@@ -73,7 +73,7 @@ void Hero::move(glm::vec2 _offset)
 
 void Hero::Move_onEnter(Hero::State prevState)
 {
-   m_velocity = glm::vec2();
+   m_velocity = fhl::Vec2f();
 }
 
 void Hero::Move_onExit(Hero::State nextState){}

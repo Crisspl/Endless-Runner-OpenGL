@@ -18,7 +18,7 @@ fhl::Texture& ResMgr::loadTexture(std::string _path, std::string _name)
    return m_textures[_name];
 }
 
-fhl::Texture& ResMgr::loadTexture(glm::tvec2<GLint> _size, std::string _name)
+fhl::Texture& ResMgr::loadTexture(Vec2i _size, std::string _name)
 {
    m_textures[_name] = fhl::Texture(_size);
    return m_textures[_name];

@@ -44,7 +44,7 @@ void Sprite::setTextureRect(fhl::Rect _rect, bool _changeSize)
    if(!m_ptexture)
       return;
 
-   glm::vec2 texSize = glm::vec2(m_ptexture->getSize().x, m_ptexture->getSize().y);
+   Vec2f texSize = Vec2f(m_ptexture->getSize().x, m_ptexture->getSize().y);
 
    if(_changeSize)
       setSize(_rect.getSize());
@@ -95,7 +95,7 @@ void Sprite::draw(const DrawConf & _conf) const
 
 fhl::Rect Sprite::getAABB() const
 {
-   glm::vec2 bl = getPosition() - getOrigin();
+   Vec2f bl = getPosition() - getOrigin();
    return fhl::Rect(bl, m_size);
 }
 

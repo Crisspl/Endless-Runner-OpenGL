@@ -14,12 +14,12 @@ namespace fhl
 
 struct TransformData
 {
-   glm::vec2 botLeft;
-   glm::vec2 scale;
-   glm::vec2 origin;
+   Vec2f botLeft;
+   Vec2f scale;
+   Vec2f origin;
    float rotation;
 
-   glm::vec2 position() { return botLeft + origin; }
+   Vec2f position() { return botLeft + origin; }
 };
 
 class Transformable
@@ -34,23 +34,23 @@ public:
 
    Transformable& setRotation(float _angle);
 
-   Transformable& move(glm::vec2 _offset);
+   Transformable& move(Vec2f _offset);
 
-   Transformable& setPosition(glm::vec2 _pos);
+   Transformable& setPosition(Vec2f _pos);
 
-   Transformable& setScale(glm::vec2 _scale);
+   Transformable& setScale(Vec2f _scale);
 
-   Transformable& setOrigin(glm::vec2 _origin);
+   Transformable& setOrigin(Vec2f _origin);
 
    /* Getters */
 
    float getRotation() const { return m_rotation; }
 
-   glm::vec2 getPosition() const { return m_position; }
+   Vec2f getPosition() const { return m_position; }
 
-   glm::vec2 getScale() const { return m_scale; }
+   Vec2f getScale() const { return m_scale; }
 
-   glm::vec2 getOrigin() const { return m_transform.origin; }
+   Vec2f getOrigin() const { return m_transform.origin; }
 
    Transform getTransform() const { return m_transform; }
 
@@ -58,7 +58,7 @@ public:
 
 protected:
    float m_rotation;
-   glm::vec2 m_position, m_scale;
+   Vec2f m_position, m_scale;
    Transform m_transform;
 };
 

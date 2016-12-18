@@ -28,28 +28,28 @@ Transformable& Transformable::setRotation(float _angle)
    return *this;
 }
 
-Transformable& Transformable::move(glm::vec2 _offset)
+Transformable& Transformable::move(Vec2f _offset)
 {
    m_position += _offset;
    m_transform.move(_offset);
    return *this;
 }
 
-Transformable& Transformable::setPosition(glm::vec2 _pos)
+Transformable& Transformable::setPosition(Vec2f _pos)
 {
    m_position = _pos;
    m_transform.setPosition(_pos);
    return *this;
 }
 
-Transformable& Transformable::setScale(glm::vec2 _scale)
+Transformable& Transformable::setScale(Vec2f _scale)
 {
    m_scale = _scale;
    m_transform.setScale(_scale);
    return *this;
 }
 
-Transformable& Transformable::setOrigin(glm::vec2 _origin)
+Transformable& Transformable::setOrigin(Vec2f _origin)
 {
    m_transform.origin = _origin;
    setRotation(m_rotation);

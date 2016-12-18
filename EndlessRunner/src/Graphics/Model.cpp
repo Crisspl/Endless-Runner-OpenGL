@@ -125,7 +125,7 @@ Mesh Model::processMesh(aiMesh* _meshPtr, const aiScene* _scenePtr)
          vertex.texCoords.y = _meshPtr->mTextureCoords[0][i].y;
       }
       else
-         vertex.texCoords = glm::vec2(0.f, 0.f);
+         vertex.texCoords = Vec2f(0.f, 0.f);
 
       vertices.push_back(vertex);
    }
