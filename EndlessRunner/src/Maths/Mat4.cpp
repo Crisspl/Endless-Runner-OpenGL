@@ -1,7 +1,6 @@
 #include "Mat4.h"
 
 #include <cstring>
-#include <algorithm>
 #include "Maths_funcs.h"
 
 namespace fhl
@@ -25,6 +24,42 @@ Mat4::Mat4(Vec4f _c1, Vec4f _c2, Vec4f _c3, Vec4f _c4)
 	m_cols[3] = _c4;
 }
 
+Mat4 Mat4::operator+(const Mat4 & _other) const
+{
+	Mat4 ret(*this);
+
+	for (int i = 0; i < 16; i++)
+		ret.m_elements[i] += _other.m_elements[i];
+
+	return ret;
+}
+
+Mat4 & Mat4::operator+=(const Mat4 & _other)
+{
+	for (int i = 0; i < 16; i++)
+		m_elements[i] += _other.m_elements[i];
+
+	return *this;
+}
+
+Mat4 Mat4::operator-(const Mat4 & _other) const
+{
+	Mat4 ret(*this);
+
+	for (int i = 0; i < 16; i++)
+		ret.m_elements[i] -= _other.m_elements[i];
+
+	return ret;
+}
+
+Mat4 & Mat4::operator-=(const Mat4 _other)
+{
+	for (int i = 0; i < 16; i++)
+		m_elements[i] -= _other.m_elements[i];
+
+	return *this;
+}
+
 Mat4 operator*(const Mat4& _mat, float _n)
 {
 	Mat4 ret = _mat;
@@ -33,7 +68,7 @@ Mat4 operator*(const Mat4& _mat, float _n)
 	return ret;
 }
 
-Mat4 Mat4::operator*(const Mat4 & _other)
+Mat4 Mat4::operator*(const Mat4 & _other) const
 {
 	Mat4 ret;
 	for (int j = 0; j < 4; j++)
@@ -49,14 +84,19 @@ Mat4 Mat4::operator*(const Mat4 & _other)
 	return ret;
 }
 
-void Mat4::operator*=(float _n)
+Mat4 & Mat4::operator*=(float _n)
 {
-	*this = *this * _n;
+	return (*this = *this * _n);
 }
 
-void Mat4::operator*=(const Mat4 & _other)
+Mat4 & Mat4::operator*=(const Mat4 & _other)
 {
-	*this = *this * _other;
+	return (*this = *this * _other);
+}
+
+Mat4 Mat4::operator-() const
+{
+	return *this * -1.f;
 }
 
 bool Mat4::operator==(const Mat4 & _other) const

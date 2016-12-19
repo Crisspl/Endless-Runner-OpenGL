@@ -3,33 +3,33 @@
 namespace fhl
 {
 
-std::map<std::string, fhl::Shader> ResMgr::m_shaders;
-std::map<std::string, fhl::Texture> ResMgr::m_textures;
+std::map<std::string, Shader> ResMgr::m_shaders;
+std::map<std::string, Texture> ResMgr::m_textures;
 
-fhl::Shader& ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
+Shader& ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
 {
    m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
    return m_shaders[_name];
 }
 
-fhl::Texture& ResMgr::loadTexture(std::string _path, std::string _name)
+Texture& ResMgr::loadTexture(std::string _path, std::string _name)
 {
    m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
    return m_textures[_name];
 }
 
-fhl::Texture& ResMgr::loadTexture(Vec2i _size, std::string _name)
+Texture& ResMgr::loadTexture(Vec2i _size, std::string _name)
 {
    m_textures[_name] = fhl::Texture(_size);
    return m_textures[_name];
 }
 
-fhl::Shader& ResMgr::getShader(std::string _name)
+Shader& ResMgr::getShader(std::string _name)
 {
    return m_shaders[_name];
 }
 
-fhl::Texture& ResMgr::getTexture(std::string _name)
+Texture& ResMgr::getTexture(std::string _name)
 {
    return m_textures[_name];
 }
@@ -42,6 +42,16 @@ bool ResMgr::isShaderLoaded(std::string _name)
 bool ResMgr::isTextureLoaded(std::string _name)
 {
 	return m_textures.find(_name) != m_textures.end();
+}
+
+void ResMgr::removeShader(std::string _name)
+{
+	m_shaders.erase(_name);
+}
+
+void ResMgr::removeTexture(std::string _name)
+{
+	m_textures.erase(_name);
 }
 
 void ResMgr::clear()

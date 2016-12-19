@@ -1,5 +1,5 @@
-#ifndef RESMGR_H
-#define RESMGR_H
+#ifndef FHL_RESMGR_H
+#define FHL_RESMGR_H
 
 #include <map>
 
@@ -9,20 +9,23 @@
 namespace fhl
 {
 
-class ResMgr final
+class ResMgr
 {
    ResMgr() = delete;
 
 public:
-   static fhl::Shader& loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
-   static fhl::Texture& loadTexture(std::string _path, std::string _name);
-   static fhl::Texture& loadTexture(Vec2i _size, std::string _name);
+   static Shader& loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
+   static Texture& loadTexture(std::string _path, std::string _name);
+   static Texture& loadTexture(Vec2i _size, std::string _name);
 
-   static fhl::Shader& getShader(std::string _name);
-   static fhl::Texture& getTexture(std::string _name);
+   static Shader& getShader(std::string _name);
+   static Texture& getTexture(std::string _name);
 
    static bool isShaderLoaded(std::string _name);
    static bool isTextureLoaded(std::string _name);
+
+   static void removeShader(std::string _name);
+   static void removeTexture(std::string _name);
 
    static void clear();
 
@@ -33,4 +36,4 @@ private:
 
 } // ns
 
-#endif // RESMGR_H
+#endif // FHL_RESMGR_H

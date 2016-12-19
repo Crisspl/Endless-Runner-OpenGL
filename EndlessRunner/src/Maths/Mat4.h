@@ -12,11 +12,19 @@ struct Mat4
 	explicit Mat4(float _diagonal = 1.f);
 	Mat4(Vec4f _c1, Vec4f _c2, Vec4f _c3, Vec4f _c4);
 
-	friend Mat4 operator*(const Mat4& _mat, float _n);
-	Mat4 operator*(const Mat4 & _other);
+	Mat4 operator+(const Mat4 & _other) const;
+	Mat4 & operator+=(const Mat4 & _other);
 
-	void operator*=(float _n);
-	void operator*=(const Mat4 & _other);
+	Mat4 operator-(const Mat4 & _other) const;
+	Mat4 & operator-=(const Mat4 _other);
+
+	friend Mat4 operator*(const Mat4& _mat, float _n);
+	Mat4 operator*(const Mat4 & _other) const;
+
+	Mat4 & operator*=(float _n);
+	Mat4 & operator*=(const Mat4 & _other);
+
+	Mat4 operator-() const;
 
 	bool operator==(const Mat4 & _other) const;
 	bool operator!=(const Mat4 & _other) const;
@@ -46,7 +54,7 @@ struct Mat4
 	const float * data() const { return m_elements; }
 
 
-public:
+private:
 	union
 	{
 		Vec4f m_cols[4];
