@@ -6,7 +6,7 @@ namespace fhl
 struct Constants
 {
 
-	static double Pi() { return 3.141592653589793238462643383279; }
+	constexpr static double Pi() { return 3.141592653589793238462643383279; }
 
 };
 

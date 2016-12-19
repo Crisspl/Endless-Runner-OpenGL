@@ -21,7 +21,7 @@ class Hero
 public:
    enum State
    {
-     State_Move,
+     State_Move = 0,
      State_Jump,
      State_Fall,
 
