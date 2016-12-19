@@ -13,16 +13,16 @@ using Microseconds = std::chrono::duration<float, std::micro>;
 
 class Clock
 {
-   using TimePoint = std::chrono::time_point<std::chrono::system_clock>;
-   using SystemClock = std::chrono::system_clock;
+	using InnerClock = std::chrono::high_resolution_clock;
+	using TimePoint = std::chrono::time_point<InnerClock>;
 
 public:
-   Clock();
+	Clock();
 
-   template<typename T = Seconds>
-      float getElapsedTime();
-   template<typename T = Seconds>
-      float restart();
+	template<typename T = Seconds>
+		float getElapsedTime();
+	template<typename T = Seconds>
+		float restart();
 private:
    TimePoint m_start;
 };

@@ -4,7 +4,7 @@ namespace fhl
 {
 
 Clock::Clock()
-   : m_start(SystemClock::now())
+   : m_start(InnerClock::now())
 {
 
 }
@@ -12,7 +12,7 @@ Clock::Clock()
 template <typename T>
 float Clock::getElapsedTime()
 {
-   T elapsedTime = SystemClock::now() - m_start;
+   T elapsedTime = InnerClock::now() - m_start;
    return elapsedTime.count();
 }
 
@@ -20,7 +20,7 @@ template <typename T>
 float Clock::restart()
 {
    float elapsedTime = getElapsedTime<T>();
-   m_start = SystemClock::now();
+   m_start = InnerClock::now();
    return elapsedTime;
 }
 
