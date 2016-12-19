@@ -24,7 +24,7 @@ Texture::Texture(Vec2i _size)
 
 Texture::Texture(std::string _filePath)
 {
-   uchar* tmp;
+   uchar * tmp;
    std::tie(tmp, m_size, m_texId) = loadImage(_filePath);
 
    glBindTexture(GL_TEXTURE_2D, m_texId);
@@ -34,6 +34,20 @@ Texture::Texture(std::string _filePath)
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
    setRepeated(false);
+}
+
+Texture::Texture(Texture && _other) 
+		: m_texId(_other.m_texId),
+		  m_size(_other.m_size),
+		  m_repeated(_other.m_repeated)
+{
+	_other.m_texId = 0;
+}
+
+
+Texture::~Texture()
+{
+	glDeleteTextures(1, &m_texId);
 }
 
 const Texture& Texture::setWrapOption(Texture::WrapOption _option) const
@@ -52,7 +66,7 @@ std::tuple<unsigned char*, Vec2i, GLuint> Texture::loadImage(std::string _filePa
 {
    GLuint id;
    Vec2i size;
-   unsigned char* image = SOIL_load_image(_filePath.c_str(), &size.x, &size.y, 0, SOIL_LOAD_RGBA);
+   uchar * image = SOIL_load_image(_filePath.c_str(), &size.x, &size.y, 0, SOIL_LOAD_RGBA);
 
    glGenTextures(1, &id);
    glBindTexture(GL_TEXTURE_2D, id);

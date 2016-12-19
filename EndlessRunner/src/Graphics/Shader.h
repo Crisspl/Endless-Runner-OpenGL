@@ -38,6 +38,8 @@ private:
    Shader() = default;
    Shader(const GLchar * _vert, const GLchar * _frag, const SourceFrom _srcFrom = SourceFrom::FromFile);
 
+   ~Shader();
+
 public:
    void use() const { glUseProgram(m_shaderProgram); }
    static void unUse() { glUseProgram(0); }
@@ -61,8 +63,8 @@ public:
    bool operator!=(const Shader&);
 
 private:
-   void compileShaderFromString(const GLchar * _src, GLenum _type);
-   void compileShaderFromFile(const GLchar * _path, GLenum _type);
+   void compileShaderFromString(const GLchar * _src, GLenum _type, GLuint &);
+   void compileShaderFromFile(const GLchar * _path, GLenum _type, GLuint &);
 
 private:
    GLuint m_shaderProgram;

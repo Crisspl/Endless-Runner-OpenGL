@@ -6,30 +6,30 @@ namespace fhl
 std::map<std::string, Shader> ResMgr::m_shaders;
 std::map<std::string, Texture> ResMgr::m_textures;
 
-Shader& ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
+Shader & ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
 {
    m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
    return m_shaders[_name];
 }
 
-Texture& ResMgr::loadTexture(std::string _path, std::string _name)
+Texture & ResMgr::loadTexture(std::string _path, std::string _name)
 {
    m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
    return m_textures[_name];
 }
 
-Texture& ResMgr::loadTexture(Vec2i _size, std::string _name)
+Texture & ResMgr::loadTexture(Vec2i _size, std::string _name)
 {
-   m_textures[_name] = fhl::Texture(_size);
+   m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
    return m_textures[_name];
 }
 
-Shader& ResMgr::getShader(std::string _name)
+Shader & ResMgr::getShader(std::string _name)
 {
    return m_shaders[_name];
 }
 
-Texture& ResMgr::getTexture(std::string _name)
+Texture & ResMgr::getTexture(std::string _name)
 {
    return m_textures[_name];
 }
@@ -56,10 +56,8 @@ void ResMgr::removeTexture(std::string _name)
 
 void ResMgr::clear()
 {
-   for(auto& el : m_shaders)
-      glDeleteProgram(el.second.getId());
-   for(auto& el : m_textures)
-      glDeleteTextures(1, &el.second.getId());
+	m_textures.clear();
+	m_shaders.clear();
 }
 
 } // ns

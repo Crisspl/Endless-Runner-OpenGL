@@ -37,8 +37,12 @@ private:
 
 private:
    Texture() = default;
+   Texture(const Texture &) = delete;
+   Texture(Texture && _other);
    explicit Texture(Vec2i _size);
    explicit Texture(std::string _filePath);
+
+   ~Texture();
 
    const Texture& setWrapOption(WrapOption _option) const;
 
@@ -54,7 +58,6 @@ public:
 private:
    GLuint m_texId;
    Vec2i m_size;
-   uchar* m_imageData;
    bool m_repeated;
 };
 

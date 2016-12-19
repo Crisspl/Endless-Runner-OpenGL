@@ -9,18 +9,24 @@ namespace fhl
 Shader::Shader(const GLchar * _vert, const GLchar * _frag, SourceFrom _srcFrom)
       : m_shaderProgram(glCreateProgram())
 {
+	GLuint vId, fId;
 	if (_srcFrom == SourceFrom::FromFile)
 	{
-		compileShaderFromFile(_vert, GL_VERTEX_SHADER);
-		compileShaderFromFile(_frag, GL_FRAGMENT_SHADER);
+		compileShaderFromFile(_vert, GL_VERTEX_SHADER, vId);
+		compileShaderFromFile(_frag, GL_FRAGMENT_SHADER, fId);
 	}
 	else
 	{
-		compileShaderFromString(_vert, GL_VERTEX_SHADER);
-		compileShaderFromString(_frag, GL_FRAGMENT_SHADER);
+		compileShaderFromString(_vert, GL_VERTEX_SHADER, vId);
+		compileShaderFromString(_frag, GL_FRAGMENT_SHADER, fId);
 	}
 
    glLinkProgram(m_shaderProgram);
+
+   glDetachShader(m_shaderProgram, vId);
+   glDeleteShader(vId);
+   glDetachShader(m_shaderProgram, fId);
+   glDeleteShader(fId);
 
    GLint success;
    GLchar infoLog[0x200];
@@ -30,6 +36,11 @@ Shader::Shader(const GLchar * _vert, const GLchar * _frag, SourceFrom _srcFrom)
       glGetProgramInfoLog(m_shaderProgram, 0x200, nullptr, infoLog);
       fhl::DebugLog << "Linking of shader program failed.\n" << infoLog << '\n';
    }
+}
+
+Shader::~Shader()
+{
+	glDeleteProgram(m_shaderProgram);
 }
 
 const Shader& Shader::setFloat(const GLchar* _name, const GLfloat _value) const
@@ -142,9 +153,9 @@ bool Shader::operator!=(const Shader& _outer)
    return m_shaderProgram != _outer.getId();
 }
 
-void Shader::compileShaderFromString(const GLchar * _src, GLenum _type)
+void Shader::compileShaderFromString(const GLchar * _src, GLenum _type, GLuint & _idGetter)
 {
-   GLuint shader = glCreateShader(_type);
+   GLuint shader = _idGetter = glCreateShader(_type);
    glShaderSource(shader, 1, &_src, nullptr);
    glCompileShader(shader);
    GLint success;
@@ -157,10 +168,9 @@ void Shader::compileShaderFromString(const GLchar * _src, GLenum _type)
    }
 
    glAttachShader(m_shaderProgram, shader);
-   glDeleteShader(shader);
 }
 
-void Shader::compileShaderFromFile(const GLchar * _path, GLenum _type)
+void Shader::compileShaderFromFile(const GLchar * _path, GLenum _type, GLuint & _idGetter)
 {
 	std::string sourceStr;
 	std::string line;
@@ -169,7 +179,7 @@ void Shader::compileShaderFromFile(const GLchar * _path, GLenum _type)
 		sourceStr += line + '\n';
 	const GLchar * source = sourceStr.c_str();
 
-	compileShaderFromString(source, _type);
+	compileShaderFromString(source, _type, _idGetter);
 }
 
 } // ns

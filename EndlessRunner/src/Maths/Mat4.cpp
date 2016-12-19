@@ -279,8 +279,8 @@ Mat4 Mat4::transposed() const
 Mat4 Mat4::invert(const Mat4 & _mat)
 {
 	Mat4 inv;
-	float * e = inv.m_elements;
-	const float * m = _mat.m_elements;
+	float * const e = inv.m_elements;
+	const float * const m = _mat.m_elements;
 
 	e[0] = m[5] * m[10] * m[15] + m[9] * m[14] * m[7] + m[13] * m[6] * m[11] - (m[13] * m[10] * m[7] + m[9] * m[6] * m[15] + m[5] * m[14] * m[11]);
 	e[4] = (m[1] * m[10] * m[15] + m[9] * m[14] * m[3] + m[13] * m[2] * m[11] - (m[13] * m[10] * m[3] + m[9] * m[2] * m[15] + m[1] * m[14] * m[11])) * -1.f;
