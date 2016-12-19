@@ -60,12 +60,17 @@ Mat4 & Mat4::operator-=(const Mat4 _other)
 	return *this;
 }
 
-Mat4 operator*(const Mat4& _mat, float _n)
+Mat4 Mat4::operator*(float _n) const
 {
-	Mat4 ret = _mat;
+	Mat4 ret(*this);
 	for (int i = 0; i < 16; i++)
 		ret.m_elements[i] *= _n;
 	return ret;
+}
+
+Mat4 operator*(float _n, const Mat4 & _m)
+{
+	return _m * _n;
 }
 
 Mat4 Mat4::operator*(const Mat4 & _other) const

@@ -18,7 +18,8 @@ struct Mat4
 	Mat4 operator-(const Mat4 & _other) const;
 	Mat4 & operator-=(const Mat4 _other);
 
-	friend Mat4 operator*(const Mat4& _mat, float _n);
+	Mat4 operator*(float _n) const;
+	friend Mat4 operator*(float _n, const Mat4 & _m);
 	Mat4 operator*(const Mat4 & _other) const;
 
 	Mat4 & operator*=(float _n);
