@@ -36,7 +36,7 @@ struct Mat4
 	Mat4& setRow(size_t _n, Vec4f _r);
 	Mat4& setCol(size_t _n, Vec4f _c);
 
-	static Mat4 identity() { return Mat4(1.f); }
+	static Mat4 I() { return Mat4(1.f); }
 
 	static Mat4 ortho(float _left, float _right, float _bottom, float _top, float _near, float _far);
 	static Mat4 perspective(float _fov, float _aspectRatio, float _near, float _far);
