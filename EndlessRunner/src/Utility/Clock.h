@@ -1,5 +1,5 @@
-#ifndef CLOCK_H
-#define CLOCK_H
+#ifndef FHL_CLOCK_H
+#define FHL_CLOCK_H
 
 #include <chrono>
 #include <ratio>
@@ -29,4 +29,4 @@ private:
 
 } // ns
 
-#endif // CLOCK_H
+#endif // FHL_CLOCK_H

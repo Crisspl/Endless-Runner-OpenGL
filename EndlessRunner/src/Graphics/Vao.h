@@ -1,5 +1,5 @@
-#ifndef VAO_H
-#define VAO_H
+#ifndef FHL_VAO_H
+#define FHL_VAO_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -36,4 +36,4 @@ private:
 
 }
 
-#endif // VAO_H
+#endif // FHL_VAO_H

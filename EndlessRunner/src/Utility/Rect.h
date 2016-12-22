@@ -1,5 +1,5 @@
-#ifndef RECT_H
-#define RECT_H
+#ifndef FHL_RECT_H
+#define FHL_RECT_H
 
 #include <array>
 #include "../Maths/Vectors.h"
@@ -64,4 +64,4 @@ private:
 
 } //ns
 
-#endif // RECT_H
+#endif // FHL_RECT_H

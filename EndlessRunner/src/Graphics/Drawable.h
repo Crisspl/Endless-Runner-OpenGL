@@ -1,5 +1,5 @@
-#ifndef DRAWABLE_H
-#define DRAWABLE_H
+#ifndef FHL_DRAWABLE_H
+#define FHL_DRAWABLE_H
 
 #include "DrawConf.h"
 
@@ -19,4 +19,4 @@ protected:
 
 } // ns
 
-#endif // DRAWABLE_H
+#endif // FHL_DRAWABLE_H

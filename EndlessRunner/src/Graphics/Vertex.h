@@ -1,5 +1,5 @@
-#ifndef VERTEX_H
-#define VERTEX_H
+#ifndef FHL_VERTEX_H
+#define FHL_VERTEX_H
 
 #include <glm/glm.hpp>
 
@@ -18,4 +18,4 @@ struct Vertex
 
 } // ns
 
-#endif
+#endif // FHL_VERTEX_H

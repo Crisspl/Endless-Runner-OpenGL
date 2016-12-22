@@ -1,5 +1,5 @@
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#ifndef FHL_TEXTURE_H
+#define FHL_TEXTURE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -63,5 +63,5 @@ private:
 
 } // ns
 
-#endif // TEXTURE_H
+#endif // FHL_TEXTURE_H
 

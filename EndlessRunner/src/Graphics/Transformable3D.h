@@ -1,5 +1,5 @@
-#ifndef TRANSFORMABLE3D_H
-#define TRANSFORMABLE3D_H
+#ifndef FHL_TRANSFORMABLE3D_H
+#define FHL_TRANSFORMABLE3D_H
 
 #include "Transform.h"
 #include "Configurator.h"
@@ -60,4 +60,4 @@ protected:
 
 } // ns
 
-#endif // TRANSFORMABLE3D_H
+#endif // FHL_TRANSFORMABLE3D_H

@@ -1,5 +1,5 @@
-#ifndef MATHS_FUNCS
-#define MATHS_FUNCS
+#ifndef FHL_MATHS_FUNCS
+#define FHL_MATHS_FUNCS
 
 #include <cmath>
 
@@ -15,4 +15,4 @@ namespace fhl
 	}
 }
 
-#endif // MATHS_FUNCS
+#endif // FHL_MATHS_FUNCS

@@ -1,5 +1,5 @@
-#ifndef SIZEABLE_H
-#define SIZEABLE_H
+#ifndef FHL_SIZEABLE_H
+#define FHL_SIZEABLE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -35,4 +35,4 @@ protected:
 
 } // ns
 
-#endif // SIZEABLE_H
+#endif // FHL_SIZEABLE_H

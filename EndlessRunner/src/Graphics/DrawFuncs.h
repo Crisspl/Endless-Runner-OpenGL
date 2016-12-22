@@ -1,5 +1,5 @@
-#ifndef DRAWFUNCS_H
-#define DRAWFUNCS_H
+#ifndef FHL_DRAWFUNCS_H
+#define FHL_DRAWFUNCS_H
 
 #include "Drawable.h"
 #include "DrawConf.h"
@@ -11,4 +11,4 @@ namespace fhl
 
 } // ns
 
-#endif // DRAWFUNCS_H
+#endif // FHL_DRAWFUNCS_H

@@ -1,5 +1,5 @@
-#ifndef SPRITE_H
-#define SPRITE_H
+#ifndef FHL_SPRITE_H
+#define FHL_SPRITE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -58,4 +58,4 @@ private:
 
 } // ns
 
-#endif // SPRITE_H
+#endif // FHL_SPRITE_H

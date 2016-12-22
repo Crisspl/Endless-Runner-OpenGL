@@ -1,5 +1,5 @@
-#ifndef TRANSFORM_H
-#define TRANSFORM_H
+#ifndef FHL_TRANSFORM_H
+#define FHL_TRANSFORM_H
 
 #include "../Maths/Vectors.h"
 #include "../Maths/Maths_funcs.h"
@@ -83,4 +83,4 @@ struct Transform
 
 } // ns
 
-#endif // TRANSFORM_H
+#endif // FHL_TRANSFORM_H

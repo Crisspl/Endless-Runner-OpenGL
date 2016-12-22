@@ -1,5 +1,5 @@
-#ifndef ORIENTEDRECT_H
-#define ORIENTEDRECT_H
+#ifndef FHL_ORIENTEDRECT_H
+#define FHL_ORIENTEDRECT_H
 
 #include <vector>
 
@@ -40,4 +40,4 @@ private:
 
 } // ns
 
-#endif // ORIENTEDRECT_H
+#endif // FHL_ORIENTEDRECT_H

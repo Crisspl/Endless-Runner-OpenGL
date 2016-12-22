@@ -1,5 +1,5 @@
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef FHL_DEBUG_H
+#define FHL_DEBUG_H
 
 #include <fstream>
 
@@ -10,4 +10,4 @@ namespace fhl
 
 } // ns
 
-#endif
+#endif // FHL_DEBUG_H

@@ -1,5 +1,5 @@
-#ifndef SHADERSRCS_H
-#define SHADERSRCS_H
+#ifndef FHL_SHADERSRCS_H
+#define FHL_SHADERSRCS_H
 
 namespace fhl {	namespace shaderSrcs {
 
@@ -48,4 +48,4 @@ constexpr const char * sprite_LightFragment =
 
 }}
 
-#endif // SHADERSRCS_H
+#endif // FHL_SHADERSRCS_H

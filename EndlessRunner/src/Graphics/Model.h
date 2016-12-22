@@ -1,5 +1,5 @@
-#ifndef MODEL_H
-#define MODEL_H
+#ifndef FHL_MODEL_H
+#define FHL_MODEL_H
 
 #include <vector>
 #include <string>
@@ -60,4 +60,4 @@ private:
 
 } // ns
 
-#endif // MODEL_H
+#endif // FHL_MODEL_H

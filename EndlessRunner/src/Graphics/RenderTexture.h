@@ -1,5 +1,5 @@
-#ifndef RENDERTEXTURE_H
-#define RENDERTEXTURE_H
+#ifndef FHL_RENDERTEXTURE_H
+#define FHL_RENDERTEXTURE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -28,4 +28,4 @@ private:
 
 } // ns
 
-#endif // RENDERTEXTURE_H
+#endif // FHL_RENDERTEXTURE_H

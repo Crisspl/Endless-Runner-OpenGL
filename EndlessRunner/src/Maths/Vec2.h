@@ -1,5 +1,5 @@
-#ifndef VEC2_H
-#define VEC2_H
+#ifndef FHL_VEC2_H
+#define FHL_VEC2_H
 
 #include <iostream>
 #include <cmath>
@@ -75,4 +75,4 @@ using Vec2u = Vec2<unsigned>;
 } //ns
 
 
-#endif // VEC2_H
+#endif // FHL_VEC2_H

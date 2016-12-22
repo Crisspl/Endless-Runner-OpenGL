@@ -1,5 +1,5 @@
-#ifndef CONFIGURATOR_H
-#define CONFIGURATOR_H
+#ifndef FHL_CONFIGURATOR_H
+#define FHL_CONFIGURATOR_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -58,4 +58,4 @@ private:
 
 } // ns
 
-#endif // CONFIGURATOR_H
+#endif // FHL_CONFIGURATOR_H

@@ -1,5 +1,5 @@
-#ifndef SHADER_H
-#define SHADER_H
+#ifndef FHL_SHADER_H
+#define FHL_SHADER_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -70,6 +70,6 @@ private:
    GLuint m_shaderProgram;
 };
 
-} // gr
+} // ns
 
-#endif // SHADER_H
+#endif // FHL_SHADER_H

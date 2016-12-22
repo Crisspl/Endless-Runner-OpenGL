@@ -1,5 +1,5 @@
-#ifndef COLOREDRECT_H
-#define COLOREDRECT_H
+#ifndef FHL_COLOREDRECT_H
+#define FHL_COLOREDRECT_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -53,4 +53,4 @@ private:
 
 }
 
-#endif // COLOREDRECT_H
+#endif // FHL_COLOREDRECT_H

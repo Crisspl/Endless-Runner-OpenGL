@@ -1,5 +1,5 @@
-#ifndef DRAWCONF_H
-#define DRAWCONF_H
+#ifndef FHL_DRAWCONF_H
+#define FHL_DRAWCONF_H
 
 #include "Texture.h"
 #include "Transform.h"
@@ -27,4 +27,4 @@ namespace fhl
 
 } // ns
 
-#endif // DRAWCONF_H
+#endif // FHL_DRAWCONF_H

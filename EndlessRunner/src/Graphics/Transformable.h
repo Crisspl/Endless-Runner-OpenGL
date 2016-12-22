@@ -1,5 +1,5 @@
-#ifndef TRANSFORMABLE_H
-#define TRANSFORMABLE_H
+#ifndef FHL_TRANSFORMABLE_H
+#define FHL_TRANSFORMABLE_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -64,4 +64,4 @@ protected:
 
 } // ns
 
-#endif // TRANSFORMABLE_H
+#endif // FHL_TRANSFORMABLE_H

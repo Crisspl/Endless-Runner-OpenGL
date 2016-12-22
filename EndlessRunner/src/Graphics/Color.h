@@ -1,5 +1,5 @@
-#ifndef COLOR_H
-#define COLOR_H
+#ifndef FHL_COLOR_H
+#define FHL_COLOR_H
 
 #include <glm/glm.hpp>
 #include <initializer_list>
@@ -39,4 +39,4 @@ public:
 
 } // ns
 
-#endif // COLOR_H
+#endif // FHL_COLOR_H

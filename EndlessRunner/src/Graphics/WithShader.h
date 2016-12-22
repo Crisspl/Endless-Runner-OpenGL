@@ -1,5 +1,5 @@
-#ifndef WITHSHADER_H
-#define WITHSHADER_H
+#ifndef FHL_WITHSHADER_H
+#define FHL_WITHSHADER_H
 
 #include "Shader.h"
 
@@ -21,4 +21,4 @@ protected:
 
 } // ns
 
-#endif // WITHSHADER_H
+#endif // FHL_WITHSHADER_H

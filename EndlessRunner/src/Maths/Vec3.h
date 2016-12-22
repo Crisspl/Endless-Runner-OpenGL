@@ -1,5 +1,5 @@
-#ifndef VEC3_H
-#define VEC3_H
+#ifndef FHL_VEC3_H
+#define FHL_VEC3_H
 
 #include <iostream>
 #include <cmath>
@@ -88,4 +88,4 @@ namespace fhl {
 } //ns
 
 
-#endif // VEC3_H
+#endif // FHL_VEC3_H

@@ -1,5 +1,5 @@
-#ifndef LIGHT_H
-#define LIGHT_H
+#ifndef FHL_LIGHT_H
+#define FHL_LIGHT_H
 
 #include <glm/glm.hpp>
 
@@ -29,4 +29,4 @@ struct Light
 
 } // ns
 
-#endif // LIGHT_H
+#endif // FHL_LIGHT_H

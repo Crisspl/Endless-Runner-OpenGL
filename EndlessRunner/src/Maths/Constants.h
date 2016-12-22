@@ -1,4 +1,5 @@
 #ifndef FHL_CONSTANTS_H
+#define FHL_COSNTANTS_H
 
 namespace fhl
 {

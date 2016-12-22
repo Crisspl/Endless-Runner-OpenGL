@@ -1,5 +1,5 @@
-#ifndef VERTEXARRAY_H
-#define VERTEXARRAY_H
+#ifndef FHL_VERTEXARRAY_H
+#define FHL_VERTEXARRAY_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -70,4 +70,4 @@ private:
 
 } // ns
 
-#endif // VERTEXARRAY_H
+#endif // FHL_VERTEXARRAY_H

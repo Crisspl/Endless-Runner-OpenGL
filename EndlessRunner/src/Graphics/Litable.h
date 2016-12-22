@@ -1,5 +1,5 @@
-#ifndef LITABLE_H
-#define LITABLE_H
+#ifndef FHL_LITABLE_H
+#define FHL_LITABLE_H
 
 #include "WithShader.h"
 #include "Light.h"
@@ -21,4 +21,4 @@ public:
 
 }
 
-#endif // LITABLE_H
+#endif // FHL_LITABLE_H

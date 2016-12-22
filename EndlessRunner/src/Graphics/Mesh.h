@@ -1,5 +1,5 @@
-#ifndef MESH_H
-#define MESH_H
+#ifndef FHL_MESH_H
+#define FHL_MESH_H
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -62,4 +62,4 @@ private:
 
 } // ns
 
-#endif // MESH_H
+#endif // FHL_MESH_H

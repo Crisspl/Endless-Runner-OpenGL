@@ -1,5 +1,5 @@
-#ifndef TEXTUREDSIZEABLE_H
-#define TEXTUREDSIZEABLE_H
+#ifndef FHL_TEXTUREDSIZEABLE_H
+#define FHL_TEXTUREDSIZEABLE_H
 
 #include "Sizeable.h"
 #include "Texture.h"
@@ -27,4 +27,4 @@ private:
 } // ns
 
 
-#endif // TEXTUREDSIZEABLE_H
+#endif // FHL_TEXTUREDSIZEABLE_H
