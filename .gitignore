@@ -11,6 +11,9 @@
 *.VC.db
 *.VC.opendb
 *.bat
+DebugLog.txt
+Debug/
+Release/
 
 *.sdf
 *.user
