@@ -52,6 +52,9 @@ struct Mat4
 	static Mat4 invert(const Mat4 & _mat);
 	Mat4 inverted() const;
 
+	float & operator[](size_t _n) { return m_elements[_n]; }
+	float operator[] (size_t _n) const { return m_elements[_n]; }
+
 	const float * data() const { return m_elements; }
 
 
