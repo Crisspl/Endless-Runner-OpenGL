@@ -6,6 +6,8 @@ namespace fhl
 
 struct Constants
 {
+	Constants() = delete;
+
 	constexpr static double Pi()	{ return 3.141592653589793; }
 
 	constexpr static double e()		{ return 2.718281828459045; }
