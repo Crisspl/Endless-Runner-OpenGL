@@ -1,7 +1,6 @@
 #ifndef FHL_SHADER_H
 #define FHL_SHADER_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <algorithm>
 #include <vector>

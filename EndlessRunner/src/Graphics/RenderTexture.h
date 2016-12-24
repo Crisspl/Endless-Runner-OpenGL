@@ -1,7 +1,6 @@
 #ifndef FHL_RENDERTEXTURE_H
 #define FHL_RENDERTEXTURE_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <iostream>
 

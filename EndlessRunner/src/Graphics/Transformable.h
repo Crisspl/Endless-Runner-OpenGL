@@ -1,7 +1,6 @@
 #ifndef FHL_TRANSFORMABLE_H
 #define FHL_TRANSFORMABLE_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <utility>

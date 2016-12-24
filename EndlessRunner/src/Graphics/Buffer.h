@@ -1,7 +1,6 @@
 #ifndef FHL_BUFFER_H
 #define FHL_BUFFER_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <iostream>
@@ -12,7 +11,7 @@ namespace fhl
 struct Buffer
 {
 	Buffer(GLuint _target, GLuint _usage);
-	Buffer(const Buffer&) = delete;
+	Buffer(const Buffer &) = delete;
 	Buffer(Buffer && _other);
 	~Buffer();
 

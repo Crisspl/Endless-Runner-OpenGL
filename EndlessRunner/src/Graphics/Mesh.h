@@ -1,7 +1,6 @@
 #ifndef FHL_MESH_H
 #define FHL_MESH_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <string>

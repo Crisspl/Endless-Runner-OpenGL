@@ -1,7 +1,6 @@
 #ifndef FHL_SPRITE_H
 #define FHL_SPRITE_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 

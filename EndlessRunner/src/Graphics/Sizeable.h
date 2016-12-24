@@ -1,7 +1,6 @@
 #ifndef FHL_SIZEABLE_H
 #define FHL_SIZEABLE_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <memory>

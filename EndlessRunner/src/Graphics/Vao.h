@@ -1,7 +1,6 @@
 #ifndef FHL_VAO_H
 #define FHL_VAO_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <map>
@@ -17,7 +16,7 @@ class Vao
 {
 public:
 	Vao();
-	Vao(const Vao&) = delete;
+	Vao(const Vao &) = delete;
 	Vao(Vao &&);
 	~Vao();
 

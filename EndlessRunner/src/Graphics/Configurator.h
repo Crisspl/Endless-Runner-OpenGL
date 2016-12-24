@@ -1,7 +1,6 @@
 #ifndef FHL_CONFIGURATOR_H
 #define FHL_CONFIGURATOR_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <SDL.h>

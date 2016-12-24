@@ -1,7 +1,6 @@
 #ifndef FHL_TEXTURE_H
 #define FHL_TEXTURE_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <SOIL/SOIL.h>
 #include <glm/glm.hpp>
@@ -9,7 +8,6 @@
 #include <string>
 #include <vector>
 #include <tuple>
-#include <iostream>
 
 #include "../Maths/Vectors.h"
 

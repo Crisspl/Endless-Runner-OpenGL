@@ -1,7 +1,6 @@
 #ifndef FHL_VERTEXARRAY_H
 #define FHL_VERTEXARRAY_H
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include <vector>
