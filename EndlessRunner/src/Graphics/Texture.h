@@ -47,10 +47,10 @@ private:
    std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
 
 public:
-   const GLuint& getId() const { return m_texId; }
-   Vec2f getSize() const { return Vec2f(m_size.x, m_size.y); }
+   GLuint getId() const { return m_texId; }
+   Vec2i getSize() const { return m_size; }
 
-   Texture& setRepeated(bool _r);
+   Texture & setRepeated(bool _r);
    bool isRepeated() { return m_repeated; }
 
 private:

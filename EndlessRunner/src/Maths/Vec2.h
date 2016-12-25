@@ -10,10 +10,10 @@ template<typename _T>
 struct Vec2
 {
    explicit Vec2(_T _scalar = 0) : x(_scalar), y(_scalar) { }
-   Vec2(_T _x, _T _y) : x(_x), y(_y) { }
+	Vec2(_T _x, _T _y) : x(_x), y(_y) { }
 
-   template<typename _U>
-	explicit Vec2(const Vec2<_U>& _other) 
+	template<typename _U>
+	Vec2(const Vec2<_U>& _other) 
 		: x(_T(_other.x)),
 		  y(_T(_other.y))
 	{ }

@@ -18,7 +18,7 @@ namespace fhl {
 		Vec4(Vec3<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_v.z), w(_n) { }
 
 		template<typename _U>
-		explicit Vec4(const Vec4<_U>& _other)
+		Vec4(const Vec4<_U>& _other)
 			: x(_T(_other.x)),
 			  y(_T(_other.y)),
 			  z(_T(_other.z)),
