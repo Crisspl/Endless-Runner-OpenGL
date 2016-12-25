@@ -34,7 +34,7 @@ public:
 	};
 
 private:
-   Shader() = default;
+   Shader() = delete;
    Shader(const GLchar * _vert, const GLchar * _frag, const SourceFrom _srcFrom = SourceFrom::FromFile);
 
    ~Shader();

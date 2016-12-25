@@ -8,30 +8,30 @@ std::map<std::string, Texture> ResMgr::m_textures;
 
 Shader & ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
 {
-   m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
-   return m_shaders[_name];
+	m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
+	return getShader(_name);
 }
 
 Texture & ResMgr::loadTexture(std::string _path, std::string _name)
 {
-   m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
-   return m_textures[_name];
+	m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
+	return getTexture(_name);
 }
 
 Texture & ResMgr::loadTexture(Vec2i _size, std::string _name)
 {
-   m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
-   return m_textures[_name];
+	m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
+	return getTexture(_name);
 }
 
 Shader & ResMgr::getShader(std::string _name)
 {
-   return m_shaders[_name];
+	return m_shaders.find(_name)->second;
 }
 
 Texture & ResMgr::getTexture(std::string _name)
 {
-   return m_textures[_name];
+	return m_textures.find(_name)->second;
 }
 
 bool ResMgr::isShaderLoaded(std::string _name)

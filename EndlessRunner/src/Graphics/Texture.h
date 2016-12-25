@@ -34,7 +34,7 @@ private:
    };
 
 private:
-   Texture() = default;
+   Texture() = delete;
    Texture(const Texture &) = delete;
    Texture(Texture && _other);
    explicit Texture(Vec2i _size);
