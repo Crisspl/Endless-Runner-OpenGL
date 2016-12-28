@@ -9,6 +9,8 @@ namespace fhl {
 	 template<typename _T>
 	 struct Vec2
 	 {
+		  using valueType = _T;
+
 		  explicit Vec2(_T _scalar = 0) : x(_scalar), y(_scalar) { }
 		  Vec2(_T _x, _T _y) : x(_x), y(_y) { }
 

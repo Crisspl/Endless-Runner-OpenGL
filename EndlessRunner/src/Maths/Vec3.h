@@ -11,6 +11,8 @@ namespace fhl {
 	template<typename _T>
 	struct Vec3
 	{
+		  using valueType = _T;
+
 		  explicit Vec3(_T _scalar = 0) : x(_scalar), y(_scalar), z(_scalar) { }
 		  Vec3(_T _x, _T _y, _T _z) : x(_x), y(_y), z(_z) { }
 		  Vec3(Vec2<_T> _v, _T _n) : x(_v.x), y(_v.y), z(_n) { }

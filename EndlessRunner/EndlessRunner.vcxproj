@@ -184,7 +184,6 @@
     <ClCompile Include="src\Utility\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="helper.h" />
     <ClInclude Include="src\AnimationMgr.h" />
     <ClInclude Include="src\BoxCollider.h" />
     <ClInclude Include="src\CircleCollider.h" />
