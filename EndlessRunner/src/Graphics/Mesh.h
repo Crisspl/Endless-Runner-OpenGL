@@ -44,7 +44,7 @@ namespace fhl
 	 public:
 		 Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures);
 
-		 void draw(Shader& _shader) const;
+		 void render(Shader& _shader) const;
 		 T_tuple3pair getMinMaxCoords();
 
 	 private:

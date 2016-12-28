@@ -8,15 +8,15 @@
 #include "Graphics/ResMgr.h"
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
-#include "Graphics/Drawable.h"
-#include "Graphics/DrawFuncs.h"
+#include "Graphics/Renderable.h"
+#include "Graphics/RenderFuncs.h"
 #include "Graphics/Light.h"
 #include "Maths/Vectors.h"
 #include "Coin.h"
 
 class Island
       : public Collideable,
-        public fhl::Drawable
+        public fhl::Renderable
 {
 public:
    explicit Island(fhl::Vec2f _pos);
@@ -26,7 +26,7 @@ public:
    void onCollision(CollideableObjType _objType) override { }
 
    void update(float _dt);
-   void draw(const fhl::DrawConf &) const override;
+   void render(const fhl::RenderConf &) const override;
    void move(float _offset);
 
    fhl::Vec2f getPosition() const { return m_sprite.getPosition(); }

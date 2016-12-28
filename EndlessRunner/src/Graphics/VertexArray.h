@@ -7,7 +7,7 @@
 #include <memory>
 #include <initializer_list>
 
-#include "Drawable.h"
+#include "Renderable.h"
 #include "ResMgr.h"
 #include "Vertex.h"
 #include "Shader.h"
@@ -18,7 +18,7 @@ namespace fhl
 {
 
 	 class VertexArray
-		 : public Drawable
+		 : public Renderable
 	 {
 	 public:
 		 enum Mode
@@ -47,7 +47,7 @@ namespace fhl
 	 public:
 		 explicit VertexArray(Mode _mode);
 
-		 void draw(const DrawConf &) const override;
+		 void render(const RenderConf &) const override;
 
 		 Vertex operator[](unsigned _i) const { return m_vertices[_i]; }
 		 Vertex & operator[](unsigned _i) { return m_vertices[_i]; }

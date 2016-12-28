@@ -23,11 +23,11 @@ void Coin::update(float _dt)
 	}
 }
 
-void Coin::draw(const fhl::DrawConf &) const
+void Coin::render(const fhl::RenderConf &) const
 {
-	fhl::DrawConf conf;
+	fhl::RenderConf conf;
 	conf += getTransform();
-	fhl::draw(m_sprite, conf);
+	fhl::render(m_sprite, conf);
 }
 
 std::shared_ptr<Collider> Coin::getCollider(Collideable::CollideableObjType)

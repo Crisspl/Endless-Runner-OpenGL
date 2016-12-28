@@ -1,8 +1,8 @@
 #ifndef COIN_H
 #define COIN_H
 
-#include "Graphics/DrawFuncs.h"
-#include "Graphics/Drawable.h"
+#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderable.h"
 #include "Graphics/Transformable.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/ResMgr.h"
@@ -12,7 +12,7 @@
 #include "SoundMgr.h"
 
 class Coin
-	: public fhl::Drawable,
+	: public fhl::Renderable,
 	  public fhl::Transformable,
 	  public Collideable
 {
@@ -20,7 +20,7 @@ public:
 	Coin();
 
 	void update(float _dt);
-	void draw(const fhl::DrawConf &) const override;
+	void render(const fhl::RenderConf &) const override;
 	std::shared_ptr<Collider> getCollider(Collideable::CollideableObjType) override;
 	void onCollision(Collideable::CollideableObjType) override;
 

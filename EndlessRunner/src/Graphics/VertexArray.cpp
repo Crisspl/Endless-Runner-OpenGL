@@ -27,7 +27,7 @@ namespace fhl
 		  return *this;
 	 }
 
-	 void VertexArray::draw(const DrawConf &) const
+	 void VertexArray::render(const RenderConf &) const
 	 {
 		 m_shader.use();
 

@@ -23,13 +23,13 @@ namespace fhl
 		 }
 	 }
 
-	 void Model::draw(const DrawConf & _conf) const
+	 void Model::render(const RenderConf & _conf) const
 	 {
 		 glEnable(GL_DEPTH_TEST);
 
 		 m_shader->use();
 
-		 const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+		 const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
 
 		 m_shader->setMat4("translation", transform->translation)
 					.setMat4("rotation", transform->rotation)
@@ -39,7 +39,7 @@ namespace fhl
 					.setFloat("material.shininess", 5.f);
 
 		 for(const auto& mesh : m_meshes)
-			 mesh.draw(*m_shader);
+			 mesh.render(*m_shader);
 
 		 Shader::unUse();
 

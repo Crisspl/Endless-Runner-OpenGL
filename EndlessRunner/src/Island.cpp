@@ -36,11 +36,11 @@ void Island::update(float _dt)
 		c.update(_dt);
 }
 
-void Island::draw(const fhl::DrawConf &) const
+void Island::render(const fhl::RenderConf &) const
 {
-	fhl::draw(m_sprite);
+	fhl::render(m_sprite);
 	for (const Coin & c : m_coins)
-		fhl::draw(c);
+		fhl::render(c);
 }
 
 

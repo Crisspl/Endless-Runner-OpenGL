@@ -147,12 +147,6 @@
     <ClCompile Include="src\Maths\Maths_funcs.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\DrawConf.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\DrawFuncs.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\Coin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -164,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="src\EndlessCliff.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\RenderFuncs.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\RenderConf.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,9 +257,6 @@
     <ClInclude Include="src\Graphics\Light.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\Drawable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphics\Configurator.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
@@ -302,12 +299,6 @@
     <ClInclude Include="src\Maths\Maths_funcs.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\DrawConf.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\DrawFuncs.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\Coin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -325,6 +316,15 @@
     </ClInclude>
     <ClInclude Include="src\Maths\Constants.h">
       <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Renderable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\RenderFuncs.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\RenderConf.h">
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

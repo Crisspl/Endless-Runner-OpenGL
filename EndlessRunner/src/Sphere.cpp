@@ -30,9 +30,9 @@ std::shared_ptr<Collider> Sphere::getCollider(CollideableObjType _objType)
    return std::shared_ptr<Collider>(new CircleCollider(center, 32.f));
 }
 
-void Sphere::draw(const fhl::DrawConf &) const
+void Sphere::render(const fhl::RenderConf &) const
 {
-	fhl::draw(m_sprite);
+	fhl::render(m_sprite);
 }
 
 void Sphere::update(float dt)

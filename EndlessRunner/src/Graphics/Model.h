@@ -12,7 +12,7 @@
 #include "ResMgr.h"
 #include "Mesh.h"
 #include "Texture.h"
-#include "Drawable.h"
+#include "Renderable.h"
 #include "Transformable3D.h"
 #include "Litable.h"
 
@@ -22,13 +22,13 @@ namespace fhl
 {
 
 	 class Model
-		 : public Drawable,
+		 : public Renderable,
 			public Transformable3D,
 			public Litable
 	 {
 	 public:
 		 explicit Model(std::string _path);
-		 void draw(const DrawConf & _conf) const override;
+		 void render(const RenderConf & _conf) const override;
 
 		 void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
 		 void setLight(const Light& _light) override;

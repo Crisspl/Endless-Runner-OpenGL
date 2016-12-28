@@ -3,10 +3,10 @@
 
 #include "Graphics/Sprite.h"
 #include "Collideable.h"
-#include "Graphics/Drawable.h"
+#include "Graphics/Renderable.h"
 #include "Global.h"
 #include "AnimationMgr.h"
-#include "Graphics/DrawFuncs.h"
+#include "Graphics/RenderFuncs.h"
 #include "Graphics/Transformable.h"
 
 #define DECLARE_HERO_STATE_METHODS(stateName) \
@@ -16,7 +16,7 @@
 
 class Hero
       : public Collideable,
-		public fhl::Drawable
+		public fhl::Renderable
 {
 public:
    enum State
@@ -35,7 +35,7 @@ public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
    void onCollision(CollideableObjType _objType) override { }
 
-   void draw(const fhl::DrawConf &) const override;
+   void render(const fhl::RenderConf &) const override;
    void update(float dt);
    void changeState(const State _newState);
 

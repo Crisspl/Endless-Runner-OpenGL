@@ -2,15 +2,15 @@
 #define ENDLESSCLIFF_H
 
 #include "Graphics/Model.h"
-#include "Graphics/DrawFuncs.h"
+#include "Graphics/RenderFuncs.h"
 
 class EndlessCliff
-	: public fhl::Drawable
+	: public fhl::Renderable
 {
 public:
 	EndlessCliff();
 
-	void draw(const fhl::DrawConf &) const override;
+	void render(const fhl::RenderConf &) const override;
 	void update(float _dt);
 	void setLights(std::vector<fhl::Light> & _lights);
 

@@ -1,7 +1,7 @@
 #include "RenderTexture.h"
 
 #include "../Utility/Debug.h"
-#include "DrawFuncs.h"
+#include "RenderFuncs.h"
 
 namespace fhl
 {
@@ -41,10 +41,10 @@ namespace fhl
 		 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	 }
 
-	 void RenderTexture::drawToTex(Drawable& _obj)
+	 void RenderTexture::renderToTex(Renderable & _obj)
 	 {
 		 glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-		 fhl::draw(_obj);
+		 fhl::render(_obj);
 		 glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	 }
 

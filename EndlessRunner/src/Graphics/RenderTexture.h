@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Texture.h"
-#include "Drawable.h"
+#include "Renderable.h"
 
 namespace fhl
 {
@@ -13,11 +13,11 @@ namespace fhl
 	 class RenderTexture // TODO
 	 {
 	 public:
-		 explicit RenderTexture(Texture& _tex);
+		 explicit RenderTexture(Texture & _tex);
 
 		 bool create();
 		 void clearColor(Vec4f _color);
-		 void drawToTex(Drawable& _obj);
+		 void renderToTex(Renderable & _obj);
 		 Texture& getTexture() { return m_refTex; }
 
 	 private:

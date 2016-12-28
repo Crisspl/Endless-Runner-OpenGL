@@ -11,7 +11,7 @@
 #include "Configurator.h"
 #include "Transformable.h"
 #include "TexturedSizeable.h"
-#include "Drawable.h"
+#include "Renderable.h"
 #include "Litable.h"
 #include "../Utility/OrientedRect.h"
 
@@ -23,7 +23,7 @@ namespace fhl
 	 class Sprite
 		  : public Transformable,
 			 public TexturedSizeable,
-			 public Drawable,
+			 public Renderable,
 			 public Litable
 	 {
 	 public:
@@ -38,7 +38,7 @@ namespace fhl
 		  void setTextureRect(fhl::Rect _rect, bool _changeSize = false);
 		  void setColor(const Color _color) { m_color = _color; }
 		  void setLight(const Light& _light) override;
-		  void draw(const DrawConf & _conf) const override;
+		  void render(const RenderConf & _conf) const override;
 		  fhl::Rect getAABB() const;
 		  fhl::OrientedRect getOBB() const;
 

@@ -11,7 +11,7 @@ namespace fhl
 		 setUp();
 	 }
 
-	 void Mesh::draw(Shader& _shader) const
+	 void Mesh::render(Shader& _shader) const
 	 {
 		 GLuint diffuseNr = 1, specularNr = 1;
 

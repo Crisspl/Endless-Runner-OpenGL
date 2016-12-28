@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "Drawable.h"
+#include "Renderable.h"
 #include "Vao.h"
 #include "Transformable.h"
 #include "Sizeable.h"
@@ -21,7 +21,7 @@ namespace fhl
 	 class ColoredRect
 		  : public Transformable,
 		    public Sizeable,
-		    public Drawable,
+		    public Renderable,
 		    public Litable
 	 {
 	 public:
@@ -36,7 +36,7 @@ namespace fhl
 		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
 		  void setLight(const Light& _light) override;
 
-		  void draw(const DrawConf & _conf) const override;
+		  void render(const RenderConf & _conf) const override;
 
 	 private:
 		  void setUp();

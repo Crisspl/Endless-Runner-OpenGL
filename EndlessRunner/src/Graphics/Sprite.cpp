@@ -62,16 +62,16 @@ namespace fhl
 		  m_shader->setLight("light", _light);
 	 }
 
-	 void Sprite::draw(const DrawConf & _conf) const
+	 void Sprite::render(const RenderConf & _conf) const
 	 {
-		  Shader& shader = *m_shader;
+		  Shader & shader = *m_shader;
 		  shader.use();
 
 		  glActiveTexture(GL_TEXTURE0);
 		  shader.setInt("texSampler", 0);
 		  shader.setColor("color", m_color);
 
-		  const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+		  const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
 
 		  if (m_ptexture)
 				glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());

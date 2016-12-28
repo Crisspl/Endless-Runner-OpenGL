@@ -8,8 +8,8 @@
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
 #include "Hero.h"
-#include "Graphics/Drawable.h"
-#include "Graphics/DrawFuncs.h"
+#include "Graphics/Renderable.h"
+#include "Graphics/RenderFuncs.h"
 
 #define DECLARE_SPHERE_STATE_METHODS(stateName) \
    void stateName##_onEnter(const State); \
@@ -18,7 +18,7 @@
 
 class Sphere
       : public Collideable,
-        public fhl::Drawable
+        public fhl::Renderable
 {
 public:
    enum State
@@ -36,7 +36,7 @@ public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
    void onCollision(CollideableObjType _objType) override { }
 
-   void draw(const fhl::DrawConf &) const override;
+   void render(const fhl::RenderConf &) const override;
    void update(float dt);
    void changeState(const State _newState);
 

@@ -27,13 +27,13 @@ namespace fhl
 		  m_shader->setLight("light", _light);
 	 }
 
-	 void ColoredRect::draw(const DrawConf & _conf) const
+	 void ColoredRect::render(const RenderConf & _conf) const
 	 {
 		  m_shader->use();
 
 		  Vec4f normColor = m_color.asVec4();
 
-		  const Transform* transform = (_conf == DrawConf::Default) ? &m_transform : &_conf.transform;
+		  const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
 
 		  m_shader->setMat4("translation", transform->translation)
 				.setMat4("rotation", transform->rotation)
