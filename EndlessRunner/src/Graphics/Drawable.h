@@ -6,16 +6,16 @@
 namespace fhl
 {
 
-class Drawable
-{
-   friend void draw(const Drawable &, const DrawConf &);
+	 class Drawable
+	 {
+		 friend void draw(const Drawable &, const DrawConf &);
 
-public:
-   virtual ~Drawable() { }
+	 public:
+		 virtual ~Drawable() { }
 
-protected:
-   virtual void draw(const DrawConf &) const = 0;
-};
+	 protected:
+		 virtual void draw(const DrawConf &) const = 0;
+	 };
 
 } // ns
 

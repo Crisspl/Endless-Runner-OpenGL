@@ -3,57 +3,69 @@
 namespace fhl
 {
 
-VertexArray::VertexArray(Mode _mode)
-   : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::vertexArray_Vertex, fhl::shaderSrcs::vertexArray_Fragment, SHADER_NAME, Shader::FromString)),
-     m_mode(_mode),
-	 m_vao(new Vao())
-{
-   setUp();
-}
+	 VertexArray::VertexArray(Mode _mode)
+		 : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::vertexArray_Vertex, fhl::shaderSrcs::vertexArray_Fragment, SHADER_NAME, Shader::FromString)),
+			m_mode(_mode),
+			m_vao(new Vao())
+	 {
+		 setUp();
+	 }
 
-VertexArray& VertexArray::addVertex(Vertex _vert)
-{
-   m_vertices.push_back(_vert);
+	 VertexArray & VertexArray::addVertex(Vertex _vert)
+	 {
+		 m_vertices.push_back(_vert);
+		 updateArray();
 
-   auto buffer = m_vao->getBuffer("vertexBuffer");
-   buffer->bind();
-   buffer->setData(sizeof(Vertex) * m_vertices.size(), &m_vertices[0]);
-   buffer->unbind();
+		 return *this;
+	 }
 
-   return *this;
-}
+	 VertexArray & VertexArray::addVertices(std::initializer_list<Vertex> _v)
+	 {
+		  m_vertices.insert(m_vertices.begin(), _v.begin(), _v.end());
+		  updateArray();
 
-void VertexArray::draw(const DrawConf &) const
-{
-   m_shader.use();
+		  return *this;
+	 }
 
-   m_shader.setMat4("projection", Configurator::projection())
-           .setMat4("view", Configurator::view());
+	 void VertexArray::draw(const DrawConf &) const
+	 {
+		 m_shader.use();
 
-   m_vao->bind();
-   glDrawArrays(m_mode, 0, m_vertices.size());
-   m_vao->unbind();
+		 m_shader.setMat4("projection", Configurator::projection())
+					.setMat4("view", Configurator::view());
 
-   Shader::unUse();
-}
+		 m_vao->bind();
+		 glDrawArrays(m_mode, 0, m_vertices.size());
+		 m_vao->unbind();
 
-void VertexArray::setUp()
-{
-	Buffer* buffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
+		 Shader::unUse();
+	 }
 
-	m_vao->bind();
+	 void VertexArray::setUp()
+	 {
+		 Buffer* buffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
 
-	m_vao->addBuffer("vertexBuffer", buffer);
+		 m_vao->bind();
 
-	buffer->bind();
+		 m_vao->addBuffer("vertexBuffer", buffer);
 
-	glVertexAttribPointer((GLuint)AttLoc::Position, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
-	glEnableVertexAttribArray((GLuint)AttLoc::Position);
+		 buffer->bind();
 
-	glVertexAttribPointer((GLuint)AttLoc::Color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, color));
-	glEnableVertexAttribArray((GLuint)AttLoc::Color);
+		 glVertexAttribPointer((GLuint)AttLoc::Position, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
+		 glEnableVertexAttribArray((GLuint)AttLoc::Position);
 
-	m_vao->unbind();
-}
+		 glVertexAttribPointer((GLuint)AttLoc::Color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, color));
+		 glEnableVertexAttribArray((GLuint)AttLoc::Color);
+
+		 m_vao->unbind();
+	 }
+
+	 void VertexArray::updateArray()
+	 {
+		  auto buffer = m_vao->getBuffer("vertexBuffer");
+		  buffer->bind();
+		  buffer->setData(sizeof(Vertex) * m_vertices.size(), m_vertices.data());
+		  buffer->unbind();
+	 }
 
 } // ns

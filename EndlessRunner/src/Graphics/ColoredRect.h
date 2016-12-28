@@ -18,37 +18,39 @@
 namespace fhl
 {
 
-class ColoredRect
-   : public Transformable,
-     public Sizeable,
-     public Drawable,
-     public Litable
-{
-public:
-   explicit ColoredRect(Vec2f _size);
+	 class ColoredRect
+		  : public Transformable,
+		    public Sizeable,
+		    public Drawable,
+		    public Litable
+	 {
+	 public:
+		  explicit ColoredRect(Vec2f _size);
 
-   Color getColor() const { return m_color; }
+		  Color getColor() const { return m_color; }
 
-   Transformable& setColor(Color _color) { m_color = _color;
-                                           return *this; }
-   void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
-   void setLight(const Light& _light) override;
+		  Transformable& setColor(Color _color) {
+				m_color = _color;
+				return *this;
+		  }
+		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
+		  void setLight(const Light& _light) override;
 
-   void draw(const DrawConf & _conf) const override;
+		  void draw(const DrawConf & _conf) const override;
 
-private:
-   void setUp();
+	 private:
+		  void setUp();
 
-private:
-   Color m_color;
+	 private:
+		  Color m_color;
 
-   bool m_usingOriginalShader;
+		  bool m_usingOriginalShader;
 
-   static bool LIGHT_SHADER_LOADED;
+		  static bool LIGHT_SHADER_LOADED;
 
-   constexpr static const char* SHADER_NAME = "rectShader";
-   constexpr static const char* LIGHT_SHADER_NAME = "rectLightShader";
-};
+		  constexpr static const char* SHADER_NAME = "rectShader";
+		  constexpr static const char* LIGHT_SHADER_NAME = "rectLightShader";
+	 };
 
 }
 

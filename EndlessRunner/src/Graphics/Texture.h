@@ -16,48 +16,48 @@ namespace fhl { class ResMgr; }
 namespace fhl
 {
 
-class Texture
-{
+	 class Texture
+	 {
 
-   friend class fhl::ResMgr;
+	 friend class fhl::ResMgr;
 
-   template<class A, class B>
-      friend struct std::pair;
+	 template<typename, typename>
+		 friend struct std::pair;
 
-private:
-   typedef unsigned char uchar;
-private:
-   enum WrapOption
-   {
-      Repeat = GL_REPEAT,
-      ClampToBorder = GL_CLAMP_TO_BORDER
-   };
+	 private:
+		 typedef unsigned char uchar;
+	 private:
+		 enum WrapOption
+		 {
+			 Repeat = GL_REPEAT,
+			 ClampToBorder = GL_CLAMP_TO_BORDER
+		 };
 
-private:
-   Texture() = delete;
-   Texture(const Texture &) = delete;
-   Texture(Texture && _other);
-   explicit Texture(Vec2i _size);
-   explicit Texture(std::string _filePath);
+	 private:
+		 Texture() = delete;
+		 Texture(const Texture &) = delete;
+		 Texture(Texture && _other);
+		 explicit Texture(Vec2i _size);
+		 explicit Texture(std::string _filePath);
 
-   ~Texture();
+		 ~Texture();
 
-   const Texture& setWrapOption(WrapOption _option) const;
+		 const Texture& setWrapOption(WrapOption _option) const;
 
-   std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
+		 std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
 
-public:
-   GLuint getId() const { return m_texId; }
-   Vec2i getSize() const { return m_size; }
+	 public:
+		 GLuint getId() const { return m_texId; }
+		 Vec2i getSize() const { return m_size; }
 
-   Texture & setRepeated(bool _r);
-   bool isRepeated() { return m_repeated; }
+		 Texture & setRepeated(bool _r);
+		 bool isRepeated() { return m_repeated; }
 
-private:
-   GLuint m_texId;
-   Vec2i m_size;
-   bool m_repeated;
-};
+	 private:
+		 GLuint m_texId;
+		 Vec2i m_size;
+		 bool m_repeated;
+	 };
 
 } // ns
 

@@ -11,55 +11,55 @@
 namespace fhl
 {
 
-struct TransformData
-{
-   Vec2f botLeft;
-   Vec2f scale;
-   Vec2f origin;
-   float rotation;
+	 struct TransformData
+	 {
+		 Vec2f botLeft;
+		 Vec2f scale;
+		 Vec2f origin;
+		 float rotation;
 
-   Vec2f position() { return botLeft + origin; }
-};
+		 Vec2f position() { return botLeft + origin; }
+	 };
 
-class Transformable
-{
-public:
-   Transformable();
-   virtual ~Transformable() { }
+	 class Transformable
+	 {
+	 public:
+		 Transformable();
+		 virtual ~Transformable() { }
 
-   /* Setters */
+		 /* Setters */
 
-   Transformable& rotate(float _angle);
+		 Transformable& rotate(float _angle);
 
-   Transformable& setRotation(float _angle);
+		 Transformable& setRotation(float _angle);
 
-   Transformable& move(Vec2f _offset);
+		 Transformable& move(Vec2f _offset);
 
-   Transformable& setPosition(Vec2f _pos);
+		 Transformable& setPosition(Vec2f _pos);
 
-   Transformable& setScale(Vec2f _scale);
+		 Transformable& setScale(Vec2f _scale);
 
-   Transformable& setOrigin(Vec2f _origin);
+		 Transformable& setOrigin(Vec2f _origin);
 
-   /* Getters */
+		 /* Getters */
 
-   float getRotation() const { return m_rotation; }
+		 float getRotation() const { return m_rotation; }
 
-   Vec2f getPosition() const { return m_position; }
+		 Vec2f getPosition() const { return m_position; }
 
-   Vec2f getScale() const { return m_scale; }
+		 Vec2f getScale() const { return m_scale; }
 
-   Vec2f getOrigin() const { return m_transform.origin; }
+		 Vec2f getOrigin() const { return m_transform.origin; }
 
-   Transform getTransform() const { return m_transform; }
+		 Transform getTransform() const { return m_transform; }
 
-   TransformData getTransformData() const;
+		 TransformData getTransformData() const;
 
-protected:
-   float m_rotation;
-   Vec2f m_position, m_scale;
-   Transform m_transform;
-};
+	 protected:
+		 float m_rotation;
+		 Vec2f m_position, m_scale;
+		 Transform m_transform;
+	 };
 
 } // ns
 

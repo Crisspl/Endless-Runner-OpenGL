@@ -3,93 +3,93 @@
 namespace fhl
 {
 
-Mesh::Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures)
-   : m_vertices(_vertices),
-     m_indices(_indices),
-     m_textures(_textures)
-{
-   setUp();
-}
+	 Mesh::Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures)
+		 : m_vertices(_vertices),
+			m_indices(_indices),
+			m_textures(_textures)
+	 {
+		 setUp();
+	 }
 
-void Mesh::draw(Shader& _shader) const
-{
-   GLuint diffuseNr = 1, specularNr = 1;
+	 void Mesh::draw(Shader& _shader) const
+	 {
+		 GLuint diffuseNr = 1, specularNr = 1;
 
-   _shader.use();
+		 _shader.use();
 
-   for(GLuint i = 0; i < m_textures.size(); i++)
-   {
-      glActiveTexture(GL_TEXTURE0 + i);
+		 for(GLuint i = 0; i < m_textures.size(); i++)
+		 {
+			 glActiveTexture(GL_TEXTURE0 + i);
 
-      std::string number;
-      std::string name = m_textures[i].type;
-	  //std::cout << m_textures[i].fileName.C_Str() << '\n';
+			 std::string number;
+			 std::string name = m_textures[i].type;
+			//std::cout << m_textures[i].fileName.C_Str() << '\n';
 
-      if(name == "texture_diffuse")
-         number = std::to_string(diffuseNr++);
-      else if(name == "texture_specular")
-         number = std::to_string(specularNr++);
+			 if(name == "texture_diffuse")
+				 number = std::to_string(diffuseNr++);
+			 else if(name == "texture_specular")
+				 number = std::to_string(specularNr++);
 
-      _shader.setInt(("material." + name + number).c_str(), i);
-	  //std::cout << ("material." + name + number).c_str() << '\n';
-	  //std::cout << "id: " << m_textures[i].id << "\n\n";
-      glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
-   }
+			 _shader.setInt(("material." + name + number).c_str(), i);
+			//std::cout << ("material." + name + number).c_str() << '\n';
+			//std::cout << "id: " << m_textures[i].id << "\n\n";
+			 glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
+		 }
 
-   glBindVertexArray(m_vao);
-   glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
+		 glBindVertexArray(m_vao);
+		 glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
 
-   glBindVertexArray(0);
+		 glBindVertexArray(0);
 
-   for(GLuint i = 0; i < m_textures.size(); i++)
-   {
-      glActiveTexture(GL_TEXTURE0 + i);
-      glBindTexture(GL_TEXTURE_2D, 0);
-   }
-   glActiveTexture(GL_TEXTURE0);
-}
+		 for(GLuint i = 0; i < m_textures.size(); i++)
+		 {
+			 glActiveTexture(GL_TEXTURE0 + i);
+			 glBindTexture(GL_TEXTURE_2D, 0);
+		 }
+		 glActiveTexture(GL_TEXTURE0);
+	 }
 
-Mesh::T_tuple3pair Mesh::getMinMaxCoords()
-{
-#define comp(dim) [](Vertex& a, Vertex& b)->bool { return a.position.dim < b.position.dim; }
+	 Mesh::T_tuple3pair Mesh::getMinMaxCoords()
+	 {
+	 #define comp(dim) [](Vertex& a, Vertex& b)->bool { return a.position.dim < b.position.dim; }
 
-   auto minMaxX = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(x));
-   auto minMaxY = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(y));
-   auto minMaxZ = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(z));
+		 auto minMaxX = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(x));
+		 auto minMaxY = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(y));
+		 auto minMaxZ = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(z));
 
-   return std::make_tuple
-               (
-                  std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
-                  std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
-                  std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
-               );
-#undef comp
-}
+		 return std::make_tuple
+						 (
+							 std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
+							 std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
+							 std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
+						 );
+	 #undef comp
+	 }
 
-void Mesh::setUp()
-{
-   glGenVertexArrays(1, &m_vao);
-   glGenBuffers(1, &m_vbo);
-   glGenBuffers(1, &m_ebo);
+	 void Mesh::setUp()
+	 {
+		 glGenVertexArrays(1, &m_vao);
+		 glGenBuffers(1, &m_vbo);
+		 glGenBuffers(1, &m_ebo);
 
-   glBindVertexArray(m_vao);
+		 glBindVertexArray(m_vao);
 
-   glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-   glBufferData(GL_ARRAY_BUFFER, m_vertices.size() * sizeof(Vertex), &m_vertices[0], GL_STATIC_DRAW);
+		 glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+		 glBufferData(GL_ARRAY_BUFFER, m_vertices.size() * sizeof(Vertex), &m_vertices[0], GL_STATIC_DRAW);
 
-   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
-   glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(GLuint), &m_indices[0], GL_STATIC_DRAW);
+		 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+		 glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(GLuint), &m_indices[0], GL_STATIC_DRAW);
 
-   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, position));
-   glEnableVertexAttribArray(0);
+		 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, position));
+		 glEnableVertexAttribArray(0);
 
-   glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
-   glEnableVertexAttribArray(1);
+		 glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
+		 glEnableVertexAttribArray(1);
 
-   glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoords));
-   glEnableVertexAttribArray(2);
+		 glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoords));
+		 glEnableVertexAttribArray(2);
 
-   glBindVertexArray(0);
-}
+		 glBindVertexArray(0);
+	 }
 
 }

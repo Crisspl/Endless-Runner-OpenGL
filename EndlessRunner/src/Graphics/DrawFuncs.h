@@ -7,7 +7,7 @@
 namespace fhl
 {
 
-	void draw(const Drawable & _drawable, const DrawConf & _conf = DrawConf::Default);
+	 void draw(const Drawable & _drawable, const DrawConf & _conf = DrawConf::Default);
 
 } // ns
 

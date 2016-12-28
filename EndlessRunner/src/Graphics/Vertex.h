@@ -8,13 +8,13 @@
 namespace fhl
 {
 
-struct Vertex
-{
-   Vertex(Vec2f _pos, Color _col = Color(0, 0, 0, 0));
+	 struct Vertex
+	 {
+		 Vertex(Vec2f _pos, Color _col = Color::Transparent);
 
-   Vec2f position;
-   Color color;
-};
+		 Vec2f position;
+		 Color color;
+	 };
 
 } // ns
 

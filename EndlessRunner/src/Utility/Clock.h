@@ -7,25 +7,25 @@
 namespace fhl
 {
 
-using Seconds = std::chrono::duration<float>;
-using Milliseconds = std::chrono::duration<float, std::milli>;
-using Microseconds = std::chrono::duration<float, std::micro>;
+	 using Seconds = std::chrono::duration<float>;
+	 using Milliseconds = std::chrono::duration<float, std::milli>;
+	 using Microseconds = std::chrono::duration<float, std::micro>;
 
-class Clock
-{
-	using InnerClock = std::chrono::high_resolution_clock;
-	using TimePoint = std::chrono::time_point<InnerClock>;
+	 class Clock
+	 {
+		 using InnerClock = std::chrono::high_resolution_clock;
+		 using TimePoint = std::chrono::time_point<InnerClock>;
 
-public:
-	Clock();
+	 public:
+		 Clock();
 
-	template<typename T = Seconds>
-		float getElapsedTime();
-	template<typename T = Seconds>
-		float restart();
-private:
-   TimePoint m_start;
-};
+		 template<typename T = Seconds>
+			 float getElapsedTime();
+		 template<typename T = Seconds>
+			 float restart();
+	 private:
+		 TimePoint m_start;
+	 };
 
 } // ns
 
