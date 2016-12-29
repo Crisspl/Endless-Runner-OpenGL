@@ -10,21 +10,21 @@ namespace fhl
 
 	 struct Light
 	 {
-		 enum Type
-		 {
-			 Directional = 0,
-			 Point,
-			 Spot
-		 };
+		  enum Type
+		  {
+				Directional = 0,
+				Point,
+				Spot
+		  };
 
-		 Light();
+		  Light();
 
-		 Vec3f position, direction;
-		 Color color;
-		 float linear, quadratic;
-		 float cutOffAngle;
-		 float illuminance;
-		 Type type;
+		  Vec3f position, direction;
+		  Color color;
+		  float linear, quadratic;
+		  float cutOffAngle;
+		  float illuminance;
+		  Type type;
 	 };
 
 } // ns

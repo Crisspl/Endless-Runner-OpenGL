@@ -9,14 +9,14 @@ namespace fhl
 	 class WithShader
 	 {
 	 public:
-		 WithShader(Shader& _shader);
-		 virtual ~WithShader() { }
+		  WithShader(Shader& _shader);
+		  virtual ~WithShader() { }
 
-		 virtual const Shader& getShader() const;
-		 virtual void setShader(Shader& _shader);
+		  virtual const Shader& getShader() const;
+		  virtual void setShader(Shader& _shader);
 
 	 protected:
-		 Shader* m_shader;
+		  Shader* m_shader;
 	 };
 
 } // ns

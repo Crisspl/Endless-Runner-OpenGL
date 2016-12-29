@@ -24,39 +24,39 @@ namespace fhl
 
 	 class Mesh
 	 {
-		 using T_tuple3pair = std::tuple<std::pair<float, float>, std::pair<float, float>, std::pair<float, float>>;
+		  using T_tuple3pair = std::tuple<std::pair<float, float>, std::pair<float, float>, std::pair<float, float>>;
 
 	 public:
-		 struct Vertex
-		 {
-			 Vec3f position;
-			 Vec3f normal;
-			 Vec2f texCoords;
-		 };
+		  struct Vertex
+		  {
+				Vec3f position;
+				Vec3f normal;
+				Vec2f texCoords;
+		  };
 
-		 struct Texture
-		 {
-			 GLuint id;
-			 std::string type;
-			 aiString fileName;
-		 };
+		  struct Texture
+		  {
+				GLuint id;
+				std::string type;
+				aiString fileName;
+		  };
 
 	 public:
-		 Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures);
+		  Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures);
 
-		 void render(Shader& _shader) const;
-		 T_tuple3pair getMinMaxCoords();
+		  void render(Shader& _shader) const;
+		  T_tuple3pair getMinMaxCoords();
 
 	 private:
-		 void setUp();
+		  void setUp();
 
 	 public:
-		 std::vector<Mesh::Vertex> m_vertices;
-		 std::vector<GLuint> m_indices;
-		 std::vector<Mesh::Texture> m_textures;
+		  std::vector<Mesh::Vertex> m_vertices;
+		  std::vector<GLuint> m_indices;
+		  std::vector<Mesh::Texture> m_textures;
 
 	 private:
-		 GLuint m_vao, m_vbo, m_ebo;
+		  GLuint m_vao, m_vbo, m_ebo;
 	 };
 
 } // ns

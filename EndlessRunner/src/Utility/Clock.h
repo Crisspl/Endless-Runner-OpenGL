@@ -13,18 +13,20 @@ namespace fhl
 
 	 class Clock
 	 {
-		 using InnerClock = std::chrono::high_resolution_clock;
-		 using TimePoint = std::chrono::time_point<InnerClock>;
+		  using InnerClock = std::chrono::high_resolution_clock;
+		  using TimePoint = std::chrono::time_point<InnerClock>;
 
 	 public:
-		 Clock();
+		  Clock();
 
-		 template<typename T = Seconds>
-			 float getElapsedTime();
-		 template<typename T = Seconds>
-			 float restart();
+		  template<typename T = Seconds>
+		  float getElapsedTime();
+
+		  template<typename T = Seconds>
+		  float restart();
+
 	 private:
-		 TimePoint m_start;
+		  TimePoint m_start;
 	 };
 
 } // ns

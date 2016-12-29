@@ -15,21 +15,21 @@ namespace fhl
 	 class Sizeable
 	 {
 	 public:
-		 explicit Sizeable(Vec2f _size = { 1, 1 });
-		 virtual ~Sizeable() { }
+		  explicit Sizeable(Vec2f _size = { 1, 1 });
+		  virtual ~Sizeable() { }
 
-		 virtual void setSize(Vec2f _size);
-		 Vec2f getSize() const { return m_size; }
-
-	 protected:
-		 void updatePosArray();
-		 void uploadPosArray();
+		  virtual void setSize(Vec2f _size);
+		  Vec2f getSize() const { return m_size; }
 
 	 protected:
-		 std::shared_ptr<Vao> m_vao;
+		  void updatePosArray();
+		  void uploadPosArray();
 
-		 Vec2f m_size;
-		 Vec2f m_posArray[4];
+	 protected:
+		  std::shared_ptr<Vao> m_vao;
+
+		  Vec2f m_size;
+		  Vec2f m_posArray[4];
 	 };
 
 } // ns

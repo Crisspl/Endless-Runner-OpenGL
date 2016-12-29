@@ -6,7 +6,7 @@
 namespace fhl
 {
 
-	extern std::ofstream DebugLog;
+	 extern std::ofstream DebugLog;
 
 } // ns
 

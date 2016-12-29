@@ -13,16 +13,16 @@ namespace fhl
 	 class RenderTexture // TODO
 	 {
 	 public:
-		 explicit RenderTexture(Texture & _tex);
+		  explicit RenderTexture(Texture & _tex);
 
-		 bool create();
-		 void clearColor(Vec4f _color);
-		 void renderToTex(Renderable & _obj);
-		 Texture& getTexture() { return m_refTex; }
+		  bool create();
+		  void clearColor(Vec4f _color);
+		  void renderToTex(Renderable & _obj);
+		  Texture& getTexture() { return m_refTex; }
 
 	 private:
-		 GLuint m_fbo, m_rbo;
-		 Texture& m_refTex;
+		  GLuint m_fbo, m_rbo;
+		  Texture& m_refTex;
 	 };
 
 } // ns

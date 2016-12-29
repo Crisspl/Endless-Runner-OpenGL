@@ -8,13 +8,13 @@ namespace fhl
 
 	 class Renderable
 	 {
-		 friend void render(const Renderable &, const RenderConf &);
+		  friend void render(const Renderable &, const RenderConf &);
 
 	 public:
-		 virtual ~Renderable() { }
+		  virtual ~Renderable() { }
 
 	 protected:
-		 virtual void render(const RenderConf &) const = 0;
+		  virtual void render(const RenderConf &) const = 0;
 	 };
 
 } // ns

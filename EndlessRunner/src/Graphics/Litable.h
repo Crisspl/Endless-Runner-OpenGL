@@ -11,12 +11,12 @@ namespace fhl
 		 : public WithShader /* Make it virtual inheritance if comes more children classes of WithShader */
 	 {                      /* and add WithShader ctor calls in Sprite, ColoredRect, etc. */
 	 public:
-		 Litable(Shader& _shader);
-		 virtual ~Litable() { }
+		  Litable(Shader& _shader);
+		  virtual ~Litable() { }
 
-		 virtual void setLight(const Light& _light);
-		 virtual void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights);
-		 virtual void setLights(std::vector<Light> & _lights);
+		  virtual void setLight(const Light& _light);
+		  virtual void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights);
+		  virtual void setLights(std::vector<Light> & _lights);
 	 };
 
 }
