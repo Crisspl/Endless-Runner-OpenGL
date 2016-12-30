@@ -13,12 +13,13 @@ namespace fhl
 		  Buffer(GLuint _target, GLuint _usage);
 		  Buffer(const Buffer &) = delete;
 		  Buffer(Buffer && _other);
+		  Buffer & operator=(Buffer && _other);
 		  ~Buffer();
 
 		  void bind();
 		  void unbind();
-		  void setData(GLuint _size, const void* _data);
-		  void updateData(GLuint _offset, GLuint _size, const void* _data);
+		  void setData(GLuint _size, const void * _data);
+		  void updateData(GLuint _offset, GLuint _size, const void * _data);
 
 	 private:
 		  GLuint m_id;

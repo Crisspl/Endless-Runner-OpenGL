@@ -17,20 +17,21 @@ namespace fhl
 	 public:
 		  Vao();
 		  Vao(const Vao &) = delete;
-		  Vao(Vao &&);
+		  Vao(Vao && _other);
+		  Vao & operator=(Vao && _other);
 		  ~Vao();
 
 		  void bind() const;
 		  void unbind() const;
 
+		  GLuint getId() const { return m_id; }
+
 		  Buffer* getBuffer(std::string _key);
 		  void addBuffer(std::string _key, Buffer* _buffer);
 
-	 public:
-		  GLuint id;
-
 	 private:
-		  std::map<std::string, Buffer*> m_buffers;
+		  GLuint m_id;
+		  std::map<std::string, Buffer *> m_buffers;
 	 };
 
 }

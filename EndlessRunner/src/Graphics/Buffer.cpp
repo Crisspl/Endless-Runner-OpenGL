@@ -1,5 +1,7 @@
 #include "Buffer.h"
 
+#include <algorithm>
+
 namespace fhl
 {
 
@@ -8,7 +10,7 @@ namespace fhl
 		 usage(_usage),
 		 size(0)
 	 {
-		 glGenBuffers(1, &m_id);
+		  glGenBuffers(1, &m_id);
 	 }
 
 	 Buffer::Buffer(Buffer && _other)
@@ -17,33 +19,43 @@ namespace fhl
 		 usage(_other.usage),
 		 size(_other.size)
 	 {
-		 _other.m_id = 0;
+		  _other.m_id = 0;
+	 }
+
+	 Buffer & Buffer::operator=(Buffer && _other)
+	 {
+		  std::swap(m_id, _other.m_id);
+		  target = _other.target;
+		  usage = _other.usage;
+		  size = _other.usage;
+
+		  return *this;
 	 }
 
 	 Buffer::~Buffer()
 	 {
-		 glDeleteBuffers(1, &m_id);
+		  glDeleteBuffers(1, &m_id);
 	 }
 
 	 void Buffer::bind()
 	 {
-		 glBindBuffer(target, m_id);
+		  glBindBuffer(target, m_id);
 	 }
 
 	 void Buffer::unbind()
 	 {
-		 glBindBuffer(target, 0);
+		  glBindBuffer(target, 0);
 	 }
 
 	 void Buffer::setData(GLuint _size, const void* _data)
 	 {
-		 size = _size;
-		 glBufferData(target, _size, _data, usage);
+		  size = _size;
+		  glBufferData(target, _size, _data, usage);
 	 }
 
 	 void Buffer::updateData(GLuint _offset, GLuint _size, const void* _data)
 	 {
-		 glBufferSubData(target, _offset, _size, _data);
+		  glBufferSubData(target, _offset, _size, _data);
 	 }
 
 } // ns

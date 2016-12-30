@@ -37,6 +37,7 @@ namespace fhl
 		  Texture() = delete;
 		  Texture(const Texture &) = delete;
 		  Texture(Texture && _other);
+		  Texture & operator=(Texture && _other);
 		  explicit Texture(Vec2i _size);
 		  explicit Texture(std::string _filePath);
 
@@ -47,14 +48,14 @@ namespace fhl
 		  std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
 
 	 public:
-		  GLuint getId() const { return m_texId; }
+		  GLuint getId() const { return m_id; }
 		  Vec2i getSize() const { return m_size; }
 
 		  Texture & setRepeated(bool _r);
 		  bool isRepeated() { return m_repeated; }
 
 	 private:
-		  GLuint m_texId;
+		  GLuint m_id;
 		  Vec2i m_size;
 		  bool m_repeated;
 	 };

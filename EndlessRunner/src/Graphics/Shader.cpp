@@ -3,11 +3,26 @@
 #include "../Utility/Debug.h"
 #include "../Maths/Maths_funcs.h"
 
+#include <algorithm>
+
 namespace fhl
 {
 
+	 Shader::Shader(Shader && _other)
+		  : m_shaderProgram(_other.m_shaderProgram)
+	 {
+		  _other.m_shaderProgram = 0;
+	 }
+
+	 Shader & Shader::operator=(Shader && _other)
+	 {
+		  std::swap(m_shaderProgram, _other.m_shaderProgram);
+
+		  return *this;
+	 }
+
 	 Shader::Shader(const GLchar * _vert, const GLchar * _frag, SourceFrom _srcFrom)
-			 : m_shaderProgram(glCreateProgram())
+		  : m_shaderProgram(glCreateProgram())
 	 {
 		 GLuint vId, fId;
 		 if (_srcFrom == SourceFrom::FromFile)
@@ -57,41 +72,40 @@ namespace fhl
 		 return *this;
 	 }
 
-	 const Shader& Shader::setVec2f(const GLchar* _name, const Vec2f& _value) const
+	 const Shader& Shader::setVec2f(const GLchar* _name, const Vec2f & _value) const
 	 {
 		 use();
 		 glUniform2f(glGetUniformLocation(getId(), _name), _value.x, _value.y);
 		 return *this;
 	 }
 
-	 const Shader& Shader::setVec3f(const GLchar* _name, const Vec3f& _value) const
+	 const Shader& Shader::setVec3f(const GLchar* _name, const Vec3f & _value) const
 	 {
 		 use();
 		 glUniform3f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z);
 		 return *this;
 	 }
 
-	 const Shader& Shader::setVec4f(const GLchar* _name, const Vec4f& _value) const
+	 const Shader& Shader::setVec4f(const GLchar* _name, const Vec4f & _value) const
 	 {
 		 use();
 		 glUniform4f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z, _value.w);
 		 return *this;
 	 }
 
-	 const Shader& Shader::setColor(const GLchar* _name, const Color& _value) const
+	 const Shader& Shader::setColor(const GLchar* _name, const Color & _value) const
 	 {
-		 Vec4f val = _value.asVec4();
-		 return setVec4f(_name, val);
+		 return setVec4f(_name, _value.asVec4());
 	 }
 
-	 const Shader& Shader::setMat4(const GLchar* _name, const Mat4& _matrix) const
+	 const Shader& Shader::setMat4(const GLchar* _name, const Mat4 & _matrix) const
 	 {
 		 use();
 		 glUniformMatrix4fv(glGetUniformLocation(getId(), _name), 1, GL_FALSE, _matrix.data());
 		 return *this;
 	 }
 
-	 const Shader& Shader::setLight(const GLchar* _name, const Light& _light) const
+	 const Shader& Shader::setLight(const GLchar* _name, const Light & _light) const
 	 {
 		 std::string name(_name);
 		 switch(_light.type)
@@ -121,14 +135,14 @@ namespace fhl
 		 return *this;
 	 }
 
-	 const Shader& Shader::setLight(const GLchar* _name, const Light& _light, size_t _num) const
+	 const Shader& Shader::setLight(const GLchar * _name, const Light & _light, size_t _num) const
 	 {
 		 std::string name(_name);
 		 name += '[' + std::to_string(_num) + ']';
 		 return setLight(name.c_str(), _light);
 	 }
 
-	 const Shader& Shader::setLights(const GLchar* _name, const std::initializer_list<std::reference_wrapper<Light>>& _lights) const
+	 const Shader& Shader::setLights(const GLchar * _name, const std::initializer_list<std::reference_wrapper<Light>> & _lights) const
 	 {
 		 size_t n = 0;
 		 for(auto& l : _lights)
@@ -136,7 +150,7 @@ namespace fhl
 		 return setInt("lightsCount", _lights.size());
 	 }
 
-	 const Shader & Shader::setLights(const GLchar * _name, std::vector<Light>& _lights) const
+	 const Shader & Shader::setLights(const GLchar * _name, std::vector<Light> & _lights) const
 	 {
 		 size_t n = 0;
 		 for (auto& l : _lights)

@@ -1,5 +1,7 @@
 #include "Texture.h"
 
+#include <algorithm>
+
 namespace fhl
 {
 
@@ -7,8 +9,8 @@ namespace fhl
 				 : m_size(_size),
 					m_repeated(false)
 	 {
-		 glGenTextures(1, &m_texId);
-		 glBindTexture(GL_TEXTURE_2D, m_texId);
+		 glGenTextures(1, &m_id);
+		 glBindTexture(GL_TEXTURE_2D, m_id);
 
 		 glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		 glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -25,9 +27,9 @@ namespace fhl
 	 Texture::Texture(std::string _filePath)
 	 {
 		 uchar * tmp;
-		 std::tie(tmp, m_size, m_texId) = loadImage(_filePath);
+		 std::tie(tmp, m_size, m_id) = loadImage(_filePath);
 
-		 glBindTexture(GL_TEXTURE_2D, m_texId);
+		 glBindTexture(GL_TEXTURE_2D, m_id);
 		 glGenerateMipmap(GL_TEXTURE_2D);
 
 		 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -37,22 +39,31 @@ namespace fhl
 	 }
 
 	 Texture::Texture(Texture && _other) 
-			 : m_texId(_other.m_texId),
+			 : m_id(_other.m_id),
 				m_size(_other.m_size),
 				m_repeated(_other.m_repeated)
 	 {
-		 _other.m_texId = 0;
+		 _other.m_id = 0;
+	 }
+
+	 Texture & Texture::operator=(Texture && _other)
+	 {
+		  std::swap(m_id, _other.m_id);
+		  m_size = _other.m_size;
+		  m_repeated = _other.m_repeated;
+
+		  return *this;
 	 }
 
 
 	 Texture::~Texture()
 	 {
-		 glDeleteTextures(1, &m_texId);
+		 glDeleteTextures(1, &m_id);
 	 }
 
 	 const Texture& Texture::setWrapOption(Texture::WrapOption _option) const
 	 {
-		 glBindTexture(GL_TEXTURE_2D, m_texId);
+		 glBindTexture(GL_TEXTURE_2D, m_id);
 
 		 glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _option);
 		 glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, _option);
