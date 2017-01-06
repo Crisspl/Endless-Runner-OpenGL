@@ -7,7 +7,7 @@ namespace fhl
 
 	 ColoredRect::ColoredRect(Vec2f _size)
 		  : Sizeable(_size),
-		  Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_Vertex, fhl::shaderSrcs::coloredRect_Fragment, SHADER_NAME, Shader::FromString)),
+		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_Vertex, fhl::shaderSrcs::coloredRect_Fragment, SHADER_NAME, Shader::FromString)),
 		  m_color(Color::Transparent),
 		  m_usingOriginalShader(true)
 	 {
@@ -18,13 +18,6 @@ namespace fhl
 	 {
 		  m_shader = &_shader;
 		  m_usingOriginalShader = (_shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
-	 }
-
-	 void ColoredRect::setLight(const Light& _light)
-	 {
-		  m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
-		  m_usingOriginalShader = true;
-		  m_shader->setLight("light", _light);
 	 }
 
 	 void ColoredRect::render(const RenderConf & _conf) const
@@ -40,7 +33,8 @@ namespace fhl
 				.setMat4("scale", transform->scale)
 				.setMat4("projection", Configurator::projection())
 				.setMat4("view", Configurator::view())
-				.setVec4f("vertColor", normColor);
+				.setVec4f("vertColor", normColor)
+				.setLights("light", getLights().cbegin(), getLights().cend());
 
 		  m_vao->bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

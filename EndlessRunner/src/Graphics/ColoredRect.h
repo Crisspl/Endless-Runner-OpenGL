@@ -33,8 +33,7 @@ namespace fhl
 				m_color = _color;
 				return *this;
 		  }
-		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
-		  void setLight(const Light& _light) override;
+		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME));
 
 		  void render(const RenderConf & _conf) const override;
 
@@ -42,8 +41,8 @@ namespace fhl
 		  void setUp();
 
 	 private:
+		  Shader * m_shader;
 		  Color m_color;
-
 		  bool m_usingOriginalShader;
 
 		  static bool LIGHT_SHADER_LOADED;

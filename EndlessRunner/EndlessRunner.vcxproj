@@ -151,7 +151,6 @@
     <ClCompile Include="src\Graphics\ColoredRect.cpp" />
     <ClCompile Include="src\Graphics\Configurator.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
-    <ClCompile Include="src\Graphics\Litable.cpp" />
     <ClCompile Include="src\Graphics\Mesh.cpp" />
     <ClCompile Include="src\Graphics\Model.cpp" />
     <ClCompile Include="src\Graphics\RenderConf.cpp" />
@@ -168,7 +167,6 @@
     <ClCompile Include="src\Graphics\Vao.cpp" />
     <ClCompile Include="src\Graphics\Vertex.cpp" />
     <ClCompile Include="src\Graphics\VertexArray.cpp" />
-    <ClCompile Include="src\Graphics\WithShader.cpp" />
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -218,7 +216,6 @@
     <ClInclude Include="src\Graphics\Vao.h" />
     <ClInclude Include="src\Graphics\Vertex.h" />
     <ClInclude Include="src\Graphics\VertexArray.h" />
-    <ClInclude Include="src\Graphics\WithShader.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Island.h" />
     <ClInclude Include="src\Maths\Constants.h" />

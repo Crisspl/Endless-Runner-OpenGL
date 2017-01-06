@@ -30,11 +30,6 @@ namespace fhl
 		  explicit Model(std::string _path);
 		  void render(const RenderConf & _conf) const override;
 
-		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) override;
-		  void setLight(const Light& _light) override;
-		  void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights) override;
-		  void setLights(std::vector<Light> & _lights) override;
-
 	 private:
 		  void loadModel(std::string _path);
 		  void processNode(aiNode* _nodePtr, const aiScene* _scenePtr);
@@ -47,8 +42,7 @@ namespace fhl
 		  std::vector<Mesh> m_meshes;
 		  std::string m_directory;
 
-		  Vec3f m_lightPos;
-
+		  Shader * m_shader;
 		  bool m_usingOriginalShader;
 
 		  static unsigned m_createdNumber;

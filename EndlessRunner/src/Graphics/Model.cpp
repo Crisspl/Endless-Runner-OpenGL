@@ -9,7 +9,7 @@ namespace fhl
 	 bool Model::s_lightShaderLoaded = false;
 
 	 Model::Model(std::string _path)
-		 : Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::model_Vertex, fhl::shaderSrcs::model_Fragment, SHADER_NAME, Shader::FromString)),
+		 : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::model_LightVertex, fhl::shaderSrcs::model_LightFragment, SHADER_NAME, Shader::FromString)),
 			m_usingOriginalShader(true)
 	 {
 		 loadModel(_path);
@@ -32,11 +32,12 @@ namespace fhl
 		 const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
 
 		 m_shader->setMat4("translation", transform->translation)
-					.setMat4("rotation", transform->rotation)
-					.setMat4("scale", transform->scale)
-					.setMat4("view", Configurator::view())
-					.setMat4("projection", Configurator::projection())
-					.setFloat("material.shininess", 5.f);
+			  .setMat4("rotation", transform->rotation)
+			  .setMat4("scale", transform->scale)
+			  .setMat4("view", Configurator::view())
+			  .setMat4("projection", Configurator::projection())
+			  .setFloat("material.shininess", 5.f)
+			  .setLights("light", getLights().cbegin(), getLights().cend());
 
 		 for(const auto& mesh : m_meshes)
 			 mesh.render(*m_shader);
@@ -44,33 +45,6 @@ namespace fhl
 		 Shader::unUse();
 
 		 glDisable(GL_DEPTH_TEST);
-	 }
-
-	 void Model::setShader(Shader& _shader)
-	 {
-		 m_shader = &_shader;
-		 m_usingOriginalShader = ( _shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
-	 }
-
-	 void Model::setLight(const Light& _light)
-	 {
-		 m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
-		 m_usingOriginalShader = true;
-		 Litable::setLight(_light);
-	 }
-
-	 void Model::setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights)
-	 {
-		 m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
-		 m_usingOriginalShader = true;
-		 Litable::setLights(_lights);
-	 }
-
-	 void Model::setLights(std::vector<Light>& _lights)
-	 {
-		 m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
-		 m_usingOriginalShader = true;
-		 Litable::setLights(_lights);
 	 }
 
 	 void Model::loadModel(std::string _path)

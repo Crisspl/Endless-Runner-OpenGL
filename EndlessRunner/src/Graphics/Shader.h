@@ -7,6 +7,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <type_traits>
 
 #include "Texture.h"
 #include "Color.h"
@@ -47,18 +48,20 @@ namespace fhl
 
 		  GLuint getId() const { return m_shaderProgram; }
 
-		  const Shader & setFloat(const GLchar * _name, const GLfloat _value) const;
-		  const Shader & setInt(const GLchar * _name, const GLint _value) const;
-		  const Shader & setVec2f(const GLchar * _name, const Vec2f & _value) const;
-		  const Shader & setVec3f(const GLchar * _name, const Vec3f & _value) const;
-		  const Shader & setVec4f(const GLchar * _name, const Vec4f & _value) const;
-		  const Shader & setColor(const GLchar * _name, const Color & _value) const;
-		  const Shader & setMat4(const GLchar * _name, const Mat4 & _matrix) const;
+		  Shader & setFloat(const GLchar * _name, const GLfloat _value);
+		  Shader & setInt(const GLchar * _name, const GLint _value);
+		  Shader & setVec2f(const GLchar * _name, const Vec2f & _value);
+		  Shader & setVec3f(const GLchar * _name, const Vec3f & _value);
+		  Shader & setVec4f(const GLchar * _name, const Vec4f & _value);
+		  Shader & setColor(const GLchar * _name, const Color & _value);
+		  Shader & setMat4(const GLchar * _name, const Mat4 & _matrix);
 
-		  const Shader & setLight(const GLchar * _name, const Light & _light) const;
-		  const Shader & setLight(const GLchar * _name, const Light & _light, size_t _num) const;
-		  const Shader & setLights(const GLchar * _name, const std::initializer_list<std::reference_wrapper<Light>> & _lights) const;
-		  const Shader & setLights(const GLchar * _name, std::vector<Light> & _lights) const;
+		  Shader & setLight(const GLchar * _name, const Light & _light);
+		  Shader & setLight(const GLchar * _name, const Light & _light, size_t _num);
+		  Shader & setLights(const GLchar * _name, const std::vector<Light> & _lights);
+
+		  template<typename _It>
+		  Shader & setLights(const GLchar * _name, _It _begin, const _It _end);
 
 		  bool operator==(const Shader &);
 		  bool operator!=(const Shader &);
@@ -70,6 +73,18 @@ namespace fhl
 	 private:
 		  GLuint m_shaderProgram;
 	 };
+
+	 template<typename _It>
+	 Shader & Shader::setLights(const GLchar * _name, _It _begin, const _It _end)
+	 {
+		  static_assert(std::is_same<typename _It::value_type, Light>::value, 
+				"_begin and _end must be iterators of containers of fhl::Light objects");
+
+		  size_t n = 0;
+		  while (_begin != _end)
+				setLight(_name, *(_begin++), n++);
+		  return setInt("lightsCount", n);
+	 }
 
 } // ns
 

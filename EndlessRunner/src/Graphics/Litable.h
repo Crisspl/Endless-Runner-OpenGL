@@ -1,22 +1,44 @@
 #ifndef FHL_LITABLE_H
 #define FHL_LITABLE_H
 
-#include "WithShader.h"
 #include "Light.h"
+
+#include <list>
+#include <vector>
 
 namespace fhl
 {
 
 	 class Litable
-		 : public WithShader /* Make it virtual inheritance if comes more children classes of WithShader */
-	 {                      /* and add WithShader ctor calls in Sprite, ColoredRect, etc. */
+	 {
 	 public:
-		  Litable(Shader& _shader);
-		  virtual ~Litable() { }
+		  virtual ~Litable() = default;
 
-		  virtual void setLight(const Light& _light);
-		  virtual void setLights(const std::initializer_list<std::reference_wrapper<Light>>& _lights);
-		  virtual void setLights(std::vector<Light> & _lights);
+		  void addLight(const Light & _light)
+		  {
+				m_lights.push_back(_light);
+		  }
+		  void addLights(const std::vector<Light> & _lights)
+		  {
+				m_lights.insert(m_lights.cbegin(), _lights.cbegin(), _lights.cend());
+		  }
+
+		  void setLight(const Light & _light)
+		  {
+				m_lights.clear();
+				addLight(_light);
+		  }
+		  void setLights(const std::vector<Light> & _lights)
+		  {
+				m_lights.clear();
+				addLights(_lights);
+		  }
+
+		  size_t getLightsCount() const { return m_lights.size(); }
+		  const std::list<Light> & getLights() const { return m_lights; }
+
+	 protected:
+		  std::list<Light> m_lights;
 	 };
 
 }

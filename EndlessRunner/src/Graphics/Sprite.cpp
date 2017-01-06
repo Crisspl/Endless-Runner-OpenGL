@@ -10,7 +10,7 @@ namespace fhl
 
 	 Sprite::Sprite()
 		  : TexturedSizeable(nullptr),
-		  Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
+		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
 		  m_color(Color::White),
 		  m_usingOriginalShader(true)
 	 {
@@ -19,17 +19,11 @@ namespace fhl
 
 	 Sprite::Sprite(Texture& _tex)
 		  : TexturedSizeable(&_tex, _tex.getSize()),
-		  Litable(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
+		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
 		  m_color(Color::White),
 		  m_usingOriginalShader(true)
 	 {
 		  setUp();
-	 }
-
-	 void Sprite::setShader(Shader& _shader)
-	 {
-		  m_shader = &_shader;
-		  m_usingOriginalShader = (_shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
 	 }
 
 	 void Sprite::setTexture(Texture& _tex, bool _changeSize)
@@ -55,13 +49,6 @@ namespace fhl
 		  TexturedSizeable::uploadTexCoordsArray();
 	 }
 
-	 void Sprite::setLight(const Light& _light)
-	 {
-		  m_shader = &fhl::ResMgr::getShader(LIGHT_SHADER_NAME);
-		  m_usingOriginalShader = true;
-		  m_shader->setLight("light", _light);
-	 }
-
 	 void Sprite::render(const RenderConf & _conf) const
 	 {
 		  Shader & shader = *m_shader;
@@ -82,7 +69,8 @@ namespace fhl
 					 .setMat4("rotation", transform->rotation)
 					 .setMat4("scale", transform->scale)
 					 .setMat4("view", Configurator::view())
-					 .setMat4("projection", Configurator::projection());
+					 .setMat4("projection", Configurator::projection())
+					 .setLights("light", getLights().cbegin(), getLights().cend());
 		  }
 
 		  m_vao->bind();

@@ -11,7 +11,7 @@ namespace fhl
 
 	 class ResMgr
 	 {
-		 ResMgr() = delete;
+		  ResMgr() = delete;
 
 	 public:
 		  static Shader & loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
