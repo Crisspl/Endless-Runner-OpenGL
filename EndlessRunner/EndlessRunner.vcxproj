@@ -164,6 +164,7 @@
     <ClCompile Include="src\Graphics\TexturedSizeable.cpp" />
     <ClCompile Include="src\Graphics\Transformable.cpp" />
     <ClCompile Include="src\Graphics\Transformable3D.cpp" />
+    <ClCompile Include="src\Graphics\UsingShader.cpp" />
     <ClCompile Include="src\Graphics\Vao.cpp" />
     <ClCompile Include="src\Graphics\Vertex.cpp" />
     <ClCompile Include="src\Graphics\VertexArray.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="src\Graphics\Transform.h" />
     <ClInclude Include="src\Graphics\Transformable.h" />
     <ClInclude Include="src\Graphics\Transformable3D.h" />
+    <ClInclude Include="src\Graphics\UsingShader.h" />
     <ClInclude Include="src\Graphics\Vao.h" />
     <ClInclude Include="src\Graphics\Vertex.h" />
     <ClInclude Include="src\Graphics\VertexArray.h" />

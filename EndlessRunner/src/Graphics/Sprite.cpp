@@ -6,11 +6,10 @@
 namespace fhl
 {
 
-	 bool Sprite::LIGHT_SHADER_LOADED = false;
-
 	 Sprite::Sprite()
 		  : TexturedSizeable(nullptr),
-		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
+		  UsingShader(&ResMgr::getLoadShader(SHADER_NAME, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
+						  &ResMgr::getLoadShader(LIGHT_SHADER_NAME, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White),
 		  m_usingOriginalShader(true)
 	 {
@@ -19,7 +18,8 @@ namespace fhl
 
 	 Sprite::Sprite(Texture& _tex)
 		  : TexturedSizeable(&_tex, _tex.getSize()),
-		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_Vertex, fhl::shaderSrcs::sprite_Fragment, SHADER_NAME, Shader::FromString)),
+		  UsingShader(&ResMgr::getLoadShader(SHADER_NAME, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
+						  &ResMgr::getLoadShader(LIGHT_SHADER_NAME, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White),
 		  m_usingOriginalShader(true)
 	 {
@@ -96,12 +96,6 @@ namespace fhl
 
 	 void Sprite::setUp()
 	 {
-		  if (!LIGHT_SHADER_LOADED)
-		  {
-				fhl::ResMgr::loadShader(fhl::shaderSrcs::sprite_LightVertex, fhl::shaderSrcs::sprite_LightFragment, LIGHT_SHADER_NAME, Shader::FromString);
-				LIGHT_SHADER_LOADED = true;
-		  }
-
 		  m_vao->bind();
 
 		  Configurator::rectShapeEbo->bind();

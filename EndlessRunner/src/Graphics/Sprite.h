@@ -12,6 +12,7 @@
 #include "Transformable.h"
 #include "TexturedSizeable.h"
 #include "Renderable.h"
+#include "UsingShader.h"
 #include "Litable.h"
 #include "../Utility/OrientedRect.h"
 
@@ -23,6 +24,7 @@ namespace fhl
 	 class Sprite
 		  : public Transformable,
 			 public TexturedSizeable,
+			 public UsingShader,
 			 public Renderable,
 			 public Litable
 	 {
@@ -33,7 +35,6 @@ namespace fhl
 	 public:
 			const Texture* getTexture() const { return m_ptexture; }
 
-			void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME)) { m_shader = &_shader; }
 			void setTexture(Texture& _tex, bool _changeSize = true);
 			void setTextureRect(fhl::Rect _rect, bool _changeSize = false);
 			void setColor(const Color _color) { m_color = _color; }
@@ -45,11 +46,8 @@ namespace fhl
 			void setUp();
 
 	 private:
-			Shader * m_shader;
 			Color m_color;
 			bool m_usingOriginalShader;
-
-			static bool LIGHT_SHADER_LOADED;
 
 			constexpr static const char* SHADER_NAME = "spriteShader";
 			constexpr static const char* LIGHT_SHADER_NAME = "spriteLightShader";

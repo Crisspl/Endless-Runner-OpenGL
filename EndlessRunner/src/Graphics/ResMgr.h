@@ -19,6 +19,7 @@ namespace fhl
 		  static Texture & loadTexture(Vec2i _size, std::string _name);
 
 		  static Shader & getShader(std::string _name);
+		  static Shader & getLoadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom = Shader::FromFile);
 		  static Texture & getTexture(std::string _name);
 
 		  static bool isShaderLoaded(std::string _name);

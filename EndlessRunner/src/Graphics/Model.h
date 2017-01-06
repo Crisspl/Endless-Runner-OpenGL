@@ -15,6 +15,7 @@
 #include "Renderable.h"
 #include "Transformable3D.h"
 #include "Litable.h"
+#include "UsingShader.h"
 
 #include <iostream>
 
@@ -24,7 +25,8 @@ namespace fhl
 	 class Model
 		 : public Renderable,
 			public Transformable3D,
-			public Litable
+			public Litable,
+		   public UsingShader
 	 {
 	 public:
 		  explicit Model(std::string _path);
@@ -42,11 +44,9 @@ namespace fhl
 		  std::vector<Mesh> m_meshes;
 		  std::string m_directory;
 
-		  Shader * m_shader;
 		  bool m_usingOriginalShader;
 
 		  static unsigned m_createdNumber;
-		  static bool s_lightShaderLoaded;
 
 		  constexpr static const char* SHADER_NAME = "modelShader";
 		  constexpr static const char* LIGHT_SHADER_NAME = "modelLightShader";

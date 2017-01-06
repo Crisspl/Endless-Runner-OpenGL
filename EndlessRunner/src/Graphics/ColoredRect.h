@@ -14,6 +14,7 @@
 #include "Vertex.h"
 #include "ResMgr.h"
 #include "Litable.h"
+#include "UsingShader.h"
 
 namespace fhl
 {
@@ -21,6 +22,7 @@ namespace fhl
 	 class ColoredRect
 		  : public Transformable,
 		    public Sizeable,
+			 public UsingShader,
 		    public Renderable,
 		    public Litable
 	 {
@@ -29,11 +31,7 @@ namespace fhl
 
 		  Color getColor() const { return m_color; }
 
-		  Transformable& setColor(Color _color) {
-				m_color = _color;
-				return *this;
-		  }
-		  void setShader(Shader& _shader = fhl::ResMgr::getShader(SHADER_NAME));
+		  Transformable& setColor(Color _color) { m_color = _color; return *this; }
 
 		  void render(const RenderConf & _conf) const override;
 
@@ -41,11 +39,8 @@ namespace fhl
 		  void setUp();
 
 	 private:
-		  Shader * m_shader;
 		  Color m_color;
 		  bool m_usingOriginalShader;
-
-		  static bool LIGHT_SHADER_LOADED;
 
 		  constexpr static const char* SHADER_NAME = "rectShader";
 		  constexpr static const char* LIGHT_SHADER_NAME = "rectLightShader";

@@ -5,6 +5,7 @@ EndlessCliff::EndlessCliff()
 {
 	m_model.setScale(fhl::Vec3f(12.f));
 	m_model.setPosition({ m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
+	m_model.setShader(fhl::UsingShader::Light);
 }
 
 void EndlessCliff::render(const fhl::RenderConf &) const

@@ -6,21 +6,15 @@ namespace fhl
 {
 
 	 unsigned Model::m_createdNumber = 0;
-	 bool Model::s_lightShaderLoaded = false;
 
 	 Model::Model(std::string _path)
-		 : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::model_LightVertex, fhl::shaderSrcs::model_LightFragment, SHADER_NAME, Shader::FromString)),
+		 : UsingShader(&ResMgr::getLoadShader(SHADER_NAME, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
+						   &ResMgr::getLoadShader(LIGHT_SHADER_NAME, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
 			m_usingOriginalShader(true)
 	 {
 		 loadModel(_path);
 		 calcSize();
 		 m_createdNumber++;
-
-		 if(!s_lightShaderLoaded)
-		 {
-			 fhl::ResMgr::loadShader(fhl::shaderSrcs::model_LightVertex, fhl::shaderSrcs::model_LightFragment, LIGHT_SHADER_NAME, Shader::FromString);
-			 s_lightShaderLoaded = true;
-		 }
 	 }
 
 	 void Model::render(const RenderConf & _conf) const

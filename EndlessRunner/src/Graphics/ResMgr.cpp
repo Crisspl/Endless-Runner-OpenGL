@@ -29,6 +29,11 @@ namespace fhl
 		 return m_shaders.find(_name)->second;
 	 }
 
+	 Shader & ResMgr::getLoadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom)
+	 {
+		  return isShaderLoaded(_name) ? getShader(_name) : loadShader(_vert, _frag, _name, _srcFrom);
+	 }
+
 	 Texture & ResMgr::getTexture(std::string _name)
 	 {
 		 return m_textures.find(_name)->second;

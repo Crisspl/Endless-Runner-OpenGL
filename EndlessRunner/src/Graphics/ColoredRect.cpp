@@ -3,21 +3,14 @@
 namespace fhl
 {
 
-	 bool ColoredRect::LIGHT_SHADER_LOADED = false;
-
 	 ColoredRect::ColoredRect(Vec2f _size)
 		  : Sizeable(_size),
-		  m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? &fhl::ResMgr::getShader(SHADER_NAME) : &fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_Vertex, fhl::shaderSrcs::coloredRect_Fragment, SHADER_NAME, Shader::FromString)),
+		  UsingShader(&ResMgr::getLoadShader(SHADER_NAME, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
+						  &ResMgr::getLoadShader(LIGHT_SHADER_NAME, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
 		  m_color(Color::Transparent),
 		  m_usingOriginalShader(true)
 	 {
 		  setUp();
-	 }
-
-	 void ColoredRect::setShader(Shader& _shader)
-	 {
-		  m_shader = &_shader;
-		  m_usingOriginalShader = (_shader == fhl::ResMgr::getShader(SHADER_NAME) || _shader == fhl::ResMgr::getShader(LIGHT_SHADER_NAME));
 	 }
 
 	 void ColoredRect::render(const RenderConf & _conf) const
@@ -45,12 +38,6 @@ namespace fhl
 
 	 void ColoredRect::setUp()
 	 {
-		  if (!LIGHT_SHADER_LOADED)
-		  {
-				fhl::ResMgr::loadShader(fhl::shaderSrcs::coloredRect_LightVertex, fhl::shaderSrcs::coloredRect_LightFragment, LIGHT_SHADER_NAME);
-				LIGHT_SHADER_LOADED = true;
-		  }
-
 		  m_vao->bind();
 
 		  Configurator::rectShapeEbo->bind();
