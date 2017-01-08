@@ -5,6 +5,7 @@
 
 #include <list>
 #include <vector>
+#include <type_traits>
 
 namespace fhl
 {
@@ -33,6 +34,8 @@ namespace fhl
 				m_lights.clear();
 				addLights(_lights);
 		  }
+		  template<typename _It>
+		  void setLights(_It _begin, const _It _end);
 
 		  size_t getLightsCount() const { return m_lights.size(); }
 		  const std::list<Light> & getLights() const { return m_lights; }
@@ -40,6 +43,16 @@ namespace fhl
 	 protected:
 		  std::list<Light> m_lights;
 	 };
+
+	 template<typename _It>
+	 void Litable::setLights(_It _begin, const _It _end)
+	 {
+		  static_assert(std::is_same<typename _It::value_type, Light>::value,
+				"_begin and _end must be iterators of containers of fhl::Light objects");
+
+		  while (_begin != _end)
+				setLight(*(_begin++));
+	 }
 
 }
 

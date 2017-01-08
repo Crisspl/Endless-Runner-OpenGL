@@ -7,7 +7,7 @@ namespace fhl
 {
 	 class UsingShader
 	 {
-	 public:
+	 private:
 		  struct DefaultShader_t {};
 		  struct LightShader_t {};
 
