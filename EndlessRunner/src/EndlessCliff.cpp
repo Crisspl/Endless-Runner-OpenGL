@@ -23,5 +23,5 @@ void EndlessCliff::update(float _dt)
 
 void EndlessCliff::setLights(std::vector<fhl::Light>& _lights)
 {
-	m_model.setLights(_lights);
+	m_model.setLights(_lights.begin(), _lights.end());
 }

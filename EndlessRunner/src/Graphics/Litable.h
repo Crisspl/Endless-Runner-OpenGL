@@ -23,6 +23,8 @@ namespace fhl
 		  {
 				m_lights.insert(m_lights.cbegin(), _lights.cbegin(), _lights.cend());
 		  }
+		  template<typename _It>
+		  void addLights(_It _begin, const _It _end);
 
 		  void setLight(const Light & _light)
 		  {
@@ -45,13 +47,23 @@ namespace fhl
 	 };
 
 	 template<typename _It>
-	 void Litable::setLights(_It _begin, const _It _end)
+	 void Litable::addLights(_It _begin, const _It _end)
 	 {
 		  static_assert(std::is_same<typename _It::value_type, Light>::value,
 				"_begin and _end must be iterators of containers of fhl::Light objects");
 
 		  while (_begin != _end)
-				setLight(*(_begin++));
+				addLight(*(_begin++));
+	 }
+
+	 template<typename _It>
+	 void Litable::setLights(_It _begin, const _It _end)
+	 {
+		  static_assert(std::is_same<typename _It::value_type, Light>::value,
+				"_begin and _end must be iterators of containers of fhl::Light objects");
+
+		  m_lights.clear();
+		  addLights(_begin, _end);
 	 }
 
 }
