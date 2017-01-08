@@ -1,8 +1,6 @@
 #ifndef FHL_VERTEX_H
 #define FHL_VERTEX_H
 
-#include <glm/glm.hpp>
-
 #include "Color.h"
 
 namespace fhl

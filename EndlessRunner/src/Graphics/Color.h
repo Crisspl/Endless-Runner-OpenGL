@@ -1,7 +1,6 @@
 #ifndef FHL_COLOR_H
 #define FHL_COLOR_H
 
-#include <glm/glm.hpp>
 #include "../Utility/Debug.h"
 #include "../Maths/Vectors.h"
 

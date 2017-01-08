@@ -2,7 +2,6 @@
 #define FHL_SPRITE_H
 
 #include <GL/glew.h>
-#include <glm/glm.hpp>
 
 #include "ResMgr.h"
 #include "Texture.h"

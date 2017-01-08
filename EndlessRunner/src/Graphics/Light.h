@@ -1,8 +1,6 @@
 #ifndef FHL_LIGHT_H
 #define FHL_LIGHT_H
 
-#include <glm/glm.hpp>
-
 #include "Color.h"
 
 namespace fhl

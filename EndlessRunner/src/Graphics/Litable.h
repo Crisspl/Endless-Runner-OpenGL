@@ -42,7 +42,7 @@ namespace fhl
 		  size_t getLightsCount() const { return m_lights.size(); }
 		  const std::list<Light> & getLights() const { return m_lights; }
 
-	 protected:
+	 private:
 		  std::list<Light> m_lights;
 	 };
 

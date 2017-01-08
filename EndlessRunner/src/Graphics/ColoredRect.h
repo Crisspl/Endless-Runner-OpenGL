@@ -2,9 +2,6 @@
 #define FHL_COLOREDRECT_H
 
 #include <GL/glew.h>
-#include <glm/glm.hpp>
-
-#include <memory>
 
 #include "Renderable.h"
 #include "Vao.h"
@@ -21,17 +18,17 @@ namespace fhl
 
 	 class ColoredRect
 		  : public Transformable,
-		    public Sizeable,
-			 public UsingShader,
-		    public Renderable,
-		    public Litable
+			public Sizeable,
+			public UsingShader,
+			public Renderable,
+			public Litable
 	 {
 	 public:
 		  explicit ColoredRect(Vec2f _size);
 
 		  Color getColor() const { return m_color; }
 
-		  Transformable& setColor(Color _color) { m_color = _color; return *this; }
+		  ColoredRect & setColor(Color _color) { m_color = _color; return *this; }
 
 		  void render(const RenderConf & _conf) const override;
 

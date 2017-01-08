@@ -1,8 +1,6 @@
 #ifndef RECTSCOLLIDER_H
 #define RECTSCOLLIDER_H
 
-
-#include <glm/glm.hpp>
 #include <cmath>
 #include <vector>
 #include "Collider.h"

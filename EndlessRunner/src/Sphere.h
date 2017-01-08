@@ -1,7 +1,6 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include <glm/glm.hpp>
 #include <cmath>
 
 #include "Graphics/ResMgr.h"

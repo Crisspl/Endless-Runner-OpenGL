@@ -2,7 +2,6 @@
 #define BOXCOLLIDER_H
 
 #include <vector>
-#include <glm/glm.hpp>
 #include <iostream>
 
 #include "Collider.h"
