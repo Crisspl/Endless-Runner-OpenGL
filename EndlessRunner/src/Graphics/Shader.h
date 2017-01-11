@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 #include <type_traits>
+#include <iterator>
 
 #include "Texture.h"
 #include "Color.h"
@@ -77,7 +78,7 @@ namespace fhl
 	 template<typename _It>
 	 Shader & Shader::setLights(const GLchar * _name, _It _begin, const _It _end)
 	 {
-		  static_assert(std::is_same<typename _It::value_type, Light>::value, 
+		  static_assert(std::is_same<typename std::iterator_traits<_It>::value_type, Light>::value,
 				"_begin and _end must be iterators of containers of fhl::Light objects");
 
 		  size_t n = 0;

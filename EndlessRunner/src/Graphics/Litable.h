@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <type_traits>
+#include <iterator>
 
 namespace fhl
 {
@@ -49,7 +50,7 @@ namespace fhl
 	 template<typename _It>
 	 void Litable::addLights(_It _begin, const _It _end)
 	 {
-		  static_assert(std::is_same<typename _It::value_type, Light>::value,
+		  static_assert(std::is_same<typename std::iterator_traits<_It>::value_type, Light>::value,
 				"_begin and _end must be iterators of containers of fhl::Light objects");
 
 		  while (_begin != _end)
@@ -59,7 +60,7 @@ namespace fhl
 	 template<typename _It>
 	 void Litable::setLights(_It _begin, const _It _end)
 	 {
-		  static_assert(std::is_same<typename _It::value_type, Light>::value,
+		  static_assert(std::is_same<typename std::iterator_traits<_It>::value_type, Light>::value,
 				"_begin and _end must be iterators of containers of fhl::Light objects");
 
 		  m_lights.clear();
