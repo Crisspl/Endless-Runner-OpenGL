@@ -27,6 +27,7 @@ namespace fhl {
 
 		  friend Vec2<_T> operator*(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x * _right.x, _left.y * _right.y }; }
 		  friend Vec2<_T> operator*(const Vec2<_T> & _v, _T _scalar) { return { _v.x * _scalar, _v.y * _scalar }; }
+		  friend Vec2<_T> operator*(_T _scalar, const Vec2<_T> & _v) { return _v * _scalar; }
 
 		  friend Vec2<_T> operator/(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x / _right.x, _left.y / _right.y }; }
 		  friend Vec2<_T> operator/(const Vec2<_T> & _v, _T _scalar) { return { _v.x / _scalar, _v.y / _scalar }; }

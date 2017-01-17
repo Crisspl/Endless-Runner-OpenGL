@@ -34,6 +34,7 @@ namespace fhl {
 
 		  friend Vec4<_T> operator*(const Vec4<_T>& _left, const Vec4<_T>& _right) { return{ _left.x * _right.x, _left.y * _right.y, _left.z * _right.z, _left.w * _right.w }; }
 		  friend Vec4<_T> operator*(const Vec4<_T>& _v, _T _scalar) { return{ _v.x * _scalar, _v.y * _scalar, _v.z * _scalar, _v.w / _scalar }; }
+		  friend Vec4<_T> operator*(_T _scalar, const Vec4<_T> & _v) { return _v * _scalar; }
 
 		  friend Vec4<_T> operator/(const Vec4<_T>& _left, const Vec4<_T>& _right) { return{ _left.x / _right.x, _left.y / _right.y, _left.z / _right.z, _left.w / _right.w }; }
 		  friend Vec4<_T> operator/(const Vec4<_T>& _v, _T _scalar) { return{ _v.x / _scalar, _v.y / _scalar, _v.z / _scalar, _v.w / _scalar }; }
