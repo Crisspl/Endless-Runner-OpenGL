@@ -229,8 +229,8 @@ int Game::isHeroOnIsland()
    int num = 0;
    for(Island& isl : m_vecIslands)
    {
-      if(m_hero.isCollision(isl))
-         return num;
+		 if (m_hero.isCollision(isl))
+			  return num;
       num++;
    }
    return -1;

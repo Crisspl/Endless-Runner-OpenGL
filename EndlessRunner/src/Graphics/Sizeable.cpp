@@ -6,7 +6,7 @@ namespace fhl
 	 Sizeable::Sizeable(Vec2f _size)
 		 : m_vao(new Vao()),
 		 m_size(_size)
-	 {
+	 {	  
 		 updatePosArray();
 
 		 Buffer* posBuffer = new Buffer(GL_ARRAY_BUFFER, GL_STATIC_DRAW);

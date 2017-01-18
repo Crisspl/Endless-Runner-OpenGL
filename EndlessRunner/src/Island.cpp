@@ -25,7 +25,7 @@ Island::~Island()
 
 std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)
 {
-   fhl::Rect *rect = new fhl::Rect(m_sprite.getAABB());
+   fhl::Rect * rect = new fhl::Rect(m_sprite.getAABB());
 
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }

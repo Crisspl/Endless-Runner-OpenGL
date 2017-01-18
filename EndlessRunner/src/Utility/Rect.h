@@ -4,13 +4,13 @@
 #include <array>
 #include "../Maths/Vectors.h"
 
-namespace fhl{
+namespace fhl {
 
 	 struct Projection
 	 {
 		  bool overlap(Projection _p)
 		  {
-				return (( min > _p.min && min < _p.max) || ( max < _p.max && max > _p.min));
+				return ((min > _p.min && min < _p.max) || (max < _p.max && max > _p.min));
 		  }
 
 		  float min, max;
@@ -40,22 +40,20 @@ namespace fhl{
 		  virtual bool intersects(const Rect& _rect) const;
 
 		  Vec2f operator[](unsigned _i) const { return m_verts[_i]; }
-		  const Tverts& getVerts() const { return m_verts; }
+		  const Tverts & getVerts() const { return m_verts; }
 
 		  Vec2f botLeft() const { return m_verts[BL]; }
-		  Vec2f getSize() const { return m_verts[UR] - m_verts[BL]; }
+		  Vec2f getSize() const { return m_size; }
 		  Projection project(Vec2f _axis) const;
 
-		  virtual Rect& addWidth(float _width);
-		  virtual Rect& addHeight(float _height);
-		  virtual Rect& move(Vec2f _offset);
+		  virtual Rect & addWidth(float _width);
+		  virtual Rect & addHeight(float _height);
+		  virtual Rect & move(Vec2f _offset);
 
-		  virtual const std::array<Vec2f, 2>& getAxes() const { return s_axes; }
-
-	 public:
-		  float width, height;
+		  virtual const std::array<Vec2f, 2> & getAxes() const { return s_axes; }
 
 	 protected:
+		  Vec2f m_size;
 		  Tverts m_verts;
 
 	 private:
