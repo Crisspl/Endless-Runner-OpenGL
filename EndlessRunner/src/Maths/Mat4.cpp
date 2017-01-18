@@ -315,7 +315,7 @@ namespace fhl
 		 return inv;
 	 }
 
-	 Mat4 fhl::Mat4::inverted() const
+	 Mat4 Mat4::inverted() const
 	 {
 		 return invert(*this);
 	 }

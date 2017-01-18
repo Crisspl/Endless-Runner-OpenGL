@@ -21,50 +21,50 @@ namespace fhl {
 		  template<typename _U>
 		  Vec3(const Vec3<_U>& _other)
 				: x(_T(_other.x)),
-				  y(_T(_other.y)),
-				  z(_T(_other.z))
+				y(_T(_other.y)),
+				z(_T(_other.z))
 		  { }
 
-		  friend Vec3<_T> operator+(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x + _right.x, _left.y + _right.y, _left.z + _right.z }; }
+		  friend Vec3<_T> operator+(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x + _right.x, _left.y + _right.y, _left.z + _right.z }; }
 
-		  friend Vec3<_T> operator-(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x - _right.x, _left.y - _right.y, _left.z - _right.z }; }
+		  friend Vec3<_T> operator-(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x - _right.x, _left.y - _right.y, _left.z - _right.z }; }
 
-		  friend Vec3<_T> operator*(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x * _right.x, _left.y * _right.y, _left.z * _right.z }; }
-		  friend Vec3<_T> operator*(const Vec3<_T>& _v, _T _scalar) { return{ _v.x * _scalar, _v.y * _scalar, _v.z * _scalar }; }
+		  friend Vec3<_T> operator*(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x * _right.x, _left.y * _right.y, _left.z * _right.z }; }
+		  friend Vec3<_T> operator*(const Vec3<_T> & _v, _T _scalar) { return{ _v.x * _scalar, _v.y * _scalar, _v.z * _scalar }; }
 		  friend Vec3<_T> operator*(_T _scalar, const Vec3<_T> & _v) { return _v * _scalar; }
 
-		  friend Vec3<_T> operator/(const Vec3<_T>& _left, const Vec3<_T>& _right) { return { _left.x / _right.x, _left.y / _right.y, _left.z / _right.z }; }
-		  friend Vec3<_T> operator/(const Vec3<_T>& _v, _T _scalar) { return { _v.x / _scalar, _v.y / _scalar, _v.z / _scalar }; }
+		  friend Vec3<_T> operator/(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x / _right.x, _left.y / _right.y, _left.z / _right.z }; }
+		  friend Vec3<_T> operator/(const Vec3<_T> & _v, _T _scalar) { return{ _v.x / _scalar, _v.y / _scalar, _v.z / _scalar }; }
 
-		  Vec3<_T> & operator+=(const Vec3<_T>& _other) { return *this = *this + _other; }
+		  Vec3<_T> & operator+=(const Vec3<_T> & _other) { return *this = *this + _other; }
 
-		  Vec3<_T> & operator-=(const Vec3<_T>& _other) { return *this = *this - _other; }
+		  Vec3<_T> & operator-=(const Vec3<_T> & _other) { return *this = *this - _other; }
 
-		  Vec3<_T> & operator*=(const Vec3<_T>& _other) { return *this = *this * _other; }
+		  Vec3<_T> & operator*=(const Vec3<_T> & _other) { return *this = *this * _other; }
 		  Vec3<_T> & operator*=(_T _scalar) { return *this = *this * _scalar; }
 
-		  Vec3<_T> & operator/=(const Vec3<_T>& _other) { return *this = *this / _other; }
+		  Vec3<_T> & operator/=(const Vec3<_T> & _other) { return *this = *this / _other; }
 		  Vec3<_T> & operator/=(_T _scalar) { return *this = *this / _scalar; }
 
 		  Vec3<_T> operator-() const { return Vec3<_T>(-x, -y, -z); }
 
-		  bool operator==(const Vec3<_T>& _other) const { return _other.x == x && _other.y == y && _other.z == z; }
-		  bool operator!=(const Vec3<_T>& _other) const { return !(*this == _other); }
+		  bool operator==(const Vec3<_T> & _other) const { return _other.x == x && _other.y == y && _other.z == z; }
+		  bool operator!=(const Vec3<_T> & _other) const { return !(*this == _other); }
 
-		  bool operator<(const Vec3<_T>& _other) const { return x < _other.x && y < _other.y && z < _other.z; }
-		  bool operator<=(const Vec3<_T>& _other) const { return x <= _other.x && y <= _other.y && z <= _other.z; }
-		  bool operator>(const Vec3<_T>& _other) const { return x > _other.x && y > _other.y && z > _other.z; }
-		  bool operator>=(const Vec3<_T>& _other) const { return x >= _other.x && y >= _other.y && z >= _other.z; }
+		  bool operator<(const Vec3<_T> & _other) const { return x < _other.x && y < _other.y && z < _other.z; }
+		  bool operator<=(const Vec3<_T> & _other) const { return x <= _other.x && y <= _other.y && z <= _other.z; }
+		  bool operator>(const Vec3<_T> & _other) const { return x > _other.x && y > _other.y && z > _other.z; }
+		  bool operator>=(const Vec3<_T> & _other) const { return x >= _other.x && y >= _other.y && z >= _other.z; }
 
 		  float length() const { return sqrt(x*x + y*y + z*z); }
 		  Vec3<_T> normalized() const { return *this / length(); }
-		  const _T* data() const { return &x; }
+		  const _T * data() const { return &x; }
 
 		  _T & operator[](size_t _n) { return *(&x + _n); }
 		  _T operator[](size_t _n) const { return *(&x + _n); }
 
-		  float dot(const Vec3<_T>& _right) const { return x * _right.x + y * _right.y + z * _right.z; }
-		  Vec3<_T> cross(const Vec3<_T>& _right) const
+		  float dot(const Vec3<_T> & _right) const { return x * _right.x + y * _right.y + z * _right.z; }
+		  Vec3<_T> cross(const Vec3<_T> & _right) const
 		  {
 				return
 				Vec3<_T>(
@@ -74,7 +74,7 @@ namespace fhl {
 				);
 		  }
 
-		  friend std::ostream& operator<<(std::ostream& _os, const Vec3<_T>& _v)
+		  friend std::ostream & operator<<(std::ostream & _os, const Vec3<_T> & _v)
 		  {
 				return _os << '{' << _v.x << ", " << _v.y << ", " << _v.z << '}';
 		  }
