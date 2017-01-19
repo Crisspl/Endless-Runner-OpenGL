@@ -2,11 +2,9 @@
 #define FHL_TRANSFORMABLE_H
 
 #include <GL/glew.h>
-
 #include <utility>
 
-#include "Transform.h"
-#include "Configurator.h"
+#include "TransformMatrices.h"
 
 namespace fhl
 {
@@ -25,40 +23,31 @@ namespace fhl
 	 {
 	 public:
 		  Transformable();
-		  virtual ~Transformable() { }
+		  virtual ~Transformable() = default;
 
-		  /* Setters */
-
-		  Transformable& rotate(float _angle);
-
-		  Transformable& setRotation(float _angle);
-
-		  Transformable& move(Vec2f _offset);
-
-		  Transformable& setPosition(Vec2f _pos);
-
-		  Transformable& setScale(Vec2f _scale);
-
-		  Transformable& setOrigin(Vec2f _origin);
-
-		 /* Getters */
+		  Transformable & rotate(float _angle);
+		  Transformable & setRotation(float _angle);
+		  Transformable & move(const Vec2f & _offset);
+		  Transformable & setPosition(const Vec2f & _pos);
+		  Transformable & scale(const Vec2f & _scale);
+		  Transformable & setScale(const Vec2f & _scale);
+		  Transformable & setOrigin(const Vec2f & _origin);
 
 		  float getRotation() const { return m_rotation; }
-
 		  Vec2f getPosition() const { return m_position; }
-
 		  Vec2f getScale() const { return m_scale; }
-
-		  Vec2f getOrigin() const { return m_transform.origin; }
-
-		  Transform getTransform() const { return m_transform; }
-
+		  Vec2f getOrigin() const { return m_origin; }
 		  TransformData getTransformData() const;
 
-	 protected:
+		  Mat4 getTransform() const;
+		  Mat4 getMVP() const;
+		  TransformMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
+
+	 private:
 		  float m_rotation;
-		  Vec2f m_position, m_scale;
-		  Transform m_transform;
+		  Vec2f m_position, m_scale, m_origin;
+		  mutable Mat4 m_transform, m_mvp;
+		  mutable bool m_transformChanged, m_mvpChanged;
 	 };
 
 } // ns

@@ -1,71 +1,89 @@
 #include "Transformable3D.h"
+#include "Configurator.h"
 
 namespace fhl
 {
 
 	 Transformable3D::Transformable3D()
-		 : m_rotation{ 0.f, Vec3f(0.f) },
+		 : m_rotation{ 0.f, Vec3f(1.f) },
 			m_position(0.f),
-			m_scale(1.f)
+			m_scale(1.f),
+		   m_transformChanged(true),
+		   m_mvpChanged(true)
 	 { }
 
-	 Transformable3D& Transformable3D::rotate(float _angle, Vec3f _axis)
+	 Transformable3D & Transformable3D::rotate(float _angle, const Vec3f & _axis)
 	 {
-		 while(_angle > 360.f)
+		 m_transformChanged = m_mvpChanged = true;
+		 while(_angle >= 360.f)
 			 _angle -= 360.f;
+
 		 m_rotation.angle += _angle;
-		 /* TODO update rotation axis */
-		 m_transform.rotate(_angle, _axis);
+		 /* TODO update rotation axis (Quaternion) */
 		 return *this;
 	 }
 
-	 Transformable3D& Transformable3D::setRotation(float _angle, Vec3f _axis)
+	 Transformable3D & Transformable3D::setRotation(float _angle, const Vec3f & _axis)
 	 {
-		 while(_angle > 360.f)
+		 m_transformChanged = m_mvpChanged = true;
+		 while(_angle >= 360.f)
 			 _angle -= 360.f;
+
 		 m_rotation.angle = _angle;
 		 m_rotation.axis = _axis;
-		 m_transform.setRotation(_angle, _axis);
 		 return *this;
 	 }
 
-	 Transformable3D& Transformable3D::move(Vec3f _offset)
+	 Transformable3D & Transformable3D::move(const Vec3f & _offset)
 	 {
-		 m_position += _offset;
-		 m_transform.move(_offset);
-		 return *this;
+		 return setPosition(m_position + _offset);
 	 }
 
-	 /*
-	 Transformable3D& Transformable3D::setSize(Vec2f _size)
+	 Transformable3D & Transformable3D::setPosition(const Vec3f & _pos)
 	 {
-		 Vec2f oldOrigin = getOrigin();
-		 m_size = _size;
-		 setOrigin(oldOrigin);
-		 return *this;
-	 }
-	 */
-
-	 Transformable3D& Transformable3D::setPosition(Vec3f _pos)
-	 {
+		 m_transformChanged = m_mvpChanged = true;
 		 m_position = _pos;
-		 m_transform.setPosition(_pos);
 		 return *this;
 	 }
 
-	 Transformable3D& Transformable3D::setScale(Vec3f _scale)
+	 Transformable3D & Transformable3D::scale(const Vec3f & _scale)
 	 {
+		  return setScale(m_scale * _scale);
+	 }
+
+	 Transformable3D & Transformable3D::setScale(const Vec3f & _scale)
+	 {
+		 m_transformChanged = m_mvpChanged = true;
 		 m_scale = _scale;
-		 m_transform.setScale(_scale);
 		 return *this;
 	 }
 
-	 Transformable3D& Transformable3D::setOrigin(fhl::Vec2f _origin)
+	 Mat4 Transformable3D::getTransform() const
 	 {
-		 m_transform.origin = _origin;
-		 setRotation(m_rotation.angle, m_rotation.axis);
-		 setPosition(m_position);
-		 return *this;
+		  if (m_transformChanged)
+		  {
+				m_transformChanged = false;
+				return
+					 m_transform =
+					 Mat4::scale(m_scale) *
+					 Mat4::translate(m_position / m_scale) *
+					 Mat4::rotate(m_rotation.angle, m_rotation.axis);
+		  }
+		  else return m_transform;
+	 }
+
+	 Mat4 Transformable3D::getMVP() const
+	 {
+		  if (m_mvpChanged)
+		  {
+				m_mvpChanged = false;
+				return
+					 m_mvp =
+					 Configurator::projection() *
+					 Configurator::view() *
+					 getTransform();
+		  }
+		  else return m_mvp;
 	 }
 
 } // ns

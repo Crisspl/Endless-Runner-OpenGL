@@ -211,9 +211,9 @@
     <ClInclude Include="src\Graphics\Sprite.h" />
     <ClInclude Include="src\Graphics\Texture.h" />
     <ClInclude Include="src\Graphics\TexturedSizeable.h" />
-    <ClInclude Include="src\Graphics\Transform.h" />
     <ClInclude Include="src\Graphics\Transformable.h" />
     <ClInclude Include="src\Graphics\Transformable3D.h" />
+    <ClInclude Include="src\Graphics\TransformMatrices.h" />
     <ClInclude Include="src\Graphics\UsingShader.h" />
     <ClInclude Include="src\Graphics\Vao.h" />
     <ClInclude Include="src\Graphics\Vertex.h" />

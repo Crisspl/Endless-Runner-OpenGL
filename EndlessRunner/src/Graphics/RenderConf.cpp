@@ -5,34 +5,34 @@ namespace fhl
 
 	 RenderConf RenderConf::Default;
 
-	 RenderConf::RenderConf(const Transform & _transform, Texture * _texture)
-		 : transform(_transform)
+	 RenderConf::RenderConf(const TransformMatrices & _tm, Texture * _texture)
+		 : matrices(_tm)
 		  // texture(_texture)
 	 {
 	 }
 
-	 RenderConf::RenderConf(const Transform & _t)
-		 : RenderConf(_t, nullptr)
+	 RenderConf::RenderConf(const TransformMatrices & _tm)
+		 : RenderConf(_tm, nullptr)
 	 {
 	 }
 
 	 RenderConf::RenderConf(Texture * _t)
-		 : RenderConf(Transform(), _t)
+		  : RenderConf({}, _t)
 	 {
 	 }
 
 	 RenderConf::RenderConf()
-		 : RenderConf(Transform(), nullptr)
+		  : RenderConf({}, nullptr)
 	 {
 	 }
 
-	 RenderConf & RenderConf::operator+=(const Transform & _t)
+	 RenderConf & RenderConf::operator+=(const TransformMatrices & _t)
 	 {
-		 transform = _t;
+		 matrices = _t;
 		 return *this;
 	 }
 	 /*
-	 DrawConf & DrawConf::operator+=(Texture * const _t)
+	 RenderConf & RenderConf::operator+=(Texture * const _t)
 	 {
 		 texture = _t;
 		 return *this;
@@ -40,9 +40,11 @@ namespace fhl
 	 */
 	 bool RenderConf::operator==(const RenderConf & _other) const
 	 {
-		 if (this == &_other) 
-			 return true;
-		 return transform == _other.transform;
+		  if (this == &_other) 
+				return true;
+		  return 
+				matrices.transform == _other.matrices.transform &&
+				matrices.mvp == _other.matrices.mvp;
 	 }
 
 	 bool RenderConf::operator!=(const RenderConf & _other) const

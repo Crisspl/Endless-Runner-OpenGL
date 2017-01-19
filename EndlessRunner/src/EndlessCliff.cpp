@@ -4,16 +4,15 @@ EndlessCliff::EndlessCliff()
 	: m_model("Resources/cliff/Cliff_new.obj")
 {
 	m_model.setScale(fhl::Vec3f(12.f));
-	m_model.setPosition({ m_model.getScaledSize().x / 2.f + 200.f, 80.f, 0});
+	m_model.setPosition({ m_model.getScaledSize().x / 2.f - 50.f, 80.f, 0});
 	m_model.setShader(fhl::UsingShader::Light);
 }
 
 void EndlessCliff::render(const fhl::RenderConf &) const
 {
 	fhl::render(m_model);
-	fhl::RenderConf conf;
-	conf += m_model.getTransform().move({ m_model.getScaledSize().x / 2, 0, 0 });
-	fhl::render(m_model, conf);
+	//fhl::RenderConf conf;
+	//fhl::render(m_model, conf);
 }
 
 void EndlessCliff::update(float _dt)

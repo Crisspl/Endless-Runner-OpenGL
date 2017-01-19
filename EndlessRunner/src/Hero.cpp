@@ -14,12 +14,12 @@ Hero::Hero()
         m_heroSprite(fhl::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex")),
         m_animMgr(&m_heroSprite, 0.15f, {50, 50})
 {
-   REGISTER_HERO_STATES(Move)
-   REGISTER_HERO_STATES(Jump)
-   REGISTER_HERO_STATES(Fall)
+	 REGISTER_HERO_STATES(Move)
+	 REGISTER_HERO_STATES(Jump)
+	 REGISTER_HERO_STATES(Fall)
 
-   m_heroSprite.setSize({50, 50});
-   m_heroSprite.setOrigin({ 25.f, 50.f })
+	m_heroSprite.setSize({ 50, 50 });
+   m_heroSprite.setOrigin({ 25.f , 50.f })
                .rotate(25.f);
 
    changeState(State_Move);
@@ -29,7 +29,7 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 {
    fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getOBB());
    //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
-   //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
+	 //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 
    rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});
@@ -45,7 +45,8 @@ void Hero::render(const fhl::RenderConf &) const
 void Hero::update(float dt)
 {
    m_animMgr.update(dt);
-   (this->*m_update[m_currentState])(dt);
+	m_heroSprite.rotate(100.f * dt);
+	(this->*m_update[m_currentState])(dt);
 }
 
 void Hero::changeState(const Hero::State _newState)

@@ -1,6 +1,7 @@
 #include "OrientedRect.h"
 
 #include "../Graphics/Transformable.h"
+#include "../Maths/Maths_funcs.h"
 
 namespace fhl
 {

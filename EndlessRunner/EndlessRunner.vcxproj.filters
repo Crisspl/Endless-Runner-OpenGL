@@ -227,9 +227,6 @@
     <ClInclude Include="src\Graphics\Transformable.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\Transform.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphics\Sizeable.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
@@ -318,6 +315,9 @@
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\UsingShader.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\TransformMatrices.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

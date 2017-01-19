@@ -26,7 +26,7 @@ void Coin::update(float _dt)
 void Coin::render(const fhl::RenderConf &) const
 {
 	fhl::RenderConf conf;
-	conf += getTransform();
+	conf += getMatrices();
 	fhl::render(m_sprite, conf);
 }
 

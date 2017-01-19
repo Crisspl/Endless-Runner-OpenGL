@@ -23,13 +23,11 @@ namespace fhl
 
 		 m_shader->use();
 
-		 const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
+		 bool useCustomConf = _conf != RenderConf::Default;
+		 auto m = useCustomConf ? _conf.matrices.transform : getTransform();
 
-		 m_shader->setMat4("translation", transform->translation)
-			  .setMat4("rotation", transform->rotation)
-			  .setMat4("scale", transform->scale)
-			  .setMat4("view", Configurator::view())
-			  .setMat4("projection", Configurator::projection())
+		 m_shader->setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+			  .setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 			  .setFloat("material.shininess", 5.f)
 			  .setLights("light", getLights().cbegin(), getLights().cend());
 
@@ -150,11 +148,11 @@ namespace fhl
 		 auto y = std::minmax_element(yVec.begin(), yVec.end());
 		 auto z = std::minmax_element(zVec.begin(), zVec.end());
    
-		 m_size = {
+		 setSize( {
 						 *x.second - *x.first,
 						 *y.second - *y.first,
 						 *z.second - *z.first
-					 }; 
+					 }); 
 	 }
 
 	 std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName)

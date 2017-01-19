@@ -58,18 +58,15 @@ namespace fhl
 		  shader.setInt("texSampler", 0);
 		  shader.setColor("color", m_color);
 
-		  const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
+		  bool useCustomConf = _conf != RenderConf::Default;
 
 		  if (m_ptexture)
 				glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
 
 		  if (m_usingOriginalShader)
 		  {
-				shader.setMat4("translation", transform->translation)
-					 .setMat4("rotation", transform->rotation)
-					 .setMat4("scale", transform->scale)
-					 .setMat4("view", Configurator::view())
-					 .setMat4("projection", Configurator::projection())
+				shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+					 .setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 					 .setLights("light", getLights().cbegin(), getLights().cend());
 		  }
 

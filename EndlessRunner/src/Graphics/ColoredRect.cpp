@@ -1,4 +1,5 @@
 #include "ColoredRect.h"
+#include "Configurator.h"
 
 namespace fhl
 {
@@ -16,17 +17,12 @@ namespace fhl
 	 void ColoredRect::render(const RenderConf & _conf) const
 	 {
 		  m_shader->use();
+	 
+		  bool useCustomConf = _conf != RenderConf::Default;
 
-		  Vec4f normColor = m_color.asVec4();
-
-		  const Transform* transform = (_conf == RenderConf::Default) ? &m_transform : &_conf.transform;
-
-		  m_shader->setMat4("translation", transform->translation)
-				.setMat4("rotation", transform->rotation)
-				.setMat4("scale", transform->scale)
-				.setMat4("projection", Configurator::projection())
-				.setMat4("view", Configurator::view())
-				.setVec4f("vertColor", normColor)
+		  m_shader->setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+				.setMat4("transform", useCustomConf ? _conf.matrices.transform : getTransform())
+				.setVec4f("vertColor", m_color.asVec4())
 				.setLights("light", getLights().cbegin(), getLights().cend());
 
 		  m_vao->bind();
