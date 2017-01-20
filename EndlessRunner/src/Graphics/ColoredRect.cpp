@@ -17,11 +17,12 @@ namespace fhl
 
 	 void ColoredRect::render(const RenderConf & _conf) const
 	 {
-		  m_shader->use();
+		  Shader & shader = *getShader();
+		  shader.use();
 	 
 		  bool useCustomConf = _conf != RenderConf::Default;
 
-		  m_shader->setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 				.setMat4("transform", useCustomConf ? _conf.matrices.transform : getTransform())
 				.setVec4f("vertColor", m_color.asVec4())
 				.setLights("light", getLights().cbegin(), getLights().cend());

@@ -22,17 +22,18 @@ namespace fhl
 	 {
 		 glEnable(GL_DEPTH_TEST);
 
-		 m_shader->use();
+		 Shader & shader = *getShader();
+		 shader.use();
 
 		 bool useCustomConf = _conf != RenderConf::Default;
 
-		 m_shader->setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+		 shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 			  .setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 			  .setFloat("material.shininess", 5.f)
 			  .setLights("light", getLights().cbegin(), getLights().cend());
 
 		 for(const auto & mesh : m_meshes)
-			 mesh.render(*m_shader);
+			 mesh.render(shader);
 
 		 Shader::unUse();
 

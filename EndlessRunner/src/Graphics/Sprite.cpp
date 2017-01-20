@@ -52,7 +52,7 @@ namespace fhl
 
 	 void Sprite::render(const RenderConf & _conf) const
 	 {
-		  Shader & shader = *m_shader;
+		  Shader & shader = *getShader();
 		  shader.use();
 
 		  glActiveTexture(GL_TEXTURE0);

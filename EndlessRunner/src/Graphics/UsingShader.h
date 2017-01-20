@@ -22,14 +22,15 @@ namespace fhl
 		  void setDefaultShader(Shader & _shader) { m_defaultShader = &_shader; }
 		  virtual void setLightShader(Shader & _shader) { m_lightShader = &_shader; }
 
+	 protected:
+		  Shader * getShader() const { return m_shader; }
+
 	 public:
 		  static SimpleShader_t Simple;
 		  static LightShader_t Light;
 
 	 private:
 		  Shader * m_defaultShader, * m_lightShader;
-
-	 protected:
 		  Shader * m_shader;
 	 };
 }
