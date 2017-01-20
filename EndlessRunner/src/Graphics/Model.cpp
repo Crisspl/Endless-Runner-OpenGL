@@ -10,8 +10,7 @@ namespace fhl
 
 	 Model::Model(std::string _path)
 		 : UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
-						   &ResMgr::getLoadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
-			m_usingOriginalShader(true)
+						   &ResMgr::getLoadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString))
 	 {
 		 loadModel(_path);
 		 calcSize();

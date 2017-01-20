@@ -39,7 +39,6 @@ namespace fhl
 
 	 private:
 		  Color m_color;
-		  bool m_usingOriginalShader;
 
 		  constexpr static const char * simpleShaderName = "_FHL_rectSimpleShader";
 		  constexpr static const char * lightShaderName = "_FHL_rectLightShader";

@@ -46,8 +46,6 @@ namespace fhl
 		  std::vector<Mesh> m_meshes;
 		  std::string m_directory;
 
-		  bool m_usingOriginalShader;
-
 		  static unsigned m_createdNumber;
 
 		  constexpr static const char * simpleShaderName = "_FHL_modelSimpleShader";

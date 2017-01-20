@@ -11,8 +11,7 @@ namespace fhl
 		  : TexturedSizeable(nullptr),
 		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
 						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
-		  m_color(Color::White),
-		  m_usingOriginalShader(true)
+		  m_color(Color::White)
 	 {
 		  setUp();
 	 }
@@ -21,8 +20,7 @@ namespace fhl
 		  : TexturedSizeable(&_tex, _tex.getSize()),
 		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
 						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
-		  m_color(Color::White),
-		  m_usingOriginalShader(true)
+		  m_color(Color::White)
 	 {
 		  setUp();
 	 }
@@ -64,12 +62,9 @@ namespace fhl
 		  if (m_ptexture)
 				glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
 
-		  if (m_usingOriginalShader)
-		  {
-				shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
-					 .setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
-					 .setLights("light", getLights().cbegin(), getLights().cend());
-		  }
+		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
+				.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
+				.setLights("light", getLights().cbegin(), getLights().cend());
 
 		  m_vao->bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

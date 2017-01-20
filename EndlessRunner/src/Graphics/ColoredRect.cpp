@@ -9,8 +9,7 @@ namespace fhl
 		  : Sizeable(_size),
 		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
 						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
-		  m_color(Color::Transparent),
-		  m_usingOriginalShader(true)
+		  m_color(Color::Transparent)
 	 {
 		  setUp();
 	 }
