@@ -29,7 +29,7 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 {
    fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getOBB());
    //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
-	 //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
+	//fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 
    rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
        .move({0, m_heroSprite.getSize().y * 0.8f});
@@ -45,7 +45,6 @@ void Hero::render(const fhl::RenderConf &) const
 void Hero::update(float dt)
 {
    m_animMgr.update(dt);
-	m_heroSprite.rotate(100.f * dt);
 	(this->*m_update[m_currentState])(dt);
 }
 

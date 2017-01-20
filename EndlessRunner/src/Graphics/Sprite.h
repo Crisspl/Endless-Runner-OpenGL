@@ -48,8 +48,8 @@ namespace fhl
 			Color m_color;
 			bool m_usingOriginalShader;
 
-			constexpr static const char* SHADER_NAME = "spriteShader";
-			constexpr static const char* LIGHT_SHADER_NAME = "spriteLightShader";
+			constexpr static const char* SHADER_NAME = "_FHL_spriteSimpleShader";
+			constexpr static const char* LIGHT_SHADER_NAME = "_FHL_spriteLightShader";
 	 };
 
 } // ns

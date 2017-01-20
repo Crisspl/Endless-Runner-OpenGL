@@ -15,7 +15,7 @@ namespace fhl
 
 	 Transformable & Transformable::rotate(float _angle)
 	 {
-			return setRotation(m_rotation + _angle);
+		  return setRotation(m_rotation + _angle);
 	 }
 
 	 Transformable & Transformable::setRotation(float _angle)

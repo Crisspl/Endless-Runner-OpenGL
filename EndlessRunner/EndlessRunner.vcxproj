@@ -172,7 +172,6 @@
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Maths\Mat4.cpp" />
-    <ClCompile Include="src\Maths\Maths_funcs.cpp" />
     <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\SoundMgr.cpp" />

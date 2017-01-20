@@ -13,12 +13,14 @@
 #include "Shader.h"
 #include "Configurator.h"
 #include "Vao.h"
+#include "UsingShader.h"
 
 namespace fhl
 {
 
 	 class VertexArray
-		 : public Renderable
+		 : public Renderable,
+		   public UsingShader
 	 {
 	 public:
 		  enum Mode
@@ -49,6 +51,9 @@ namespace fhl
 
 		  void render(const RenderConf &) const override;
 
+		  void setShader(UsingShader::LightShader_t) override {}
+		  void setLightShader(Shader &) override {}
+
 		  Vertex operator[](unsigned _i) const { return m_vertices[_i]; }
 		  Vertex & operator[](unsigned _i) { return m_vertices[_i]; }
 
@@ -68,7 +73,7 @@ namespace fhl
 
 		  std::shared_ptr<Vao> m_vao;
 
-		  constexpr static const char* SHADER_NAME = "arrayShader";
+		  constexpr static const char* SHADER_NAME = "_FHL_vertexArraySimpleShader";
 	 };
 
 } // ns
