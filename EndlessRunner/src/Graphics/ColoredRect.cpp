@@ -6,8 +6,8 @@ namespace fhl
 
 	 ColoredRect::ColoredRect(Vec2f _size)
 		  : Sizeable(_size),
-		  UsingShader(&ResMgr::getLoadShader(SHADER_NAME, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
-						  &ResMgr::getLoadShader(LIGHT_SHADER_NAME, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
+		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
+						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
 		  m_color(Color::Transparent),
 		  m_usingOriginalShader(true)
 	 {

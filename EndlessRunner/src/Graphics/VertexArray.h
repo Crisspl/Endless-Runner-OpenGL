@@ -67,13 +67,12 @@ namespace fhl
 		  void updateArray();
 
 	 private:
-		  Shader & m_shader;
 		  GLenum m_mode;
 		  std::vector<Vertex> m_vertices;
 
 		  std::shared_ptr<Vao> m_vao;
 
-		  constexpr static const char* SHADER_NAME = "_FHL_vertexArraySimpleShader";
+		  constexpr static const char * simpleShaderName = "_FHL_vertexArraySimpleShader";
 	 };
 
 } // ns

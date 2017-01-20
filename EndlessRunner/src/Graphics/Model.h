@@ -48,8 +48,8 @@ namespace fhl
 
 		  static unsigned m_createdNumber;
 
-		  constexpr static const char* SHADER_NAME = "_FHL_modelSimpleShader";
-		  constexpr static const char* LIGHT_SHADER_NAME = "_FHL_modelLightShader";
+		  constexpr static const char * simpleShaderName = "_FHL_modelSimpleShader";
+		  constexpr static const char * lightShaderName = "_FHL_modelLightShader";
 	 };
 
 } // ns

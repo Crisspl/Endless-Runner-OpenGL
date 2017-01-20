@@ -4,7 +4,7 @@ namespace fhl
 {
 
 	 VertexArray::VertexArray(Mode _mode)
-		 : m_shader(fhl::ResMgr::isShaderLoaded(SHADER_NAME) ? fhl::ResMgr::getShader(SHADER_NAME) : fhl::ResMgr::loadShader(fhl::shaderSrcs::vertexArray_Vertex, fhl::shaderSrcs::vertexArray_Fragment, SHADER_NAME, Shader::FromString)),
+		   : UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString), nullptr),
 			m_mode(_mode),
 			m_vao(new Vao())
 	 {
@@ -29,9 +29,9 @@ namespace fhl
 
 	 void VertexArray::render(const RenderConf &) const
 	 {
-		 m_shader.use();
+		 m_shader->use();
 
-		 m_shader.setMat4("projection", Configurator::projection())
+		 m_shader->setMat4("projection", Configurator::projection())
 					.setMat4("view", Configurator::view());
 
 		 m_vao->bind();

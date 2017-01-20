@@ -2,6 +2,6 @@
 
 namespace fhl
 {
-	 UsingShader::DefaultShader_t UsingShader::Default;
+	 UsingShader::SimpleShader_t UsingShader::Simple;
 	 UsingShader::LightShader_t UsingShader::Light;
 }
