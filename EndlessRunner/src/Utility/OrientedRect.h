@@ -4,9 +4,7 @@
 #include <vector>
 
 #include "Rect.h"
-#include "../Graphics/Sprite.h"
-
-namespace fhl { struct TransformData; class Sprite; }
+#include "../Graphics/Transformable.h"
 
 namespace fhl
 {

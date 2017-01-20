@@ -3,7 +3,6 @@
 
 #include <GL/glew.h>
 
-#include "ResMgr.h"
 #include "Texture.h"
 #include "Shader.h"
 #include "Color.h"
@@ -15,10 +14,10 @@
 #include "Litable.h"
 #include "../Utility/OrientedRect.h"
 
-namespace fhl { class OrientedRect; }
-
 namespace fhl
 {
+	 class OrientedRect;
+	 class ResMgr;
 
 	 class Sprite
 		  : public Transformable,
@@ -27,6 +26,8 @@ namespace fhl
 			 public Renderable,
 			 public Litable
 	 {
+		  friend class ResMgr;
+
 	 public:
 			Sprite();
 			explicit Sprite(Texture& _tex);

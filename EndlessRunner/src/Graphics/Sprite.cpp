@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "ResMgr.h"
 
 #include <iostream>
 #include <algorithm>

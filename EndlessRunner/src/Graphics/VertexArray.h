@@ -8,7 +8,6 @@
 #include <initializer_list>
 
 #include "Renderable.h"
-#include "ResMgr.h"
 #include "Vertex.h"
 #include "Shader.h"
 #include "Configurator.h"
@@ -18,10 +17,14 @@
 namespace fhl
 {
 
+	 class ResMgr;
+
 	 class VertexArray
 		 : public Renderable,
 		   public UsingShader
 	 {
+		  friend class ResMgr;
+
 	 public:
 		  enum Mode
 		  {

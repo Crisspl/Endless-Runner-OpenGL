@@ -1,6 +1,7 @@
 #include "Model.h"
 
 #include "../Utility/Debug.h"
+#include "ResMgr.h"
 
 namespace fhl
 {
@@ -24,14 +25,13 @@ namespace fhl
 		 m_shader->use();
 
 		 bool useCustomConf = _conf != RenderConf::Default;
-		 auto m = useCustomConf ? _conf.matrices.transform : getTransform();
 
 		 m_shader->setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 			  .setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 			  .setFloat("material.shininess", 5.f)
 			  .setLights("light", getLights().cbegin(), getLights().cend());
 
-		 for(const auto& mesh : m_meshes)
+		 for(const auto & mesh : m_meshes)
 			 mesh.render(*m_shader);
 
 		 Shader::unUse();

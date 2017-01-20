@@ -9,7 +9,6 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "ResMgr.h"
 #include "Mesh.h"
 #include "Texture.h"
 #include "Renderable.h"
@@ -21,6 +20,7 @@
 
 namespace fhl
 {
+	 class ResMgr;
 
 	 class Model
 		 : public Renderable,
@@ -28,6 +28,8 @@ namespace fhl
 			public Litable,
 		   public UsingShader
 	 {
+		  friend class ResMgr;
+
 	 public:
 		  explicit Model(std::string _path);
 		  void render(const RenderConf & _conf) const override;

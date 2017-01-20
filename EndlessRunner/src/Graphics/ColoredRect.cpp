@@ -1,5 +1,6 @@
 #include "ColoredRect.h"
 #include "Configurator.h"
+#include "ResMgr.h"
 
 namespace fhl
 {

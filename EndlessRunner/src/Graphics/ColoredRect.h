@@ -9,12 +9,12 @@
 #include "Sizeable.h"
 #include "Shader.h"
 #include "Vertex.h"
-#include "ResMgr.h"
 #include "Litable.h"
 #include "UsingShader.h"
 
 namespace fhl
 {
+	 class ResMgr;
 
 	 class ColoredRect
 		  : public Transformable,
@@ -23,6 +23,8 @@ namespace fhl
 			public Renderable,
 			public Litable
 	 {
+		  friend class ResMgr;
+
 	 public:
 		  explicit ColoredRect(Vec2f _size);
 
