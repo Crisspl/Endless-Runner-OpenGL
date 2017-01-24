@@ -25,15 +25,12 @@ namespace fhl
 		  Transformable3D & setPosition(const Vec3f & _pos);
 		  Transformable3D & scale(const Vec3f & _scale);
 		  Transformable3D & setScale(const Vec3f & _scale);
-		  //Transformable3D& setOrigin(Vec3f _origin); /* TODO */
-		  Transformable3D & setSize(const Vec3f & _size) { m_size = _size; return *this; }
+		  Transformable3D & setOrigin(Vec3f _origin);
 
 		  RotationType getRotation() const { return m_rotation; }
-		  Vec3f getSize() const { return m_size; }
-		  Vec3f getScaledSize() const { return m_size * m_scale; }
 		  Vec3f getPosition() const { return m_position; }
 		  Vec3f getScale() const { return m_scale; }
-		  //Vec2f getOrigin() const { return m_transform.origin; } /* TODO */
+		  Vec3f getOrigin() const { return m_origin; }
 
 		  Mat4 getTransform() const;
 		  Mat4 getMVP() const;
@@ -41,7 +38,7 @@ namespace fhl
 
 	 private:
 		  RotationType m_rotation;
-		  Vec3f m_size, m_position, m_scale;
+		  Vec3f m_position, m_scale, m_origin;
 		  mutable Mat4 m_transform, m_mvp;
 		  mutable bool m_transformChanged, m_mvpChanged;
 	 };

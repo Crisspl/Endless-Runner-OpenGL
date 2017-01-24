@@ -120,26 +120,24 @@ void Game::update()
       m_sphere.changeState(Sphere::State_Idle);
    }
 
-   for (auto it = m_vecIslands.begin(); it != m_vecIslands.end();)
+   for (auto & isl : m_vecIslands)
    {
-	   it->update(dt);
-	   it->move(-dt * 600.f);
+	   isl.update(dt);
+	   isl.move(-dt * 600.f);
 
-	   auto & coins = it->getCoins();
-
-	   for (auto itc = coins.begin(); itc != coins.end();)
-	   {
-		   if (itc->isCollision(m_hero) || itc->isCollision(m_sphere))
-			   coins.erase(itc);
-		   else
-			   itc++;
-	   }
-
-      if(it->getPosition().x < -200.f)
-         m_vecIslands.erase(it);
-      else
-         it++;
+	   auto & coins = isl.getCoins();
+		coins.erase(
+			 std::remove_if(coins.begin(), coins.end(),
+					 [&](Coin & _c) { return _c.isCollision(m_hero) || _c.isCollision(m_sphere); }),
+			 coins.end());
    }
+
+	m_vecIslands.erase(
+		 std::remove_if(m_vecIslands.begin(), m_vecIslands.end(),
+			  [](const Island & _isl) { return _isl.getPosition().x < -200.f; }),
+		 m_vecIslands.end());
+
+
 
    if(m_hero.getPosition().y > WIN_Y)
    {

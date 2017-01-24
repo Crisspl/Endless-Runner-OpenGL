@@ -1,5 +1,7 @@
 #include "Hero.h"
 
+#include "Graphics/ResMgr.h"
+
 #define REGISTER_HERO_STATES(stateName) \
    m_onEnter[State_##stateName] \
      = &Hero::stateName##_onEnter; \

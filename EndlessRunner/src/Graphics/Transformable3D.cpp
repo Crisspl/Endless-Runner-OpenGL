@@ -58,6 +58,13 @@ namespace fhl
 		 return *this;
 	 }
 
+	 Transformable3D & Transformable3D::setOrigin(Vec3f _origin)
+	 {
+		  m_transformChanged = m_mvpChanged = true;
+		  m_origin = _origin;
+		  return *this;
+	 }
+
 	 Mat4 Transformable3D::getTransform() const
 	 {
 		  if (m_transformChanged)
@@ -66,8 +73,10 @@ namespace fhl
 				return
 					 m_transform =
 					 Mat4::scale(m_scale) *
-					 Mat4::translate(m_position / m_scale) *
-					 Mat4::rotate(m_rotation.angle, m_rotation.axis);
+					 Mat4::translate((m_position - m_origin) / m_scale) *
+					 Mat4::translate(m_origin) *
+					 Mat4::rotate(m_rotation.angle, m_rotation.axis) *
+					 Mat4::translate(-m_origin);
 		  }
 		  else return m_transform;
 	 }

@@ -147,12 +147,12 @@ namespace fhl
 		 auto x = std::minmax_element(xVec.begin(), xVec.end());
 		 auto y = std::minmax_element(yVec.begin(), yVec.end());
 		 auto z = std::minmax_element(zVec.begin(), zVec.end());
-   
-		 setSize( {
+ 
+		 m_size = {
 						 *x.second - *x.first,
 						 *y.second - *y.first,
 						 *z.second - *z.first
-					 }); 
+					 };			 
 	 }
 
 	 std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName)

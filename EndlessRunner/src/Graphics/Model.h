@@ -34,6 +34,8 @@ namespace fhl
 		  explicit Model(std::string _path);
 		  void render(const RenderConf & _conf) const override;
 
+		  Vec3f getSize() const { return m_size; }
+
 	 private:
 		  void loadModel(std::string _path);
 		  void processNode(aiNode* _nodePtr, const aiScene* _scenePtr);
@@ -45,6 +47,7 @@ namespace fhl
 	 private:
 		  std::vector<Mesh> m_meshes;
 		  std::string m_directory;
+		  Vec3f m_size;
 
 		  static unsigned m_createdNumber;
 

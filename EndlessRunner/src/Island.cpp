@@ -56,16 +56,14 @@ std::vector<fhl::Light> Island::getLights() const
 	fhl::Light light;
 	light.linear = 0.005f;
 	light.quadratic = 0.00004f;
-	light.color = fhl::Color({ 1, 1, 0 });
+	light.color = fhl::Color(float(rand() % 100) / 100, float(rand() % 100) / 100, float(rand() % 100) / 100);
 	light.illuminance = 0.3f;
 	light.type = fhl::Light::Point;
 
-	std::vector<fhl::Light> v;
-	for (const Coin & c : m_coins)
-	{
-		light.position = fhl::Vec3f(c.getPosition(), 300.f);
-		v.push_back(light);
-	}
+	std::vector<fhl::Light> lights(m_coins.size(), light);
 
-	return v;
+	for (int i = 0; i < lights.size(); i++)
+		 lights[i].position = fhl::Vec3f(m_coins[i].getPosition(), 300.f);
+
+	return lights;
 }
