@@ -14,13 +14,12 @@ namespace fhl
 		  ResMgr() = delete;
 
 	 public:
-		  static Shader & loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom = Shader::FromFile);
-		  static Texture & loadTexture(std::string _path, std::string _name);
-		  static Texture & loadTexture(Vec2i _size, std::string _name);
+		  static Shader & loadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom = Shader::FromFile);
+		  static Texture & loadTexture(std::string _name, std::string _path);
+		  static Texture & loadTexture(std::string _name, Vec2i _size);
 
-		  static Shader & getShader(std::string _name);
-		  static Shader & getLoadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom = Shader::FromFile);
-		  static Texture & getTexture(std::string _name);
+		  static Shader * getShader(std::string _name);
+		  static Texture * getTexture(std::string _name);
 
 		  template<typename _T>
 		  static Shader * getDefaultSimpleShader();

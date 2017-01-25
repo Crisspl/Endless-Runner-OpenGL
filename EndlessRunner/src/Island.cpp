@@ -3,7 +3,7 @@
 Island::Island(fhl::Vec2f _pos)
           : Collideable(Collideable::Coll_Island)
 {
-   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex").setRepeated(1));
+   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex")->setRepeated(1));
 
    std::size_t size = sup::getRand(7, 14);
 

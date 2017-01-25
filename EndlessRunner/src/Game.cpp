@@ -15,8 +15,8 @@ Game::Game()
         //m_model("Resources/cliff/Cliff_new.obj"),
 	    m_va(fhl::VertexArray::LineStrip)
 {
-   fhl::ResMgr::loadTexture("Resources/Tex/island1.png", "islandTex");
-   fhl::ResMgr::loadTexture("Resources/Tex/coin.png", "coinTex");
+   fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
+   fhl::ResMgr::loadTexture("coinTex", "Resources/Tex/coin.png");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
    m_hero.setPosition({200.f, (float)WIN_Y});

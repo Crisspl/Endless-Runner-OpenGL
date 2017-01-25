@@ -9,7 +9,7 @@
      = &Sphere::stateName##_update;
 
 Sphere::Sphere(Hero* _owner)
-         : m_sprite(fhl::ResMgr::loadTexture("Resources/Tex/ball2.png", "sphereTex")),
+         : m_sprite(fhl::ResMgr::loadTexture("sphereTex", "Resources/Tex/ball2.png")),
            m_startVelociy(30.f),
            m_velocity(m_startVelociy),
            m_owner(_owner),

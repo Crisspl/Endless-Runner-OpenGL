@@ -11,43 +11,38 @@ namespace fhl
 	 std::map<std::string, Shader> ResMgr::m_shaders;
 	 std::map<std::string, Texture> ResMgr::m_textures;
 
-	 Shader & ResMgr::loadShader(std::string _vert, std::string _frag, std::string _name, Shader::SourceFrom _srcFrom)
+	 Shader & ResMgr::loadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom)
 	 {
 		 m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
-		 return getShader(_name);
+		 return *getShader(_name);
 	 }
 
-	 Texture & ResMgr::loadTexture(std::string _path, std::string _name)
+	 Texture & ResMgr::loadTexture(std::string _name, std::string _path)
 	 {
 		 m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
-		 return getTexture(_name);
+		 return *getTexture(_name);
 	 }
 
-	 Texture & ResMgr::loadTexture(Vec2i _size, std::string _name)
+	 Texture & ResMgr::loadTexture(std::string _name, Vec2i _size)
 	 {
 		 m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
-		 return getTexture(_name);
+		 return *getTexture(_name);
 	 }
 
-	 Shader & ResMgr::getShader(std::string _name)
+	 Shader * ResMgr::getShader(std::string _name)
 	 {
-		 return m_shaders.find(_name)->second;
+		 return isShaderLoaded(_name) ? &m_shaders.find(_name)->second : nullptr;
 	 }
 
-	 Shader & ResMgr::getLoadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom)
+	 Texture * ResMgr::getTexture(std::string _name)
 	 {
-		  return isShaderLoaded(_name) ? getShader(_name) : loadShader(_vert, _frag, _name, _srcFrom);
-	 }
-
-	 Texture & ResMgr::getTexture(std::string _name)
-	 {
-		 return m_textures.find(_name)->second;
+		 return isTextureLoaded(_name) ? &m_textures.find(_name)->second : nullptr;
 	 }
 
 	 template<typename _T>
 	 Shader * ResMgr::getDefaultSimpleShader()
 	 {
-		  return isShaderLoaded(_T::simpleShaderName) ? &getShader(_T::simpleShaderName) : nullptr;
+		  return isShaderLoaded(_T::simpleShaderName) ? getShader(_T::simpleShaderName) : nullptr;
 	 }
 
 	 template Shader * ResMgr::getDefaultSimpleShader<ColoredRect>();
@@ -58,7 +53,7 @@ namespace fhl
 	 template<typename _T>
 	 Shader * ResMgr::getDefaultLightShader()
 	 {
-		  return isShaderLoaded(_T::lightShaderName) ? &getShader(_T::lightShaderName) : nullptr;
+		  return isShaderLoaded(_T::lightShaderName) ? getShader(_T::lightShaderName) : nullptr;
 	 }
 
 	 template Shader * ResMgr::getDefaultLightShader<ColoredRect>();

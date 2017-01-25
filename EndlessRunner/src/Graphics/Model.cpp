@@ -9,8 +9,8 @@ namespace fhl
 	 unsigned Model::m_createdNumber = 0;
 
 	 Model::Model(std::string _path)
-		 : UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
-						   &ResMgr::getLoadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString))
+		 : UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
+						   &ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString))
 	 {
 		 loadModel(_path);
 		 calcSize();
@@ -181,7 +181,7 @@ namespace fhl
 				 std::string filePath = m_directory + '/' + str.C_Str();
 				 std::string modelName = 'M' + std::to_string(m_createdNumber);
 
-				 texture.id = fhl::ResMgr::loadTexture(filePath, modelName + _texTypeName + std::to_string(i)).setRepeated(true)
+				 texture.id = fhl::ResMgr::loadTexture(modelName + _texTypeName + std::to_string(i), filePath).setRepeated(true)
 																																			.getId();
 			  //std::cout << "start id: " << fhl::ResMgr::getTexture(modelName + _texTypeName + std::to_string(i)).getId() << '\n';
 			  //std::cout << str.C_Str() << '\n';

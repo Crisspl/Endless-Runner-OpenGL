@@ -5,7 +5,7 @@ Coin::Coin()
 	  m_currCell(sup::getRand(0, 3))
 {
 	setOrigin({ 20, 20 });
-	m_sprite.setTexture(fhl::ResMgr::getTexture("coinTex"), 0);
+	m_sprite.setTexture(*fhl::ResMgr::getTexture("coinTex"), 0);
 	m_sprite.setSize({ 40, 40 });
 	m_sprite.setTextureRect(fhl::Rect({ 0, 0 }, { 40, 40 }));
 }

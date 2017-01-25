@@ -5,7 +5,7 @@ namespace fhl
 {
 
 	 VertexArray::VertexArray(Mode _mode)
-		   : UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString), nullptr),
+		   : UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString), nullptr),
 			m_mode(_mode),
 			m_vao(new Vao())
 	 {

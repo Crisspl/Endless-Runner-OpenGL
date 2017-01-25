@@ -9,8 +9,8 @@ namespace fhl
 
 	 Sprite::Sprite()
 		  : TexturedSizeable(nullptr),
-		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
-						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
+		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
+						  &ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White)
 	 {
 		  setUp();
@@ -18,8 +18,8 @@ namespace fhl
 
 	 Sprite::Sprite(Texture& _tex)
 		  : TexturedSizeable(&_tex, _tex.getSize()),
-		  UsingShader(&ResMgr::getLoadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
-						  &ResMgr::getLoadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
+		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
+						  &ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White)
 	 {
 		  setUp();

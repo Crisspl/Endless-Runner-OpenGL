@@ -13,7 +13,7 @@
 Hero::Hero()
       : Collideable(Collideable::Coll_Hero),
         m_currentState(StateCount),
-        m_heroSprite(fhl::ResMgr::loadTexture("Resources/Tex/hero_sheet.png", "heroTex")),
+        m_heroSprite(fhl::ResMgr::loadTexture("heroTex", "Resources/Tex/hero_sheet.png")),
         m_animMgr(&m_heroSprite, 0.15f, {50, 50})
 {
 	 REGISTER_HERO_STATES(Move)
