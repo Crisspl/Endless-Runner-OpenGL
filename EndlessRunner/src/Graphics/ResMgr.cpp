@@ -11,30 +11,33 @@ namespace fhl
 	 std::map<std::string, Shader> ResMgr::m_shaders;
 	 std::map<std::string, Texture> ResMgr::m_textures;
 
-	 Shader & ResMgr::loadShader(std::string _name, std::string _vert, std::string _frag, Shader::SourceFrom _srcFrom)
+	 Shader & ResMgr::loadShader(const std::string & _name, const std::string & _vert, const std::string & _frag, Shader::SourceFrom _srcFrom)
 	 {
-		 m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
+		 if(!isShaderLoaded(_name))
+				m_shaders.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_vert.c_str(), _frag.c_str(), _srcFrom));
 		 return *getShader(_name);
 	 }
 
-	 Texture & ResMgr::loadTexture(std::string _name, std::string _path)
+	 Texture & ResMgr::loadTexture(const std::string & _name, const std::string & _path)
 	 {
-		 m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
+		 if(!isTextureLoaded(_name))
+				m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_path));
 		 return *getTexture(_name);
 	 }
 
-	 Texture & ResMgr::loadTexture(std::string _name, Vec2i _size)
+	 Texture & ResMgr::loadTexture(const std::string & _name, Vec2i _size)
 	 {
-		 m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
+		 if (!isTextureLoaded(_name))
+				m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
 		 return *getTexture(_name);
 	 }
 
-	 Shader * ResMgr::getShader(std::string _name)
+	 Shader * ResMgr::getShader(const std::string & _name)
 	 {
 		 return isShaderLoaded(_name) ? &m_shaders.find(_name)->second : nullptr;
 	 }
 
-	 Texture * ResMgr::getTexture(std::string _name)
+	 Texture * ResMgr::getTexture(const std::string & _name)
 	 {
 		 return isTextureLoaded(_name) ? &m_textures.find(_name)->second : nullptr;
 	 }
@@ -60,22 +63,22 @@ namespace fhl
 	 template Shader * ResMgr::getDefaultLightShader<Model>();
 	 template Shader * ResMgr::getDefaultLightShader<Sprite>();
 
-	 bool ResMgr::isShaderLoaded(std::string _name)
+	 bool ResMgr::isShaderLoaded(const std::string & _name)
 	 {
 		 return m_shaders.find(_name) != m_shaders.end();
 	 }
 
-	 bool ResMgr::isTextureLoaded(std::string _name)
+	 bool ResMgr::isTextureLoaded(const std::string & _name)
 	 {
 		 return m_textures.find(_name) != m_textures.end();
 	 }
 
-	 void ResMgr::removeShader(std::string _name)
+	 void ResMgr::removeShader(const std::string & _name)
 	 {
 		 m_shaders.erase(_name);
 	 }
 
-	 void ResMgr::removeTexture(std::string _name)
+	 void ResMgr::removeTexture(const std::string & _name)
 	 {
 		 m_textures.erase(_name);
 	 }
