@@ -11,8 +11,6 @@ EndlessCliff::EndlessCliff()
 void EndlessCliff::render(const fhl::RenderConf &) const
 {
 	fhl::render(m_model);
-	//fhl::RenderConf conf;
-	//fhl::render(m_model, conf);
 }
 
 void EndlessCliff::update(float _dt)

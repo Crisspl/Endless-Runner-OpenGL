@@ -53,12 +53,9 @@ void Island::move(float _offset)
 
 std::vector<fhl::Light> Island::getLights() const
 {
-	fhl::Light light;
-	light.linear = 0.005f;
-	light.quadratic = 0.00004f;
-	light.color = fhl::Color(float(rand() % 100) / 100, float(rand() % 100) / 100, float(rand() % 100) / 100);
-	light.illuminance = 0.3f;
-	light.type = fhl::Light::Point;
+	 fhl::Light light = fhl::Light::point(fhl::Vec3f(), 5e-3f, 4e-5f,
+		  fhl::Color(float(rand() % 100) / 100, float(rand() % 100) / 100, float(rand() % 100) / 100), 
+		  0.3f);
 
 	std::vector<fhl::Light> lights(m_coins.size(), light);
 

@@ -110,7 +110,7 @@ namespace fhl
 		 std::string name(_name);
 		 switch(_light.type)
 		 {
-			 case Light::Directional:
+			 case Light::Infinite:
 				 setVec3f((name + ".direction").c_str(), _light.direction);
 				 break;
 			 case Light::Point:
