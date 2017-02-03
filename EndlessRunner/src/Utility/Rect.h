@@ -2,7 +2,7 @@
 #define FHL_RECT_H
 
 #include <array>
-#include "../Maths/Vectors.h"
+#include "../Maths/vectors.h"
 
 namespace fhl {
 

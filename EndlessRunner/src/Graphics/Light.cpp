@@ -4,7 +4,7 @@ namespace fhl
 {
 
 	 Light::Light(Type _t)
-		 : direction{0, 0, -1},
+		 : direction(Vec3f::forward()),
 			color(Color::White),
 			cutOffAngle(30.f),
 			illuminance(1.f),

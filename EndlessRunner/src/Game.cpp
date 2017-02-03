@@ -2,7 +2,7 @@
 
 #include "Graphics/Configurator.h"
 
-#include "Maths/Vectors.h"
+#include "Maths/vectors.h"
 
 #include "Utility/Debug.h"
 

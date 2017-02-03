@@ -11,7 +11,7 @@
 #include "Graphics/Renderable.h"
 #include "Graphics/RenderFuncs.h"
 #include "Graphics/Light.h"
-#include "Maths/Vectors.h"
+#include "Maths/vectors.h"
 #include "Coin.h"
 
 class Island

@@ -272,16 +272,10 @@
     <ClInclude Include="src\Maths\Vec4.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="src\Maths\Vectors.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
     <ClInclude Include="src\Utility\Debug.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\Mat4.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Maths_funcs.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Coin.h">
@@ -316,6 +310,12 @@
     </ClInclude>
     <ClInclude Include="src\Graphics\TransformMatrices.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\mathsFuncs.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\vectors.h">
+      <Filter>Header Files\Maths</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

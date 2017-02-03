@@ -2,7 +2,7 @@
 #define FHL_COLOR_H
 
 #include "../Utility/Debug.h"
-#include "../Maths/Vectors.h"
+#include "../Maths/vectors.h"
 
 namespace fhl
 {

@@ -7,7 +7,7 @@
 
 #include "Buffer.h"
 #include "Vao.h"
-#include "../Maths/Vectors.h"
+#include "../Maths/vectors.h"
 
 namespace fhl
 {

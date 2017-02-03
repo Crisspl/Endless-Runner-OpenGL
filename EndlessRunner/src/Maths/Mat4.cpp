@@ -1,7 +1,7 @@
 #include "Mat4.h"
 
 #include <cstring>
-#include "Maths_funcs.h"
+#include "mathsFuncs.h"
 
 namespace fhl
 {

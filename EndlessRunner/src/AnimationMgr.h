@@ -3,7 +3,7 @@
 
 #include "Utility/Rect.h"
 #include "Graphics/Sprite.h"
-#include "Maths/Vectors.h"
+#include "Maths/vectors.h"
 
 class AnimationMgr
 {

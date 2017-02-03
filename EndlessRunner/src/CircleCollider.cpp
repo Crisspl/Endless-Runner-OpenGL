@@ -1,7 +1,7 @@
 #include "CircleCollider.h"
 #include "RectsCollider.h"
 #include "BoxCollider.h"
-#include "Maths/Maths_funcs.h"
+#include "Maths/mathsFuncs.h"
 
 CircleCollider::CircleCollider(fhl::Vec2f _center, float _radius) : Collider(Collider::Circle),
                                                                    m_center(_center),

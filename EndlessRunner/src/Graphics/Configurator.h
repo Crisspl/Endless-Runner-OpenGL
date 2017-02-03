@@ -8,7 +8,7 @@
 #include <iostream>
 
 #include "Buffer.h"
-#include "../Maths/Vectors.h"
+#include "../Maths/vectors.h"
 #include "../Maths/Mat4.h"
 
 namespace fhl

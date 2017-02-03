@@ -1,7 +1,7 @@
 #include "Shader.h"
 
 #include "../Utility/Debug.h"
-#include "../Maths/Maths_funcs.h"
+#include "../Maths/mathsFuncs.h"
 
 #include <algorithm>
 

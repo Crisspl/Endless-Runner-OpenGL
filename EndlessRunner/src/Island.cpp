@@ -12,11 +12,11 @@ Island::Island(fhl::Vec2f _pos)
            .setPosition(_pos);
    m_coins = std::vector<Coin>(size);
 
-   size_t i = 0;
-   for (Coin & c : m_coins)
-   {
-	   c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + fhl::Vec2f(i++ * 32 + 16, 0));
-   }
+	size_t i = 0;
+	for (Coin & c : m_coins)
+	{
+		 c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + fhl::Vec2f(i++ * 32 + 16, 0));
+	}
 }
 
 Island::~Island()

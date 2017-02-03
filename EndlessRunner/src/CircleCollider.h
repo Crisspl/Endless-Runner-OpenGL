@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Collider.h"
-#include "Maths/Vectors.h"
+#include "Maths/vectors.h"
 
 class RectsCollider;
 class BoxCollider;
