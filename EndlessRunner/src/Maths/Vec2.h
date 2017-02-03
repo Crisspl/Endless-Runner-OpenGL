@@ -21,6 +21,13 @@ namespace fhl {
 				y(_T(_other.y))
 		  { }
 
+		  static Vec2<_T> up() { return{ 0, 1 } }
+		  static Vec2<_T> down() { return{ 0, -1 }; }
+		  static Vec2<_T> right() { return{ 1, 0 }; }
+		  static Vec2<_T> left() { return{ -1, 0 }; }
+		  static Vec2<_T> zero() { return{ 0, 0 }; }
+		  static Vec2<_T> one() { return{ 1, 1 }; }
+
 		  friend Vec2<_T> operator+(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x + _right.x, _left.y + _right.y }; }
 
 		  friend Vec2<_T> operator-(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x - _right.x, _left.y - _right.y }; }

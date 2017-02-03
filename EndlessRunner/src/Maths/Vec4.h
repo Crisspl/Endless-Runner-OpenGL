@@ -28,6 +28,9 @@ namespace fhl {
 				w(_T(_other.w))
 		  { }
 
+		  static Vec4<_T> zero() { return{ 0, 0, 0, 0 }; }
+		  static Vec4<_T> one() { return{ 1, 1, 1, 1 }; }
+
 		  friend Vec4<_T> operator+(const Vec4<_T> & _left, const Vec4<_T> & _right) { return{ _left.x + _right.x, _left.y + _right.y, _left.z + _right.z, _left.w + _right.w }; }
 
 		  friend Vec4<_T> operator-(const Vec4<_T> & _left, const Vec4<_T> & _right) { return{ _left.x - _right.x, _left.y - _right.y, _left.z - _right.z, _left.w - _right.w }; }

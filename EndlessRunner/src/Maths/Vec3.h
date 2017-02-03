@@ -25,6 +25,15 @@ namespace fhl {
 				z(_T(_other.z))
 		  { }
 
+		  static Vec3<_T> up() { return{ 0, 1, 0 } }
+		  static Vec3<_T> down() { return{ 0, -1, 0 }; }
+		  static Vec3<_T> right() { return{ 1, 0, 0 }; }
+		  static Vec3<_T> left() { return{ -1, 0, 0 }; }
+		  static Vec3<_T> forward() { return{ 0, 0, -1 }; }
+		  static Vec3<_T> back() { return{ 0, 0, 1 }; }
+		  static Vec3<_T> zero() { return{ 0, 0, 0 }; }
+		  static Vec3<_T> one() { return{ 1, 1, 1 }; }
+
 		  friend Vec3<_T> operator+(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x + _right.x, _left.y + _right.y, _left.z + _right.z }; }
 
 		  friend Vec3<_T> operator-(const Vec3<_T> & _left, const Vec3<_T> & _right) { return{ _left.x - _right.x, _left.y - _right.y, _left.z - _right.z }; }
