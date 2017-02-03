@@ -28,7 +28,7 @@ namespace fhl
 		  }
 
 		  template<vec::Dim _D0, vec::Dim _D1, vec::Dim _D2, typename _VecT>
-		  Vec3<typename _VecT::valueType> get(const _VecT & _v)
+		  Vec3<typename _VecT::valueType> get(const _VecT & _v) 
 		  {
 				static_assert(_D0 < _VecT::Dimensions && _D1 < _VecT::Dimensions && _D2 < _VecT::Dimensions,
 									 "Not enough vector dimensions to get the one demanded");
