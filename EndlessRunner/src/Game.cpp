@@ -164,9 +164,9 @@ void Game::update()
 
    m_cliff.update(dt);
 
-	fhl::Light light = fhl::Light::spot(fhl::Vec3f(m_hero.getPosition(), 300.f), { 0, 0, -1 }, 1.6f, fhl::Color(129.f / 255, 240.f / 255, 232.f / 255), 1.6f);
-	fhl::Light light2 = fhl::Light::infinite({ -0.4f, 0.5f, -0.1f }, fhl::Color::Red);
-	fhl::Light light3 = fhl::Light::spot(fhl::Vec3f(m_sphere.getPosition(), 300.f), { 0, 0, -1 }, 15.f, fhl::Color::White, 1.5f);
+	fhl::Light light = fhl::Light::spot(fhl::Vec3f(m_hero.getPosition(), 500.f), { 0, 0, -1 }, 2.f, fhl::Color(129.f / 255, 240.f / 255, 232.f / 255), 1.6f);
+	fhl::Light light2 = fhl::Light::infinite({ -0.4f, 0.5f, -0.1f }, fhl::Color(118.f / 255, 196.f / 255, 245.f/ 255));
+	fhl::Light light3 = fhl::Light::spot(fhl::Vec3f(m_sphere.getPosition(), 500.f), { 0, 0, -1 }, 2.f, fhl::Color::White, 5.5f);
    std::vector<fhl::Light> lights;
 
    for (const Island & isl : m_vecIslands)

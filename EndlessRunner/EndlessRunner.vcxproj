@@ -172,6 +172,7 @@
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Maths\Mat4.cpp" />
+    <ClCompile Include="src\Maths\Quaternion.cpp" />
     <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\SoundMgr.cpp" />
@@ -222,6 +223,7 @@
     <ClInclude Include="src\Maths\Constants.h" />
     <ClInclude Include="src\Maths\Mat4.h" />
     <ClInclude Include="src\Maths\mathsFuncs.h" />
+    <ClInclude Include="src\Maths\Quaternion.h" />
     <ClInclude Include="src\Maths\Vec2.h" />
     <ClInclude Include="src\Maths\Vec3.h" />
     <ClInclude Include="src\Maths\Vec4.h" />

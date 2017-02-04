@@ -5,7 +5,7 @@ namespace fhl
 {
 
 	 Transformable3D::Transformable3D()
-		 : m_rotation{ 0.f, Vec3f(1.f) },
+		 : m_rotation(),
 			m_position(0.f),
 			m_scale(1.f),
 		   m_transformChanged(true),
@@ -15,22 +15,16 @@ namespace fhl
 	 Transformable3D & Transformable3D::rotate(float _angle, const Vec3f & _axis)
 	 {
 		 m_transformChanged = m_mvpChanged = true;
-		 while(_angle >= 360.f)
-			 _angle -= 360.f;
 
-		 m_rotation.angle += _angle;
-		 /* TODO update rotation axis (Quaternion) */
+		 m_rotation = Quaternion(_axis, _angle) * m_rotation;
 		 return *this;
 	 }
 
 	 Transformable3D & Transformable3D::setRotation(float _angle, const Vec3f & _axis)
 	 {
 		 m_transformChanged = m_mvpChanged = true;
-		 while(_angle >= 360.f)
-			 _angle -= 360.f;
 
-		 m_rotation.angle = _angle;
-		 m_rotation.axis = _axis;
+		 m_rotation = Quaternion(_axis, _angle);
 		 return *this;
 	 }
 
@@ -71,12 +65,7 @@ namespace fhl
 		  {
 				m_transformChanged = false;
 				return
-					 m_transform =
-					 Mat4::scale(m_scale) *
-					 Mat4::translate((m_position - m_origin) / m_scale) *
-					 Mat4::translate(m_origin) *
-					 Mat4::rotate(m_rotation.angle, m_rotation.axis) *
-					 Mat4::translate(-m_origin);
+					 m_transform = createTransformMatrix(m_position, m_scale, m_origin, m_rotation);
 		  }
 		  else return m_transform;
 	 }
@@ -93,6 +82,31 @@ namespace fhl
 					 getTransform();
 		  }
 		  else return m_mvp;
+	 }
+
+	 TransformMatrices Transformable3D::createTransformMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
+	 {
+		  Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _rotation);
+		  return
+		  {
+				transform,
+				Configurator::projection() * Configurator::view() * transform
+		  };
+	 }
+
+	 TransformMatrices Transformable3D::calcModifiedTransformMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const
+	 {
+		  return createTransformMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation);
+	 }
+
+	 Mat4 Transformable3D::createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
+	 {
+		  return
+				Mat4::scale(_scale) *
+				Mat4::translate((_pos - _origin) / _scale) *
+				Mat4::translate(_origin) *
+				_rotation.toMat4() *
+				Mat4::translate(-_origin);
 	 }
 
 
