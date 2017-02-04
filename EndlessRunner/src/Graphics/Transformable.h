@@ -43,6 +43,12 @@ namespace fhl
 		  Mat4 getMVP() const;
 		  TransformMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
 
+		  static TransformMatrices createTransformMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
+		  TransformMatrices calcModifiedTransformMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const;
+
+	 private:
+		  static Mat4 createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
+
 	 private:
 		  float m_rotation;
 		  Vec2f m_position, m_scale, m_origin;

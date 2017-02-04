@@ -75,12 +75,7 @@ namespace fhl
 		  {
 				m_transformChanged = false;
 				return
-					 m_transform =
-					 Mat4::scale(Vec3f(m_scale, 1)) *
-					 Mat4::translate(Vec3f(m_position - m_origin, 0) / Vec3f(m_scale, 1)) *
-					 Mat4::translate(Vec3f(m_origin, 0)) *
-					 Mat4::rotate(m_rotation, { 0, 0, 1 }) *
-					 Mat4::translate(Vec3f(-m_origin, 0));
+					 m_transform = createTransformMatrix(m_position, m_scale, m_origin, m_rotation);
 		  }
 		  else return m_transform;
 	 }
@@ -97,6 +92,31 @@ namespace fhl
 					 getTransform();
 		  }
 		  else return m_mvp;
+	 }
+
+	 TransformMatrices Transformable::createTransformMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
+	 {
+		  Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _angle);
+		  return
+		  {
+				transform,
+				Configurator::projection() * Configurator::view() * transform
+		  };
+	 }
+
+	 TransformMatrices Transformable::calcModifiedTransformMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const
+	 {
+		  return createTransformMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, m_rotation + _angle);
+	 }
+
+	 Mat4 Transformable::createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
+	 {
+		  return
+				Mat4::scale(Vec3f(_scale, 1)) *
+				Mat4::translate(Vec3f(_pos - _origin, 0) / Vec3f(_scale, 1)) *
+				Mat4::translate(Vec3f(_origin, 0)) *
+				Mat4::rotate(_angle, Vec3f::back()) *
+				Mat4::translate(Vec3f(-_origin, 0));
 	 }
 
 } // ns
