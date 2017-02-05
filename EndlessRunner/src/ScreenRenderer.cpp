@@ -3,7 +3,7 @@
 
 ScreenRenderer::ScreenRenderer()
       : m_shader(fhl::ResMgr::loadShader("screenShader", "Resources/ShaderSrcs/screen_vs.glsl", "Resources/ShaderSrcs/screen_fs.glsl", fhl::Shader::FromFile)),
-        m_renderTex(fhl::ResMgr::loadTexture("screenTex", fhl::Vec2i(800, 600))),
+        m_renderTex(fhl::ResMgr::createTexture("screenTex", fhl::Vec2i(800, 600))),
         m_screen(m_renderTex.getTexture())
 {
    m_renderTex.create();

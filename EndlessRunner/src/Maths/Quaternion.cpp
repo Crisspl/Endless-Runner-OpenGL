@@ -46,7 +46,7 @@ namespace fhl
 		  const float sqrSine = 1.f - m_xyzw.w * m_xyzw.w;
 		  if (sqrSine <= 0)
 				return Vec3f::zero();
-		  const float sine = sqrt(sqrSine);
+		  const float sine = std::sqrt(sqrSine);
 
 		  using namespace swizzle;
 		  return get<X, Y, Z>(m_xyzw) / sine;

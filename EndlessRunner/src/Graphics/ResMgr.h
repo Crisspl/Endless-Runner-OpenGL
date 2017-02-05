@@ -16,7 +16,7 @@ namespace fhl
 	 public:
 		  static Shader & loadShader(const std::string & _name, const std::string & _vert, const std::string & _frag, Shader::SourceFrom _srcFrom = Shader::FromFile);
 		  static Texture & loadTexture(const std::string & _name, const std::string & _path);
-		  static Texture & loadTexture(const std::string & _name, Vec2i _size);
+		  static Texture & createTexture(const std::string & _name, Vec2i _size);
 
 		  static Shader * getShader(const std::string & _name);
 		  static Texture * getTexture(const std::string & _name);
@@ -31,6 +31,9 @@ namespace fhl
 
 		  static void removeShader(const std::string & _name);
 		  static void removeTexture(const std::string & _name);
+
+		  static void removeAllShaders();
+		  static void removeAllTextures();
 
 		  static void clear();
 

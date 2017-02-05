@@ -25,7 +25,7 @@ namespace fhl
 		 return *getTexture(_name);
 	 }
 
-	 Texture & ResMgr::loadTexture(const std::string & _name, Vec2i _size)
+	 Texture & ResMgr::createTexture(const std::string & _name, Vec2i _size)
 	 {
 		 if (!isTextureLoaded(_name))
 				m_textures.emplace(std::piecewise_construct, std::make_tuple(_name), std::make_tuple(_size));
@@ -83,10 +83,20 @@ namespace fhl
 		 m_textures.erase(_name);
 	 }
 
+	 void ResMgr::removeAllShaders()
+	 {
+		  m_shaders.clear();
+	 }
+
+	 void ResMgr::removeAllTextures()
+	 {
+		  m_textures.clear();
+	 }
+
 	 void ResMgr::clear()
 	 {
-		 m_textures.clear();
-		 m_shaders.clear();
+		  removeAllShaders();
+		  removeAllTextures();
 	 }
 
 } // ns
