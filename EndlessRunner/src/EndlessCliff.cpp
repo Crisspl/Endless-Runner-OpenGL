@@ -13,6 +13,7 @@ void EndlessCliff::render(const fhl::RenderConf &) const
 	fhl::render(m_model);
 	fhl::RenderConf conf;
 	conf += m_model.calcModifiedTransformMatrices((m_model.getSize() * m_model.getScale()).x * fhl::Vec3f::right() * 0.5f, fhl::Vec3f::one(), fhl::Quaternion::identity());
+	conf += m_model.getLights();
 	fhl::render(m_model, conf);
 }
 

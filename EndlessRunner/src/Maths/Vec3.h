@@ -25,7 +25,7 @@ namespace fhl {
 				z(_T(_other.z))
 		  { }
 
-		  static Vec3<_T> up() { return{ 0, 1, 0 } }
+		  static Vec3<_T> up() { return{ 0, 1, 0 }; }
 		  static Vec3<_T> down() { return{ 0, -1, 0 }; }
 		  static Vec3<_T> right() { return{ 1, 0, 0 }; }
 		  static Vec3<_T> left() { return{ -1, 0, 0 }; }

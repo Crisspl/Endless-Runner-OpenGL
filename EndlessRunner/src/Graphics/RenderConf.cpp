@@ -5,46 +5,50 @@ namespace fhl
 
 	 RenderConf RenderConf::Default;
 
-	 RenderConf::RenderConf(const TransformMatrices & _tm, Texture * _texture)
-		 : matrices(_tm)
-		  // texture(_texture)
+	 RenderConf::RenderConf(const TransformMatrices & _tm, const Texture * _texture, std::list<Light> _lights)
+		 : matrices(_tm),
+		   texture(_texture),
+		   lights(_lights)
 	 {
 	 }
 
-	 RenderConf::RenderConf(const TransformMatrices & _tm)
-		 : RenderConf(_tm, nullptr)
-	 {
-	 }
-
-	 RenderConf::RenderConf(Texture * _t)
+	 RenderConf::RenderConf(const Texture * _t)
 		  : RenderConf({}, _t)
 	 {
 	 }
 
-	 RenderConf::RenderConf()
-		  : RenderConf({}, nullptr)
+	 RenderConf::RenderConf(const std::list<Light>& _lights)
+		  : RenderConf({}, nullptr, _lights)
 	 {
 	 }
 
-	 RenderConf & RenderConf::operator+=(const TransformMatrices & _t)
+	 RenderConf & RenderConf::operator+=(const TransformMatrices & _tm)
 	 {
-		 matrices = _t;
+		 matrices = _tm;
 		 return *this;
 	 }
-	 /*
-	 RenderConf & RenderConf::operator+=(Texture * const _t)
+
+	 RenderConf & RenderConf::operator+=(const Texture * _t)
 	 {
 		 texture = _t;
 		 return *this;
 	 }
-	 */
+
+	 RenderConf & RenderConf::operator+=(const std::list<Light> & _lights)
+	 {
+		  lights = _lights;
+		  return *this;
+	 }
+
 	 bool RenderConf::operator==(const RenderConf & _other) const
 	 {
 		  if (this == &_other) 
 				return true;
-		  return 
+		  return
 				matrices.transform == _other.matrices.transform &&
-				matrices.mvp == _other.matrices.mvp;
+				matrices.mvp == _other.matrices.mvp &&
+				texture == _other.texture;
+				//lights == _other.lights;
 	 }
 
 	 bool RenderConf::operator!=(const RenderConf & _other) const

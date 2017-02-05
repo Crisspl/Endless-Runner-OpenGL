@@ -21,7 +21,7 @@ namespace fhl {
 				y(_T(_other.y))
 		  { }
 
-		  static Vec2<_T> up() { return{ 0, 1 } }
+		  static Vec2<_T> up() { return{ 0, 1 }; }
 		  static Vec2<_T> down() { return{ 0, -1 }; }
 		  static Vec2<_T> right() { return{ 1, 0 }; }
 		  static Vec2<_T> left() { return{ -1, 0 }; }

@@ -24,7 +24,8 @@ namespace fhl
 		  friend struct std::pair;
 
 	 private:
-		  typedef unsigned char uchar;
+		  using uchar = unsigned char;
+
 	 private:
 		  enum WrapOption
 		  {
@@ -42,16 +43,16 @@ namespace fhl
 
 		  ~Texture();
 
-		  const Texture& setWrapOption(WrapOption _option) const;
+		  const Texture & setWrapOption(WrapOption _option) const;
 
-		  std::tuple<uchar*, Vec2i, GLuint> loadImage(std::string _filePath);
+		  std::tuple<uchar *, Vec2i, GLuint> loadImage(std::string _filePath);
 
 	 public:
 		  GLuint getId() const { return m_id; }
 		  Vec2i getSize() const { return m_size; }
 
 		  Texture & setRepeated(bool _r);
-		  bool isRepeated() { return m_repeated; }
+		  bool isRepeated() const { return m_repeated; }
 
 	 private:
 		  GLuint m_id;

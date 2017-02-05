@@ -21,10 +21,12 @@ namespace fhl
 	 
 		  bool useCustomConf = _conf != RenderConf::Default;
 
+		  const auto & lights = useCustomConf ? _conf.lights : getLights();
+
 		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 				.setMat4("transform", useCustomConf ? _conf.matrices.transform : getTransform())
 				.setVec4f("vertColor", m_color.asVec4())
-				.setLights("light", getLights().cbegin(), getLights().cend());
+				.setLights("light", lights.cbegin(), lights.cend());
 
 		  m_vao->bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

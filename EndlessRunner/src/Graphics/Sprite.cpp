@@ -59,12 +59,16 @@ namespace fhl
 
 		  bool useCustomConf = _conf != RenderConf::Default;
 
-		  if (m_ptexture)
+		  if (useCustomConf && _conf.texture)
+				glBindTexture(GL_TEXTURE_2D, _conf.texture->getId());
+		  else if (m_ptexture)
 				glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
+
+		  const auto & lights = useCustomConf ? _conf.lights : getLights();
 
 		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 				.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
-				.setLights("light", getLights().cbegin(), getLights().cend());
+				.setLights("light", lights.cbegin(), lights.cend());
 
 		  m_vao->bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

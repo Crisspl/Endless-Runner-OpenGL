@@ -17,6 +17,9 @@ namespace fhl
 		  Quaternion operator*(Quaternion _other) const;
 		  Quaternion & operator*=(const Quaternion & _other);
 
+		  bool operator==(const Quaternion & _other) { return m_xyzw == _other.m_xyzw; }
+		  bool operator!=(const Quaternion & _other) { return m_xyzw != _other.m_xyzw; }
+
 		  Vec3f getAxis() const;
 		  float getAngle() const;
 		  Vec4f asVec4() const { return m_xyzw; }
