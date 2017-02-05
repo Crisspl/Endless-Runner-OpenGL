@@ -14,6 +14,9 @@ namespace fhl
 		  Color(Vec3f _color);
 		  Color(std::initializer_list<float> _rgba);
 
+		  bool operator==(const Color & _other) const;
+		  bool operator!=(const Color & _other) const;
+
 		  Vec4f asVec4() const { return{ r, g, b, a }; }
 
 		  float operator[](size_t _i) const { return *(&r + _i); }

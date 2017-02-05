@@ -17,6 +17,9 @@ namespace fhl
 
 		  Light(Type _t = Infinite);
 
+		  bool operator==(const Light & _other) const;
+		  bool operator!=(const Light & _other) const;
+
 		  static Light infinite(Vec3f _dir, Color _color = Color::White, float _illu = 1.f);
 		  static Light point(Vec3f _pos, float _linear = 0.045f, float _qudratic = 0.0075f, Color _color = Color::White, float _illu = 1.f);
 		  static Light spot(Vec3f _pos, Vec3f _dir = { 0, 0, -1 }, float _cutOff = 30.f, Color _color = Color::White, float _illu = 1.f);

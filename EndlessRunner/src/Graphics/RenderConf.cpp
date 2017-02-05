@@ -45,10 +45,10 @@ namespace fhl
 		  if (this == &_other) 
 				return true;
 		  return
+				texture == _other.texture &&
 				matrices.transform == _other.matrices.transform &&
 				matrices.mvp == _other.matrices.mvp &&
-				texture == _other.texture;
-				//lights == _other.lights;
+				lights == _other.lights;
 	 }
 
 	 bool RenderConf::operator!=(const RenderConf & _other) const

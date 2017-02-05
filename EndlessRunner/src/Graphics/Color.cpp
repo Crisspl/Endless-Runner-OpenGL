@@ -6,7 +6,7 @@
 namespace fhl
 {
 
-	 const Color Color::White = Color(Vec4f(1.f));
+	 const Color Color::White = Color(Vec4f::one());
 	 const Color Color::Black;
 	 const Color Color::Red = Color(1.f, 0.f, 0.f);
 	 const Color Color::Green = Color(0.f, 1.f, 0.f);
@@ -14,7 +14,7 @@ namespace fhl
 	 const Color Color::Yellow = Color(1.f, 1.f, 0.f);
 	 const Color Color::Magenta = Color(1.f, 0.f, 1.f);
 	 const Color Color::Cyan = Color(0.f, 1.f, 1.f);
-	 const Color Color::Transparent = Color(Vec4f(0.f));
+	 const Color Color::Transparent = Color(Vec4f::zero());
 
 	 Color::Color(float _r, float _g, float _b, float _a)
 		 : Color{
@@ -40,6 +40,16 @@ namespace fhl
 	 {
 		 for (size_t i = 0; i < 4; i++)
 			 (*this)[i] = clamp(*(_rgba.begin() + i), 0.f, 1.f);
+	 }
+
+	 bool Color::operator==(const Color & _other) const
+	 {
+		  return asVec4() == _other.asVec4();
+	 }
+
+	 bool Color::operator!=(const Color & _other) const
+	 {
+		  return !(*this == _other);
 	 }
 
 } // ns
