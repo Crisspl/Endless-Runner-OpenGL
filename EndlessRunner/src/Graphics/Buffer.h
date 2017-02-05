@@ -12,6 +12,7 @@ namespace fhl
 	 {
 		  Buffer(GLuint _target, GLuint _usage);
 		  Buffer(const Buffer &) = delete;
+		  Buffer & operator=(const Buffer &) = delete;
 		  Buffer(Buffer && _other);
 		  Buffer & operator=(Buffer && _other);
 		  ~Buffer();

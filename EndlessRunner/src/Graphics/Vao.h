@@ -17,6 +17,7 @@ namespace fhl
 	 public:
 		  Vao();
 		  Vao(const Vao &) = delete;
+		  Vao & operator=(const Vao &) = delete;
 		  Vao(Vao && _other);
 		  Vao & operator=(Vao && _other);
 		  ~Vao();
