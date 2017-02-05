@@ -19,6 +19,9 @@ namespace fhl
 
 	 void Model::render(const RenderConf & _conf) const
 	 {
+		  if (!getShader())
+				return;
+
 		 glEnable(GL_DEPTH_TEST);
 
 		 Shader & shader = *getShader();

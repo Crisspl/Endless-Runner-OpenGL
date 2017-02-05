@@ -50,6 +50,9 @@ namespace fhl
 
 	 void Sprite::render(const RenderConf & _conf) const
 	 {
+		  if (!getShader())
+				return;
+
 		  Shader & shader = *getShader();
 		  shader.use();
 

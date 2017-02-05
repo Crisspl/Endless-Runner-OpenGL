@@ -16,6 +16,9 @@ namespace fhl
 
 	 void ColoredRect::render(const RenderConf & _conf) const
 	 {
+		  if (!getShader())
+				return;
+
 		  Shader & shader = *getShader();
 		  shader.use();
 	 

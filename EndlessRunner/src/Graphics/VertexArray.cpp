@@ -30,6 +30,9 @@ namespace fhl
 
 	 void VertexArray::render(const RenderConf &) const
 	 {
+		  if (!getShader())
+				return;
+
 		 Shader & shader = *getShader();
 		 shader.use();
 
