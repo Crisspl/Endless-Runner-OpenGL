@@ -46,8 +46,7 @@ namespace fhl
 				return true;
 		  return
 				texture == _other.texture &&
-				matrices.transform == _other.matrices.transform &&
-				matrices.mvp == _other.matrices.mvp &&
+				matrices == _other.matrices &&
 				lights == _other.lights;
 	 }
 
