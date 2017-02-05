@@ -15,7 +15,7 @@ namespace fhl
 		  Mat4 & operator+=(const Mat4 & _other);
 
 		  Mat4 operator-(const Mat4 & _other) const;
-		  Mat4 & operator-=(const Mat4 _other);
+		  Mat4 & operator-=(const Mat4 & _other);
 
 		  Mat4 operator*(float _n) const;
 		  friend Mat4 operator*(float _n, const Mat4 & _m);
@@ -39,16 +39,16 @@ namespace fhl
 
 		  static Mat4 ortho(float _left, float _right, float _bottom, float _top, float _near, float _far);
 		  static Mat4 perspective(float _fov, float _aspectRatio, float _near, float _far);
-		  static Mat4 lookAt(const Vec3f& _eye, const Vec3f& _center, const Vec3f& _up);
+		  static Mat4 lookAt(const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up);
 
-		  static Mat4 translate(const Vec3f& _t);
-		  static Mat4 translate(Mat4 _mat, const Vec3f& _t);
+		  static Mat4 translate(const Vec3f & _t);
+		  static Mat4 translate(const Mat4 & _mat, const Vec3f & _t);
 
 		  static Mat4 scale(const Vec3f& _s);
-		  static Mat4 scale(Mat4 _mat, const Vec3f& _s);
+		  static Mat4 scale(const Mat4 & _mat, const Vec3f & _s);
 
-		  static Mat4 rotate(float _angle, const Vec3f& _axe);
-		  static Mat4 rotate(Mat4 _mat, float _angle, const Vec3f& _axe);
+		  static Mat4 rotate(float _angle, const Vec3f & _axe);
+		  static Mat4 rotate(const Mat4 & _mat, float _angle, const Vec3f & _axe);
 
 		  static Mat4 transpose(const Mat4 & _mat);
 		  Mat4 transposed() const;

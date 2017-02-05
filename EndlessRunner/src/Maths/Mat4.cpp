@@ -52,7 +52,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 & Mat4::operator-=(const Mat4 _other)
+	 Mat4 & Mat4::operator-=(const Mat4 & _other)
 	 {
 		 for (int i = 0; i < 16; i++)
 			 m_elements[i] -= _other.m_elements[i];
@@ -179,7 +179,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 Mat4::lookAt(const Vec3f & _eye, const Vec3f& _center, const Vec3f& _up)
+	 Mat4 Mat4::lookAt(const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up)
 	 {
 		 Mat4 ret(1.f);
 
@@ -196,7 +196,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 Mat4::translate(const Vec3f& _t)
+	 Mat4 Mat4::translate(const Vec3f & _t)
 	 {
 		 Mat4 ret(1.f);
 		 ret.setCol(3, Vec4f(_t, 1.f));
@@ -204,7 +204,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 Mat4::translate(Mat4 _mat, const Vec3f & _t)
+	 Mat4 Mat4::translate(const Mat4 & _mat, const Vec3f & _t)
 	 {
 		 return _mat * translate(_t);
 	 }
@@ -220,7 +220,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 Mat4::scale(Mat4 _mat, const Vec3f & _s)
+	 Mat4 Mat4::scale(const Mat4 & _mat, const Vec3f & _s)
 	 {
 		 return _mat * scale(_s);
 	 }
@@ -264,7 +264,7 @@ namespace fhl
 		 return ret;
 	 }
 
-	 Mat4 Mat4::rotate(Mat4 _mat, float _angle, const Vec3f & _axe)
+	 Mat4 Mat4::rotate(const Mat4 & _mat, float _angle, const Vec3f & _axe)
 	 {
 		 return _mat * rotate(_angle, _axe);
 	 }
