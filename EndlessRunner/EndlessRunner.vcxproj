@@ -224,6 +224,7 @@
     <ClInclude Include="src\Maths\Mat4.h" />
     <ClInclude Include="src\Maths\mathsFuncs.h" />
     <ClInclude Include="src\Maths\Quaternion.h" />
+    <ClInclude Include="src\Maths\swizzle.h" />
     <ClInclude Include="src\Maths\Vec2.h" />
     <ClInclude Include="src\Maths\Vec3.h" />
     <ClInclude Include="src\Maths\Vec4.h" />

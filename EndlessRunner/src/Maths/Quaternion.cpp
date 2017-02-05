@@ -1,5 +1,6 @@
 #include "Quaternion.h"
 #include "mathsFuncs.h"
+#include "swizzle.h"
 
 #include <cmath>
 
@@ -47,7 +48,7 @@ namespace fhl
 				return Vec3f::zero();
 		  const float sine = sqrt(sqrSine);
 
-		  using namespace vec;
+		  using namespace swizzle;
 		  return get<X, Y, Z>(m_xyzw) / sine;
 	 }
 
