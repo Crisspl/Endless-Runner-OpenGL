@@ -12,7 +12,7 @@ namespace fhl
 		  struct LightShader_t {};
 
 	 public:
-		  UsingShader(Shader * _default, Shader * _light) : m_simpleShader(_default), m_lightShader(_light), m_shader(_default) { }
+		  UsingShader(Shader * _simple, Shader * _light) : m_simpleShader(_simple), m_lightShader(_light), m_shader(_simple) { }
 		  virtual ~UsingShader() = default;
 
 		  void setShader(SimpleShader_t) { m_shader = m_simpleShader; }
