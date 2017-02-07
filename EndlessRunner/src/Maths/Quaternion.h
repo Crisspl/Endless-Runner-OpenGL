@@ -26,7 +26,7 @@ namespace fhl
 		  Mat4 toMat4() const;
 
 		  float length() const;
-		  float dot(const Quaternion _other) const;
+		  float dot(const Quaternion & _other) const;
 		  Quaternion normalized() const;
 		  Quaternion inverted() const;
 		  Quaternion conjugate() const;

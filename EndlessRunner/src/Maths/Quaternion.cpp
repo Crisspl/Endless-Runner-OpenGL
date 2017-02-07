@@ -104,7 +104,7 @@ namespace fhl
 		  return std::sqrt(dot(*this));
 	 }
 
-	 float Quaternion::dot(const Quaternion _other) const
+	 float Quaternion::dot(const Quaternion & _other) const
 	 {
 		  const Vec4f & q1 = m_xyzw, & q2 = _other.m_xyzw;
 		  return q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
