@@ -24,7 +24,7 @@ namespace fhl
 
 	 Quaternion Quaternion::operator*(Quaternion _other) const
 	 {
-		  const Vec4f & q1 = this->m_xyzw, q2 = _other.m_xyzw;
+		  const Vec4f & q1 = this->m_xyzw, & q2 = _other.m_xyzw;
 		  _other.m_xyzw =
 		  {
 				q2.w * q1.x + q2.x * q1.w + q2.y * q1.z - q2.z * q1.y,
@@ -101,13 +101,12 @@ namespace fhl
 
 	 float Quaternion::length() const
 	 {
-		  const Vec4f & q = m_xyzw;
-		  return std::sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
+		  return std::sqrt(dot(*this));
 	 }
 
 	 float Quaternion::dot(const Quaternion _other) const
 	 {
-		  const Vec4f & q1 = m_xyzw, q2 = _other.m_xyzw;
+		  const Vec4f & q1 = m_xyzw, & q2 = _other.m_xyzw;
 		  return q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
 	 }
 
