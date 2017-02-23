@@ -1,95 +1,41 @@
 #include "Mesh.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
-	 Mesh::Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures)
-		 : m_vertices(_vertices),
-			m_indices(_indices),
-			m_textures(_textures)
+	 Mesh::Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, std::vector<Mesh::Texture> _textures)
+				: textures(std::move(_textures)),
+				  indicesCount(_indices.size()),
+				  vbo(GL_ARRAY_BUFFER, GL_STATIC_DRAW),
+				  ebo(GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW)
 	 {
-		 setUp();
+		 setUp(_vertices, _indices);
 	 }
 
-	 void Mesh::render(Shader& _shader) const
+	 void Mesh::setUp(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices)
 	 {
-		 GLuint diffuseNr = 1, specularNr = 1;
+		  vbo.bind();
+		  vbo.setData(_vertices.size() * sizeof(Vertex), _vertices.data());
 
-		 _shader.use();
+		  ebo.bind();
+		  ebo.setData(_indices.size() * sizeof(GLuint), _indices.data());
 
-		 for(GLuint i = 0; i < m_textures.size(); i++)
-		 {
-			 glActiveTexture(GL_TEXTURE0 + i);
+		  vbo.unbind();
+		  ebo.unbind();
 
-			 std::string number;
-			 std::string name = m_textures[i].type;
-			//std::cout << m_textures[i].fileName.C_Str() << '\n';
+#define comp(dim) [](const Vertex & a, const Vertex & b) { return a.position.dim < b.position.dim; }
 
-			 if(name == "texture_diffuse")
-				 number = std::to_string(diffuseNr++);
-			 else if(name == "texture_specular")
-				 number = std::to_string(specularNr++);
+		  auto minMaxX = std::minmax_element(_vertices.begin(), _vertices.end(), comp(x));
+		  auto minMaxY = std::minmax_element(_vertices.begin(), _vertices.end(), comp(y));
+		  auto minMaxZ = std::minmax_element(_vertices.begin(), _vertices.end(), comp(z));
 
-			 _shader.setInt(("material." + name + number).c_str(), i);
-			//std::cout << ("material." + name + number).c_str() << '\n';
-			//std::cout << "id: " << m_textures[i].id << "\n\n";
-			 glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
-		 }
-
-		 glBindVertexArray(m_vao);
-		 glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
-
-		 glBindVertexArray(0);
-
-		 for(GLuint i = 0; i < m_textures.size(); i++)
-		 {
-			 glActiveTexture(GL_TEXTURE0 + i);
-			 glBindTexture(GL_TEXTURE_2D, 0);
-		 }
-		 glActiveTexture(GL_TEXTURE0);
+		  minMaxVerts = std::make_tuple
+		  (
+				std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
+				std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
+				std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
+		  );
+#undef comp
 	 }
 
-	 Mesh::T_tuple3pair Mesh::getMinMaxCoords()
-	 {
-	 #define comp(dim) [](Vertex& a, Vertex& b)->bool { return a.position.dim < b.position.dim; }
-
-		 auto minMaxX = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(x));
-		 auto minMaxY = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(y));
-		 auto minMaxZ = std::minmax_element(m_vertices.begin(), m_vertices.end(), comp(z));
-
-		 return std::make_tuple
-						 (
-							 std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
-							 std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
-							 std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
-						 );
-	 #undef comp
-	 }
-
-	 void Mesh::setUp()
-	 {
-		 glGenVertexArrays(1, &m_vao);
-		 glGenBuffers(1, &m_vbo);
-		 glGenBuffers(1, &m_ebo);
-
-		 glBindVertexArray(m_vao);
-
-		 glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-		 glBufferData(GL_ARRAY_BUFFER, m_vertices.size() * sizeof(Vertex), &m_vertices[0], GL_STATIC_DRAW);
-
-		 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
-		 glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(GLuint), &m_indices[0], GL_STATIC_DRAW);
-
-		 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, position));
-		 glEnableVertexAttribArray(0);
-
-		 glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
-		 glEnableVertexAttribArray(1);
-
-		 glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoords));
-		 glEnableVertexAttribArray(2);
-
-		 glBindVertexArray(0);
-	 }
-
-}
+}} // ns

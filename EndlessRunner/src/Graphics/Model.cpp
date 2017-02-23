@@ -1,20 +1,23 @@
 #include "Model.h"
 
+#include <utility>
+
 #include "../Utility/Debug.h"
 #include "ResMgr.h"
 
 namespace fhl
 {
 
-	 unsigned Model::m_createdNumber = 0;
+	 std::size_t Model::s_createdNumber{0};
 
-	 Model::Model(std::string _path)
+	 Model::Model(const std::string & _path)
 		 : UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
-						   &ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString))
+						   &ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
+		  m_directory(_path.substr(0, _path.find_last_of('/'))),
+		  m_meshCount{0}
 	 {
-		 loadModel(_path);
-		 calcSize();
-		 m_createdNumber++;
+		 setUp(_path);
+		 s_createdNumber++;
 	 }
 
 	 void Model::render(const RenderConf & _conf) const
@@ -36,35 +39,65 @@ namespace fhl
 			  .setFloat("material.shininess", 5.f)
 			  .setLights("light", lights.cbegin(), lights.cend());
 
-		 for(const auto & mesh : m_meshes)
-			 mesh.render(shader);
+		 renderMeshes();
 
 		 Shader::unUse();
 
 		 glDisable(GL_DEPTH_TEST);
 	 }
 
-	 void Model::loadModel(std::string _path)
+	 void Model::renderMeshes() const
+	 {
+		  using MeshTexture = internal::Mesh::Texture;
+
+		  for (int i = 0; i < m_meshes.size(); i++)
+		  {
+				GLbyte diffuseNr = 1, specularNr = 1;
+
+				for (int j = 0; j < m_meshes[i].textures.size(); j++)
+				{
+					 glActiveTexture(GL_TEXTURE0 + j);
+
+					 const auto & texture = m_meshes[i].textures[j];
+
+					 const std::string name = MeshTexture::typeToString(texture.type);
+					 const char number = (texture.type == MeshTexture::Type::Diffuse ? diffuseNr++ : specularNr++) + '0';
+
+					 getShader()->setInt(("material." + name + number).c_str(), i);
+					 glBindTexture(GL_TEXTURE_2D, texture.id);
+				}
+
+				m_vaos[i].bind();
+				glDrawElements(GL_TRIANGLES, m_meshes[i].indicesCount, GL_UNSIGNED_INT, 0);
+				m_vaos[i].unbind();
+
+				for (GLuint j = 0; j < m_meshes[i].textures.size(); j++)
+				{
+					 glActiveTexture(GL_TEXTURE0 + j);
+					 glBindTexture(GL_TEXTURE_2D, 0);
+				}
+				glActiveTexture(GL_TEXTURE0);
+		  }
+	 }
+
+	 void Model::loadModel(const std::string & _path)
 	 {
 		 Assimp::Importer importer;
-		 const aiScene* const scene = importer.ReadFile(_path, aiProcess_Triangulate | aiProcess_FlipUVs);
+		 const aiScene * const scene = importer.ReadFile(_path, aiProcess_Triangulate | aiProcess_FlipUVs);
 
 		 if(!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		 {
-			fhl::DebugLog << "Error loading model: " << importer.GetErrorString() << '\n';
-			 return;
+				fhl::DebugLog << "Error loading model: " << importer.GetErrorString() << '\n';
+				return;
 		 }
-
-		 m_directory = _path.substr(0, _path.find_last_of('/'));
-
 		 processNode(scene->mRootNode, scene);
 	 }
 
-	 void Model::processNode(aiNode* _nodePtr, const aiScene* _scenePtr)
+	 void Model::processNode(aiNode * _nodePtr, const aiScene * _scenePtr)
 	 {
 		 for(GLuint i = 0; i < _nodePtr->mNumMeshes; i++)
 		 {
-			 aiMesh* meshPtr = _scenePtr->mMeshes[_nodePtr->mMeshes[i]];
+			 aiMesh * meshPtr = _scenePtr->mMeshes[_nodePtr->mMeshes[i]];
 			 m_meshes.push_back(processMesh(meshPtr, _scenePtr));
 		 }
 
@@ -72,38 +105,30 @@ namespace fhl
 			 processNode(_nodePtr->mChildren[i], _scenePtr);
 	 }
 
-	 Mesh Model::processMesh(aiMesh* _meshPtr, const aiScene* _scenePtr)
+	 internal::Mesh Model::processMesh(aiMesh * _meshPtr, const aiScene * _scenePtr)
 	 {
-		 std::vector<Mesh::Vertex> vertices;
+		 std::vector<internal::Mesh::Vertex> vertices;
 		 std::vector<GLuint> indices;
-		 std::vector<Mesh::Texture> textures;
+		 std::vector<internal::Mesh::Texture> textures;
 
+		 vertices.reserve(_meshPtr->mNumVertices);
 		 for(GLuint i = 0; i < _meshPtr->mNumVertices; i++)
 		 {
-			 Mesh::Vertex vertex;
-
-			 vertex.position.x = _meshPtr->mVertices[i].x;
-			 vertex.position.y = _meshPtr->mVertices[i].y;
-			 vertex.position.z = _meshPtr->mVertices[i].z;
-
-			 vertex.normal.x = _meshPtr->mNormals[i].x;
-			 vertex.normal.y = _meshPtr->mNormals[i].y;
-			 vertex.normal.z = _meshPtr->mNormals[i].z;
+			 internal::Mesh::Vertex vertex;
+			 vertex.position = { _meshPtr->mVertices[i].x, _meshPtr->mVertices[i].y, _meshPtr->mVertices[i].z };
+			 vertex.normal = { _meshPtr->mNormals[i].x, _meshPtr->mNormals[i].y, _meshPtr->mNormals[i].z };
 
 			 if(_meshPtr->mTextureCoords[0])
-			 {
-				 vertex.texCoords.x = _meshPtr->mTextureCoords[0][i].x;
-				 vertex.texCoords.y = _meshPtr->mTextureCoords[0][i].y;
-			 }
+					 vertex.texCoords = { _meshPtr->mTextureCoords[0][i].x, _meshPtr->mTextureCoords[0][i].y };
 			 else
-				 vertex.texCoords = Vec2f(0.f, 0.f);
+					 vertex.texCoords = Vec2f::zero();
 
 			 vertices.push_back(vertex);
 		 }
 
 		 for(GLuint i = 0; i < _meshPtr->mNumFaces; i++)
 		 {
-			 aiFace face = _meshPtr->mFaces[i];
+			 const aiFace & face = _meshPtr->mFaces[i];
 			 for(GLuint j = 0; j < face.mNumIndices; j++)
 				 indices.push_back(face.mIndices[j]);
 		 }
@@ -112,41 +137,33 @@ namespace fhl
 		 {
 			 aiMaterial* materialPtr = _scenePtr->mMaterials[_meshPtr->mMaterialIndex];
 
-			 std::vector<Mesh::Texture> diffuseTexs = loadMaterialTextures(materialPtr, aiTextureType_DIFFUSE, "texture_diffuse");
-			 std::vector<Mesh::Texture> specularTexs = loadMaterialTextures(materialPtr, aiTextureType_SPECULAR, "texture_specular");
+			 std::vector<internal::Mesh::Texture> diffuseTexs = loadMaterialTextures(_meshPtr, materialPtr, aiTextureType_DIFFUSE, internal::Mesh::Texture::Type::Diffuse);
+			 std::vector<internal::Mesh::Texture> specularTexs = loadMaterialTextures(_meshPtr, materialPtr, aiTextureType_SPECULAR, internal::Mesh::Texture::Type::Specular);
 
 			 textures.insert(textures.end(), diffuseTexs.begin(), diffuseTexs.end());
 			 textures.insert(textures.end(), specularTexs.begin(), specularTexs.end());
-			/*
-			std::cout << "diffuse:\n";
-			for (Mesh::Texture & t : diffuseTexs)
-				std::cout << t.fileName.C_Str() << '\n';
-			std::cout << "specular:\n";
-			for (Mesh::Texture & t : specularTexs)
-				std::cout << t.fileName.C_Str() << '\n';
-			*/
 		 }
 
-		 return Mesh(vertices, indices, textures);
+		 return internal::Mesh(vertices, indices, std::move(textures));
 	 }
 
 	 void Model::calcSize()
 	 {
 		 std::vector<float> xVec, yVec, zVec;
 
-		 for(auto& mesh : m_meshes)
+		 for(auto & mesh : m_meshes)
 		 {
-			 std::pair<float, float> minMaxX, minMaxY, minMaxZ;
-			 std::tie(minMaxX, minMaxY, minMaxZ) = mesh.getMinMaxCoords();
+				std::pair<float, float> minMaxX, minMaxY, minMaxZ;
+				std::tie(minMaxX, minMaxY, minMaxZ) = mesh.minMaxVerts;
 
-			xVec.push_back(minMaxX.first);
-			xVec.push_back(minMaxX.second);
+				xVec.push_back(minMaxX.first);
+				xVec.push_back(minMaxX.second);
 
-			yVec.push_back(minMaxY.first);
-			yVec.push_back(minMaxY.second);
+				yVec.push_back(minMaxY.first);
+				yVec.push_back(minMaxY.second);
 
-			zVec.push_back(minMaxZ.first);
-			zVec.push_back(minMaxZ.second);
+				zVec.push_back(minMaxZ.first);
+				zVec.push_back(minMaxZ.second);
 		 }
 
 		 auto x = std::minmax_element(xVec.begin(), xVec.end());
@@ -157,19 +174,49 @@ namespace fhl
 						 *x.second - *x.first,
 						 *y.second - *y.first,
 						 *z.second - *z.first
-					 };			 
+					 };
 	 }
 
-	 std::vector<Mesh::Texture> Model::loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName)
+	 void Model::setUp(const std::string & _path)
 	 {
-		 std::vector<Mesh::Texture> textures;
+		  constexpr GLsizei stride = sizeof(internal::Mesh::Vertex);
+#define offsetOfVertexMember(m) (GLvoid*)offsetof(internal::Mesh::Vertex, m)
+
+		  loadModel(_path);
+		  calcSize();
+		  m_vaos.resize(m_meshes.size());
+
+		  for (int i = 0; i < m_meshes.size(); i++)
+		  {
+				m_vaos[i].bind();
+
+				m_meshes[i].vbo.bind();
+				m_meshes[i].ebo.bind();
+
+				glVertexAttribPointer(AttrLoc::Position, 3, GL_FLOAT, GL_FALSE, stride, offsetOfVertexMember(position));
+				glEnableVertexAttribArray(AttrLoc::Position);
+
+				glVertexAttribPointer(AttrLoc::Normal, 3, GL_FLOAT, GL_FALSE, stride, offsetOfVertexMember(normal));
+				glEnableVertexAttribArray(AttrLoc::Normal);
+
+				glVertexAttribPointer(AttrLoc::TexCoord, 2, GL_FLOAT, GL_FALSE, stride, offsetOfVertexMember(texCoords));
+				glEnableVertexAttribArray(AttrLoc::TexCoord);
+
+				m_vaos[i].unbind();
+		  }
+#undef offsetOfVertexMember
+	 }
+
+	 std::vector<internal::Mesh::Texture> Model::loadMaterialTextures(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType, internal::Mesh::Texture::Type _texTypeName)
+	 {
+		 std::vector<internal::Mesh::Texture> textures;
 
 		 for(GLuint i = 0; i < _materialPtr->GetTextureCount(_texType); i++)
 		 {
 			 aiString str;
 			 _materialPtr->GetTexture(_texType, i, &str);
 			 GLboolean loaded = false;
-			 for(Mesh::Texture & tex : textures)
+			 for(internal::Mesh::Texture & tex : textures)
 			 {
 				 if(tex.fileName == str)
 				 {
@@ -181,15 +228,14 @@ namespace fhl
 
 			 if(!loaded)
 			 {
-				 Mesh::Texture texture;
+				 internal::Mesh::Texture texture;
 
 				 std::string filePath = m_directory + '/' + str.C_Str();
-				 std::string modelName = 'M' + std::to_string(m_createdNumber);
+				 std::string modelName = 'M' + std::to_string(s_createdNumber);
 
-				 texture.id = fhl::ResMgr::loadTexture(modelName + _texTypeName + std::to_string(i), filePath).setRepeated(true)
-																																			.getId();
-			  //std::cout << "start id: " << fhl::ResMgr::getTexture(modelName + _texTypeName + std::to_string(i)).getId() << '\n';
-			  //std::cout << str.C_Str() << '\n';
+				 texture.id = 
+					 fhl::ResMgr::loadTexture(modelName + "_" + std::to_string(m_meshCount++) + "_" +
+						  internal::Mesh::Texture::typeToString(_texTypeName) + std::to_string(i), filePath).setRepeated(true).getId();
 				 texture.type = _texTypeName;
 				 texture.fileName = str;
 				 textures.push_back(texture);

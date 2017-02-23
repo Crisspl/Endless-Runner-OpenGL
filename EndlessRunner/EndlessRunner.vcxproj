@@ -69,11 +69,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\MinGW\SDL2\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,7 +92,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>assimp.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp.lib;SOIL.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -119,7 +119,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>assimp.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp.lib;SOIL.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

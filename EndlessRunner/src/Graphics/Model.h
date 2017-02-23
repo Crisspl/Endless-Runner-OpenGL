@@ -1,22 +1,16 @@
 #ifndef FHL_MODEL_H
 #define FHL_MODEL_H
 
-#include <vector>
-#include <string>
-#include <iostream>
-
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
 #include "Mesh.h"
-#include "Texture.h"
+#include "Vao.h"
 #include "Renderable.h"
 #include "Transformable3D.h"
 #include "Litable.h"
 #include "UsingShader.h"
-
-#include <iostream>
 
 namespace fhl
 {
@@ -30,26 +24,38 @@ namespace fhl
 	 {
 		  friend class ResMgr;
 
-	 public:
-		  explicit Model(std::string _path);
-		  void render(const RenderConf & _conf) const override;
+		  enum AttrLoc : GLuint
+		  {
+				Position = 0,
+				Normal,
+				TexCoord
+		  };
 
+	 public:
+		  explicit Model(const std::string & _path);
+
+		  void render(const RenderConf & _conf) const override;
 		  Vec3f getSize() const { return m_size; }
 
 	 private:
-		  void loadModel(std::string _path);
-		  void processNode(aiNode* _nodePtr, const aiScene* _scenePtr);
-		  Mesh processMesh(aiMesh* _meshPtr, const aiScene* _scenePtr);
-		  void calcSize();
+		  void renderMeshes() const;
 
-		  std::vector<Mesh::Texture> loadMaterialTextures(aiMaterial* _materialPtr, aiTextureType _texType, std::string _texTypeName);
+		  void loadModel(const std::string & _path);
+		  void processNode(aiNode * _nodePtr, const aiScene * _scenePtr);
+		  internal::Mesh processMesh(aiMesh * _meshPtr, const aiScene * _scenePtr);
+		  void calcSize();
+		  void setUp(const std::string & _path);
+
+		  std::vector<internal::Mesh::Texture> loadMaterialTextures(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType, internal::Mesh::Texture::Type _texTypeName);
 
 	 private:
-		  std::vector<Mesh> m_meshes;
+		  std::vector<internal::Mesh> m_meshes;
+		  std::vector<Vao> m_vaos;
 		  std::string m_directory;
+		  std::size_t m_meshCount;
 		  Vec3f m_size;
 
-		  static unsigned m_createdNumber;
+		  static std::size_t s_createdNumber;
 
 		  constexpr static const char * simpleShaderName = "_FHL_modelSimpleShader";
 		  constexpr static const char * lightShaderName = "_FHL_modelLightShader";

@@ -2,27 +2,28 @@
 #define FHL_MESH_H
 
 #include <GL/glew.h>
-
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <tuple>
-
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "Configurator.h"
-#include "Shader.h"
-#include "../Utility/Debug.h"
+#include <string>
+#include <vector>
+#include <tuple>
 
-namespace fhl
+#include "Buffer.h"
+#include "../Maths/vectors.h"
+
+namespace fhl 
+{ 
+	 class Model;
+
+namespace internal
 {
 
 	 class Mesh
 	 {
-		  using T_tuple3pair = std::tuple<std::pair<float, float>, std::pair<float, float>, std::pair<float, float>>;
+		  using tuple3pair_t = std::tuple<std::pair<float, float>, std::pair<float, float>, std::pair<float, float>>;
+		  friend class Model;
 
-	 public:
 		  struct Vertex
 		  {
 				Vec3f position;
@@ -32,29 +33,39 @@ namespace fhl
 
 		  struct Texture
 		  {
+				enum class Type
+				{
+					 Diffuse,
+					 Specular
+				};
+
+				static std::string typeToString(Type _t)
+				{
+					 switch (_t)
+					 {
+						  case Type::Diffuse: return "texture_diffuse";
+						  case Type::Specular: return "texture_specular";
+						  default: return {};
+					 }
+				}
+
 				GLuint id;
-				std::string type;
+				Type type;
 				aiString fileName;
 		  };
 
 	 public:
-		  Mesh(std::vector<Mesh::Vertex> _vertices, std::vector<GLuint> _indices, std::vector<Mesh::Texture> _textures);
-
-		  void render(Shader& _shader) const;
-		  T_tuple3pair getMinMaxCoords();
+		  Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, std::vector<Mesh::Texture> _textures);
 
 	 private:
-		  void setUp();
+		  void setUp(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices);
 
-	 public:
-		  std::vector<Mesh::Vertex> m_vertices;
-		  std::vector<GLuint> m_indices;
-		  std::vector<Mesh::Texture> m_textures;
-
-	 private:
-		  GLuint m_vao, m_vbo, m_ebo;
+		  std::vector<Mesh::Texture> textures;
+		  std::size_t indicesCount;
+		  tuple3pair_t minMaxVerts;
+		  Buffer vbo, ebo;
 	 };
 
-} // ns
+}} // ns
 
 #endif // FHL_MESH_H
