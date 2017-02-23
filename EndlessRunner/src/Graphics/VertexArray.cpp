@@ -48,7 +48,7 @@ namespace fhl
 
 	 void VertexArray::setUp()
 	 {
-		 Buffer* buffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
+		 Buffer* buffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
 
 		 m_vao->bind();
 

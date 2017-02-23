@@ -5,7 +5,7 @@
 namespace fhl
 {
 
-	 Buffer::Buffer(GLuint _target, GLuint _usage)
+	 Buffer::Buffer(Target _target, Usage _usage)
 		: target(_target),
 		 usage(_usage),
 		 size(0)
@@ -47,13 +47,13 @@ namespace fhl
 		  glBindBuffer(target, 0);
 	 }
 
-	 void Buffer::setData(GLuint _size, const void* _data)
+	 void Buffer::setData(GLsizei _size, const void* _data)
 	 {
 		  size = _size;
 		  glBufferData(target, _size, _data, usage);
 	 }
 
-	 void Buffer::updateData(GLuint _offset, GLuint _size, const void* _data)
+	 void Buffer::updateData(GLuint _offset, GLsizei _size, const void* _data)
 	 {
 		  glBufferSubData(target, _offset, _size, _data);
 	 }

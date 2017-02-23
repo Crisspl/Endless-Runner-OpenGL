@@ -6,8 +6,8 @@ namespace fhl { namespace internal
 	 Mesh::Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, std::vector<Mesh::Texture> _textures)
 				: textures(std::move(_textures)),
 				  indicesCount(_indices.size()),
-				  vbo(GL_ARRAY_BUFFER, GL_STATIC_DRAW),
-				  ebo(GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW)
+				  vbo(Buffer::Target::ArrayBuffer, Buffer::Usage::StaticDraw),
+				  ebo(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw)
 	 {
 		 setUp(_vertices, _indices);
 	 }

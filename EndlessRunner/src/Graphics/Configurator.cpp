@@ -42,7 +42,7 @@ namespace fhl
 		 m_vpSize = Vec2f(static_cast<float>(_width),
 							 static_cast<float>(_height));
 
-		 rectShapeEbo = new Buffer(GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW);
+		 rectShapeEbo = new Buffer(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw);
 		 rectShapeEbo->bind();
 		 rectShapeEbo->setData(6 * sizeof(GLuint), m_rectShapeIndices);
 		 rectShapeEbo->unbind();

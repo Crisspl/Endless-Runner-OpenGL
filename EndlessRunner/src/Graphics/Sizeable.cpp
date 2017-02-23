@@ -9,7 +9,7 @@ namespace fhl
 	 {	  
 		 updatePosArray();
 
-		 Buffer* posBuffer = new Buffer(GL_ARRAY_BUFFER, GL_STATIC_DRAW);
+		 Buffer* posBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::StaticDraw);
 		 m_vao->addBuffer("posBuffer", posBuffer);
 
 		 m_vao->bind();

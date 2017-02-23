@@ -8,7 +8,7 @@ namespace fhl
 		 m_ptexture(_tex),
 		 m_texCoordsArray{ { 0, 0 },{ 1, 0 },{ 1, 1 },{ 0, 1 } }
 	 {
-		 Buffer* texCoordsBuffer = new Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
+		 Buffer* texCoordsBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
 		 m_vao->addBuffer("texCoordsBuffer", texCoordsBuffer);
 
 		 m_vao->bind();
