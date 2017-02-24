@@ -4,7 +4,7 @@
 #include "Sizeable.h"
 #include "Texture.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 class TexturedSizeable
@@ -24,7 +24,7 @@ namespace fhl
 		  void fillTxcArray(Vec2f _v);
 	 };
 
-} // ns
+}} // ns
 
 
 #endif // FHL_TEXTUREDSIZEABLE_H

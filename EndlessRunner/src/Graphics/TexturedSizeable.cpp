@@ -1,6 +1,6 @@
 #include "TexturedSizeable.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 TexturedSizeable::TexturedSizeable(Texture* _tex, Vec2f _size)
@@ -51,4 +51,4 @@ namespace fhl
 		 m_texCoordsArray[3] = { 0, _v.y };
 	 }
 
-} // ns
+}} // ns

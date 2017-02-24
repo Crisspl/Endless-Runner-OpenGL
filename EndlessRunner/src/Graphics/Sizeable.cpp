@@ -1,6 +1,6 @@
 #include "Sizeable.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 Sizeable::Sizeable(Vec2f _size)
@@ -47,4 +47,4 @@ namespace fhl
 		 posBuffer->unbind();
 	 }
 
-} // ns
+}} // ns

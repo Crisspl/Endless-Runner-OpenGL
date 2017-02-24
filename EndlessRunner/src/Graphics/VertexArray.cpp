@@ -7,7 +7,7 @@ namespace fhl
 	 VertexArray::VertexArray(Mode _mode)
 		   : UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString), nullptr),
 			m_mode(_mode),
-			m_vao(new Vao())
+			m_vao(new internal::Vao())
 	 {
 		 setUp();
 	 }
@@ -48,7 +48,8 @@ namespace fhl
 
 	 void VertexArray::setUp()
 	 {
-		 Buffer* buffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
+		 using internal::Buffer;
+		 Buffer * buffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
 
 		 m_vao->bind();
 

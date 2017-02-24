@@ -44,7 +44,7 @@ namespace fhl
 
 	 public:
 		  static Mat4 ortView, ortProjection, perspView, perspProjection;
-		  static Buffer* rectShapeEbo;
+		  static internal::Buffer * rectShapeEbo;
 
 	 private:
 		  static bool m_initialized;

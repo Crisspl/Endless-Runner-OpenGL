@@ -73,7 +73,7 @@ namespace fhl
 		  GLenum m_mode;
 		  std::vector<Vertex> m_vertices;
 
-		  std::shared_ptr<Vao> m_vao;
+		  std::shared_ptr<internal::Vao> m_vao;
 
 		  constexpr static const char * simpleShaderName = "_FHL_vertexArraySimpleShader";
 	 };

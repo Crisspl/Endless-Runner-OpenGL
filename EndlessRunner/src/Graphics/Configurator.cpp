@@ -3,9 +3,10 @@
 #include "../Utility/Debug.h"
 #include "../Maths/mathsFuncs.h"
 
+using namespace fhl::internal;
+
 namespace fhl
 {
-
 	 Mat4 Configurator::ortView;
 	 Mat4 Configurator::ortProjection;
 	 Mat4 Configurator::perspView;

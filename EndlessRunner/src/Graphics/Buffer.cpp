@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 Buffer::Buffer(Target _target, Usage _usage)
@@ -58,4 +58,4 @@ namespace fhl
 		  glBufferSubData(target, _offset, _size, _data);
 	 }
 
-} // ns
+}} // ns

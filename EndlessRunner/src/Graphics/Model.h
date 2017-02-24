@@ -50,7 +50,7 @@ namespace fhl
 
 	 private:
 		  std::vector<internal::Mesh> m_meshes;
-		  std::vector<Vao> m_vaos;
+		  std::vector<internal::Vao> m_vaos;
 		  std::string m_directory;
 		  std::size_t m_meshCount;
 		  Vec3f m_size;

@@ -19,12 +19,12 @@ namespace fhl
 	 class OrientedRect;
 	 class ResMgr;
 
-	 class Sprite
-		  : public Transformable,
-			 public TexturedSizeable,
-			 public UsingShader,
-			 public Renderable,
-			 public Litable
+	 class Sprite :
+		  public Transformable,
+		  public internal::TexturedSizeable,
+		  public UsingShader,
+		  public Renderable,
+		  public Litable
 	 {
 		  friend class ResMgr;
 

@@ -9,7 +9,7 @@
 
 #include "Buffer.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 class Vao
@@ -35,6 +35,6 @@ namespace fhl
 		  std::map<std::string, Buffer *> m_buffers;
 	 };
 
-}
+}}
 
 #endif // FHL_VAO_H

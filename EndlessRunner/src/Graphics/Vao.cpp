@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 Vao::Vao()
@@ -54,4 +54,4 @@ namespace fhl
 		  m_buffers[_key] = _buffer;
 	 }
 
-}
+}} // ns

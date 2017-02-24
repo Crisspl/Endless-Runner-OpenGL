@@ -9,7 +9,7 @@
 #include "Vao.h"
 #include "../Maths/vectors.h"
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 class Sizeable
@@ -32,6 +32,6 @@ namespace fhl
 		  Vec2f m_posArray[4];
 	 };
 
-} // ns
+}} // ns
 
 #endif // FHL_SIZEABLE_H

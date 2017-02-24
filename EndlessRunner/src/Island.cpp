@@ -55,7 +55,7 @@ std::vector<fhl::Light> Island::getLights() const
 {
 	 fhl::Light light = fhl::Light::point(fhl::Vec3f(), 5e-3f, 4e-5f,
 		  fhl::Color(float(rand() % 100) / 100, float(rand() % 100) / 100, float(rand() % 100) / 100), 
-		  0.3f);
+		  .5f);
 
 	std::vector<fhl::Light> lights(m_coins.size(), light);
 

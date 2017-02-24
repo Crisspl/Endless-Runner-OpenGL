@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-namespace fhl
+namespace fhl { namespace internal
 {
 
 	 struct Buffer
@@ -62,6 +62,6 @@ namespace fhl
 		  GLsizei size;
 	 };
 
-}
+}}
 
 #endif // FHL_BUFFER_H

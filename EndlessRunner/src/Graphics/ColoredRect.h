@@ -16,12 +16,12 @@ namespace fhl
 {
 	 class ResMgr;
 
-	 class ColoredRect
-		  : public Transformable,
-			public Sizeable,
-			public UsingShader,
-			public Renderable,
-			public Litable
+	 class ColoredRect : 
+		  public Transformable,
+		  public internal::Sizeable,
+		  public UsingShader,
+		  public Renderable,
+		  public Litable
 	 {
 		  friend class ResMgr;
 
