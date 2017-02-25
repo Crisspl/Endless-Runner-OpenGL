@@ -33,6 +33,7 @@ namespace fhl
 
 	 public:
 		  explicit Model(const std::string & _path);
+		  ~Model();
 
 		  void render(const RenderConf & _conf) const override;
 		  Vec3f getSize() const { return m_size; }
@@ -51,6 +52,7 @@ namespace fhl
 	 private:
 		  std::vector<internal::Mesh> m_meshes;
 		  std::vector<internal::Vao> m_vaos;
+		  std::vector<std::string> m_texNames;
 		  std::string m_directory;
 		  std::size_t m_meshCount;
 		  Vec3f m_size;

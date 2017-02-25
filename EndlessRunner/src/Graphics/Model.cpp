@@ -20,6 +20,12 @@ namespace fhl
 		 s_createdNumber++;
 	 }
 
+	 Model::~Model()
+	 {
+		  for (const std::string & name : m_texNames)
+				ResMgr::removeTexture(name);
+	 }
+
 	 void Model::render(const RenderConf & _conf) const
 	 {
 		  if (!getShader())
@@ -231,14 +237,15 @@ namespace fhl
 				 internal::Mesh::Texture texture;
 
 				 std::string filePath = m_directory + '/' + str.C_Str();
-				 std::string modelName = 'M' + std::to_string(s_createdNumber);
+				 std::string modelName = "_FHL_M" + std::to_string(s_createdNumber);
+				 std::string texName = modelName + '_' + std::to_string(m_meshCount++) + '_' +
+					  internal::Mesh::Texture::typeToString(_texTypeName) + std::to_string(i);
 
-				 texture.id = 
-					 fhl::ResMgr::loadTexture(modelName + "_" + std::to_string(m_meshCount++) + "_" +
-						  internal::Mesh::Texture::typeToString(_texTypeName) + std::to_string(i), filePath).setRepeated(true).getId();
+				 texture.id = fhl::ResMgr::loadTexture(texName, filePath).setRepeated(true).getId();
 				 texture.type = _texTypeName;
 				 texture.fileName = str;
 				 textures.push_back(texture);
+				 m_texNames.push_back(std::move(texName));
 			 }
 		 }
 		 return textures;
