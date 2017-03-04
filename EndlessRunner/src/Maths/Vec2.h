@@ -16,8 +16,8 @@ namespace fhl {
 		  constexpr Vec2(_T _x, _T _y) : x(_x), y(_y) { }
 
 		  template<typename _U>
-		  constexpr Vec2(const Vec2<_U> & _other) 
-			 : x(_T(_other.x)),
+		  constexpr Vec2(const Vec2<_U> & _other) :
+				x(_T(_other.x)),
 				y(_T(_other.y))
 		  { }
 
