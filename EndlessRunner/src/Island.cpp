@@ -1,26 +1,22 @@
 #include "Island.h"
 
 Island::Island(fhl::Vec2f _pos)
-          : Collideable(Collideable::Coll_Island)
+	 : Collideable(Collideable::Coll_Island)
 {
-   m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex")->setRepeated(1));
+	 m_sprite.setTexture(fhl::ResMgr::getTexture("islandTex")->setRepeated(1));
 
-   std::size_t size = sup::getRand(7, 14);
+	 std::size_t size = sup::getRand(7, 14);
 
-   m_sprite.setSize({ size * 32.f, 32.f });
-   m_sprite.setOrigin({32.f * size , 0.f})
-           .setPosition(_pos);
-   m_coins = std::vector<Coin>(size);
+	 m_sprite.setSize({ size * 32.f, 32.f });
+	 m_sprite.setOrigin({ 32.f * size , 0.f })
+		  .setPosition(_pos);
+	 m_coins = std::vector<Coin>(size);
 
-	size_t i = 0;
-	for (Coin & c : m_coins)
-	{
-		 c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + fhl::Vec2f(i++ * 32 + 16, 0));
-	}
-}
-
-Island::~Island()
-{
+	 size_t i = 0;
+	 for (Coin & c : m_coins)
+	 {
+		  c.setPosition(m_sprite.getPosition() - m_sprite.getOrigin() + fhl::Vec2f(i++ * 32 + 16, 0));
+	 }
 }
 
 std::shared_ptr<Collider> Island::getCollider(CollideableObjType _objType)

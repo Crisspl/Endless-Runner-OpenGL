@@ -7,8 +7,8 @@
 namespace fhl
 {
 
-	 Sprite::Sprite()
-		  : TexturedSizeable(nullptr),
+	 Sprite::Sprite() : 
+		  TexturedSizeable(nullptr),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
 						  &ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White)
@@ -16,36 +16,13 @@ namespace fhl
 		  setUp();
 	 }
 
-	 Sprite::Sprite(Texture& _tex)
-		  : TexturedSizeable(&_tex, _tex.getSize()),
+	 Sprite::Sprite(Texture & _tex) :
+		  TexturedSizeable(&_tex, _tex.getSize()),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
 						  &ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White)
 	 {
 		  setUp();
-	 }
-
-	 void Sprite::setTexture(Texture& _tex, bool _changeSize)
-	 {
-		  m_ptexture = &_tex;
-		  if (_changeSize)
-				setSize(_tex.getSize());
-	 }
-
-	 void Sprite::setTextureRect(fhl::Rect _rect, bool _changeSize)
-	 {
-		  if (!m_ptexture)
-				return;
-
-		  Vec2f texSize = Vec2f(m_ptexture->getSize().x, m_ptexture->getSize().y);
-
-		  if (_changeSize)
-				setSize(_rect.getSize());
-
-		  for (short i = 0; i < 4; i++)
-				m_texCoordsArray[i] = _rect[i] / texSize;
-
-		  TexturedSizeable::uploadTexCoordsArray();
 	 }
 
 	 void Sprite::render(const RenderConf & _conf) const
@@ -64,8 +41,8 @@ namespace fhl
 
 		  if (useCustomConf && _conf.texture)
 				glBindTexture(GL_TEXTURE_2D, _conf.texture->getId());
-		  else if (m_ptexture)
-				glBindTexture(GL_TEXTURE_2D, m_ptexture->getId());
+		  else if (getTexture())
+				glBindTexture(GL_TEXTURE_2D, getTexture()->getId());
 
 		  const auto & lights = useCustomConf ? _conf.lights : getLights();
 
@@ -73,9 +50,9 @@ namespace fhl
 				.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 				.setLights("light", lights.cbegin(), lights.cend());
 
-		  m_vao->bind();
+		  getVao().bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		  m_vao->unbind();
+		  getVao().unbind();
 
 		  glBindTexture(GL_TEXTURE_2D, 0);
 		  glUseProgram(0);
@@ -84,23 +61,23 @@ namespace fhl
 	 fhl::Rect Sprite::getAABB() const
 	 {
 		  Vec2f bl = getPosition() - getOrigin();
-		  return fhl::Rect(bl, m_size);
+		  return fhl::Rect(bl, getSize());
 	 }
 
 	 fhl::OrientedRect Sprite::getOBB() const
 	 {
-		  fhl::OrientedRect rect(m_size, getTransformData());
+		  fhl::OrientedRect rect(getSize(), getTransformData());
 
 		  return rect;
 	 }
 
 	 void Sprite::setUp()
 	 {
-		  m_vao->bind();
+		  getVao().bind();
 
 		  Configurator::rectShapeEbo->bind();
 
-		  m_vao->unbind();
+		  getVao().unbind();
 	 }
 
 } // ns

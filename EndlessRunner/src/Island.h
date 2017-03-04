@@ -20,7 +20,7 @@ class Island
 {
 public:
    explicit Island(fhl::Vec2f _pos);
-   ~Island();
+
 public:
    std::shared_ptr<Collider> getCollider(CollideableObjType _objType) override;
    void onCollision(CollideableObjType _objType) override { }

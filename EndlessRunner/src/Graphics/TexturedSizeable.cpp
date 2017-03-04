@@ -3,44 +3,54 @@
 namespace fhl { namespace internal
 {
 
-	 TexturedSizeable::TexturedSizeable(Texture* _tex, Vec2f _size)
-		 : Sizeable(_size),
-		 m_ptexture(_tex),
-		 m_texCoordsArray{ { 0, 0 },{ 1, 0 },{ 1, 1 },{ 0, 1 } }
+	 TexturedSizeable::TexturedSizeable(Texture * _tex, Vec2f _size) : 
+		  Sizeable(_size),
+		  m_texture(_tex),
+		  m_texRect(Vec2f::zero(), Vec2f::one())
 	 {
-		 Buffer* texCoordsBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
-		 m_vao->addBuffer("texCoordsBuffer", texCoordsBuffer);
-
-		 m_vao->bind();
-
-		 texCoordsBuffer->bind();
-		 texCoordsBuffer->setData(sizeof(m_texCoordsArray), m_texCoordsArray);
-
-		 glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2f), (GLvoid*)0);
-		 glEnableVertexAttribArray(1);
-
-		 m_vao->unbind();
+		  fillTxcArray(Vec2f::one());
+		  setUp();
 	 }
 
 	 void TexturedSizeable::setSize(Vec2f _size)
 	 {
-		 if (!m_ptexture)
+		 if (!m_texture)
 			 return;
 
 		 Sizeable::setSize(_size);
-
-		 Vec2f h = m_size / Vec2f(m_ptexture->getSize());
-		 fillTxcArray(h);
-
+		 fillTxcArray(getSize() / Vec2f(m_texture->getSize()));
 		 uploadTexCoordsArray();
 	 }
 
 	 void TexturedSizeable::uploadTexCoordsArray()
 	 {
-		 Buffer* txcBuffer = m_vao->getBuffer("texCoordsBuffer");
+		 Buffer * txcBuffer = getVao().getBuffer("texCoordsBuffer");
 		 txcBuffer->bind();
 		 txcBuffer->updateData(0, sizeof(m_texCoordsArray), m_texCoordsArray);
 		 txcBuffer->unbind();
+	 }
+
+	 void TexturedSizeable::setTexture(Texture & _tex, bool _changeSize)
+	 {
+		  m_texture = &_tex;
+		  if (_changeSize)
+				setSize(_tex.getSize());
+	 }
+
+	 void TexturedSizeable::setTextureRect(const Rect & _rect, bool _changeSize)
+	 {
+		  if (!m_texture)
+				return;
+
+		  m_texRect = _rect;
+
+		  if (_changeSize)
+				setSize(_rect.getSize());
+
+		  for (int i = 0; i < 4; i++)
+				m_texCoordsArray[i] = _rect[i] / Vec2f(m_texture->getSize());
+
+		  uploadTexCoordsArray();
 	 }
 
 	 void TexturedSizeable::fillTxcArray(Vec2f _v)
@@ -51,4 +61,19 @@ namespace fhl { namespace internal
 		 m_texCoordsArray[3] = { 0, _v.y };
 	 }
 
+	 void TexturedSizeable::setUp()
+	 {
+		  Buffer * texCoordsBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::DynamicDraw);
+		  getVao().addBuffer("texCoordsBuffer", texCoordsBuffer);
+
+		  getVao().bind();
+
+		  texCoordsBuffer->bind();
+		  texCoordsBuffer->setData(sizeof(m_texCoordsArray), m_texCoordsArray);
+
+		  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2f), (GLvoid*)0);
+		  glEnableVertexAttribArray(1);
+
+		  getVao().unbind();
+	 }
 }} // ns

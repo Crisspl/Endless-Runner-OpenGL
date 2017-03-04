@@ -1,26 +1,14 @@
 #include "Sizeable.h"
 
+#include <GL/glew.h>
+
 namespace fhl { namespace internal
 {
 
-	 Sizeable::Sizeable(Vec2f _size)
-		 : m_vao(new Vao()),
-		 m_size(_size)
+	 Sizeable::Sizeable(Vec2f _size) :
+		  m_size(_size)
 	 {	  
-		 updatePosArray();
-
-		 Buffer* posBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::StaticDraw);
-		 m_vao->addBuffer("posBuffer", posBuffer);
-
-		 m_vao->bind();
-
-		 posBuffer->bind();
-		 posBuffer->setData(sizeof(m_posArray), m_posArray);
-
-		 glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2f), (GLvoid*)0);
-		 glEnableVertexAttribArray(0);
-
-		 m_vao->unbind();
+		  setUp();
 	 }
 
 	 void Sizeable::setSize(Vec2f _size)
@@ -41,10 +29,28 @@ namespace fhl { namespace internal
 
 	 void Sizeable::uploadPosArray()
 	 {
-		 Buffer* posBuffer = m_vao->getBuffer("posBuffer");
+		 Buffer * posBuffer = m_vao.getBuffer("posBuffer");
 		 posBuffer->bind();
 		 posBuffer->updateData(0, sizeof(m_posArray), m_posArray);
 		 posBuffer->unbind();
+	 }
+
+	 void Sizeable::setUp()
+	 {
+		  updatePosArray();
+
+		  Buffer * posBuffer = new Buffer(Buffer::Target::ArrayBuffer, Buffer::Usage::StaticDraw);
+		  m_vao.addBuffer("posBuffer", posBuffer);
+
+		  m_vao.bind();
+
+		  posBuffer->bind();
+		  posBuffer->setData(sizeof(m_posArray), m_posArray);
+
+		  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2f), (GLvoid*)0);
+		  glEnableVertexAttribArray(0);
+
+		  m_vao.unbind();
 	 }
 
 }} // ns

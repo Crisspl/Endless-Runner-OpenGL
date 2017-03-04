@@ -1,10 +1,6 @@
 #ifndef FHL_SIZEABLE_H
 #define FHL_SIZEABLE_H
 
-#include <GL/glew.h>
-
-#include <memory>
-
 #include "Buffer.h"
 #include "Vao.h"
 #include "../Maths/vectors.h"
@@ -16,7 +12,9 @@ namespace fhl { namespace internal
 	 {
 	 public:
 		  explicit Sizeable(Vec2f _size = { 1, 1 });
-		  virtual ~Sizeable() { }
+		  Sizeable(Sizeable &&) = default; // move ctor and assign operator are not implicitly declared when the class has user-declared destructor
+		  Sizeable & operator=(Sizeable &&) = default;
+		  virtual ~Sizeable() = default;
 
 		  virtual void setSize(Vec2f _size);
 		  Vec2f getSize() const { return m_size; }
@@ -25,9 +23,14 @@ namespace fhl { namespace internal
 		  void updatePosArray();
 		  void uploadPosArray();
 
-	 protected:
-		  std::shared_ptr<Vao> m_vao;
+		  Vao & getVao() { return m_vao; }
+		  const Vao & getVao() const { return m_vao; }
 
+	 private:
+		  void setUp();
+
+	 private:
+		  Vao m_vao;
 		  Vec2f m_size;
 		  Vec2f m_posArray[4];
 	 };

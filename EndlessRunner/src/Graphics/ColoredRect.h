@@ -29,9 +29,7 @@ namespace fhl
 		  explicit ColoredRect(Vec2f _size);
 
 		  Color getColor() const { return m_color; }
-
 		  ColoredRect & setColor(Color _color) { m_color = _color; return *this; }
-
 		  void render(const RenderConf & _conf) const override;
 
 	 private:

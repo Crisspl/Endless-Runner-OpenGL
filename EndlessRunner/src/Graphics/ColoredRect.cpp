@@ -5,8 +5,8 @@
 namespace fhl
 {
 
-	 ColoredRect::ColoredRect(Vec2f _size)
-		  : Sizeable(_size),
+	 ColoredRect::ColoredRect(Vec2f _size) :
+		  Sizeable(_size),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
 						  &ResMgr::loadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
 		  m_color(Color::Transparent)
@@ -31,20 +31,20 @@ namespace fhl
 				.setVec4f("vertColor", m_color.asVec4())
 				.setLights("light", lights.cbegin(), lights.cend());
 
-		  m_vao->bind();
+		  getVao().bind();
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		  m_vao->unbind();
+		  getVao().unbind();
 
 		  Shader::unUse();
 	 }
 
 	 void ColoredRect::setUp()
 	 {
-		  m_vao->bind();
+		  getVao().bind();
 
 		  Configurator::rectShapeEbo->bind();
 
-		  m_vao->unbind();
+		  getVao().unbind();
 	 }
 
 }

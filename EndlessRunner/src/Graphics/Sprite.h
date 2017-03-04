@@ -30,17 +30,13 @@ namespace fhl
 
 	 public:
 			Sprite();
-			explicit Sprite(Texture& _tex);
+			explicit Sprite(Texture & _tex);
 
 	 public:
-			const Texture* getTexture() const { return m_ptexture; }
-
-			void setTexture(Texture& _tex, bool _changeSize = true);
-			void setTextureRect(fhl::Rect _rect, bool _changeSize = false);
 			void setColor(const Color _color) { m_color = _color; }
 			void render(const RenderConf & _conf) const override;
-			fhl::Rect getAABB() const;
-			fhl::OrientedRect getOBB() const;
+			Rect getAABB() const;
+			OrientedRect getOBB() const;
 
 	 private:
 			void setUp();

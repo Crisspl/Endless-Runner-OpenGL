@@ -12,7 +12,6 @@ SDL_GLContext Game::m_context;
 Game::Game()
       : m_sphere(&m_hero),
         m_running(true),
-        //m_model("Resources/cliff/Cliff_new.obj"),
 	    m_va(fhl::VertexArray::LineStrip)
 {
    fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
@@ -126,9 +125,10 @@ void Game::update()
 	   isl.move(-dt * 600.f);
 
 	   auto & coins = isl.getCoins();
+
 		coins.erase(
 			 std::remove_if(coins.begin(), coins.end(),
-					 [&](Coin & _c) { return _c.isCollision(m_hero) || _c.isCollision(m_sphere); }),
+				  [&](Coin & _c) { return _c.isCollision(m_hero) || _c.isCollision(m_sphere); }),
 			 coins.end());
    }
 
@@ -136,8 +136,6 @@ void Game::update()
 		 std::remove_if(m_vecIslands.begin(), m_vecIslands.end(),
 			  [](const Island & _isl) { return _isl.getPosition().x < -200.f; }),
 		 m_vecIslands.end());
-
-
 
    if(m_hero.getPosition().y > WIN_Y)
    {
