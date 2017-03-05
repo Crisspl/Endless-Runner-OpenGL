@@ -33,6 +33,8 @@ namespace fhl
 
 	 public:
 		  explicit Model(const std::string & _path);
+		  Model(Model &&) = default;
+		  Model & operator=(Model &&) = default;
 		  ~Model();
 
 		  void render(const RenderConf & _conf) const override;
