@@ -8,7 +8,10 @@ namespace fhl
 
 	 struct Vertex
 	 {
-		  Vertex(Vec2f _pos, Color _col = Color::Transparent);
+		  Vertex(Vec2f _pos, Color _col = Color::Transparent) :
+				position(_pos),
+				color(_col)
+		  {}
 
 		  Vec2f position;
 		  Color color;
