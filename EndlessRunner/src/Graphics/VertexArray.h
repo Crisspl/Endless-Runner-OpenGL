@@ -10,7 +10,6 @@
 #include "Renderable.h"
 #include "Vertex.h"
 #include "Shader.h"
-#include "Configurator.h"
 #include "Vao.h"
 #include "UsingShader.h"
 
@@ -72,8 +71,7 @@ namespace fhl
 	 private:
 		  GLenum m_mode;
 		  std::vector<Vertex> m_vertices;
-
-		  std::shared_ptr<internal::Vao> m_vao;
+		  internal::Vao m_vao;
 
 		  constexpr static const char * simpleShaderName = "_FHL_vertexArraySimpleShader";
 	 };
