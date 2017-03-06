@@ -37,6 +37,7 @@ namespace fhl
 
 	 private:
 		  Shader(const Shader &) = delete;
+		  Shader & operator=(const Shader &) = delete;
 		  Shader(Shader && _other);
 		  Shader & operator=(Shader && _other);
 		  Shader(const GLchar * _vert, const GLchar * _frag, const SourceFrom _srcFrom = SourceFrom::FromFile);

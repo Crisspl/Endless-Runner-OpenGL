@@ -168,7 +168,6 @@
     <ClCompile Include="src\Graphics\Transformable3D.cpp" />
     <ClCompile Include="src\Graphics\UsingShader.cpp" />
     <ClCompile Include="src\Graphics\Vao.cpp" />
-    <ClCompile Include="src\Graphics\Vertex.cpp" />
     <ClCompile Include="src\Graphics\VertexArray.cpp" />
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\Island.cpp" />

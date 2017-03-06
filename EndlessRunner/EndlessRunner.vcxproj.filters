@@ -117,9 +117,6 @@
     <ClCompile Include="src\Graphics\Vao.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\Vertex.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphics\VertexArray.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
