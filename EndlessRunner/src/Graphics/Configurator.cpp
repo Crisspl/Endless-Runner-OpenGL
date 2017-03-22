@@ -97,11 +97,4 @@ namespace fhl
 		 perspView = Mat4::lookAt(Vec3f(halfVp.x, halfVp.y, _eyeZ), Vec3f(halfVp.x, halfVp.y, 0), Vec3f(0, 1, 0));
 	 }
 
-	 Vec2f Configurator::getMousePosition()
-	 {
-		 Vec2i mousePos;
-		 SDL_GetMouseState(&mousePos.x, &mousePos.y);
-		 return Vec2f(mousePos.x, mousePos.y);
-	 }
-
 } // ns

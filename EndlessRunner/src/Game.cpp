@@ -1,10 +1,9 @@
 #include "Game.h"
 
 #include "Graphics/Configurator.h"
-
 #include "Maths/vectors.h"
-
 #include "Utility/Debug.h"
+#include "Input.h"
 
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
@@ -215,7 +214,7 @@ int Game::isHeroOnIsland()
 
 fhl::Vec2f Game::countThrowDir()
 {
-	fhl::Vec2f dir = (fhl::Configurator::getMousePosition() - m_hero.getPosition()).normalized();
+	fhl::Vec2f dir = (fhl::Vec2f(Input::getMousePosition()) - m_hero.getPosition()).normalized();
 
    return dir;
 }

@@ -323,5 +323,8 @@
     <ClInclude Include="src\Maths\swizzle.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

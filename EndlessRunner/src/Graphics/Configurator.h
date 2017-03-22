@@ -3,8 +3,6 @@
 
 #include <GL/glew.h>
 
-#include <SDL.h>
-
 #include <iostream>
 
 #include "Buffer.h"
@@ -29,18 +27,12 @@ namespace fhl
 		  static void init(GLuint _width, GLuint _height);
 
 		  static Vec2f viewPortSize();
-
 		  static const Mat4& view() { return *m_view; }
-
 		  static const Mat4& projection() { return *m_projection; }
 
 		  static void setDisplayMode(DisplayMode _mode);
-
 		  static void setFlipYAxis(bool _flip);
-
 		  static void setPerspViewDistance(float _eyeZ);
-
-		  static Vec2f getMousePosition();
 
 	 public:
 		  static Mat4 ortView, ortProjection, perspView, perspProjection;

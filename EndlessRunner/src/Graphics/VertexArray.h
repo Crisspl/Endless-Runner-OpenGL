@@ -25,7 +25,7 @@ namespace fhl
 		  friend class ResMgr;
 
 	 public:
-		  enum Mode
+		  enum Mode : GLenum
 		  {
 				Points = GL_POINTS,
 				LineStrip = GL_LINE_STRIP,
@@ -69,7 +69,7 @@ namespace fhl
 		  void updateArray();
 
 	 private:
-		  GLenum m_mode;
+		  Mode m_mode;
 		  std::vector<Vertex> m_vertices;
 		  internal::Vao m_vao;
 
