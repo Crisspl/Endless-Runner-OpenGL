@@ -5,17 +5,18 @@
 
 namespace fhl
 {
+	class Renderer;
 
-	 class Renderable
-	 {
-		  friend void render(const Renderable &, const RenderConf &);
+	class Renderable
+	{
+		friend class Renderer;
 
-	 public:
-		  virtual ~Renderable() { }
+	public:
+		virtual ~Renderable() = default;
 
-	 protected:
-		  virtual void render(const RenderConf &) const = 0;
-	 };
+	protected:
+		virtual void render(const RenderConf &) const = 0;
+	};
 
 } // ns
 

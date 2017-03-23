@@ -1,14 +1,14 @@
 #ifndef FHL_RENDERCONF_H
 #define FHL_RENDERCONF_H
 
-#include "Texture.h"
+#include <list>
+
 #include "Transformable.h"
 #include "Light.h"
 
-#include <list>
-
 namespace fhl
 {
+	class Texture;
 
 	struct RenderConf
 	{

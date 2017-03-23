@@ -41,7 +41,7 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 
 void Hero::render(const fhl::RenderConf &) const
 {
-	fhl::render(m_heroSprite);
+	fhl::Renderer::render(m_heroSprite);
 }
 
 void Hero::update(float dt)

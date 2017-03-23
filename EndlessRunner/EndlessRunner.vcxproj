@@ -156,7 +156,7 @@
     <ClCompile Include="src\Graphics\Mesh.cpp" />
     <ClCompile Include="src\Graphics\Model.cpp" />
     <ClCompile Include="src\Graphics\RenderConf.cpp" />
-    <ClCompile Include="src\Graphics\RenderFuncs.cpp" />
+    <ClCompile Include="src\Graphics\Renderer.cpp" />
     <ClCompile Include="src\Graphics\RenderTexture.cpp" />
     <ClCompile Include="src\Graphics\ResMgr.cpp" />
     <ClCompile Include="src\Graphics\Shader.cpp" />
@@ -203,7 +203,7 @@
     <ClInclude Include="src\Graphics\Model.h" />
     <ClInclude Include="src\Graphics\Renderable.h" />
     <ClInclude Include="src\Graphics\RenderConf.h" />
-    <ClInclude Include="src\Graphics\RenderFuncs.h" />
+    <ClInclude Include="src\Graphics\Renderer.h" />
     <ClInclude Include="src\Graphics\RenderTexture.h" />
     <ClInclude Include="src\Graphics\ResMgr.h" />
     <ClInclude Include="src\Graphics\Shader.h" />

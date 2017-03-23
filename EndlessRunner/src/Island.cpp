@@ -34,9 +34,9 @@ void Island::update(float _dt)
 
 void Island::render(const fhl::RenderConf &) const
 {
-	fhl::render(m_sprite);
+	fhl::Renderer::render(m_sprite);
 	for (const Coin & c : m_coins)
-		fhl::render(c);
+		fhl::Renderer::render(c);
 }
 
 

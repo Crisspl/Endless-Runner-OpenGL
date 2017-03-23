@@ -32,7 +32,7 @@ std::shared_ptr<Collider> Sphere::getCollider(CollideableObjType _objType)
 
 void Sphere::render(const fhl::RenderConf &) const
 {
-	fhl::render(m_sprite);
+	fhl::Renderer::render(m_sprite);
 }
 
 void Sphere::update(float dt)

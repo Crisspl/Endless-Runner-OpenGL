@@ -2,7 +2,7 @@
 #define ENDLESSCLIFF_H
 
 #include "Graphics/Model.h"
-#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderer.h"
 
 class EndlessCliff
 	: public fhl::Renderable

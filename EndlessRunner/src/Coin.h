@@ -1,7 +1,7 @@
 #ifndef COIN_H
 #define COIN_H
 
-#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderer.h"
 #include "Graphics/Renderable.h"
 #include "Graphics/Transformable.h"
 #include "Graphics/Sprite.h"

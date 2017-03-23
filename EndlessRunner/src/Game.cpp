@@ -180,16 +180,14 @@ void Game::update()
 
 void Game::draw()
 {
-   glClearColor(0.f, 0.f, 0.f, 1.f);
-   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+	fhl::Renderer::clearColor();
    m_renderer.clearColor(fhl::Vec4f(0.f, 0.f, 0.f, 1.f));
 
    m_renderer.renderToTex(m_cliff);
 
    //m_renderer.drawToTex(m_va);
 
-   for(Island& isl : m_vecIslands)
+   for(Island & isl : m_vecIslands)
       m_renderer.renderToTex(isl);
    m_renderer.renderToTex(m_hero);
    if(m_sphere.getState() != Sphere::State_Idle)

@@ -6,7 +6,7 @@
 #include "Graphics/Renderable.h"
 #include "Global.h"
 #include "AnimationMgr.h"
-#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderer.h"
 #include "Graphics/Transformable.h"
 
 #define DECLARE_HERO_STATE_METHODS(stateName) \

@@ -9,7 +9,7 @@
 #include "Collideable.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/Renderable.h"
-#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderer.h"
 #include "Graphics/Light.h"
 #include "Maths/vectors.h"
 #include "Coin.h"

@@ -27,7 +27,7 @@ void Coin::render(const fhl::RenderConf &) const
 {
 	fhl::RenderConf conf;
 	conf += getMatrices();
-	fhl::render(m_sprite, conf);
+	fhl::Renderer::render(m_sprite, conf);
 }
 
 std::shared_ptr<Collider> Coin::getCollider(Collideable::CollideableObjType)

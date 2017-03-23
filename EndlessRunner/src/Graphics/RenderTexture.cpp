@@ -1,7 +1,7 @@
 #include "RenderTexture.h"
 
 #include "../Utility/Debug.h"
-#include "RenderFuncs.h"
+#include "Renderer.h"
 
 namespace fhl
 {
@@ -44,7 +44,7 @@ namespace fhl
 	 void RenderTexture::renderToTex(Renderable & _obj)
 	 {
 		 glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-		 fhl::render(_obj);
+		 fhl::Renderer::render(_obj);
 		 glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	 }
 

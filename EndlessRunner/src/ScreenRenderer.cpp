@@ -1,5 +1,5 @@
 #include "ScreenRenderer.h"
-#include "Graphics/RenderFuncs.h"
+#include "Graphics/Renderer.h"
 
 ScreenRenderer::ScreenRenderer()
       : m_shader(fhl::ResMgr::loadShader("screenShader", "Resources/ShaderSrcs/screen_vs.glsl", "Resources/ShaderSrcs/screen_fs.glsl", fhl::Shader::FromFile)),
@@ -24,5 +24,5 @@ void ScreenRenderer::renderToTex(fhl::Renderable & _obj)
 
 void ScreenRenderer::renderToScreen()
 {
-	fhl::render(m_screen);
+	fhl::Renderer::render(m_screen);
 }
