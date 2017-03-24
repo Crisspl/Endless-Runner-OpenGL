@@ -1,7 +1,7 @@
 #ifndef FHL_MATHS_FUNCS
 #define FHL_MATHS_FUNCS
 
-#include <cmath>
+#include <algorithm>
 #include "Constants.h"
 
 namespace fhl

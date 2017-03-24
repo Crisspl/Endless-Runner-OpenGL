@@ -1,8 +1,11 @@
 #ifndef FHL_COLOR_H
 #define FHL_COLOR_H
 
+#include <algorithm>
+
 #include "../Utility/Debug.h"
 #include "../Maths/vectors.h"
+#include "../Maths/mathsFuncs.h"
 
 namespace fhl
 {
@@ -46,12 +49,7 @@ namespace fhl
 	};
 
 	constexpr Color::Color(float _r, float _g, float _b, float _a)
-		: Color(
-			clamp(_r, 0.f, 1.f),
-			clamp(_g, 0.f, 1.f),
-			clamp(_b, 0.f, 1.f),
-			clamp(_a, 0.f, 1.f)
-		)
+		: r(_r), g(_g), b(_b), a(_a)
 	{
 	}
 

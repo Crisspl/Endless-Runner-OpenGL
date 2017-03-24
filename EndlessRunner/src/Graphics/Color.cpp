@@ -1,8 +1,5 @@
 #include "Color.h"
 
-#include <algorithm>
-#include "../Maths/mathsFuncs.h"
-
 namespace fhl
 {
 
