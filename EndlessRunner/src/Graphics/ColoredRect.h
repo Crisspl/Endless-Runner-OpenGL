@@ -14,33 +14,35 @@
 
 namespace fhl
 {
-	 class ResMgr;
+	class ResMgr;
 
-	 class ColoredRect : 
-		  public Transformable,
-		  public internal::Sizeable,
-		  public UsingShader,
-		  public Renderable,
-		  public Litable
-	 {
-		  friend class ResMgr;
+	class ColoredRect :
+		public Transformable,
+		public internal::Sizeable,
+		public UsingShader,
+		public Renderable,
+		public Litable
+	{
+		friend class ResMgr;
 
-	 public:
-		  explicit ColoredRect(Vec2f _size);
+	public:
+		explicit ColoredRect(Vec2f _size);
 
-		  Color getColor() const { return m_color; }
-		  ColoredRect & setColor(Color _color) { m_color = _color; return *this; }
-		  void render(const RenderConf & _conf) const override;
+	public:
+		void setColor(const Color & _color) { m_color = _color; }
+		const Color & getColor() const { return m_color; }
 
-	 private:
-		  void setUp();
+		void render(const RenderConf & _conf) const override;
 
-	 private:
-		  Color m_color;
+	private:
+		void setUp();
 
-		  constexpr static const char * simpleShaderName = "_FHL_rectSimpleShader";
-		  constexpr static const char * lightShaderName = "_FHL_rectLightShader";
-	 };
+	private:
+		Color m_color;
+
+		constexpr static const char * simpleShaderName = "_FHL_rectSimpleShader";
+		constexpr static const char * lightShaderName = "_FHL_rectLightShader";
+	};
 
 }
 

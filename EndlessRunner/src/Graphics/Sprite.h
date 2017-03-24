@@ -16,37 +16,39 @@
 
 namespace fhl
 {
-	 class OrientedRect;
-	 class ResMgr;
+	class OrientedRect;
+	class ResMgr;
 
-	 class Sprite :
-		  public Transformable,
-		  public internal::TexturedSizeable,
-		  public UsingShader,
-		  public Renderable,
-		  public Litable
-	 {
-		  friend class ResMgr;
+	class Sprite :
+		public Transformable,
+		public internal::TexturedSizeable,
+		public UsingShader,
+		public Renderable,
+		public Litable
+	{
+		friend class ResMgr;
 
-	 public:
-			Sprite();
-			explicit Sprite(Texture & _tex);
+	public:
+		Sprite();
+		explicit Sprite(Texture & _tex);
 
-	 public:
-			void setColor(const Color _color) { m_color = _color; }
-			void render(const RenderConf & _conf) const override;
-			Rect getAABB() const;
-			OrientedRect getOBB() const;
+	public:
+		void setColor(const Color & _color) { m_color = _color; }
+		const Color & getColor() const { return m_color; }
 
-	 private:
-			void setUp();
+		void render(const RenderConf & _conf) const override;
+		Rect getAABB() const;
+		OrientedRect getOBB() const;
 
-	 private:
-			Color m_color;
+	private:
+		void setUp();
 
-			constexpr static const char * simpleShaderName = "_FHL_spriteSimpleShader";
-			constexpr static const char * lightShaderName = "_FHL_spriteLightShader";
-	 };
+	private:
+		Color m_color;
+
+		constexpr static const char * simpleShaderName = "_FHL_spriteSimpleShader";
+		constexpr static const char * lightShaderName = "_FHL_spriteLightShader";
+	};
 
 } // ns
 
