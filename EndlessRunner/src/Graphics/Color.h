@@ -45,6 +45,26 @@ namespace fhl
 		static const Color Transparent;
 	};
 
+	constexpr Color::Color(float _r, float _g, float _b, float _a)
+		: Color(
+			clamp(_r, 0.f, 1.f),
+			clamp(_g, 0.f, 1.f),
+			clamp(_b, 0.f, 1.f),
+			clamp(_a, 0.f, 1.f)
+		)
+	{
+	}
+
+	constexpr Color::Color(Vec4f _color)
+		: Color(_color.x, _color.y, _color.z, _color.w)
+	{
+	}
+
+	constexpr Color::Color(Vec3f _color)
+		: Color(Vec4f(_color, 1.f))
+	{
+	}
+
 } // ns
 
 #endif // FHL_COLOR_H
