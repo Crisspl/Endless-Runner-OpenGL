@@ -7,33 +7,43 @@
 namespace fhl
 {
 
-	 struct Color
-	 {
-		  Color(float _r = 0.f, float _g = 0.f, float _b = 0.f, float _a = 1.f);
-		  Color(Vec4f _color);
-		  Color(Vec3f _color);
-		  Color(std::initializer_list<float> _rgba);
+	struct Color
+	{
+		constexpr Color(float _r = 0.f, float _g = 0.f, float _b = 0.f, float _a = 1.f);
+		constexpr Color(Vec4f _color);
+		constexpr Color(Vec3f _color);
+		Color(std::initializer_list<float> _rgba);
 
-		  bool operator==(const Color & _other) const;
-		  bool operator!=(const Color & _other) const;
+		constexpr bool operator==(const Color & _other) const
+		{
+			return asVec4() == _other.asVec4();
+		}
+		constexpr bool operator!=(const Color & _other) const
+		{
+			return !(*this == _other);
+		}
 
-		  Vec4f asVec4() const { return{ r, g, b, a }; }
+		constexpr Vec4f asVec4() const { return{ r, g, b, a }; }
 
-		  float operator[](size_t _i) const { return *(&r + _i); }
-		  float & operator[](size_t _i) { return *(&r + _i); }
+		constexpr float operator[](size_t _i) const { return *(&r + _i); }
+		float & operator[](size_t _i) { return *(&r + _i); }
 
-		  float r, g, b, a;
+		float r, g, b, a;
 
-		  static const Color White;
-		  static const Color Black;
-		  static const Color Red;
-		  static const Color Green;
-		  static const Color Blue;
-		  static const Color Yellow;
-		  static const Color Magenta;
-		  static const Color Cyan;
-		  static const Color Transparent;
-	 };
+		/*
+		static members declared below should be constexpr, but it's not possible since constexpr static members must be in-class initilized
+		which is not possible since Color would be incomplete while initializing the statics
+		 */
+		static const Color White;
+		static const Color Black;
+		static const Color Red;
+		static const Color Green;
+		static const Color Blue;
+		static const Color Yellow;
+		static const Color Magenta;
+		static const Color Cyan;
+		static const Color Transparent;
+	};
 
 } // ns
 

@@ -10,7 +10,7 @@ namespace fhl
 	 constexpr double toDegrees(double _rad) { return _rad * 180. / Constants::Pi(); }
 
 	 template <typename _T>
-	 _T clamp(_T _n, _T _lo, _T _hi)
+	 constexpr _T clamp(_T _n, _T _lo, _T _hi)
 	 {
 		  return std::max(_lo, std::min(_n, _hi));
 	 }
