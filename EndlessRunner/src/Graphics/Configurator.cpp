@@ -7,7 +7,7 @@ using namespace fhl::internal;
 
 namespace fhl
 {
-	std::unique_ptr<internal::Buffer> Configurator::rectShapeEbo(nullptr);
+	std::unique_ptr<internal::Buffer> Configurator::m_rectShapeEbo(nullptr);
 	Mat4 Configurator::m_projection;
 	Mat4 * Configurator::m_currentGlobal3DView{ nullptr };
 
@@ -36,10 +36,10 @@ namespace fhl
 		m_vpSize = { static_cast<int>(_width), static_cast<int>(_height) };
 		m_projection = Mat4::perspective(-45.f, -static_cast<float>(m_vpSize.x) / m_vpSize.y, 1e-1f, 1e4f);
 
-		rectShapeEbo = std::make_unique<internal::Buffer>(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw);
-		rectShapeEbo->bind();
-		rectShapeEbo->setData(6 * sizeof(GLuint), m_rectShapeIndices);
-		rectShapeEbo->unbind();
+		m_rectShapeEbo = std::make_unique<internal::Buffer>(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw);
+		m_rectShapeEbo->bind();
+		m_rectShapeEbo->setData(6 * sizeof(GLuint), m_rectShapeIndices);
+		m_rectShapeEbo->unbind();
 
 		setDefaultViewDistance(726.f);
 		m_currentGlobal3DView = &m_views[m_defViewName];

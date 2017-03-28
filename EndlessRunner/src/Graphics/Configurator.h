@@ -32,10 +32,10 @@ namespace fhl
 		static void addView(const std::string & _name, const Mat4 & _view);
 		static void resetGlobal3DView() { m_currentGlobal3DView = &m_views[m_defViewName]; }
 
-	public:
-		static std::unique_ptr<internal::Buffer> rectShapeEbo;
+		static const internal::Buffer & getRectShapeEbo() { return *m_rectShapeEbo.get(); }
 
 	private:
+		static std::unique_ptr<internal::Buffer> m_rectShapeEbo;
 		static Mat4 m_projection;
 		static Mat4 * m_currentGlobal3DView;
 		static bool m_initialized;

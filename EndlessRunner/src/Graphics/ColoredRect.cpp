@@ -42,7 +42,7 @@ namespace fhl
 	 {
 		  getVao().bind();
 
-		  Configurator::rectShapeEbo->bind();
+		  Configurator::getRectShapeEbo().bind();
 
 		  getVao().unbind();
 	 }
