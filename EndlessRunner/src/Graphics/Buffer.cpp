@@ -37,12 +37,12 @@ namespace fhl { namespace internal
 		  glDeleteBuffers(1, &m_id);
 	 }
 
-	 void Buffer::bind()
+	 void Buffer::bind() const
 	 {
 		  glBindBuffer(target, m_id);
 	 }
 
-	 void Buffer::unbind()
+	 void Buffer::unbind() const
 	 {
 		  glBindBuffer(target, 0);
 	 }

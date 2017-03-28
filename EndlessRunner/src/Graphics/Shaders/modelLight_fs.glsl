@@ -38,7 +38,7 @@
 "void main()\n"
 "{	\n"
 "	vec3 normal = normalize(Normal);\n"
-"	vec3 viewDir = normalize(vec3(400, 300, 330) - FragPos);\n"
+"	vec3 viewDir = normalize(vec3(400, 300, 726) - FragPos);\n"
 "	\n"
 "	vec3 result;\n"
 "	for(int i = 0; i < lightsCount; i++)\n"

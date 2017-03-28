@@ -48,8 +48,8 @@ namespace fhl { namespace internal
 		  Buffer & operator=(Buffer && _other);
 		  ~Buffer();
 
-		  void bind();
-		  void unbind();
+		  void bind() const;
+		  void unbind() const;
 		  void setData(GLsizei _size, const void * _data);
 		  void updateData(GLuint _offset, GLsizei _size, const void * _data);
 

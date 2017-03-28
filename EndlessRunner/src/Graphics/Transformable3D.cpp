@@ -78,7 +78,7 @@ namespace fhl
 				return
 					 m_mvp =
 					 Configurator::projection() *
-					 Configurator::view() *
+					 getView() *
 					 getTransform();
 		  }
 		  else return m_mvp;
@@ -90,7 +90,7 @@ namespace fhl
 		  return
 		  {
 				transform,
-				Configurator::projection() * Configurator::view() * transform
+				Configurator::projection() * Configurator::global3DView() * transform
 		  };
 	 }
 
@@ -107,6 +107,14 @@ namespace fhl
 				Mat4::translate(_origin) *
 				_rotation.toMat4() *
 				Mat4::translate(-_origin);
+	 }
+
+	 Mat4 Transformable3D::getView() const
+	 {
+		 if (m_viewName.empty())
+			 return Configurator::global3DView();
+		 else
+			 return Configurator::getView(m_viewName);
 	 }
 
 
