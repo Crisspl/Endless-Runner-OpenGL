@@ -1,5 +1,5 @@
-#ifndef FHL_RENDERFUNCS_H
-#define FHL_RENDERFUNCS_H
+#ifndef FHL_RENDERER_H
+#define FHL_RENDERER_H
 
 #include "Renderable.h"
 #include "RenderConf.h"
@@ -18,4 +18,4 @@ namespace fhl
 
 } // ns
 
-#endif // FHL_RENDERFUNCS_H
+#endif // FHL_RENDERER_H
