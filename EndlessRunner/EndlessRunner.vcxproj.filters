@@ -305,9 +305,6 @@
     <ClInclude Include="src\Graphics\UsingShader.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\TransformMatrices.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\Maths\mathsFuncs.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
@@ -324,6 +321,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Renderer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\RenderMatrices.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

@@ -94,7 +94,7 @@ namespace fhl
 		  else return m_mvp;
 	 }
 
-	 TransformMatrices Transformable::createTransformMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
+	 RenderMatrices Transformable::createRenderMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
 	 {
 		  Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _angle);
 		  return
@@ -104,9 +104,9 @@ namespace fhl
 		  };
 	 }
 
-	 TransformMatrices Transformable::calcModifiedTransformMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const
+	 RenderMatrices Transformable::calcModifiedRenderMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const
 	 {
-		  return createTransformMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, m_rotation + _angle);
+		  return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, m_rotation + _angle);
 	 }
 
 	 Mat4 Transformable::createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)

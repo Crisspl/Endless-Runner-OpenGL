@@ -1,7 +1,7 @@
 #ifndef FHL_TRANSFORMABLE3D_H
 #define FHL_TRANSFORMABLE3D_H
 
-#include "TransformMatrices.h"
+#include "RenderMatrices.h"
 #include "../Maths/Quaternion.h"
 
 namespace fhl
@@ -31,10 +31,10 @@ namespace fhl
 
 		  Mat4 getTransform() const;
 		  Mat4 getMVP() const;
-		  TransformMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
+		  RenderMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
 
-		  static TransformMatrices createTransformMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);
-		  TransformMatrices calcModifiedTransformMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const;
+		  static RenderMatrices createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);
+		  RenderMatrices calcModifiedRenderMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const;
 
 	 private:
 		  static Mat4 createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);

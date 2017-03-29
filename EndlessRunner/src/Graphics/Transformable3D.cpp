@@ -84,7 +84,7 @@ namespace fhl
 		  else return m_mvp;
 	 }
 
-	 TransformMatrices Transformable3D::createTransformMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
+	 RenderMatrices Transformable3D::createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
 	 {
 		  Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _rotation);
 		  return
@@ -94,9 +94,9 @@ namespace fhl
 		  };
 	 }
 
-	 TransformMatrices Transformable3D::calcModifiedTransformMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const
+	 RenderMatrices Transformable3D::calcModifiedRenderMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const
 	 {
-		  return createTransformMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation);
+		  return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation);
 	 }
 
 	 Mat4 Transformable3D::createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)

@@ -2,9 +2,8 @@
 #define FHL_TRANSFORMABLE_H
 
 #include <GL/glew.h>
-#include <utility>
 
-#include "TransformMatrices.h"
+#include "RenderMatrices.h"
 
 namespace fhl
 {
@@ -41,10 +40,10 @@ namespace fhl
 
 		  Mat4 getTransform() const;
 		  Mat4 getMVP() const;
-		  TransformMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
+		  RenderMatrices getMatrices() const { return{ getTransform(), getMVP() }; }
 
-		  static TransformMatrices createTransformMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
-		  TransformMatrices calcModifiedTransformMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const;
+		  static RenderMatrices createRenderMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
+		  RenderMatrices calcModifiedRenderMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const;
 
 	 private:
 		  static Mat4 createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);

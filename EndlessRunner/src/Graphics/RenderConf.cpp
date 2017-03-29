@@ -5,7 +5,7 @@ namespace fhl
 
 	 RenderConf RenderConf::Default;
 
-	 RenderConf::RenderConf(const TransformMatrices & _tm, const Texture * _texture, std::list<Light> _lights)
+	 RenderConf::RenderConf(const RenderMatrices & _tm, const Texture * _texture, std::list<Light> _lights)
 		 : matrices(_tm),
 		   texture(_texture),
 		   lights(_lights)
@@ -22,7 +22,7 @@ namespace fhl
 	 {
 	 }
 
-	 RenderConf & RenderConf::operator+=(const TransformMatrices & _tm)
+	 RenderConf & RenderConf::operator+=(const RenderMatrices & _tm)
 	 {
 		 matrices = _tm;
 		 return *this;
