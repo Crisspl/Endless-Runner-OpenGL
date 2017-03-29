@@ -7,11 +7,11 @@ using namespace fhl::internal;
 
 namespace fhl
 {
+	bool Configurator::m_initialized{ false };
 	std::unique_ptr<internal::Buffer> Configurator::m_rectShapeEbo(nullptr);
 	Mat4 Configurator::m_projection;
 	Mat4 * Configurator::m_currentGlobal3DView{ nullptr };
 
-	bool Configurator::m_initialized(false);
 	const GLuint Configurator::m_rectShapeIndices[] =
 	{
 		 0, 1, 3,
@@ -19,6 +19,7 @@ namespace fhl
 	};
 	Vec2i Configurator::m_vpSize;
 	std::map<std::string, Mat4> Configurator::m_views;
+	bool Configurator::m_depthTestEnabled{ false };
 
 	void Configurator::init(GLuint _width, GLuint _height)
 	{
@@ -80,6 +81,16 @@ namespace fhl
 	{
 		if (m_views.find(_name) != m_views.end())
 			m_views[_name] = _view;
+	}
+
+	void Configurator::setEnableDepthTest(bool _enable)
+	{
+		(m_depthTestEnabled = _enable) ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST);
+	}
+
+	bool Configurator::isDepthTestEnabled()
+	{
+		return m_depthTestEnabled;
 	}
 
 } // ns

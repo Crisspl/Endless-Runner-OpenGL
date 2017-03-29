@@ -32,16 +32,20 @@ namespace fhl
 		static void addView(const std::string & _name, const Mat4 & _view);
 		static void resetGlobal3DView() { m_currentGlobal3DView = &m_views[m_defViewName]; }
 
+		static void setEnableDepthTest(bool _enable);
+		static bool isDepthTestEnabled() { return m_depthTestEnabled; }
+
 		static const internal::Buffer & getRectShapeEbo() { return *m_rectShapeEbo.get(); }
 
 	private:
+		static bool m_initialized;
 		static std::unique_ptr<internal::Buffer> m_rectShapeEbo;
 		static Mat4 m_projection;
 		static Mat4 * m_currentGlobal3DView;
-		static bool m_initialized;
 		static const GLuint m_rectShapeIndices[6];
 		static Vec2i m_vpSize;
 		static std::map<std::string, Mat4> m_views;
+		static bool m_depthTestEnabled;
 
 		static constexpr const char * m_defViewName = "_FHL_default";
 	};
