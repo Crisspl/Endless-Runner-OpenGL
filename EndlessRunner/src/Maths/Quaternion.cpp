@@ -55,7 +55,7 @@ namespace fhl
 	 float Quaternion::getAngle() const
 	 {
 		  auto arccos = [](float _a) -> float {
-					 if (_a < -1.f) return static_cast<float>(Constants::Pi());
+					 if (_a < -1.f) return static_cast<float>(Constants<float>::Pi());
 					 if (_a > 1.f) return 0.f;
 					 return std::acos(_a);
 		  };
