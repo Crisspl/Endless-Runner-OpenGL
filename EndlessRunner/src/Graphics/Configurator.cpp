@@ -88,9 +88,4 @@ namespace fhl
 		(m_depthTestEnabled = _enable) ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST);
 	}
 
-	bool Configurator::isDepthTestEnabled()
-	{
-		return m_depthTestEnabled;
-	}
-
 } // ns

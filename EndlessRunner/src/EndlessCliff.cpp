@@ -1,7 +1,9 @@
 #include "EndlessCliff.h"
 
+#include "Graphics/ResMgr.h"
+
 EndlessCliff::EndlessCliff()
-	: m_model("Resources/cliff/Cliff_new.obj")
+	: m_model(fhl::ResMgr::loadModelData("cliffModel", "Resources/cliff/Cliff_new.obj"))
 {
 	m_model.setScale(fhl::Vec3f(12.f));
 	m_model.setPosition({ (m_model.getSize() * m_model.getScale()).x / 2.f - 50.f, 80.f, 0});
@@ -19,7 +21,7 @@ void EndlessCliff::render(const fhl::RenderConf &) const
 
 void EndlessCliff::update(float _dt)
 {
-	m_model.move({ -_dt * 60, 0, 0 });
+	m_model.move(fhl::Vec3f::left() * 60 * _dt);
 }
 
 void EndlessCliff::setLights(std::vector<fhl::Light>& _lights)

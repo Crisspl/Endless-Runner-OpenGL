@@ -34,13 +34,12 @@ namespace fhl
 		  };
 
 	 private:
-		  Texture() = delete;
 		  Texture(const Texture &) = delete;
+		  Texture & operator=(const Texture &) = delete;
 		  Texture(Texture && _other);
 		  Texture & operator=(Texture && _other);
 		  explicit Texture(Vec2i _size);
 		  explicit Texture(std::string _filePath);
-
 		  ~Texture();
 
 		  const Texture & setWrapOption(WrapOption _option) const;

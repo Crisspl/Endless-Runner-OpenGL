@@ -12,7 +12,7 @@ namespace fhl
 
 	struct RenderConf
 	{
-		  RenderConf(const RenderMatrices & _tm = {}, const Texture * _texture = nullptr, const std::list<Light> _lights = {});
+		  RenderConf(const RenderMatrices & _tm = {}, const Texture * _texture = nullptr, const std::list<Light> & _lights = {});
 		  RenderConf(const Texture * _t);
 		  RenderConf(const std::list<Light> & _lights);
 
