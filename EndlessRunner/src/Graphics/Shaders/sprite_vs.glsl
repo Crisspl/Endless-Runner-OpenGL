@@ -1,16 +1,14 @@
 "#version 330 core\n"
-"\n"
+
 "layout (location = 0) in vec2 position;\n"
 "layout (location = 1) in vec2 texCoords;\n"
-"\n"
+
 "uniform mat4 mvp;\n"
-"\n"
+
 "out vec2 fragTexCoords;\n"
-"\n"
+
 "void main()\n"
 "{\n"
-"	fragTexCoords = texCoords;\n"
-"	gl_Position.xy = position;\n"
-"	gl_Position.zw = vec2(0.f, 1.f);\n"
-"	gl_Position = mvp * gl_Position;\n"
-"}\n"
+	 "fragTexCoords = texCoords;\n"
+	 "gl_Position = mvp * vec4(position, 0.f, 1.f);\n"
+"}"
