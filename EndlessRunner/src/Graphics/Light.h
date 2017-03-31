@@ -21,8 +21,8 @@ namespace fhl
 		  bool operator!=(const Light & _other) const;
 
 		  static Light infinite(Vec3f _dir, Color _color = Color::White, float _illu = 1.f);
-		  static Light point(Vec3f _pos, float _linear = 0.045f, float _qudratic = 0.0075f, Color _color = Color::White, float _illu = 1.f);
-		  static Light spot(Vec3f _pos, Vec3f _dir = { 0, 0, -1 }, float _cutOff = 30.f, Color _color = Color::White, float _illu = 1.f);
+		  static Light point(Vec3f _pos, Color _color = Color::White, float _illu = 1.f, float _linear = 0.045f, float _quadratic = 0.0075f);
+		  static Light spot(Vec3f _pos, Vec3f _dir = Vec3f::forward(), Color _color = Color::White, float _cutOff = 30.f, float _illu = 1.f, float _linear = 0.045f, float _quadratic = 0.0075f);
 
 		  Vec3f position, direction;
 		  Color color;
