@@ -33,6 +33,8 @@
 "uniform Material material;\n"
 "uniform Light light[50];\n"
 "uniform int lightsCount;\n"
+"uniform bool useColorOnly;\n"
+"uniform vec4 singleColor;\n"
 
 "vec3 calcLight(Light, vec3, vec3);\n"
 "vec3 calcInfiniteLight(Light, vec3, vec3);\n"
@@ -41,7 +43,7 @@
 
 "void main()\n"
 "{\n"
-	 "color = texture(material.texture_diffuse1, TexCoords);\n"
+	 "color = useColorOnly ? singleColor : texture(material.texture_diffuse1, TexCoords);\n"
 	 "if(color.a == 0)\n"
 		  "discard;\n"
 

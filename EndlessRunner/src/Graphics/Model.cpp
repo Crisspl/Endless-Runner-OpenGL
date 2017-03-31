@@ -12,7 +12,9 @@ namespace fhl
 		UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
 			&ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
 		m_modelData(&_data),
-		m_vaos(_data.getMeshes().size())
+		m_vaos(_data.getMeshes().size()),
+		m_color(Color::Black),
+		m_useColorOnly(false)
 	{
 		setUp();
 	}
@@ -35,7 +37,9 @@ namespace fhl
 		shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
 			.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 			.setFloat("material.shininess", 5.f)
-			.setLights("light", lights.cbegin(), lights.cend());
+			.setLights("light", lights.cbegin(), lights.cend())
+			.setBoolean("useColorOnly", m_useColorOnly)
+			.setColor("singleColor", m_color);
 
 		renderMeshes();
 

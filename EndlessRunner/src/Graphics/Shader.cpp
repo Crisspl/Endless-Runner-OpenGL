@@ -58,6 +58,11 @@ namespace fhl
 		 glDeleteProgram(m_shaderProgram);
 	 }
 
+	 Shader & Shader::setBoolean(const GLchar * _name, const GLboolean _value)
+	 {
+		 return setInt(_name, _value);
+	 }
+
 	 Shader& Shader::setFloat(const GLchar* _name, const GLfloat _value)
 	 {
 		 use();

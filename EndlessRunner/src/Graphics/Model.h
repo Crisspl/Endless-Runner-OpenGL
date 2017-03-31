@@ -7,6 +7,7 @@
 #include "Litable.h"
 #include "UsingShader.h"
 #include "ModelData.h"
+#include "Color.h"
 
 namespace fhl
 {
@@ -33,10 +34,15 @@ namespace fhl
 		Model & operator=(const Model &) = delete;
 
 		void render(const RenderConf & _conf) const override;
+
 		void setModelData(ModelData & _data);
+		void setUseColorOnly(bool _val) { m_useColorOnly = _val; } // render textures or only single color
+		void setColor(const Color & _color) { m_color = _color; }
 
 		Vec3f getSize() const { return m_modelData->getSize(); }
 		const ModelData * getModelData() const { return m_modelData; }
+		bool getUseColorOnly() const { return m_useColorOnly; }
+		const Color & getColor() const { return m_color; }
 
 	private:
 		void setUp();
@@ -45,6 +51,8 @@ namespace fhl
 	private:
 		ModelData * m_modelData;
 		std::vector<internal::Vao> m_vaos;
+		Color m_color;
+		bool m_useColorOnly;
 
 		constexpr static const char * simpleShaderName = "_FHL_modelSimpleShader";
 		constexpr static const char * lightShaderName = "_FHL_modelLightShader";

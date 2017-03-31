@@ -50,6 +50,7 @@ namespace fhl
 
 		  GLuint getId() const { return m_shaderProgram; }
 
+		  Shader & setBoolean(const GLchar * _name, const GLboolean _value);
 		  Shader & setFloat(const GLchar * _name, const GLfloat _value);
 		  Shader & setInt(const GLchar * _name, const GLint _value);
 		  Shader & setVec2f(const GLchar * _name, const Vec2f & _value);

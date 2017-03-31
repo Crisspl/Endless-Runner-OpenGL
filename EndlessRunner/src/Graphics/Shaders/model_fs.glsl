@@ -12,8 +12,10 @@
 "out vec4 color;\n"
 
 "uniform Material material;\n"
+"uniform bool useColorOnly;\n"
+"uniform vec4 singleColor;\n"
 
 "void main()\n"
 "{\n"
-	 "color = texture(material.texture_diffuse1, TexCoords);\n"
+	 "color = useColorOnly ? singleColor : texture(material.texture_diffuse1, TexCoords);\n"
 "}"
