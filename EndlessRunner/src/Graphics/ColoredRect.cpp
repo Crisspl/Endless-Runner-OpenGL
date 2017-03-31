@@ -5,11 +5,11 @@
 namespace fhl
 {
 
-	 ColoredRect::ColoredRect(Vec2f _size) :
+	 ColoredRect::ColoredRect(Vec2f _size, Color _color) :
 		  Sizeable(_size),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
 						  &ResMgr::loadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
-		  m_color(Color::Transparent)
+		  m_color(_color)
 	 {
 		  setUp();
 	 }

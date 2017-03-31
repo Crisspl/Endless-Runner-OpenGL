@@ -11,7 +11,6 @@
 namespace fhl
 {
 	class ResMgr;
-	class ModelData;
 
 	class Model :
 		public Renderable,
@@ -30,8 +29,8 @@ namespace fhl
 
 	public:
 		explicit Model(ModelData & _data);
-		Model(Model &&) = default;
-		Model & operator=(Model &&) = default;
+		Model(const Model &) = delete;
+		Model & operator=(const Model &) = delete;
 
 		void render(const RenderConf & _conf) const override;
 		void setModelData(ModelData & _data);

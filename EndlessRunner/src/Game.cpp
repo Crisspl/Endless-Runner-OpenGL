@@ -8,27 +8,15 @@
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
 
-Game::Game()
-      : m_sphere(&m_hero),
-        m_running(true),
-	    m_va(fhl::VertexArray::LineStrip)
+Game::Game() : 
+	m_sphere(&m_hero),
+	m_running(true)
 {
    fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
    fhl::ResMgr::loadTexture("coinTex", "Resources/Tex/coin.png");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
    m_hero.setPosition({200.f, (float)WIN_Y});
-
-   m_va.addVertex({ {20, 30}, fhl::Color::White })
-	   .addVertex({ {30, 25}, fhl::Color::White })
-	   .addVertex({ {40, 32}, fhl::Color::White })
-	   .addVertex({ { 45, 37 }, fhl::Color::White })
-	   .addVertex({ { 47, 41 }, fhl::Color::White })
-	   .addVertex({ { 50, 47 }, fhl::Color::White })
-	   .addVertex({ { 48, 53 }, fhl::Color::White })
-	   .addVertex({ { 45, 57 }, fhl::Color::White })
-	   .addVertex({ { 42, 60 }, fhl::Color::White })
-	   .addVertex({ { 40, 66 }, fhl::Color::White });
 }
 
 Game& Game::get()
@@ -184,8 +172,6 @@ void Game::draw()
    m_renderer.clearColor(fhl::Vec4f(0.f, 0.f, 0.f, 1.f));
 
    m_renderer.renderToTex(m_cliff);
-
-   //m_renderer.drawToTex(m_va);
 
    for(Island & isl : m_vecIslands)
       m_renderer.renderToTex(isl);

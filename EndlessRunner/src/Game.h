@@ -47,9 +47,7 @@ private:
    Hero m_hero;
    Sphere m_sphere;
    std::vector<Island> m_vecIslands;
-   //fhl::Model m_model;
    EndlessCliff m_cliff;
-   fhl::VertexArray m_va;
 
    fhl::Clock m_timer;
    float dt;

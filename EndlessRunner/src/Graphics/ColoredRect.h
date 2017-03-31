@@ -26,7 +26,7 @@ namespace fhl
 		friend class ResMgr;
 
 	public:
-		explicit ColoredRect(Vec2f _size);
+		explicit ColoredRect(Vec2f _size, Color _color = Color::Transparent);
 
 	public:
 		void setColor(const Color & _color) { m_color = _color; }
