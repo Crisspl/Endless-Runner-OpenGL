@@ -242,6 +242,22 @@
     <ClInclude Include="src\Utility\OrientedRect.h" />
     <ClInclude Include="src\Utility\Rect.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Graphics\Shaders\array_fs.glsl" />
+    <None Include="src\Graphics\Shaders\array_vs.glsl" />
+    <None Include="src\Graphics\Shaders\modelLight_fs.glsl" />
+    <None Include="src\Graphics\Shaders\modelLight_vs.glsl" />
+    <None Include="src\Graphics\Shaders\model_fs.glsl" />
+    <None Include="src\Graphics\Shaders\model_vs.glsl" />
+    <None Include="src\Graphics\Shaders\rectLight_fs.glsl" />
+    <None Include="src\Graphics\Shaders\rectLight_vs.glsl" />
+    <None Include="src\Graphics\Shaders\rect_fs.glsl" />
+    <None Include="src\Graphics\Shaders\rect_vs.glsl" />
+    <None Include="src\Graphics\Shaders\spriteLight_fs.glsl" />
+    <None Include="src\Graphics\Shaders\spriteLight_vs.glsl" />
+    <None Include="src\Graphics\Shaders\sprite_fs.glsl" />
+    <None Include="src\Graphics\Shaders\sprite_vs.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

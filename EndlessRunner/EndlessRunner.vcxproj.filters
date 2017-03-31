@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Maths">
       <UniqueIdentifier>{121407b4-4c01-4f3a-990e-989ef331cc55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics\Shaders">
+      <UniqueIdentifier>{a8ecff8d-c9da-41fe-8411-8e4fd0af5efe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AnimationMgr.cpp">
@@ -332,5 +335,49 @@
     <ClInclude Include="src\Graphics\ModelData.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Graphics\Shaders\array_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\array_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\model_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\model_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\modelLight_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\modelLight_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\rect_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\rect_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\rectLight_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\rectLight_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\sprite_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\sprite_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\spriteLight_fs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
+    <None Include="src\Graphics\Shaders\spriteLight_vs.glsl">
+      <Filter>Header Files\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -27,7 +27,7 @@ namespace fhl
 		  const auto & lights = useCustomConf ? _conf.lights : getLights();
 
 		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
-				.setMat4("transform", useCustomConf ? _conf.matrices.transform : getTransform())
+				.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
 				.setVec4f("vertColor", m_color.asVec4())
 				.setLights("light", lights.cbegin(), lights.cend());
 
