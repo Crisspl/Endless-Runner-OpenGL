@@ -4,6 +4,7 @@
 
 #include "ResMgr.h"
 #include "Configurator.h"
+#include "ShaderSrcs.h"
 
 namespace fhl
 {
@@ -43,7 +44,7 @@ namespace fhl
 
 		renderMeshes();
 
-		Shader::unUse();
+		Shader::unuse();
 
 		if (!Configurator::isDepthTestEnabled())
 			glDisable(GL_DEPTH_TEST);

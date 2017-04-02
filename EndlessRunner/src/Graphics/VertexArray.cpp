@@ -2,6 +2,7 @@
 
 #include "ResMgr.h"
 #include "Configurator.h"
+#include "ShaderSrcs.h"
 
 namespace fhl
 {
@@ -44,7 +45,7 @@ namespace fhl
 		 glDrawArrays(m_mode, 0, m_vertices.size());
 		 m_vao.unbind();
 
-		 Shader::unUse();
+		 Shader::unuse();
 	 }
 
 	 void VertexArray::setUp()

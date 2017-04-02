@@ -1,6 +1,8 @@
 #include "ColoredRect.h"
+
 #include "Configurator.h"
 #include "ResMgr.h"
+#include "ShaderSrcs.h"
 
 namespace fhl
 {
@@ -35,7 +37,7 @@ namespace fhl
 		  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		  getVao().unbind();
 
-		  Shader::unUse();
+		  Shader::unuse();
 	 }
 
 	 void ColoredRect::setUp()

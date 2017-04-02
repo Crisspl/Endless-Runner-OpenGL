@@ -1,8 +1,10 @@
 #include "Sprite.h"
-#include "ResMgr.h"
 
 #include <iostream>
 #include <algorithm>
+
+#include "ResMgr.h"
+#include "ShaderSrcs.h"
 
 namespace fhl
 {
@@ -55,7 +57,7 @@ namespace fhl
 		  getVao().unbind();
 
 		  glBindTexture(GL_TEXTURE_2D, 0);
-		  glUseProgram(0);
+		  Shader::unuse();
 	 }
 
 	 fhl::Rect Sprite::getAABB() const

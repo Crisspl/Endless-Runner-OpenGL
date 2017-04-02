@@ -5,15 +5,11 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <fstream>
-#include <iostream>
 #include <type_traits>
 #include <iterator>
 
-#include "Texture.h"
 #include "Color.h"
 #include "Light.h"
-#include "ShaderSrcs.h"
 #include "../Maths/Mat4.h"
 
 namespace fhl { class ResMgr; }
@@ -45,10 +41,10 @@ namespace fhl
 		  ~Shader();
 
 	 public:
-		  void use() const { glUseProgram(m_shaderProgram); }
-		  static void unUse() { glUseProgram(0); }
+		  void use() const { glUseProgram(m_id); }
+		  static void unuse() { glUseProgram(0); }
 
-		  GLuint getId() const { return m_shaderProgram; }
+		  GLuint getId() const { return m_id; }
 
 		  Shader & setBoolean(const GLchar * _name, const GLboolean _value);
 		  Shader & setFloat(const GLchar * _name, const GLfloat _value);
@@ -74,7 +70,7 @@ namespace fhl
 		  void compileShaderFromFile(const GLchar * _path, GLenum _type, GLuint &);
 
 	 private:
-		  GLuint m_shaderProgram;
+		  GLuint m_id;
 	 };
 
 	 template<typename _It>

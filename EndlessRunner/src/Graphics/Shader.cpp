@@ -4,25 +4,26 @@
 #include "../Maths/mathsFuncs.h"
 
 #include <algorithm>
+#include <fstream>
 
 namespace fhl
 {
 
 	 Shader::Shader(Shader && _other)
-		  : m_shaderProgram(_other.m_shaderProgram)
+		  : m_id(_other.m_id)
 	 {
-		  _other.m_shaderProgram = 0;
+		  _other.m_id = 0;
 	 }
 
 	 Shader & Shader::operator=(Shader && _other)
 	 {
-		  std::swap(m_shaderProgram, _other.m_shaderProgram);
+		  std::swap(m_id, _other.m_id);
 
 		  return *this;
 	 }
 
 	 Shader::Shader(const GLchar * _vert, const GLchar * _frag, SourceFrom _srcFrom)
-		  : m_shaderProgram(glCreateProgram())
+		  : m_id(glCreateProgram())
 	 {
 		 GLuint vId, fId;
 		 if (_srcFrom == SourceFrom::FromFile)
@@ -36,26 +37,26 @@ namespace fhl
 			 compileShaderFromString(_frag, GL_FRAGMENT_SHADER, fId);
 		 }
 
-		 glLinkProgram(m_shaderProgram);
+		 glLinkProgram(m_id);
 
-		 glDetachShader(m_shaderProgram, vId);
+		 glDetachShader(m_id, vId);
 		 glDeleteShader(vId);
-		 glDetachShader(m_shaderProgram, fId);
+		 glDetachShader(m_id, fId);
 		 glDeleteShader(fId);
 
 		 GLint success;
 		 GLchar infoLog[0x200];
-		 glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success);
+		 glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 		 if(!success)
 		 {
-			 glGetProgramInfoLog(m_shaderProgram, 0x200, nullptr, infoLog);
+			 glGetProgramInfoLog(m_id, 0x200, nullptr, infoLog);
 			 fhl::DebugLog << "Linking of shader program failed.\n" << infoLog << '\n';
 		 }
 	 }
 
 	 Shader::~Shader()
 	 {
-		 glDeleteProgram(m_shaderProgram);
+		 glDeleteProgram(m_id);
 	 }
 
 	 Shader & Shader::setBoolean(const GLchar * _name, const GLboolean _value)
@@ -112,28 +113,32 @@ namespace fhl
 
 	 Shader& Shader::setLight(const GLchar* _name, const Light & _light)
 	 {
-		 std::string name(_name);
+		 const std::string name(_name);
 		 switch(_light.type)
 		 {
+#define COMMON_CALLS_FOR_POINT_AND_SPOT \
+setVec3f((name + ".position").c_str(), _light.position); \
+setFloat((name + ".linear").c_str(), _light.linear); \
+setFloat((name + ".quadratic").c_str(), _light.quadratic);
+
 			 case Light::Infinite:
 				 setVec3f((name + ".direction").c_str(), _light.direction);
 				 break;
 			 case Light::Point:
-				 setVec3f((name + ".position").c_str(), _light.position);
-				 setFloat((name + ".linear").c_str(), _light.linear);
-				 setFloat((name + ".quadratic").c_str(), _light.quadratic);
+				 COMMON_CALLS_FOR_POINT_AND_SPOT
 				 break;
 			 case Light::Spot:
 			 {
-				 float cutOffAngle = std::min(_light.cutOffAngle, 90.f);
-				 float outerCutOff = std::min(cutOffAngle + 20.f, 90.f);
-				 setVec3f((name + ".position").c_str(), _light.position);
+				 const float cutOffAngle = clamp(_light.cutOffAngle, 0.f, 90.f);
+				 const float outerCutOff = std::min(cutOffAngle + 20.f, 90.f);
+				 COMMON_CALLS_FOR_POINT_AND_SPOT
 				 setVec3f((name + ".direction").c_str(), _light.direction);
 				 setFloat((name + ".cutOff").c_str(), cos(toRadians(cutOffAngle)));
 				 setFloat((name + ".outerCutOff").c_str(), cos(toRadians(outerCutOff)));
-			 }
-				 break;
+			 }break;
 		 }
+#undef COMMON_CALLS_FOR_POINT_AND_SPOT
+
 		 setColor((name + ".color").c_str(), _light.color);
 		 setFloat((name + ".illuminance").c_str(), _light.illuminance);
 		 setInt((name + ".type").c_str(), _light.type);
@@ -149,19 +154,16 @@ namespace fhl
 
 	 Shader & Shader::setLights(const GLchar * _name, const std::vector<Light> & _lights)
 	 {
-		 size_t n = 0;
-		 for (auto& l : _lights)
-			 setLight(_name, l, n++);
-		 return setInt("lightsCount", _lights.size());
+		 return setLights(_name, _lights.cbegin(), _lights.cend());
 	 }
 
-	 bool Shader::operator==(const Shader& _outer)
+	 bool Shader::operator==(const Shader & _other)
 	 {
-		 return m_shaderProgram == _outer.getId();
+		 return m_id == _other.getId();
 	 }
-	 bool Shader::operator!=(const Shader& _outer)
+	 bool Shader::operator!=(const Shader & _other)
 	 {
-		 return m_shaderProgram != _outer.getId();
+		 return m_id != _other.getId();
 	 }
 
 	 void Shader::compileShaderFromString(const GLchar * _src, GLenum _type, GLuint & _idGetter)
@@ -178,7 +180,7 @@ namespace fhl
 			 fhl::DebugLog << "Failed to compile a shader \n" << infoLog << '\n';
 		 }
 
-		 glAttachShader(m_shaderProgram, shader);
+		 glAttachShader(m_id, shader);
 	 }
 
 	 void Shader::compileShaderFromFile(const GLchar * _path, GLenum _type, GLuint & _idGetter)
