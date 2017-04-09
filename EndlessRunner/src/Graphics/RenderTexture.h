@@ -74,7 +74,7 @@ GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers,
 		RenderTexture & operator=(const RenderTexture &) = delete;
 
 		void clearColor(Color _color) const;
-		void renderToTex(Renderable & _renderable) const;
+		void renderToTex(Renderable & _renderable, const RenderConf & _conf = RenderConf::Default) const;
 		Texture & getTexture() { return m_tex; }
 
 	private:

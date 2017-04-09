@@ -2,10 +2,10 @@
 
 #include "../Utility/Debug.h"
 #include "Renderer.h"
+#include "ResMgr.h"
 
 namespace fhl
 {
-
 	RenderTexture::RenderTexture(Texture & _tex) :
 		m_tex(_tex)
 	{
@@ -20,16 +20,15 @@ namespace fhl
 		m_fbo.unbind();
 	}
 
-	void RenderTexture::renderToTex(Renderable & _renderable) const
+	void RenderTexture::renderToTex(Renderable & _renderable, const RenderConf & _conf) const
 	{
 		m_fbo.bind();
-		Renderer::render(_renderable);
+		Renderer::render(_renderable, _conf);
 		m_fbo.unbind();
 	}
 
 	void RenderTexture::setUp()
 	{
-
 		m_fbo.bind();
 
 		m_fbo.attachTexture(m_tex.get().getId());
