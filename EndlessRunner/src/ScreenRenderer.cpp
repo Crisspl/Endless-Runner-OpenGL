@@ -6,7 +6,6 @@ ScreenRenderer::ScreenRenderer()
         m_renderTex(fhl::ResMgr::createTexture("screenTex", fhl::Vec2i(800, 600))),
         m_screen(m_renderTex.getTexture())
 {
-   m_renderTex.create();
    m_screen.setShader(m_shader);
    m_screen.setSize({2, 2});
    m_screen.setTextureRect(fhl::Rect(m_renderTex.getTexture().getSize()));

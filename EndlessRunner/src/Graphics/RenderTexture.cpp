@@ -6,46 +6,41 @@
 namespace fhl
 {
 
-	 RenderTexture::RenderTexture(Texture& _tex)
-			 : m_refTex(_tex)
-	 {
-	 }
+	RenderTexture::RenderTexture(Texture & _tex) :
+		m_tex(_tex)
+	{
+		setUp();
+	}
 
-	 bool RenderTexture::create()
-	 {
-		 glGenFramebuffers(1, &m_fbo);
-		 glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
+	void RenderTexture::clearColor(Color _color) const
+	{
+		m_fbo.bind();
+		glClearColor(_color.r, _color.g, _color.b, _color.a);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		m_fbo.unbind();
+	}
 
-		 glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_refTex.getId(), 0);
+	void RenderTexture::renderToTex(Renderable & _renderable) const
+	{
+		m_fbo.bind();
+		Renderer::render(_renderable);
+		m_fbo.unbind();
+	}
 
-		 glGenRenderbuffers(1, &m_rbo);
-		 glBindRenderbuffer(GL_RENDERBUFFER, m_rbo);
-		 glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_refTex.getSize().x, m_refTex.getSize().y);
-		 glBindRenderbuffer(GL_RENDERBUFFER, 0);
-		 glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_rbo);
+	void RenderTexture::setUp()
+	{
 
-		 if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-		 {
-			 fhl::DebugLog << "Framebuffer is not complete! <fhl::RenderTexture>" << '\n';
-			 return false;
-		 }
-		 glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		m_fbo.bind();
 
-		 return true;
-	 }
+		m_fbo.attachTexture(m_tex.getId());
+		m_rbo.bind();
+		m_rbo.establishStorage(m_tex.getSize());
+		m_rbo.unbind();
+		m_fbo.attachRbo(m_rbo);
+		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+			fhl::DebugLog << "Framebuffer is not complete! <fhl::RenderTexture>" << '\n';
 
-	 void RenderTexture::clearColor(Vec4f _color)
-	 {
-		 glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-		 glClearColor(_color.x, _color.y, _color.z, _color.w);
-		 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	 }
+		m_fbo.unbind();
+	}
 
-	 void RenderTexture::renderToTex(Renderable & _obj)
-	 {
-		 glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-		 fhl::Renderer::render(_obj);
-		 glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	 }
-
-} // ns
+}

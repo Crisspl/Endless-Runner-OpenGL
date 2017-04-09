@@ -48,6 +48,8 @@ private:
    Sphere m_sphere;
    std::vector<Island> m_vecIslands;
    EndlessCliff m_cliff;
+	fhl::RenderTexture m_rt;
+	fhl::Sprite m_spr;
 
    fhl::Clock m_timer;
    float dt;

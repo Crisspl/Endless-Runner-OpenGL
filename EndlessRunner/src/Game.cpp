@@ -10,8 +10,12 @@ SDL_GLContext Game::m_context;
 
 Game::Game() : 
 	m_sphere(&m_hero),
-	m_running(true)
+	m_running(true),
+	m_rt(fhl::ResMgr::createTexture("rt", { 200, 200 })),
+	m_spr(m_rt.getTexture())
 {
+	m_spr.setRotation(270.f).setPosition({ 400, 300 }).setOrigin(m_spr.getSize() / 2.f);
+
    fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
    fhl::ResMgr::loadTexture("coinTex", "Resources/Tex/coin.png");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
@@ -164,10 +168,16 @@ void Game::update()
 	   lights.push_back(light3);
 
    m_cliff.setLights(lights);
+
+	m_spr.rotate(100.f * dt);
 }
 
 void Game::draw()
 {
+	constexpr fhl::Color rtCleanColor(0, 0, 1, 0.3f);
+	m_rt.clearColor(rtCleanColor);
+	m_rt.renderToTex(m_sphere);
+
 	fhl::Renderer::clearColor();
    m_renderer.clearColor(fhl::Vec4f(0.f, 0.f, 0.f, 1.f));
 
@@ -178,6 +188,8 @@ void Game::draw()
    m_renderer.renderToTex(m_hero);
    if(m_sphere.getState() != Sphere::State_Idle)
 		m_renderer.renderToTex(m_sphere);
+
+	m_renderer.renderToTex(m_spr);
 
    m_renderer.renderToScreen();
 
