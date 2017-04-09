@@ -32,9 +32,9 @@ namespace fhl
 
 		m_fbo.bind();
 
-		m_fbo.attachTexture(m_tex.getId());
+		m_fbo.attachTexture(m_tex.get().getId());
 		m_rbo.bind();
-		m_rbo.establishStorage(m_tex.getSize());
+		m_rbo.establishStorage(m_tex.get().getSize());
 		m_rbo.unbind();
 		m_fbo.attachRbo(m_rbo);
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)

@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 
 #include <algorithm>
+#include <functional>
 
 #include "Texture.h"
 #include "Renderable.h"
@@ -82,7 +83,7 @@ GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers,
 	private:
 		GlFbo m_fbo;
 		GlRbo m_rbo;
-		Texture & m_tex;
+		std::reference_wrapper<Texture> m_tex;
 	};
 
 } // ns
