@@ -10,7 +10,7 @@ namespace fhl
 	bool Configurator::m_initialized{ false };
 	std::unique_ptr<internal::Buffer> Configurator::m_rectShapeEbo(nullptr);
 	Mat4 Configurator::m_projection;
-	Mat4 * Configurator::m_currentGlobal3DView{ nullptr };
+	Configurator::View * Configurator::m_currentGlobal3DView{ nullptr };
 
 	const GLuint Configurator::m_rectShapeIndices[] =
 	{
@@ -18,7 +18,7 @@ namespace fhl
 		 1, 2, 3
 	};
 	Vec2i Configurator::m_vpSize;
-	std::map<std::string, Mat4> Configurator::m_views;
+	std::map<std::string, Configurator::View> Configurator::m_views;
 	bool Configurator::m_depthTestEnabled{ false };
 
 	void Configurator::init(GLuint _width, GLuint _height)
@@ -51,18 +51,19 @@ namespace fhl
 		m_initialized = true;
 	}
 
-	Mat4 Configurator::getView(const std::string & _name)
+	Configurator::View Configurator::getView(const std::string & _name)
 	{
 		if (m_views.find(_name) != m_views.end())
 			return m_views[_name];
 		else
-			return Mat4::identity();
+			return{ Mat4::identity(), Vec3f::zero() };
 	}
 
 	void Configurator::setDefaultViewDistance(float _eyeZ)
 	{
 		Vec2f halfVp = Vec2f(m_vpSize) / 2.f;
-		m_views[m_defViewName] = Mat4::lookAt(Vec3f(halfVp.x, halfVp.y, _eyeZ), Vec3f(halfVp.x, halfVp.y, 0), Vec3f::up());
+		const Vec3f eye = Vec3f(Vec2f(m_vpSize) / 2.f, _eyeZ);
+		m_views[m_defViewName] = { Mat4::lookAt(eye, Vec3f(halfVp.x, halfVp.y, 0), Vec3f::up()), eye };
 	}
 
 	void Configurator::setGlobal3DView(const std::string & _name)
@@ -71,16 +72,16 @@ namespace fhl
 			m_currentGlobal3DView = &m_views[_name];
 	}
 
-	void Configurator::setView(const std::string & _name, const Mat4 & _view)
-	{
-		if (m_views.find(_name) == m_views.end())
-			m_views[_name] = _view;
-	}
-
-	void Configurator::addView(const std::string & _name, const Mat4 & _view)
+	void Configurator::setView(const std::string & _name, const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up)
 	{
 		if (m_views.find(_name) != m_views.end())
-			m_views[_name] = _view;
+			m_views[_name] = { Mat4::lookAt(_eye, _center, _up), _eye };
+	}
+
+	void Configurator::addView(const std::string & _name, const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up)
+	{
+		if (m_views.find(_name) == m_views.end())
+			m_views[_name] = { Mat4::lookAt(_eye, _center, _up), _eye };
 	}
 
 	void Configurator::setEnableDepthTest(bool _enable)

@@ -17,19 +17,26 @@ namespace fhl
 	{
 		Configurator() = delete;
 
+		struct View
+		{
+			Mat4 matrix;
+			Vec3f cameraPos;
+		};
+
 	public:
 		static void init(GLuint _width, GLuint _height);
 
 		static Vec2i viewportSize() { return m_vpSize; }
-		static const Mat4 & view() { return m_views[m_defViewName]; }
-		static const Mat4 & global3DView() { return *m_currentGlobal3DView; }
-		static Mat4 getView(const std::string & _name);
+		static const Mat4 & view() { return m_views[m_defViewName].matrix; }
+		static const Vec3f & cameraPos() { return m_views[m_defViewName].cameraPos; }
+		static const View & global3DView() { return *m_currentGlobal3DView; }
+		static View getView(const std::string & _name);
 		static const Mat4 & projection() { return m_projection; }
 
 		static void setDefaultViewDistance(float _eyeZ);
 		static void setGlobal3DView(const std::string & _name);
-		static void setView(const std::string & _name, const Mat4 & _view);
-		static void addView(const std::string & _name, const Mat4 & _view);
+		static void setView(const std::string & _name, const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up);
+		static void addView(const std::string & _name, const Vec3f & _eye, const Vec3f & _center, const Vec3f & _up);
 		static void resetGlobal3DView() { m_currentGlobal3DView = &m_views[m_defViewName]; }
 
 		static void setEnableDepthTest(bool _enable);
@@ -41,10 +48,10 @@ namespace fhl
 		static bool m_initialized;
 		static std::unique_ptr<internal::Buffer> m_rectShapeEbo;
 		static Mat4 m_projection;
-		static Mat4 * m_currentGlobal3DView;
+		static View * m_currentGlobal3DView;
 		static const GLuint m_rectShapeIndices[6];
 		static Vec2i m_vpSize;
-		static std::map<std::string, Mat4> m_views;
+		static std::map<std::string, View> m_views;
 		static bool m_depthTestEnabled;
 
 		static constexpr const char * m_defViewName = "_FHL_default";

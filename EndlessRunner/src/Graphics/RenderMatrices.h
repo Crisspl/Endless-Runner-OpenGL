@@ -9,7 +9,7 @@ namespace fhl
 	 {
 		  bool operator==(const RenderMatrices & _other) const
 		  {
-				return transform == _other.transform && mvp == _other.mvp;
+				return transform == _other.transform && mvp == _other.mvp && cameraPosition == _other.cameraPosition;
 		  }
 
 		  bool operator!=(const RenderMatrices & _other) const
@@ -18,6 +18,7 @@ namespace fhl
 		  }
 
 		  Mat4 transform, mvp;
+		  Vec3f cameraPosition;
 	 };
 }
 
