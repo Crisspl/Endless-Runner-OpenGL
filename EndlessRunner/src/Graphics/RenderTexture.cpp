@@ -37,7 +37,7 @@ namespace fhl
 		m_rbo.unbind();
 		m_fbo.attachRbo(m_rbo);
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-			fhl::DebugLog << "Framebuffer is not complete! <fhl::RenderTexture>" << '\n';
+			fhl::DebugLog << "Framebuffer is not complete! <fhl::RenderTexture>\n";
 
 		m_fbo.unbind();
 	}

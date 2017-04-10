@@ -35,7 +35,7 @@ namespace fhl
 		static void setEnableDepthTest(bool _enable);
 		static bool isDepthTestEnabled() { return m_depthTestEnabled; }
 
-		static const internal::Buffer & getRectShapeEbo() { return *m_rectShapeEbo.get(); }
+		static const internal::Buffer & getRectShapeEbo() { return *m_rectShapeEbo; }
 
 	private:
 		static bool m_initialized;
