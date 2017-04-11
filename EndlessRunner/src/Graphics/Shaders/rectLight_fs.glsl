@@ -21,6 +21,7 @@
 "in vec3 FragPos;\n"
 
 "uniform vec4 vertColor;\n"
+"uniform vec3 cameraPos;\n"
 "uniform Light light[50];\n"
 "uniform int lightsCount;\n"
 
@@ -36,7 +37,7 @@
 	 "if(vertColor.a == 0)\n"
 		  "discard;\n"
 	 "color = vertColor;\n"
-	 "vec3 viewDir = normalize(vec3(400, 300, 726) - FragPos);\n"
+	 "vec3 viewDir = normalize(cameraPos - FragPos);\n"
 
 	 "vec3 result;\n"
 	 "for(int i = 0; i < lightsCount; i++)\n"

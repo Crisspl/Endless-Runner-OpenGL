@@ -7,8 +7,7 @@
 #include <map>
 
 #include "Buffer.h"
-#include "../Maths/vectors.h"
-#include "../Maths/Mat4.h"
+#include "View.h"
 
 namespace fhl
 {
@@ -16,12 +15,6 @@ namespace fhl
 	class Configurator
 	{
 		Configurator() = delete;
-
-		struct View
-		{
-			Mat4 matrix;
-			Vec3f cameraPos;
-		};
 
 	public:
 		static void init(GLuint _width, GLuint _height);
@@ -32,6 +25,7 @@ namespace fhl
 		static const View & global3DView() { return *m_currentGlobal3DView; }
 		static View getView(const std::string & _name);
 		static const Mat4 & projection() { return m_projection; }
+		constexpr static const char * getDefaultViewName() { return m_defViewName; }
 
 		static void setDefaultViewDistance(float _eyeZ);
 		static void setGlobal3DView(const std::string & _name);

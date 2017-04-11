@@ -10,7 +10,7 @@ namespace fhl
 	bool Configurator::m_initialized{ false };
 	std::unique_ptr<internal::Buffer> Configurator::m_rectShapeEbo(nullptr);
 	Mat4 Configurator::m_projection;
-	Configurator::View * Configurator::m_currentGlobal3DView{ nullptr };
+	View * Configurator::m_currentGlobal3DView{ nullptr };
 
 	const GLuint Configurator::m_rectShapeIndices[] =
 	{
@@ -18,7 +18,7 @@ namespace fhl
 		 1, 2, 3
 	};
 	Vec2i Configurator::m_vpSize;
-	std::map<std::string, Configurator::View> Configurator::m_views;
+	std::map<std::string, View> Configurator::m_views;
 	bool Configurator::m_depthTestEnabled{ false };
 
 	void Configurator::init(GLuint _width, GLuint _height)
@@ -51,7 +51,7 @@ namespace fhl
 		m_initialized = true;
 	}
 
-	Configurator::View Configurator::getView(const std::string & _name)
+	View Configurator::getView(const std::string & _name)
 	{
 		if (m_views.find(_name) != m_views.end())
 			return m_views[_name];

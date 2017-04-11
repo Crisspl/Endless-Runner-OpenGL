@@ -31,6 +31,7 @@
 "out vec4 color;\n"
 
 "uniform Material material;\n"
+"uniform vec3 cameraPos;\n"
 "uniform Light light[50];\n"
 "uniform int lightsCount;\n"
 "uniform bool useColorOnly;\n"
@@ -48,7 +49,7 @@
 		  "discard;\n"
 
 	 "vec3 normal = normalize(Normal);\n"
-	 "vec3 viewDir = normalize(vec3(400, 300, 726) - FragPos);\n"
+	 "vec3 viewDir = normalize(cameraPos - FragPos);\n"
 
 	 "vec3 result;\n"
 	 "for(int i = 0; i < lightsCount; i++)\n"

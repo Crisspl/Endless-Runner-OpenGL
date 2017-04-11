@@ -6,6 +6,7 @@
 
 namespace fhl
 {
+	struct View;
 
 	class Transformable3D
 	{
@@ -33,12 +34,12 @@ namespace fhl
 		Mat4 getMVP() const;
 		RenderMatrices getMatrices() const;
 
-		static RenderMatrices createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const std::string & _viewName);
+		static RenderMatrices createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const View & _view);
 		RenderMatrices calcModifiedRenderMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const;
 
 	private:
 		static Mat4 createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);
-		Mat4 getView() const;
+		View getView() const;
 
 	private:
 		Quaternion m_rotation;

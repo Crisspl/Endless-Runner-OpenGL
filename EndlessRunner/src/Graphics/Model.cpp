@@ -34,9 +34,11 @@ namespace fhl
 		bool useCustomConf = _conf != RenderConf::Default;
 
 		const auto & lights = useCustomConf ? _conf.lights : getLights();
+		const auto & matrices = useCustomConf ? _conf.matrices : getMatrices();
 
-		shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
-			.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
+		shader.setMat4("mvp", matrices.mvp)
+			.setMat4("model", matrices.transform)
+			.setVec3f("cameraPos", matrices.cameraPosition)
 			.setFloat("material.shininess", 5.f)
 			.setLights("light", lights.cbegin(), lights.cend())
 			.setBoolean("useColorOnly", m_useColorOnly)

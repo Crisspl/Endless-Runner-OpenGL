@@ -47,9 +47,11 @@ namespace fhl
 				glBindTexture(GL_TEXTURE_2D, getTexture()->getId());
 
 		  const auto & lights = useCustomConf ? _conf.lights : getLights();
+		  const auto & matrices = useCustomConf ? _conf.matrices : getMatrices();
 
-		  shader.setMat4("mvp", useCustomConf ? _conf.matrices.mvp : getMVP())
-				.setMat4("model", useCustomConf ? _conf.matrices.transform : getTransform())
+		  shader.setMat4("mvp", matrices.mvp)
+				.setMat4("model", matrices.transform)
+				.setVec3f("cameraPos", matrices.cameraPosition)
 				.setLights("light", lights.cbegin(), lights.cend());
 
 		  getVao().bind();

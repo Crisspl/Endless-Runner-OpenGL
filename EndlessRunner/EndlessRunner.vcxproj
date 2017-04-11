@@ -221,6 +221,7 @@
     <ClInclude Include="src\Graphics\Vao.h" />
     <ClInclude Include="src\Graphics\Vertex.h" />
     <ClInclude Include="src\Graphics\VertexArray.h" />
+    <ClInclude Include="src\Graphics\View.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Island.h" />

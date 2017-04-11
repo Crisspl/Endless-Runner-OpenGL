@@ -335,6 +335,9 @@
     <ClInclude Include="src\Graphics\ModelData.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\View.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Graphics\Shaders\array_fs.glsl">

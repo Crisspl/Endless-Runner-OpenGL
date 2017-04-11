@@ -71,29 +71,29 @@ namespace fhl
 	{
 		return
 			Configurator::projection() *
-			getView() *
+			getView().matrix *
 			getTransform();
 	}
 
 	RenderMatrices Transformable3D::getMatrices() const
 	{
-		return{ getTransform(), getMVP(), Configurator::getView(m_viewName).cameraPos };
+		return{ getTransform(), getMVP(), getView().cameraPos };
 	}
 
-	RenderMatrices Transformable3D::createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const std::string & _viewName)
+	RenderMatrices Transformable3D::createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const View & _view)
 	{
 		const Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _rotation);
 		return
 		{
 			 transform,
-			 Configurator::projection() * Configurator::getView(_viewName).matrix * transform,
-			 Configurator::getView(_viewName).cameraPos
+			 Configurator::projection() * _view.matrix * transform,
+			 _view.cameraPos
 		};
 	}
 
 	RenderMatrices Transformable3D::calcModifiedRenderMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const
 	{
-		return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation, m_viewName);
+		return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation, getView());
 	}
 
 	Mat4 Transformable3D::createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
@@ -106,9 +106,9 @@ namespace fhl
 			Mat4::translate(-_origin);
 	}
 
-	Mat4 Transformable3D::getView() const
+	View Transformable3D::getView() const
 	{
-		return m_viewName.empty() ? Configurator::global3DView().matrix : Configurator::getView(m_viewName).matrix;
+		return m_viewName.empty() ? Configurator::global3DView() : Configurator::getView(m_viewName);
 	}
 
 } // ns
