@@ -100,8 +100,7 @@ namespace fhl
 	{
 		return
 			Mat4::scale(_scale) *
-			Mat4::translate((_pos - _origin) / _scale) *
-			Mat4::translate(_origin) *
+			Mat4::translate(_origin + (_pos - _origin) / _scale) *
 			_rotation.toMat4() *
 			Mat4::translate(-_origin);
 	}
