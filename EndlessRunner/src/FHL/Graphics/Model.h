@@ -1,13 +1,13 @@
 #ifndef FHL_MODEL_H
 #define FHL_MODEL_H
 
-#include "Vao.h"
-#include "Renderable.h"
-#include "Transformable3D.h"
-#include "Litable.h"
-#include "UsingShader.h"
-#include "ModelData.h"
-#include "Color.h"
+#include <FHL/Graphics/Vao.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Transformable3D.h>
+#include <FHL/Graphics/Litable.h>
+#include <FHL/Graphics/UsingShader.h>
+#include <FHL/Graphics/ModelData.h>
+#include <FHL/Graphics/Color.h>
 
 namespace fhl
 {

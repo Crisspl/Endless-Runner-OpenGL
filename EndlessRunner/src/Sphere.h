@@ -3,12 +3,13 @@
 
 #include <cmath>
 
-#include "Graphics/ResMgr.h"
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Renderer.h>
+#include <FHL/Graphics/Sprite.h>
+
 #include "Collideable.h"
-#include "Graphics/Sprite.h"
 #include "Hero.h"
-#include "Graphics/Renderable.h"
-#include "Graphics/Renderer.h"
 
 #define DECLARE_SPHERE_STATE_METHODS(stateName) \
    void stateName##_onEnter(const State); \

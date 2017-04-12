@@ -6,8 +6,8 @@
 #include <memory>
 #include <map>
 
-#include "Buffer.h"
-#include "View.h"
+#include <FHL/Graphics/Buffer.h>
+#include <FHL/Graphics/View.h>
 
 namespace fhl
 {

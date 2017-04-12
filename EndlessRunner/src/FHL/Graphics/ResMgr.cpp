@@ -1,9 +1,9 @@
-#include "ResMgr.h"
+#include <FHL/Graphics/ResMgr.h>
 
-#include "ColoredRect.h"
-#include "Model.h"
-#include "Sprite.h"
-#include "VertexArray.h"
+#include <FHL/Graphics/ColoredRect.h>
+#include <FHL/Graphics/Model.h>
+#include <FHL/Graphics/Sprite.h>
+#include <FHL/Graphics/VertexArray.h>
 
 namespace fhl
 {

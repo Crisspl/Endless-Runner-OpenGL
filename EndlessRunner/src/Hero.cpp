@@ -1,6 +1,6 @@
 #include "Hero.h"
 
-#include "Graphics/ResMgr.h"
+#include <FHL/Graphics/ResMgr.h>
 
 #define REGISTER_HERO_STATES(stateName) \
    m_onEnter[State_##stateName] \

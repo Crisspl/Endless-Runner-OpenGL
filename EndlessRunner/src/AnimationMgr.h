@@ -1,9 +1,9 @@
 #ifndef ANIMATIONMGR_H
 #define ANIMATIONMGR_H
 
-#include "Utility/Rect.h"
-#include "Graphics/Sprite.h"
-#include "Maths/vectors.h"
+#include <FHL/Utility/Rect.h>
+#include <FHL/Graphics/Sprite.h>
+#include <FHL/Maths/vectors.h>
 
 class AnimationMgr
 {

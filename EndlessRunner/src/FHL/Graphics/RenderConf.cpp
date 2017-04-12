@@ -1,4 +1,4 @@
-#include "RenderConf.h"
+#include <FHL/Graphics/RenderConf.h>
 
 namespace fhl
 {

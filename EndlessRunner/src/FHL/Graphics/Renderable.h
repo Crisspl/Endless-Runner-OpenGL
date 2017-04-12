@@ -1,7 +1,7 @@
 #ifndef FHL_RENDERABLE_H
 #define FHL_RENDERABLE_H
 
-#include "RenderConf.h"
+#include <FHL/Graphics/RenderConf.h>
 
 namespace fhl
 {

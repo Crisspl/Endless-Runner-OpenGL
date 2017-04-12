@@ -1,9 +1,11 @@
 #ifndef SOUNDMGR_H
 #define SOUNDMGR_H
 
-#include <SFML/Audio.hpp>
 #include <map>
-#include "Utility\Debug.h"
+
+#include <SFML/Audio.hpp>
+
+#include <FHL/Utility/Debug.h>
 
 class SoundMgr
 {

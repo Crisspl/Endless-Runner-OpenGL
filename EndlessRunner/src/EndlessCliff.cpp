@@ -1,6 +1,6 @@
 #include "EndlessCliff.h"
 
-#include "Graphics/ResMgr.h"
+#include <FHL/Graphics/ResMgr.h>
 
 EndlessCliff::EndlessCliff()
 	: m_model(fhl::ResMgr::loadModelData("cliffModel", "Resources/cliff/Cliff_new.obj"))

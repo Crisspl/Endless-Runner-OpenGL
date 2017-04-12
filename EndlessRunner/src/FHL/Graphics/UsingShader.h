@@ -1,7 +1,7 @@
 #ifndef FHL_USINGSHADER_H
 #define FHL_USINGSHADER_H
 
-#include "Shader.h"
+#include <FHL/Graphics/Shader.h>
 
 namespace fhl
 {

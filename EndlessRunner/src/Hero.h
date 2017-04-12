@@ -1,13 +1,14 @@
 #ifndef HERO_H
 #define HERO_H
 
-#include "Graphics/Sprite.h"
+#include <FHL/Graphics/Sprite.h>
+#include <FHL/Graphics/Renderer.h>
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Graphics/Renderable.h>
+
 #include "Collideable.h"
-#include "Graphics/Renderable.h"
 #include "Global.h"
 #include "AnimationMgr.h"
-#include "Graphics/Renderer.h"
-#include "Graphics/Transformable.h"
 
 #define DECLARE_HERO_STATE_METHODS(stateName) \
    void stateName##_onEnter(const Hero::State); \

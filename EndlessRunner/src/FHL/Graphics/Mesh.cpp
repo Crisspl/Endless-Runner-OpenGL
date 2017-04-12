@@ -1,4 +1,4 @@
-#include "Mesh.h"
+#include <FHL/Graphics/Mesh.h>
 
 namespace fhl { namespace internal
 {

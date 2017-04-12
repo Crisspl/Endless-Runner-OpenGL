@@ -1,8 +1,8 @@
-#include "VertexArray.h"
+#include <FHL/Graphics/VertexArray.h>
 
-#include "ResMgr.h"
-#include "Configurator.h"
-#include "ShaderSrcs.h"
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Graphics/Configurator.h>
+#include <FHL/Graphics/ShaderSrcs.h>
 
 namespace fhl
 {

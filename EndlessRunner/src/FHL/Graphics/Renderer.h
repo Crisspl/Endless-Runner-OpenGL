@@ -1,9 +1,9 @@
 #ifndef FHL_RENDERER_H
 #define FHL_RENDERER_H
 
-#include "Renderable.h"
-#include "RenderConf.h"
-#include "Color.h"
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/RenderConf.h>
+#include <FHL/Graphics/Color.h>
 
 namespace fhl
 {

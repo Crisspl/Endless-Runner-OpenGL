@@ -3,8 +3,8 @@
 
 #include <list>
 
-#include "Transformable.h"
-#include "Light.h"
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Graphics/Light.h>
 
 namespace fhl
 {

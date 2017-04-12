@@ -1,6 +1,6 @@
-#include "Rect.h"
+#include <FHL/Utility/Rect.h>
 
-#include "../Graphics/Transformable.h"
+#include <FHL/Graphics/Transformable.h>
 
 namespace fhl
 {

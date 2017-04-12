@@ -1,8 +1,8 @@
-#include "Transformable.h"
+#include <FHL/Graphics/Transformable.h>
 
 #include <cmath>
 
-#include "Configurator.h"
+#include <FHL/Graphics/Configurator.h>
 
 namespace fhl
 {

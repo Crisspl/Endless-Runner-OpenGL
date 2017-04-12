@@ -1,12 +1,12 @@
 #ifndef SCREENRENDERER_H
 #define SCREENRENDERER_H
 
-#include "Graphics/ResMgr.h"
-#include "Graphics/RenderTexture.h"
-#include "Graphics/Shader.h"
-#include "Graphics/Renderable.h"
-#include "Graphics/Configurator.h"
-#include "Graphics/Sprite.h"
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Graphics/RenderTexture.h>
+#include <FHL/Graphics/Shader.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Configurator.h>
+#include <FHL/Graphics/Sprite.h>
 
 class ScreenRenderer
 {

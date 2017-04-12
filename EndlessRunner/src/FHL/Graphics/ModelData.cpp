@@ -1,6 +1,6 @@
-#include "ModelData.h"
+#include <FHL/Graphics/ModelData.h>
 
-#include "ResMgr.h"
+#include <FHL/Graphics/ResMgr.h>
 
 namespace fhl
 {

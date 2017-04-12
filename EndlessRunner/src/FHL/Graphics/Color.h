@@ -3,9 +3,9 @@
 
 #include <algorithm>
 
-#include "../Utility/Debug.h"
-#include "../Maths/vectors.h"
-#include "../Maths/mathsFuncs.h"
+#include <FHL/Utility/Debug.h>
+#include <FHL/Maths/vectors.h>
+#include <FHL/Maths/mathsFuncs.h>
 
 namespace fhl
 {

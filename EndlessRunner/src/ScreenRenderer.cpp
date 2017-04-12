@@ -1,5 +1,6 @@
 #include "ScreenRenderer.h"
-#include "Graphics/Renderer.h"
+
+#include <FHL/Graphics/Renderer.h>
 
 ScreenRenderer::ScreenRenderer()
       : m_shader(fhl::ResMgr::loadShader("screenShader", "Resources/ShaderSrcs/screen_vs.glsl", "Resources/ShaderSrcs/screen_fs.glsl", fhl::Shader::FromFile)),

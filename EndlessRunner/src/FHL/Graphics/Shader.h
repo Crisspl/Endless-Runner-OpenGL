@@ -1,16 +1,17 @@
 #ifndef FHL_SHADER_H
 #define FHL_SHADER_H
 
-#include <GL/glew.h>
 #include <algorithm>
 #include <vector>
 #include <string>
 #include <type_traits>
 #include <iterator>
 
-#include "Color.h"
-#include "Light.h"
-#include "../Maths/Mat4.h"
+#include <GL/glew.h>
+
+#include <FHL/Graphics/Color.h>
+#include <FHL/Graphics/Light.h>
+#include <FHL/Maths/Mat4.h>
 
 namespace fhl { class ResMgr; }
 

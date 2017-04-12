@@ -28,11 +28,8 @@
     <Filter Include="Source Files\Maths">
       <UniqueIdentifier>{0d37c23e-f940-4a72-adf8-14cfafe1a6d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Maths">
-      <UniqueIdentifier>{121407b4-4c01-4f3a-990e-989ef331cc55}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Graphics\Shaders">
-      <UniqueIdentifier>{a8ecff8d-c9da-41fe-8411-8e4fd0af5efe}</UniqueIdentifier>
+      <UniqueIdentifier>{63e63965-437a-4e89-84a9-2730dce0d676}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,77 +69,8 @@
     <ClCompile Include="src\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\Buffer.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Color.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\ColoredRect.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Configurator.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Light.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Mesh.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Model.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\RenderTexture.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Shader.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Sizeable.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Sprite.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Texture.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\TexturedSizeable.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Transformable.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Transformable3D.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Vao.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\VertexArray.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utility\OrientedRect.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utility\Clock.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utility\Rect.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utility\Debug.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Maths\Mat4.cpp">
-      <Filter>Source Files\Maths</Filter>
-    </ClCompile>
     <ClCompile Include="src\Coin.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\ResMgr.cpp">
-      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\SoundMgr.cpp">
       <Filter>Source Files</Filter>
@@ -150,20 +78,89 @@
     <ClCompile Include="src\EndlessCliff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\RenderConf.cpp">
+    <ClCompile Include="src\FHL\Graphics\Configurator.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\UsingShader.cpp">
+    <ClCompile Include="src\FHL\Graphics\Transformable3D.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Maths\Quaternion.cpp">
+    <ClCompile Include="src\FHL\Graphics\Transformable.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\ColoredRect.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Model.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Sprite.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\RenderTexture.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Shader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\VertexArray.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Light.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\ResMgr.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Mesh.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\ModelData.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\RenderConf.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Buffer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Color.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Renderer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Sizeable.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\TexturedSizeable.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Vao.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\UsingShader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Graphics\Texture.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Maths\Quaternion.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\Renderer.cpp">
-      <Filter>Source Files\Graphics</Filter>
+    <ClCompile Include="src\FHL\Maths\Mat4.cpp">
+      <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\ModelData.cpp">
-      <Filter>Source Files\Graphics</Filter>
+    <ClCompile Include="src\FHL\Utility\OrientedRect.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Utility\Rect.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Utility\Clock.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Utility\Debug.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,95 +200,8 @@
     <ClInclude Include="src\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utility\Clock.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility\OrientedRect.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility\Rect.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\TexturedSizeable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\VertexArray.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Vertex.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Vao.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Transformable3D.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Transformable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Sizeable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Shader.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\RenderTexture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Model.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Mesh.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Litable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Light.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Configurator.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\ColoredRect.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Color.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Buffer.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Texture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Sprite.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Vec2.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Vec3.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Vec4.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility\Debug.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Mat4.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
     <ClInclude Include="src\Coin.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\ResMgr.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\ShaderSrcs.h">
-      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\SoundMgr.h">
       <Filter>Header Files</Filter>
@@ -299,87 +209,147 @@
     <ClInclude Include="src\EndlessCliff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Maths\Constants.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Renderable.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\RenderConf.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\UsingShader.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\mathsFuncs.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\vectors.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Quaternion.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\swizzle.h">
-      <Filter>Header Files\Maths</Filter>
-    </ClInclude>
     <ClInclude Include="src\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\Renderer.h">
+    <ClInclude Include="src\FHL\Graphics\Configurator.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\RenderMatrices.h">
+    <ClInclude Include="src\FHL\Graphics\Vao.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\ModelData.h">
+    <ClInclude Include="src\FHL\Graphics\Texture.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\View.h">
+    <ClInclude Include="src\FHL\Graphics\RenderMatrices.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Transformable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Transformable3D.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\View.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\RenderTexture.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Shader.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Model.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Light.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\ColoredRect.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\ModelData.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Mesh.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\ResMgr.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\RenderConf.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Renderer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Renderable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Buffer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Sprite.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Color.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\VertexArray.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Vertex.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Sizeable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\TexturedSizeable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\UsingShader.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\ShaderSrcs.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Graphics\Litable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Rect.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Utility\OrientedRect.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Debug.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Clock.h">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Graphics\Shaders\array_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\array_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\array_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\array_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\model_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\model_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\model_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\model_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\modelLight_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\modelLight_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\modelLight_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\modelLight_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\rect_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\rect_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\rect_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\rect_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\rectLight_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\rectLight_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\rectLight_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\rectLight_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\sprite_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\sprite_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\sprite_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\sprite_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\spriteLight_fs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\spriteLight_fs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
-    <None Include="src\Graphics\Shaders\spriteLight_vs.glsl">
+    <None Include="src\FHL\Graphics\Shaders\spriteLight_vs.glsl">
       <Filter>Header Files\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

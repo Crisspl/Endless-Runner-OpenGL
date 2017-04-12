@@ -1,12 +1,12 @@
 #ifndef FHL_LITABLE_H
 #define FHL_LITABLE_H
 
-#include "Light.h"
-
 #include <list>
 #include <vector>
 #include <type_traits>
 #include <iterator>
+
+#include <FHL/Graphics/Light.h>
 
 namespace fhl
 {

@@ -1,11 +1,12 @@
 #ifndef COIN_H
 #define COIN_H
 
-#include "Graphics/Renderer.h"
-#include "Graphics/Renderable.h"
-#include "Graphics/Transformable.h"
-#include "Graphics/Sprite.h"
-#include "Graphics/ResMgr.h"
+#include <FHL/Graphics/Renderer.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Graphics/Sprite.h>
+#include <FHL/Graphics/ResMgr.h>
+
 #include "Collideable.h"
 #include "CircleCollider.h"
 #include "Global.h"

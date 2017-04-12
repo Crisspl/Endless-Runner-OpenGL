@@ -1,8 +1,8 @@
 #ifndef ENDLESSCLIFF_H
 #define ENDLESSCLIFF_H
 
-#include "Graphics/Model.h"
-#include "Graphics/Renderer.h"
+#include <FHL/Graphics/Model.h>
+#include <FHL/Graphics/Renderer.h>
 
 class EndlessCliff
 	: public fhl::Renderable

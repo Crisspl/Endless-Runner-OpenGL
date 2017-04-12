@@ -4,14 +4,15 @@
 #include <vector>
 #include <random>
 
+#include <FHL/Graphics/Sprite.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Renderer.h>
+#include <FHL/Graphics/Light.h>
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Maths/vectors.h>
+
 #include "Global.h"
-#include "Graphics/ResMgr.h"
 #include "Collideable.h"
-#include "Graphics/Sprite.h"
-#include "Graphics/Renderable.h"
-#include "Graphics/Renderer.h"
-#include "Graphics/Light.h"
-#include "Maths/vectors.h"
 #include "Coin.h"
 
 class Island

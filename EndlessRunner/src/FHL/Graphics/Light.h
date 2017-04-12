@@ -1,7 +1,7 @@
 #ifndef FHL_LIGHT_H
 #define FHL_LIGHT_H
 
-#include "Color.h"
+#include <FHL/Graphics/Color.h>
 
 namespace fhl
 {

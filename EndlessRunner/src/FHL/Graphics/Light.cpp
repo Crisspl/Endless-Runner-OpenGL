@@ -1,4 +1,4 @@
-#include "Light.h"
+#include <FHL/Graphics/Light.h>
 
 namespace fhl
 {

@@ -1,10 +1,10 @@
-#include "Sprite.h"
+#include <FHL/Graphics/Sprite.h>
 
 #include <iostream>
 #include <algorithm>
 
-#include "ResMgr.h"
-#include "ShaderSrcs.h"
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Graphics/ShaderSrcs.h>
 
 namespace fhl
 {

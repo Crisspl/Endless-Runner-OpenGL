@@ -2,7 +2,8 @@
 #define INPUT_H
 
 #include <SDL.h>
-#include "Maths/Vec2.h"
+
+#include <FHL/Maths/Vec2.h>
 
 class Input
 {

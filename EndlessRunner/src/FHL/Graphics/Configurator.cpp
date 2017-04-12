@@ -1,7 +1,7 @@
-#include "Configurator.h"
+#include <FHL/Graphics/Configurator.h>
 
-#include "../Utility/Debug.h"
-#include "../Maths/mathsFuncs.h"
+#include <FHL/Utility/Debug.h>
+#include <FHL/Maths/mathsFuncs.h>
 
 using namespace fhl::internal;
 

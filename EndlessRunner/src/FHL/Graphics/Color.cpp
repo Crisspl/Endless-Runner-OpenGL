@@ -1,4 +1,4 @@
-#include "Color.h"
+#include <FHL/Graphics/Color.h>
 
 namespace fhl
 {

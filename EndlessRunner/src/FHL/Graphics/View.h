@@ -1,7 +1,7 @@
 #ifndef FHL_VIEW_H
 #define FHL_VIEW_H
 
-#include "../Maths/Mat4.h"
+#include <FHL/Maths/Mat4.h>
 
 namespace fhl
 {

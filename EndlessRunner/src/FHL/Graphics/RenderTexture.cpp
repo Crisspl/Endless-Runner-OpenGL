@@ -1,8 +1,8 @@
-#include "RenderTexture.h"
+#include <FHL/Graphics/RenderTexture.h>
 
-#include "../Utility/Debug.h"
-#include "Renderer.h"
-#include "ResMgr.h"
+#include <FHL/Utility/Debug.h>
+#include <FHL/Graphics/Renderer.h>
+#include <FHL/Graphics/ResMgr.h>
 
 namespace fhl
 {

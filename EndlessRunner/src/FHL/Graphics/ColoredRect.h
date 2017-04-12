@@ -3,14 +3,13 @@
 
 #include <GL/glew.h>
 
-#include "Renderable.h"
-#include "Vao.h"
-#include "Transformable.h"
-#include "Sizeable.h"
-#include "Shader.h"
-#include "Vertex.h"
-#include "Litable.h"
-#include "UsingShader.h"
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Vao.h>
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Graphics/Sizeable.h>
+#include <FHL/Graphics/Vertex.h>
+#include <FHL/Graphics/Litable.h>
+#include <FHL/Graphics/UsingShader.h>
 
 namespace fhl
 {

@@ -1,6 +1,6 @@
-#include "Quaternion.h"
-#include "mathsFuncs.h"
-#include "swizzle.h"
+#include <FHL/Maths/Quaternion.h>
+#include <FHL/Maths/mathsFuncs.h>
+#include <FHL/Maths/swizzle.h>
 
 #include <cmath>
 

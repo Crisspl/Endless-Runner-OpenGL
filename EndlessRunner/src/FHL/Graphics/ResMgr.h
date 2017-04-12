@@ -3,9 +3,9 @@
 
 #include <map>
 
-#include "Shader.h"
-#include "Texture.h"
-#include "ModelData.h"
+#include <FHL/Graphics/Shader.h>
+#include <FHL/Graphics/Texture.h>
+#include <FHL/Graphics/ModelData.h>
 
 namespace fhl
 {

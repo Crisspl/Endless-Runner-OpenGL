@@ -1,9 +1,9 @@
 #ifndef FHL_SIZEABLE_H
 #define FHL_SIZEABLE_H
 
-#include "Buffer.h"
-#include "Vao.h"
-#include "../Maths/vectors.h"
+#include <FHL/Graphics/Buffer.h>
+#include <FHL/Graphics/Vao.h>
+#include <FHL/Maths/vectors.h>
 
 namespace fhl { namespace internal
 {

@@ -1,16 +1,16 @@
 #ifndef FHL_MESH_H
 #define FHL_MESH_H
 
-#include <GL/glew.h>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-
 #include <string>
 #include <vector>
 #include <tuple>
 
-#include "Buffer.h"
-#include "../Maths/vectors.h"
+#include <GL/glew.h>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
+#include <FHL/Graphics/Buffer.h>
+#include <FHL/Maths/vectors.h>
 
 namespace fhl 
 { 

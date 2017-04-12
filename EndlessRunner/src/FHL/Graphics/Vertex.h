@@ -1,7 +1,7 @@
 #ifndef FHL_VERTEX_H
 #define FHL_VERTEX_H
 
-#include "Color.h"
+#include <FHL/Graphics/Color.h>
 
 namespace fhl
 {

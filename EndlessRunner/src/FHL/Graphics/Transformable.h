@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 
-#include "RenderMatrices.h"
+#include <FHL/Graphics/RenderMatrices.h>
 
 namespace fhl
 {

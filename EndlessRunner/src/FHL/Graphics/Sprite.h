@@ -3,16 +3,16 @@
 
 #include <GL/glew.h>
 
-#include "Texture.h"
-#include "Shader.h"
-#include "Color.h"
-#include "Configurator.h"
-#include "Transformable.h"
-#include "TexturedSizeable.h"
-#include "Renderable.h"
-#include "UsingShader.h"
-#include "Litable.h"
-#include "../Utility/OrientedRect.h"
+#include <FHL/Graphics/Texture.h>
+#include <FHL/Graphics/Shader.h>
+#include <FHL/Graphics/Color.h>
+#include <FHL/Graphics/Configurator.h>
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Graphics/TexturedSizeable.h>
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/UsingShader.h>
+#include <FHL/Graphics/Litable.h>
+#include <FHL/Utility/OrientedRect.h>
 
 namespace fhl
 {

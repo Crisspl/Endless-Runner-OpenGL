@@ -1,4 +1,4 @@
-#include "Buffer.h"
+#include <FHL/Graphics/Buffer.h>
 
 #include <algorithm>
 

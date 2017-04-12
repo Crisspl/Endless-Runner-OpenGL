@@ -1,8 +1,8 @@
 #ifndef FHL_TRANSFORMABLE3D_H
 #define FHL_TRANSFORMABLE3D_H
 
-#include "RenderMatrices.h"
-#include "../Maths/Quaternion.h"
+#include <FHL/Graphics/RenderMatrices.h>
+#include <FHL/Maths/Quaternion.h>
 
 namespace fhl
 {

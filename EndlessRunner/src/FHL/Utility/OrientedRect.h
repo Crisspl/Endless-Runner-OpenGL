@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "Rect.h"
-#include "../Graphics/Transformable.h"
+#include <FHL/Utility/Rect.h>
+#include <FHL/Graphics/Transformable.h>
 
 namespace fhl
 {

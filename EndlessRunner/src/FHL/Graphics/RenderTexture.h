@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <functional>
 
-#include "Texture.h"
-#include "Renderable.h"
+#include <FHL/Graphics/Texture.h>
+#include <FHL/Graphics/Renderable.h>
 
 namespace fhl
 {

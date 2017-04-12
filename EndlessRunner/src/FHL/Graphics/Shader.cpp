@@ -1,7 +1,7 @@
-#include "Shader.h"
+#include <FHL/Graphics/Shader.h>
 
-#include "../Utility/Debug.h"
-#include "../Maths/mathsFuncs.h"
+#include <FHL/Utility/Debug.h>
+#include <FHL/Maths/mathsFuncs.h>
 
 #include <algorithm>
 #include <fstream>

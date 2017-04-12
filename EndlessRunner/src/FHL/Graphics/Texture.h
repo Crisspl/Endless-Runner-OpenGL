@@ -8,7 +8,7 @@
 #include <vector>
 #include <tuple>
 
-#include "../Maths/vectors.h"
+#include <FHL/Maths/vectors.h>
 
 namespace fhl { class ResMgr; }
 

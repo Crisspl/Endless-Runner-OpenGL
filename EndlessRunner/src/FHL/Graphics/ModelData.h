@@ -1,14 +1,14 @@
 #ifndef FHL_MODELDATA_H
 #define FHL_MODELDATA_H
 
+#include <string>
+#include <vector>
+
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include <string>
-#include <vector>
-
-#include "Mesh.h"
+#include <FHL/Graphics/Mesh.h>
 
 namespace fhl
 {

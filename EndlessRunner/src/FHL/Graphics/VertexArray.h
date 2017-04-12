@@ -7,11 +7,11 @@
 #include <memory>
 #include <initializer_list>
 
-#include "Renderable.h"
-#include "Vertex.h"
-#include "Shader.h"
-#include "Vao.h"
-#include "UsingShader.h"
+#include <FHL/Graphics/Renderable.h>
+#include <FHL/Graphics/Vertex.h>
+#include <FHL/Graphics/Shader.h>
+#include <FHL/Graphics/Vao.h>
+#include <FHL/Graphics/UsingShader.h>
 
 namespace fhl
 {

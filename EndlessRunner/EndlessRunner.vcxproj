@@ -69,11 +69,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\EndlessRunner\src;D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\EndlessRunner\src;D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;D:\Libs\GLEW\glew-1.13.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,43 +146,43 @@
     <ClCompile Include="src\Coin.cpp" />
     <ClCompile Include="src\Collideable.cpp" />
     <ClCompile Include="src\EndlessCliff.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Buffer.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Color.cpp" />
+    <ClCompile Include="src\FHL\Graphics\ColoredRect.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Configurator.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Light.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Mesh.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Model.cpp" />
+    <ClCompile Include="src\FHL\Graphics\ModelData.cpp" />
+    <ClCompile Include="src\FHL\Graphics\RenderConf.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Renderer.cpp" />
+    <ClCompile Include="src\FHL\Graphics\RenderTexture.cpp" />
+    <ClCompile Include="src\FHL\Graphics\ResMgr.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Shader.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Sizeable.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Sprite.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Texture.cpp" />
+    <ClCompile Include="src\FHL\Graphics\TexturedSizeable.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Transformable.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Transformable3D.cpp" />
+    <ClCompile Include="src\FHL\Graphics\UsingShader.cpp" />
+    <ClCompile Include="src\FHL\Graphics\Vao.cpp" />
+    <ClCompile Include="src\FHL\Graphics\VertexArray.cpp" />
+    <ClCompile Include="src\FHL\Maths\Mat4.cpp" />
+    <ClCompile Include="src\FHL\Maths\Quaternion.cpp" />
+    <ClCompile Include="src\FHL\Utility\Clock.cpp" />
+    <ClCompile Include="src\FHL\Utility\Debug.cpp" />
+    <ClCompile Include="src\FHL\Utility\OrientedRect.cpp" />
+    <ClCompile Include="src\FHL\Utility\Rect.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Global.cpp" />
-    <ClCompile Include="src\Graphics\Buffer.cpp" />
-    <ClCompile Include="src\Graphics\Color.cpp" />
-    <ClCompile Include="src\Graphics\ColoredRect.cpp" />
-    <ClCompile Include="src\Graphics\Configurator.cpp" />
-    <ClCompile Include="src\Graphics\Light.cpp" />
-    <ClCompile Include="src\Graphics\Mesh.cpp" />
-    <ClCompile Include="src\Graphics\Model.cpp" />
-    <ClCompile Include="src\Graphics\ModelData.cpp" />
-    <ClCompile Include="src\Graphics\RenderConf.cpp" />
-    <ClCompile Include="src\Graphics\Renderer.cpp" />
-    <ClCompile Include="src\Graphics\RenderTexture.cpp" />
-    <ClCompile Include="src\Graphics\ResMgr.cpp" />
-    <ClCompile Include="src\Graphics\Shader.cpp" />
-    <ClCompile Include="src\Graphics\Sizeable.cpp" />
-    <ClCompile Include="src\Graphics\Sprite.cpp" />
-    <ClCompile Include="src\Graphics\Texture.cpp" />
-    <ClCompile Include="src\Graphics\TexturedSizeable.cpp" />
-    <ClCompile Include="src\Graphics\Transformable.cpp" />
-    <ClCompile Include="src\Graphics\Transformable3D.cpp" />
-    <ClCompile Include="src\Graphics\UsingShader.cpp" />
-    <ClCompile Include="src\Graphics\Vao.cpp" />
-    <ClCompile Include="src\Graphics\VertexArray.cpp" />
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Maths\Mat4.cpp" />
-    <ClCompile Include="src\Maths\Quaternion.cpp" />
     <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\SoundMgr.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
-    <ClCompile Include="src\Utility\Clock.cpp" />
-    <ClCompile Include="src\Utility\Debug.cpp" />
-    <ClCompile Include="src\Utility\OrientedRect.cpp" />
-    <ClCompile Include="src\Utility\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AnimationMgr.h" />
@@ -192,72 +192,63 @@
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
     <ClInclude Include="src\EndlessCliff.h" />
+    <ClInclude Include="src\FHL\Graphics\Buffer.h" />
+    <ClInclude Include="src\FHL\Graphics\Color.h" />
+    <ClInclude Include="src\FHL\Graphics\ColoredRect.h" />
+    <ClInclude Include="src\FHL\Graphics\Configurator.h" />
+    <ClInclude Include="src\FHL\Graphics\Light.h" />
+    <ClInclude Include="src\FHL\Graphics\Litable.h" />
+    <ClInclude Include="src\FHL\Graphics\Mesh.h" />
+    <ClInclude Include="src\FHL\Graphics\Model.h" />
+    <ClInclude Include="src\FHL\Graphics\ModelData.h" />
+    <ClInclude Include="src\FHL\Graphics\Renderable.h" />
+    <ClInclude Include="src\FHL\Graphics\RenderConf.h" />
+    <ClInclude Include="src\FHL\Graphics\Renderer.h" />
+    <ClInclude Include="src\FHL\Graphics\RenderMatrices.h" />
+    <ClInclude Include="src\FHL\Graphics\RenderTexture.h" />
+    <ClInclude Include="src\FHL\Graphics\ResMgr.h" />
+    <ClInclude Include="src\FHL\Graphics\Shader.h" />
+    <ClInclude Include="src\FHL\Graphics\ShaderSrcs.h" />
+    <ClInclude Include="src\FHL\Graphics\Sizeable.h" />
+    <ClInclude Include="src\FHL\Graphics\Sprite.h" />
+    <ClInclude Include="src\FHL\Graphics\Texture.h" />
+    <ClInclude Include="src\FHL\Graphics\TexturedSizeable.h" />
+    <ClInclude Include="src\FHL\Graphics\Transformable.h" />
+    <ClInclude Include="src\FHL\Graphics\Transformable3D.h" />
+    <ClInclude Include="src\FHL\Graphics\UsingShader.h" />
+    <ClInclude Include="src\FHL\Graphics\Vao.h" />
+    <ClInclude Include="src\FHL\Graphics\Vertex.h" />
+    <ClInclude Include="src\FHL\Graphics\VertexArray.h" />
+    <ClInclude Include="src\FHL\Graphics\View.h" />
+    <ClInclude Include="src\FHL\Utility\Clock.h" />
+    <ClInclude Include="src\FHL\Utility\Debug.h" />
+    <ClInclude Include="src\FHL\Utility\OrientedRect.h" />
+    <ClInclude Include="src\FHL\Utility\Rect.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Global.h" />
-    <ClInclude Include="src\Graphics\Buffer.h" />
-    <ClInclude Include="src\Graphics\Color.h" />
-    <ClInclude Include="src\Graphics\ColoredRect.h" />
-    <ClInclude Include="src\Graphics\Configurator.h" />
-    <ClInclude Include="src\Graphics\Light.h" />
-    <ClInclude Include="src\Graphics\Litable.h" />
-    <ClInclude Include="src\Graphics\Mesh.h" />
-    <ClInclude Include="src\Graphics\Model.h" />
-    <ClInclude Include="src\Graphics\ModelData.h" />
-    <ClInclude Include="src\Graphics\Renderable.h" />
-    <ClInclude Include="src\Graphics\RenderConf.h" />
-    <ClInclude Include="src\Graphics\Renderer.h" />
-    <ClInclude Include="src\Graphics\RenderTexture.h" />
-    <ClInclude Include="src\Graphics\ResMgr.h" />
-    <ClInclude Include="src\Graphics\Shader.h" />
-    <ClInclude Include="src\Graphics\ShaderSrcs.h" />
-    <ClInclude Include="src\Graphics\Sizeable.h" />
-    <ClInclude Include="src\Graphics\Sprite.h" />
-    <ClInclude Include="src\Graphics\Texture.h" />
-    <ClInclude Include="src\Graphics\TexturedSizeable.h" />
-    <ClInclude Include="src\Graphics\Transformable.h" />
-    <ClInclude Include="src\Graphics\Transformable3D.h" />
-    <ClInclude Include="src\Graphics\RenderMatrices.h" />
-    <ClInclude Include="src\Graphics\UsingShader.h" />
-    <ClInclude Include="src\Graphics\Vao.h" />
-    <ClInclude Include="src\Graphics\Vertex.h" />
-    <ClInclude Include="src\Graphics\VertexArray.h" />
-    <ClInclude Include="src\Graphics\View.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Island.h" />
-    <ClInclude Include="src\Maths\Constants.h" />
-    <ClInclude Include="src\Maths\Mat4.h" />
-    <ClInclude Include="src\Maths\mathsFuncs.h" />
-    <ClInclude Include="src\Maths\Quaternion.h" />
-    <ClInclude Include="src\Maths\swizzle.h" />
-    <ClInclude Include="src\Maths\Vec2.h" />
-    <ClInclude Include="src\Maths\Vec3.h" />
-    <ClInclude Include="src\Maths\Vec4.h" />
-    <ClInclude Include="src\Maths\vectors.h" />
     <ClInclude Include="src\RectsCollider.h" />
     <ClInclude Include="src\ScreenRenderer.h" />
     <ClInclude Include="src\SoundMgr.h" />
     <ClInclude Include="src\Sphere.h" />
-    <ClInclude Include="src\Utility\Clock.h" />
-    <ClInclude Include="src\Utility\Debug.h" />
-    <ClInclude Include="src\Utility\OrientedRect.h" />
-    <ClInclude Include="src\Utility\Rect.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Graphics\Shaders\array_fs.glsl" />
-    <None Include="src\Graphics\Shaders\array_vs.glsl" />
-    <None Include="src\Graphics\Shaders\modelLight_fs.glsl" />
-    <None Include="src\Graphics\Shaders\modelLight_vs.glsl" />
-    <None Include="src\Graphics\Shaders\model_fs.glsl" />
-    <None Include="src\Graphics\Shaders\model_vs.glsl" />
-    <None Include="src\Graphics\Shaders\rectLight_fs.glsl" />
-    <None Include="src\Graphics\Shaders\rectLight_vs.glsl" />
-    <None Include="src\Graphics\Shaders\rect_fs.glsl" />
-    <None Include="src\Graphics\Shaders\rect_vs.glsl" />
-    <None Include="src\Graphics\Shaders\spriteLight_fs.glsl" />
-    <None Include="src\Graphics\Shaders\spriteLight_vs.glsl" />
-    <None Include="src\Graphics\Shaders\sprite_fs.glsl" />
-    <None Include="src\Graphics\Shaders\sprite_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\array_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\array_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\modelLight_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\modelLight_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\model_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\model_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\rectLight_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\rectLight_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\rect_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\rect_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\spriteLight_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\spriteLight_vs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\sprite_fs.glsl" />
+    <None Include="src\FHL\Graphics\Shaders\sprite_vs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

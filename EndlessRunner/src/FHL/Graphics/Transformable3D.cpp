@@ -1,5 +1,6 @@
-#include "Transformable3D.h"
-#include "Configurator.h"
+#include <FHL/Graphics/Transformable3D.h>
+
+#include <FHL/Graphics/Configurator.h>
 
 namespace fhl
 {

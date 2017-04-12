@@ -1,7 +1,7 @@
-#include "OrientedRect.h"
+#include <FHL/Utility/OrientedRect.h>
 
-#include "../Graphics/Transformable.h"
-#include "../Maths/mathsFuncs.h"
+#include <FHL/Graphics/Transformable.h>
+#include <FHL/Maths/mathsFuncs.h>
 
 namespace fhl
 {

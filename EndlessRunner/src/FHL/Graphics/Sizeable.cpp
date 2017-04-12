@@ -1,4 +1,4 @@
-#include "Sizeable.h"
+#include <FHL/Graphics/Sizeable.h>
 
 #include <GL/glew.h>
 

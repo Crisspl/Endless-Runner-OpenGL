@@ -1,9 +1,9 @@
 #ifndef FHL_TEXTUREDSIZEABLE_H
 #define FHL_TEXTUREDSIZEABLE_H
 
-#include "Sizeable.h"
-#include "Texture.h"
-#include "../Utility/Rect.h"
+#include <FHL/Graphics/Sizeable.h>
+#include <FHL/Graphics/Texture.h>
+#include <FHL/Utility/Rect.h>
 
 namespace fhl { namespace internal
 {

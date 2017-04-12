@@ -1,4 +1,4 @@
-#include "TexturedSizeable.h"
+#include <FHL/Graphics/TexturedSizeable.h>
 
 namespace fhl { namespace internal
 {

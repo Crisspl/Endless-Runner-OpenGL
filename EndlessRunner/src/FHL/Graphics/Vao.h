@@ -7,7 +7,7 @@
 #include <string>
 #include <utility>
 
-#include "Buffer.h"
+#include <FHL/Graphics/Buffer.h>
 
 namespace fhl { namespace internal
 {

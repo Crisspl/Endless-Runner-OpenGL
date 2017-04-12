@@ -4,8 +4,9 @@
 #include <cmath>
 #include <iostream>
 
+#include <FHL/Maths/vectors.h>
+
 #include "Collider.h"
-#include "Maths/vectors.h"
 
 class RectsCollider;
 class BoxCollider;
