@@ -6,19 +6,20 @@
 #include <vector>
 #include <memory>
 
+#include <FHL/Utility/Clock.h>
+#include <FHL/Graphics/Configurator.h>
+#include <FHL/Graphics/ResMgr.h>
+#include <FHL/Graphics/VertexArray.h>
+#include <FHL/Graphics/ColoredRect.h>
+#include <FHL/Graphics/Model.h>
+
 #include "Global.h"
-#include "Utility/Clock.h"
-#include "Graphics/Configurator.h"
-#include "Graphics/ResMgr.h"
 #include "Hero.h"
 #include "Sphere.h"
 #include "Island.h"
 #include "EndlessCliff.h"
 #include "ScreenRenderer.h"
-#include "Graphics/VertexArray.h"
-#include "Graphics/ColoredRect.h"
-#include "Graphics/Model.h"
-#include "Graphics/VertexArray.h"
+
 
 class Game
 {

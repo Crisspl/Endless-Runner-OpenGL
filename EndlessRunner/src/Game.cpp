@@ -1,8 +1,9 @@
 #include "Game.h"
 
-#include "Graphics/Configurator.h"
-#include "Maths/vectors.h"
-#include "Utility/Debug.h"
+#include <FHL/Graphics/Configurator.h>
+#include <FHL/Maths/vectors.h>
+#include <FHL/Utility/Debug.h>
+
 #include "Input.h"
 
 SDL_Window* Game::m_window;
