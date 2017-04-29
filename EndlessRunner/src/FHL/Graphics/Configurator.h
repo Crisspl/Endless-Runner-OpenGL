@@ -1,11 +1,11 @@
 #ifndef FHL_CONFIGURATOR_H
 #define FHL_CONFIGURATOR_H
 
-#include <GL/glew.h>
 
 #include <memory>
 #include <map>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Buffer.h>
 #include <FHL/Graphics/View.h>
 

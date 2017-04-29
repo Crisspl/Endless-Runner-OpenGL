@@ -1,6 +1,6 @@
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Renderer.h>
 
-#include <GL/glew.h>
 
 namespace fhl
 {

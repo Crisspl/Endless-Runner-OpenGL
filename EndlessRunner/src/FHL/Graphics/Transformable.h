@@ -1,8 +1,7 @@
 #ifndef FHL_TRANSFORMABLE_H
 #define FHL_TRANSFORMABLE_H
 
-#include <GL/glew.h>
-
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/RenderMatrices.h>
 
 namespace fhl

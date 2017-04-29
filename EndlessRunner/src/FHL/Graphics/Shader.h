@@ -7,8 +7,7 @@
 #include <type_traits>
 #include <iterator>
 
-#include <GL/glew.h>
-
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Color.h>
 #include <FHL/Graphics/Light.h>
 #include <FHL/Maths/Mat4.h>

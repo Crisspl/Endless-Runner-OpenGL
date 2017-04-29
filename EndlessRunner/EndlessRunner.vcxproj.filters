@@ -31,6 +31,15 @@
     <Filter Include="Header Files\Graphics\Shaders">
       <UniqueIdentifier>{63e63965-437a-4e89-84a9-2730dce0d676}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GL">
+      <UniqueIdentifier>{e89ab458-fceb-49f2-bab0-d23db4535b17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GL">
+      <UniqueIdentifier>{a76827fd-12d5-4dd4-aeb0-1160f98aa1ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Maths">
+      <UniqueIdentifier>{06eb0a55-9351-4f00-bb2c-b3c84f63f615}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AnimationMgr.cpp">
@@ -161,6 +170,9 @@
     </ClCompile>
     <ClCompile Include="src\FHL\Utility\Debug.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\GL\gl3w.c">
+      <Filter>Source Files\GL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +319,39 @@
     </ClInclude>
     <ClInclude Include="src\FHL\Utility\Clock.h">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\GL\gl3w.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\GL\glcorearb.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Constants.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Mat4.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\mathsFuncs.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Quaternion.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\swizzle.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Vec2.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Vec3.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Vec4.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\vectors.h">
+      <Filter>Header Files\Maths</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <GL/glew.h>
 #include <SDL.h>
 #include <vector>
 #include <memory>

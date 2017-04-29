@@ -26,12 +26,8 @@ namespace fhl
 		if (m_initialized)
 			return;
 
-		glewExperimental = GL_TRUE;
-
-		GLenum glewError = glewInit();
-
-		if (glewError != GLEW_OK)
-			fhl::DebugLog << "GLEW init error: " << glewGetErrorString(glewError) << '\n';
+		if(gl3wInit() < 0)
+			fhl::DebugLog << "FHL: gl3w init error!\n";
 
 		glViewport(0, 0, _width, _height);
 		m_vpSize = { static_cast<int>(_width), static_cast<int>(_height) };

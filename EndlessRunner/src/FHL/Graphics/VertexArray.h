@@ -1,12 +1,12 @@
 #ifndef FHL_VERTEXARRAY_H
 #define FHL_VERTEXARRAY_H
 
-#include <GL/glew.h>
 
 #include <vector>
 #include <memory>
 #include <initializer_list>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Renderable.h>
 #include <FHL/Graphics/Vertex.h>
 #include <FHL/Graphics/Shader.h>

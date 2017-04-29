@@ -22,9 +22,6 @@ Game::Game() :
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
 
    m_hero.setPosition({200.f, (float)WIN_Y});
-
-	fhl::Configurator::addView("3d", fhl::Configurator::cameraPos() + fhl::Vec3f(-500, 500, 100), fhl::Configurator::cameraPos() * fhl::Vec3f(1, 1, 0), fhl::Vec3f::up());
-	fhl::Configurator::setGlobal3DView("3d");
 }
 
 Game& Game::get()

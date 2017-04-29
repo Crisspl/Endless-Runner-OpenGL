@@ -1,11 +1,11 @@
 #ifndef FHL_RENDERTEXTURE_H
 #define FHL_RENDERTEXTURE_H
 
-#include <GL/glew.h>
 
 #include <algorithm>
 #include <functional>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Texture.h>
 #include <FHL/Graphics/Renderable.h>
 

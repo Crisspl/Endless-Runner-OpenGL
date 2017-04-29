@@ -1,9 +1,7 @@
 #ifndef FHL_BUFFER_H
 #define FHL_BUFFER_H
 
-#include <GL/glew.h>
-
-#include <iostream>
+#include <FHL/GL/gl3w.h>
 
 namespace fhl { namespace internal
 {

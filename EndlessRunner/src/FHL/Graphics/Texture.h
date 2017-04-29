@@ -1,13 +1,13 @@
 #ifndef FHL_TEXTURE_H
 #define FHL_TEXTURE_H
 
-#include <GL/glew.h>
 #include <SOIL/SOIL.h>
 
 #include <string>
 #include <vector>
 #include <tuple>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Maths/vectors.h>
 
 namespace fhl { class ResMgr; }

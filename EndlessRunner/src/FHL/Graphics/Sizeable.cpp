@@ -1,6 +1,6 @@
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Sizeable.h>
 
-#include <GL/glew.h>
 
 namespace fhl { namespace internal
 {

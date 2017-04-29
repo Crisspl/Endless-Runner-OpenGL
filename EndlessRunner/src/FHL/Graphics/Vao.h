@@ -1,12 +1,12 @@
 #ifndef FHL_VAO_H
 #define FHL_VAO_H
 
-#include <GL/glew.h>
 
 #include <map>
 #include <string>
 #include <utility>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Buffer.h>
 
 namespace fhl { namespace internal

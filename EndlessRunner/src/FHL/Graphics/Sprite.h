@@ -1,8 +1,8 @@
 #ifndef FHL_SPRITE_H
 #define FHL_SPRITE_H
 
-#include <GL/glew.h>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Texture.h>
 #include <FHL/Graphics/Shader.h>
 #include <FHL/Graphics/Color.h>

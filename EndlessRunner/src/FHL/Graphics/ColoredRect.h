@@ -1,8 +1,7 @@
 #ifndef FHL_COLOREDRECT_H
 #define FHL_COLOREDRECT_H
 
-#include <GL/glew.h>
-
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Renderable.h>
 #include <FHL/Graphics/Vao.h>
 #include <FHL/Graphics/Transformable.h>

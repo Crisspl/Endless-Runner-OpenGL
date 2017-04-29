@@ -5,10 +5,10 @@
 #include <vector>
 #include <tuple>
 
-#include <GL/glew.h>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include <FHL/GL/gl3w.h>
 #include <FHL/Graphics/Buffer.h>
 #include <FHL/Maths/vectors.h>
 
