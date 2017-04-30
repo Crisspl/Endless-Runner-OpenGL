@@ -40,7 +40,7 @@ namespace fhl
 		  template<typename _It>
 		  void setLights(_It _begin, const _It _end);
 
-		  size_t getLightsCount() const { return m_lights.size(); }
+		  std::size_t getLightsCount() const { return m_lights.size(); }
 		  const std::list<Light> & getLights() const { return m_lights; }
 
 	 private:
