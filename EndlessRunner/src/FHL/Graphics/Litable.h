@@ -16,23 +16,23 @@ namespace fhl
 	 public:
 		  virtual ~Litable() = default;
 
-		  void addLight(const Light & _light)
+		  virtual void addLight(const Light & _light)
 		  {
 				m_lights.push_back(_light);
 		  }
-		  void addLights(const std::vector<Light> & _lights)
+		  virtual void addLights(const std::vector<Light> & _lights)
 		  {
 				m_lights.insert(m_lights.cbegin(), _lights.cbegin(), _lights.cend());
 		  }
 		  template<typename _It>
 		  void addLights(_It _begin, const _It _end);
 
-		  void setLight(const Light & _light)
+		  virtual void setLight(const Light & _light)
 		  {
 				m_lights.clear();
 				addLight(_light);
 		  }
-		  void setLights(const std::vector<Light> & _lights)
+		  virtual void setLights(const std::vector<Light> & _lights)
 		  {
 				m_lights.clear();
 				addLights(_lights);
