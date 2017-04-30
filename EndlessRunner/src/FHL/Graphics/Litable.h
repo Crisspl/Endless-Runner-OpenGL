@@ -51,7 +51,7 @@ namespace fhl
 	 void Litable::addLights(_It _begin, const _It _end)
 	 {
 		  static_assert(std::is_same<typename std::iterator_traits<_It>::value_type, Light>::value,
-				"_begin and _end must be iterators of containers of fhl::Light objects");
+				"fhl::Litable::addLights: _begin and _end must be iterators of containers of fhl::Light objects");
 
 		  while (_begin != _end)
 				addLight(*(_begin++));
@@ -61,7 +61,7 @@ namespace fhl
 	 void Litable::setLights(_It _begin, const _It _end)
 	 {
 		  static_assert(std::is_same<typename std::iterator_traits<_It>::value_type, Light>::value,
-				"_begin and _end must be iterators of containers of fhl::Light objects");
+				"fhl::Litable::addLights: _begin and _end must be iterators of containers of fhl::Light objects");
 
 		  m_lights.clear();
 		  addLights(_begin, _end);

@@ -27,7 +27,7 @@ namespace fhl
 			return;
 
 		if(gl3wInit() < 0)
-			fhl::DebugLog << "FHL: gl3w init error!\n";
+			Debug::Log() << "FHL: gl3w init error!\n";
 
 		glViewport(0, 0, _width, _height);
 		m_vpSize = { static_cast<int>(_width), static_cast<int>(_height) };

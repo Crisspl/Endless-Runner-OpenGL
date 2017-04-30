@@ -3,7 +3,6 @@
 namespace fhl
 {
 
-	std::ofstream DebugLog("DebugLog.txt");
+	Debug Debug::Log;
 
-} // ns
-
+}

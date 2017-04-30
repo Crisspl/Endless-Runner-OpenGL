@@ -50,7 +50,7 @@ namespace fhl
 		 if(!success)
 		 {
 			 glGetProgramInfoLog(m_id, 0x200, nullptr, infoLog);
-			 fhl::DebugLog << "Linking of shader program failed.\n" << infoLog << '\n';
+			 Debug::Log() << "fhl::Shader: Linking of shader program failed:\n" << infoLog << '\n';
 		 }
 	 }
 
@@ -177,7 +177,7 @@ setFloat((name + ".quadratic").c_str(), _light.quadratic);
 		 if(!success)
 		 {
 			 glGetShaderInfoLog(shader, 0x200, nullptr, infoLog);
-			 fhl::DebugLog << "Failed to compile a shader \n" << infoLog << '\n';
+			 Debug::Log() << "fhl::Shader: Failed to compile a shader:\n" << infoLog << '\n';
 		 }
 
 		 glAttachShader(m_id, shader);

@@ -17,7 +17,7 @@ namespace fhl { namespace swizzle
 	 constexpr Vec2<typename _VecT::valueType> get(const _VecT & _v)
 	 {
 		  static_assert(_D0 < _VecT::Dimensions && _D1 < _VecT::Dimensions,
-				"Not enough vector dimensions to get the one(s) demanded");
+				"fhl::get: Not enough vector dimensions to get the one(s) demanded");
 
 		  return{ _v[_D0], _v[_D1] };
 	 }
@@ -26,7 +26,7 @@ namespace fhl { namespace swizzle
 	 constexpr Vec3<typename _VecT::valueType> get(const _VecT & _v)
 	 {
 		  static_assert(_D0 < _VecT::Dimensions && _D1 < _VecT::Dimensions && _D2 < _VecT::Dimensions,
-				"Not enough vector dimensions to get the one(s) demanded");
+				"fhl::get: Not enough vector dimensions to get the one(s) demanded");
 
 		  return Vec3<typename _VecT::valueType>(get<_D0, _D1>(_v), _v[_D2]);
 	 }
@@ -35,7 +35,7 @@ namespace fhl { namespace swizzle
 	 constexpr Vec4<typename _VecT::valueType> get(const _VecT & _v)
 	 {
 		  static_assert(_D0 < _VecT::Dimensions && _D1 < _VecT::Dimensions && _D2 < _VecT::Dimensions && _D3 < _VecT::Dimensions,
-				"Not enough vector dimensions to get the one(s) demanded");
+				"fhl::get: Not enough vector dimensions to get the one(s) demanded");
 
 		  return Vec4<typename _VecT::valueType>(get<_D0, _D1, _D2>(_v), _v[_D3]);
 	 }
