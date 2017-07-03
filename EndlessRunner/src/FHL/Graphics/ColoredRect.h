@@ -9,6 +9,7 @@
 #include <FHL/Graphics/Vertex.h>
 #include <FHL/Graphics/Litable.h>
 #include <FHL/Graphics/UsingShader.h>
+#include <FHL/Utility/OrientedRect.h>
 
 namespace fhl
 {
@@ -31,6 +32,8 @@ namespace fhl
 		const Color & getColor() const { return m_color; }
 
 		void render(const RenderConf & _conf) const override;
+		Rect getAABB() const;
+		OrientedRect getOBB() const;
 
 	private:
 		void setUp();

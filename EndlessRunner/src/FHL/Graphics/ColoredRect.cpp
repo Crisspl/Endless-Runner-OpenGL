@@ -10,7 +10,7 @@ namespace fhl
 	 ColoredRect::ColoredRect(Vec2f _size, Color _color) :
 		  Sizeable(_size),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::coloredRect_Vertex, shaderSrcs::coloredRect_Fragment, Shader::FromString),
-						  &ResMgr::loadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
+					&ResMgr::loadShader(lightShaderName, shaderSrcs::coloredRect_LightVertex, shaderSrcs::coloredRect_LightFragment, Shader::FromString)),
 		  m_color(_color)
 	 {
 		  setUp();
@@ -40,6 +40,16 @@ namespace fhl
 		  getVao().unbind();
 
 		  Shader::unuse();
+	 }
+
+	 Rect ColoredRect::getAABB() const
+	 {
+		 return Rect(getPosition() - getOrigin(), getSize());
+	 }
+
+	 OrientedRect ColoredRect::getOBB() const
+	 {
+		 return OrientedRect(getSize(), getTransformData());
 	 }
 
 	 void ColoredRect::setUp()

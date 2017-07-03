@@ -12,7 +12,7 @@ namespace fhl
 	 Sprite::Sprite() : 
 		  TexturedSizeable(nullptr),
 		  UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::sprite_Vertex, shaderSrcs::sprite_Fragment, Shader::FromString),
-						  &ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
+					&ResMgr::loadShader(lightShaderName, shaderSrcs::sprite_LightVertex, shaderSrcs::sprite_LightFragment, Shader::FromString)),
 		  m_color(Color::White)
 	 {
 		  setUp();
@@ -62,17 +62,14 @@ namespace fhl
 		  Shader::unuse();
 	 }
 
-	 fhl::Rect Sprite::getAABB() const
+	 Rect Sprite::getAABB() const
 	 {
-		  Vec2f bl = getPosition() - getOrigin();
-		  return fhl::Rect(bl, getSize());
+		  return Rect(getPosition() - getOrigin(), getSize());
 	 }
 
-	 fhl::OrientedRect Sprite::getOBB() const
+	 OrientedRect Sprite::getOBB() const
 	 {
-		  fhl::OrientedRect rect(getSize(), getTransformData());
-
-		  return rect;
+		  return OrientedRect(getSize(), getTransformData());
 	 }
 
 	 void Sprite::setUp()
