@@ -186,7 +186,7 @@ namespace fhl
 		 const Vec3f f = (_center - _eye).normalized();
 		 const Vec3f s = f.cross(_up).normalized();
 		 const Vec3f u = s.cross(f);
-		 const Vec3f t = { -(s.dot(_eye)), -(u.dot(_eye)), f.dot(_eye) };
+		 const Vec3f t = Vec3f(-(s.dot(_eye)), -(u.dot(_eye)), f.dot(_eye));
 
 		 ret.setRow(0, Vec4f(s, 0));
 		 ret.setRow(1, Vec4f(u, 0));
@@ -213,9 +213,9 @@ namespace fhl
 	 {
 		 Mat4 ret(1.f);
 
-		 ret.m_elements[0 + 4 * 0] = _s.x;
-		 ret.m_elements[1 + 4 * 1] = _s.y;
-		 ret.m_elements[2 + 4 * 2] = _s.z;
+		 ret.m_elements[0 + 4 * 0] = _s.x();
+		 ret.m_elements[1 + 4 * 1] = _s.y();
+		 ret.m_elements[2 + 4 * 2] = _s.z();
 
 		 return ret;
 	 }
@@ -229,9 +229,9 @@ namespace fhl
 	 {
 		 Mat4 ret(1.f);
 
-		 float x = _axe.x;
-		 float y = _axe.y;
-		 float z = _axe.z;
+		 float x = _axe.x();
+		 float y = _axe.y();
+		 float z = _axe.z();
 
 		 float angle = toRadians(_angle);
 		 float s = std::sin(angle);

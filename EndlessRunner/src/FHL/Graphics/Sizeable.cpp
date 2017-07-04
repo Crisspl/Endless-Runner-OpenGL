@@ -22,9 +22,9 @@ namespace fhl { namespace internal
 	 void Sizeable::updatePosArray()
 	 {
 		 m_posArray[0] = { 0.f, 0.f };
-		 m_posArray[1] = { m_size.x, 0.f };
+		 m_posArray[1] = { m_size.x(), 0.f };
 		 m_posArray[2] = m_size;
-		 m_posArray[3] = { 0.f, m_size.y };
+		 m_posArray[3] = { 0.f, m_size.y() };
 	 }
 
 	 void Sizeable::uploadPosArray()

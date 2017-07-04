@@ -14,7 +14,7 @@ namespace fhl
 
 	 Rect::Rect(Vec2f _botLeft, Vec2f _size)
 		  : m_size{_size},
-		  m_verts{ { _botLeft, _botLeft + Vec2f(_size.x, 0), _botLeft + _size, _botLeft + Vec2f(0, _size.y) } }
+		  m_verts{ { _botLeft, _botLeft + Vec2f(_size.x(), 0), _botLeft + _size, _botLeft + Vec2f(0, _size.y()) } }
 	 {
 	 }
 
@@ -25,9 +25,9 @@ namespace fhl
 
 	 bool Rect::contains(Vec2f _p) const
 	 {
-		  return (_p.x < botLeft().x + m_size.x && _p.x > botLeft().x)
+		  return (_p.x() < botLeft().x() + m_size.x() && _p.x() > botLeft().x())
 				&&
-				(_p.y < botLeft().y + m_size.y && _p.y > botLeft().y);
+				(_p.y() < botLeft().y() + m_size.y() && _p.y() > botLeft().y());
 	 }
 
 	 bool Rect::intersects(const Rect & _rect) const
@@ -59,17 +59,17 @@ namespace fhl
 
 	 Rect & Rect::addWidth(float _width)
 	 {
-		  m_size.x += _width;
-		  m_verts[BR].x += _width;
-		  m_verts[UR].x += _width;
+		  m_size.x() += _width;
+		  m_verts[BR].x() += _width;
+		  m_verts[UR].x() += _width;
 		  return *this;
 	 }
 
 	 Rect & Rect::addHeight(float _height)
 	 {
-		  m_size.y += _height;
-		  m_verts[UL].y += _height;
-		  m_verts[UR].y += _height;
+		  m_size.y() += _height;
+		  m_verts[UL].y() += _height;
+		  m_verts[UR].y() += _height;
 		  return *this;
 	 }
 

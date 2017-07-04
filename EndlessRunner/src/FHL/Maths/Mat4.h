@@ -80,7 +80,7 @@ namespace fhl
 	 {
 		  auto calc = [&_mat, &_v](size_t _n) -> _T {
 				Vec4f row = _mat.getRow(_n);
-				return row.x * _v.x + row.y * _v.y + row.z + row.w;
+				return row.x() * _v.x() + row.y() * _v.y() + row.z() + row.w();
 		  };
 
 		  return Vec2<_T>(calc(0), calc(1));
@@ -91,7 +91,7 @@ namespace fhl
 	 {
 		  auto calc = [&_mat, &_v](size_t _n) -> _T {
 				Vec4f row = _mat.getRow(_n);
-				return row.x * _v.x + row.y * _v.y + row.z * _v.z + row.w;
+				return row.x() * _v.x() + row.y() * _v.y() + row.z() * _v.z() + row.w();
 		  };
 
 		  return Vec3<_T>(calc(0), calc(1), calc(2));

@@ -13,7 +13,7 @@ public:
 	static fhl::Vec2i getMousePosition()
 	{
 		fhl::Vec2i pos;
-		SDL_GetMouseState(&pos.x, &pos.y);
+		SDL_GetMouseState(&pos.x(), &pos.y());
 		return pos;
 	}
 };

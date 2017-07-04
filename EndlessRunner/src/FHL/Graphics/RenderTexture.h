@@ -60,7 +60,7 @@ GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers,
 
 		struct GlRbo : GlObject<GlRboTraits>
 		{
-			void establishStorage(Vec2i _size) { glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, _size.x, _size.y); }
+			void establishStorage(Vec2i _size) { glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, _size.x(), _size.y()); }
 		};
 		struct GlFbo : GlObject<GlFboTraits>
 		{

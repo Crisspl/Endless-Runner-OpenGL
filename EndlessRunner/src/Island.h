@@ -31,7 +31,7 @@ public:
    void move(float _offset);
 
    fhl::Vec2f getPosition() const { return m_sprite.getPosition(); }
-   float getSurfaceHeight() const { return m_sprite.getPosition().y; }
+   float getSurfaceHeight() const { return m_sprite.getPosition().y(); }
    std::vector<fhl::Light> getLights() const;
    std::vector<Coin> & getCoins() { return m_coins; }
 

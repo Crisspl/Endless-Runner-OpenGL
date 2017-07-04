@@ -17,7 +17,7 @@ namespace fhl
 		 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _size.x, _size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+		 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _size.x(), _size.y(), 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
 		 glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -77,11 +77,11 @@ namespace fhl
 	 {
 		 GLuint id;
 		 Vec2i size;
-		 uchar * image = SOIL_load_image(_filePath.c_str(), &size.x, &size.y, 0, SOIL_LOAD_RGBA);
+		 uchar * image = SOIL_load_image(_filePath.c_str(), &size.x(), &size.y(), 0, SOIL_LOAD_RGBA);
 
 		 glGenTextures(1, &id);
 		 glBindTexture(GL_TEXTURE_2D, id);
-		 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+		 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x(), size.y(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 		 SOIL_free_image_data(image);
 		 glBindTexture(GL_TEXTURE_2D, 0);
 

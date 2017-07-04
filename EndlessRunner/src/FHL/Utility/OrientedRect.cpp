@@ -52,7 +52,7 @@ namespace fhl
 
 	 Rect & OrientedRect::addWidth(float _width)
 	 {
-		  m_size.x += _width;
+		  m_size.x() += _width;
 		  Vec2f offset = { _width * cos(m_radAngle), _width * sin(m_radAngle) };
 		  m_verts[BR] += offset;
 		  m_verts[UR] += offset;
@@ -61,7 +61,7 @@ namespace fhl
 
 	 Rect & OrientedRect::addHeight(float _height)
 	 {
-		  m_size.y += _height;
+		  m_size.y() += _height;
 		  float angle = m_radAngle + toRadians(90.f);
 		  Vec2f offset = { _height * cos(angle), _height * sin(angle) };
 		  m_verts[UL] += offset;
@@ -71,9 +71,9 @@ namespace fhl
 
 	 Rect & OrientedRect::move(Vec2f _offset)
 	 {
-		  Vec2f x = { _offset.x * cos(m_radAngle), _offset.x * sin(m_radAngle) };
+		  Vec2f x = { _offset.x() * cos(m_radAngle), _offset.x() * sin(m_radAngle) };
 		  float angle = m_radAngle + toRadians(90.f);
-		  Vec2f y = { _offset.y * cos(angle), _offset.y * sin(angle) };
+		  Vec2f y = { _offset.y() * cos(angle), _offset.y() * sin(angle) };
 
 		  Vec2f offset = x + y;
 
@@ -101,8 +101,8 @@ namespace fhl
 		  for (Vec2f& vert : m_verts)
 		  {
 				Vec2f nu;
-				nu.x = vert.x * c - vert.y * s;
-				nu.y = vert.x * s + vert.y * c;
+				nu.x() = vert.x() * c - vert.y() * s;
+				nu.y() = vert.x() * s + vert.y() * c;
 				vert = nu;
 		  }
 
@@ -114,7 +114,7 @@ namespace fhl
 		  for (short i = 0; i < 2; i++)
 		  {
 				Vec2f edge = m_verts[i] - m_verts[i + 1];
-				m_axes[i] = Vec2f(edge.y, -edge.x).normalized();
+				m_axes[i] = Vec2f(edge.y(), -edge.x()).normalized();
 		  }
 	 }
 

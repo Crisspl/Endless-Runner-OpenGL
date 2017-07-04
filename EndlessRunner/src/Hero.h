@@ -44,7 +44,7 @@ public:
    State getState() const { return m_currentState; }
 
    void setPosition(fhl::Vec2f _pos) { m_heroSprite.setPosition(_pos); }
-   void setPosY(float _y) { m_heroSprite.setPosition({getPosition().x, _y}); }
+   void setPosY(float _y) { m_heroSprite.setPosition({getPosition().x(), _y}); }
 
 private:
    void move(fhl::Vec2f _offset);

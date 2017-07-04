@@ -56,9 +56,9 @@ namespace fhl { namespace internal
 	 void TexturedSizeable::fillTxcArray(Vec2f _v)
 	 {
 		 m_texCoordsArray[0] = { 0, 0 };
-		 m_texCoordsArray[1] = { _v.x, 0 };
+		 m_texCoordsArray[1] = { _v.x(), 0 };
 		 m_texCoordsArray[2] = _v;
-		 m_texCoordsArray[3] = { 0, _v.y };
+		 m_texCoordsArray[3] = { 0, _v.y() };
 	 }
 
 	 void TexturedSizeable::setUp()

@@ -23,7 +23,7 @@ namespace fhl { namespace internal
 		vbo.unbind();
 		ebo.unbind();
 
-#define comp(dim) [](const Vertex & a, const Vertex & b) { return a.position.dim < b.position.dim; }
+#define comp(dim) [](const Vertex & a, const Vertex & b) { return a.position.dim() < b.position.dim(); }
 
 		auto minMaxX = std::minmax_element(_vertices.begin(), _vertices.end(), comp(x));
 		auto minMaxY = std::minmax_element(_vertices.begin(), _vertices.end(), comp(y));
@@ -31,9 +31,9 @@ namespace fhl { namespace internal
 
 		minMaxVerts = std::make_tuple
 		(
-			std::make_pair(minMaxX.first->position.x, minMaxX.second->position.x),
-			std::make_pair(minMaxY.first->position.y, minMaxY.second->position.y),
-			std::make_pair(minMaxZ.first->position.z, minMaxZ.second->position.z)
+			std::make_pair(minMaxX.first->position.x(), minMaxX.second->position.x()),
+			std::make_pair(minMaxY.first->position.y(), minMaxY.second->position.y()),
+			std::make_pair(minMaxZ.first->position.z(), minMaxZ.second->position.z())
 		);
 #undef comp
 	}

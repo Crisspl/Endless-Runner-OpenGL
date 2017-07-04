@@ -126,10 +126,10 @@ void Game::update()
 
 	m_vecIslands.erase(
 		 std::remove_if(m_vecIslands.begin(), m_vecIslands.end(),
-			  [](const Island & _isl) { return _isl.getPosition().x < -200.f; }),
+			  [](const Island & _isl) { return _isl.getPosition().x() < -200.f; }),
 		 m_vecIslands.end());
 
-   if(m_hero.getPosition().y > WIN_Y)
+   if(m_hero.getPosition().y() > WIN_Y)
    {
       m_hero.setPosY(WIN_Y);
       m_hero.changeState(Hero::State_Move);
@@ -139,7 +139,7 @@ void Game::update()
    static auto onIsland = [&]() -> bool { return collidingIslandNum >= 0; };
 
    if(m_hero.getState() == Hero::State_Move &&
-      m_hero.getPosition().y < WIN_Y &&
+      m_hero.getPosition().y() < WIN_Y &&
       !onIsland())
    {
       m_hero.changeState(Hero::State_Fall);

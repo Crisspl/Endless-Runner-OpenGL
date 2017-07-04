@@ -15,11 +15,11 @@ namespace fhl
 		  const float sine = std::sin(radAngle);
 
 		  m_xyzw *= sine;
-		  m_xyzw.w = std::cos(radAngle);
+		  m_xyzw.w() = std::cos(radAngle);
 	 }
 
 	 Quaternion::Quaternion(Vec3f _axis, float _angle) 
-		  : Quaternion(_axis.x, _axis.y, _axis.z, _angle)
+		  : Quaternion(_axis.x(), _axis.y(), _axis.z(), _angle)
 	 {}
 
 	 Quaternion Quaternion::operator*(Quaternion _other) const
@@ -27,10 +27,10 @@ namespace fhl
 		  const Vec4f & q1 = this->m_xyzw, & q2 = _other.m_xyzw;
 		  _other.m_xyzw =
 		  {
-				q2.w * q1.x + q2.x * q1.w + q2.y * q1.z - q2.z * q1.y,
-				q2.w * q1.y + q2.y * q1.w + q2.z * q1.x - q2.x * q1.z,
-				q2.w * q1.z + q2.z * q1.w + q2.x * q1.y - q2.y * q1.x,
-				q2.w * q1.w - q2.x * q1.x - q2.y * q1.y - q2.z * q1.z
+				q2.w() * q1.x() + q2.x() * q1.w() + q2.y() * q1.z() - q2.z() * q1.y(),
+				q2.w() * q1.y() + q2.y() * q1.w() + q2.z() * q1.x() - q2.x() * q1.z(),
+				q2.w() * q1.z() + q2.z() * q1.w() + q2.x() * q1.y() - q2.y() * q1.x(),
+				q2.w() * q1.w() - q2.x() * q1.x() - q2.y() * q1.y() - q2.z() * q1.z()
 		  };
 
 		  return _other;
@@ -43,7 +43,7 @@ namespace fhl
 
 	 Vec3f Quaternion::getAxis() const
 	 {
-		  const float sqrSine = 1.f - m_xyzw.w * m_xyzw.w;
+		  const float sqrSine = 1.f - m_xyzw.w() * m_xyzw.w();
 		  if (sqrSine <= 0)
 				return Vec3f::zero();
 		  const float sine = std::sqrt(sqrSine);
@@ -60,7 +60,7 @@ namespace fhl
 					 return std::acos(_a);
 		  };
 
-		  return toDegrees(arccos(m_xyzw.w)) * 2;
+		  return toDegrees(arccos(m_xyzw.w())) * 2;
 	 }
 
 	 Mat4 Quaternion::toMat4() const
@@ -68,10 +68,10 @@ namespace fhl
 		  Mat4 ret;
 
 		  const Vec4f & q = m_xyzw;
-		  float xx = q.x * q.x, yy = q.y * q.y, zz = q.z * q.z;
-		  float xy = q.x * q.y, xz = q.x * q.z;
-		  float yz = q.y * q.z, wx = q.w * q.x;
-		  float wy = q.w * q.y, wz = q.w * q.z;
+		  float xx = q.x() * q.x(), yy = q.y() * q.y(), zz = q.z() * q.z();
+		  float xy = q.x() * q.y(), xz = q.x() * q.z();
+		  float yz = q.y() * q.z(), wx = q.w() * q.x();
+		  float wy = q.w() * q.y(), wz = q.w() * q.z();
 
 		  ret.setRow(0,
 		  {
@@ -107,7 +107,7 @@ namespace fhl
 	 float Quaternion::dot(const Quaternion & _other) const
 	 {
 		  const Vec4f & q1 = m_xyzw, & q2 = _other.m_xyzw;
-		  return q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
+		  return q1.x() * q2.x() + q1.y() * q2.y() + q1.z() * q2.z() + q1.w() * q2.w();
 	 }
 
 	 Quaternion Quaternion::normalized() const

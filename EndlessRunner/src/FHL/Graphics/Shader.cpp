@@ -81,21 +81,21 @@ namespace fhl
 	 Shader& Shader::setVec2f(const GLchar* _name, const Vec2f & _value)
 	 {
 		 use();
-		 glUniform2f(glGetUniformLocation(getId(), _name), _value.x, _value.y);
+		 glUniform2f(glGetUniformLocation(getId(), _name), _value.x(), _value.y());
 		 return *this;
 	 }
 
 	 Shader& Shader::setVec3f(const GLchar* _name, const Vec3f & _value)
 	 {
 		 use();
-		 glUniform3f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z);
+		 glUniform3f(glGetUniformLocation(getId(), _name), _value.x(), _value.y(), _value.z());
 		 return *this;
 	 }
 
 	 Shader& Shader::setVec4f(const GLchar* _name, const Vec4f & _value)
 	 {
 		 use();
-		 glUniform4f(glGetUniformLocation(getId(), _name), _value.x, _value.y, _value.z, _value.w);
+		 glUniform4f(glGetUniformLocation(getId(), _name), _value.x(), _value.y(), _value.z(), _value.w());
 		 return *this;
 	 }
 

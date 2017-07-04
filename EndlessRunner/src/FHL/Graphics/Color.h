@@ -13,8 +13,8 @@ namespace fhl
 	struct Color
 	{
 		constexpr Color(float _r = 0.f, float _g = 0.f, float _b = 0.f, float _a = 1.f);
-		constexpr Color(Vec4f _color);
-		constexpr Color(Vec3f _color);
+		constexpr Color(const Vec4f & _color);
+		constexpr Color(const Vec3f & _color);
 		Color(std::initializer_list<float> _rgba);
 
 		constexpr bool operator==(const Color & _other) const
@@ -53,12 +53,12 @@ namespace fhl
 	{
 	}
 
-	constexpr Color::Color(Vec4f _color)
-		: Color(_color.x, _color.y, _color.z, _color.w)
+	constexpr Color::Color(const Vec4f & _color)
+		: Color(_color.x(), _color.y(), _color.z(), _color.w())
 	{
 	}
 
-	constexpr Color::Color(Vec3f _color)
+	constexpr Color::Color(const Vec3f & _color)
 		: Color(Vec4f(_color, 1.f))
 	{
 	}

@@ -33,8 +33,8 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
    //fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
 	//fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 	 
-   rect->addHeight(-m_heroSprite.getSize().y * 0.8f)
-       .move({0, m_heroSprite.getSize().y * 0.8f});
+   rect->addHeight(-m_heroSprite.getSize().y() * 0.8f)
+       .move({0, m_heroSprite.getSize().y() * 0.8f});
 
    return std::shared_ptr<Collider>(new BoxCollider(rect));
 }
@@ -86,7 +86,7 @@ void Hero::Move_update(float dt){}
 
 void Hero::Jump_onEnter(Hero::State prevState)
 {
-   m_velocity.y = JUMP_VEL;
+   m_velocity.y() = JUMP_VEL;
 }
 
 void Hero::Jump_onExit(Hero::State nextState)
@@ -96,8 +96,8 @@ void Hero::Jump_onExit(Hero::State nextState)
 void Hero::Jump_update(float dt)
 {
    move(m_velocity * dt);
-   m_velocity.y += dt * sup::GRAVITY;
-   if(m_velocity.y > 0)
+   m_velocity.y() += dt * sup::GRAVITY;
+   if(m_velocity.y() > 0)
       changeState(State_Fall);
 }
 
@@ -116,5 +116,5 @@ void Hero::Fall_onExit(Hero::State nextState)
 void Hero::Fall_update(float dt)
 {
    move(m_velocity * dt);
-   m_velocity.y += dt * sup::GRAVITY;
+   m_velocity.y() += dt * sup::GRAVITY;
 }

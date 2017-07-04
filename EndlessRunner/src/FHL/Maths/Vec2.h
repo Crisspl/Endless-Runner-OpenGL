@@ -1,88 +1,48 @@
-#ifndef FHL_VEC2_H
-#define FHL_VEC2_H
+#ifndef FHL_VEC2
+#define FHL_VEC2
 
-#include <iostream>
-#include <cmath>
+#include "VecBase.h"
 
-namespace fhl {
+namespace fhl
+{
 
-	 template<typename _T>
-	 struct Vec2
-	 {
-		  using valueType = _T;
-		  enum { Dimensions = 2 };
+	template<typename _T>
+	class Vec2 : public internal::VecBase<2, _T>
+	{
+	public:
+		using valueType = _T;
+		enum { Dimensions = 2 };
 
-		  explicit constexpr Vec2(_T _scalar = 0) : x(_scalar), y(_scalar) { }
-		  constexpr Vec2(_T _x, _T _y) : x(_x), y(_y) { }
+		constexpr explicit Vec2(_T _value = _T(0)) : internal::VecBase<2, _T>(_value) {}
+		constexpr Vec2(_T _x, _T _y) : internal::VecBase<2, _T>(_x, _y) {}
+		template<typename _U>
+		Vec2(const Vec2<_U> & _other) : internal::VecBase<2, _T>(static_cast<const internal::VecBase<2, _T> &>(_other)) {}
+		Vec2(const internal::VecBase<2, _T> & _other) : internal::VecBase<2, _T>(_other) {}
 
-		  template<typename _U>
-		  constexpr Vec2(const Vec2<_U> & _other) :
-				x(_T(_other.x)),
-				y(_T(_other.y))
-		  { }
+		template<typename _U>
+		Vec2<_T> & operator=(const Vec2<_U> & _other) { internal::VecBase<2, _T>::operator=(_other); return *this; }
 
-		  static constexpr Vec2<_T> up() { return{ 0, 1 }; }
-		  static constexpr Vec2<_T> down() { return{ 0, -1 }; }
-		  static constexpr Vec2<_T> right() { return{ 1, 0 }; }
-		  static constexpr Vec2<_T> left() { return{ -1, 0 }; }
-		  static constexpr Vec2<_T> zero() { return{ 0, 0 }; }
-		  static constexpr Vec2<_T> one() { return{ 1, 1 }; }
+		static constexpr Vec2<_T> up() { return{ 0, 1 }; }
+		static constexpr Vec2<_T> down() { return{ 0, -1 }; }
+		static constexpr Vec2<_T> right() { return{ 1, 0 }; }
+		static constexpr Vec2<_T> left() { return{ -1, 0 }; }
+		static constexpr Vec2<_T> zero() { return{ 0, 0 }; }
+		static constexpr Vec2<_T> one() { return{ 1, 1 }; }
 
-		  friend constexpr Vec2<_T> operator+(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x + _right.x, _left.y + _right.y }; }
+		_T & x() { return (*this)[0]; }
+		constexpr _T x() const { return (*this)[0]; }
 
-		  friend constexpr Vec2<_T> operator-(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x - _right.x, _left.y - _right.y }; }
+		_T & y() { return (*this)[1]; }
+		constexpr _T y() const { return (*this)[1]; }
 
-		  friend constexpr Vec2<_T> operator*(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x * _right.x, _left.y * _right.y }; }
-		  friend constexpr Vec2<_T> operator*(const Vec2<_T> & _v, _T _scalar) { return { _v.x * _scalar, _v.y * _scalar }; }
-		  friend constexpr Vec2<_T> operator*(_T _scalar, const Vec2<_T> & _v) { return _v * _scalar; }
+		_FHL_VECTOR_OPERATORS_IMPLEMENTATION(_T, Vec2)
+	};
 
-		  friend constexpr Vec2<_T> operator/(const Vec2<_T> & _left, const Vec2<_T> & _right) { return { _left.x / _right.x, _left.y / _right.y }; }
-		  friend constexpr Vec2<_T> operator/(const Vec2<_T> & _v, _T _scalar) { return { _v.x / _scalar, _v.y / _scalar }; }
+	using Vec2f = Vec2<float>;
+	using Vec2lf = Vec2<double>;
+	using Vec2i = Vec2<int>;
+	using Vec2u = Vec2<unsigned>;
 
-		  Vec2<_T> & operator+=(const Vec2<_T> & _other) { return *this = *this + _other; }
+}
 
-		  Vec2<_T> & operator-=(const Vec2<_T> & _other) { return *this = *this - _other; }
-
-		  Vec2<_T> & operator*=(const Vec2<_T> & _other) { return *this = *this * _other; }
-		  Vec2<_T> & operator*=(_T _scalar) { return *this = *this * _scalar; }
-
-		  Vec2<_T> & operator/=(const Vec2<_T> & _other) { return *this = *this / _other; }
-		  Vec2<_T> & operator/=(_T _scalar) { return *this = *this / _scalar; }
-
-		  constexpr Vec2<_T> operator-() const { return Vec2<_T>(-x, -y); }
-
-		  constexpr bool operator==(const Vec2<_T> & _other) const { return _other.x == x && _other.y == y; }
-		  constexpr bool operator!=(const Vec2<_T> & _other) const { return !(*this == _other); }
-
-		  constexpr bool operator<(const Vec2<_T> & _other) const { return x < _other.x && y < _other.y; }
-		  constexpr bool operator<=(const Vec2<_T> & _other) const { return x <= _other.x && y <= _other.y; }
-		  constexpr bool operator>(const Vec2<_T> & _other) const { return x > _other.x && y > _other.y; }
-		  constexpr bool operator>=(const Vec2<_T> & _other) const { return x >= _other.x && y >= _other.y; }
-
-		  constexpr float length() const { return sqrt(x*x + y*y); }
-		  constexpr Vec2<_T> normalized() const { return *this / length(); }
-		  constexpr const _T * data() const { return &x; }
-
-		  _T & operator[](std::size_t _n) { return *(&x + _n); }
-		  constexpr _T operator[](std::size_t _n) const { return *(&x + _n); }
-
-		  constexpr float dot(const Vec2<_T> & _right) const { return x * _right.x + y * _right.y; }
-
-		  friend std::ostream & operator<<(std::ostream & _os, const Vec2<_T> & _v)
-		  {
-				return _os << '{' << _v.x << ", " << _v.y << '}';
-		  }
-
-	 public:
-		  _T x, y;
-	 };
-
-	 using Vec2f = Vec2<float>;
-	 using Vec2lf = Vec2<double>;
-	 using Vec2i = Vec2<int>;
-	 using Vec2u = Vec2<unsigned>;
-
-} //ns
-
-
-#endif // FHL_VEC2_H
+#endif

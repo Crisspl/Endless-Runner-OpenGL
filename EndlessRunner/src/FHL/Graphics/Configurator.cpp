@@ -31,7 +31,7 @@ namespace fhl
 
 		glViewport(0, 0, _width, _height);
 		m_vpSize = { static_cast<int>(_width), static_cast<int>(_height) };
-		m_projection = Mat4::perspective(-45.f, static_cast<float>(-m_vpSize.x) / m_vpSize.y, 1e-1f, 1e4f);
+		m_projection = Mat4::perspective(-45.f, static_cast<float>(-m_vpSize.x()) / m_vpSize.y(), 1e-1f, 1e4f);
 
 		m_rectShapeEbo = std::make_unique<internal::Buffer>(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw);
 		m_rectShapeEbo->bind();
@@ -59,7 +59,7 @@ namespace fhl
 	{
 		Vec2f halfVp = Vec2f(m_vpSize) / 2.f;
 		const Vec3f eye = Vec3f(Vec2f(m_vpSize) / 2.f, _eyeZ);
-		m_views[m_defViewName] = { Mat4::lookAt(eye, Vec3f(halfVp.x, halfVp.y, 0), Vec3f::up()), eye };
+		m_views[m_defViewName] = { Mat4::lookAt(eye, Vec3f(halfVp.x(), halfVp.y(), 0), Vec3f::up()), eye };
 	}
 
 	void Configurator::setGlobal3DView(const std::string & _name)
