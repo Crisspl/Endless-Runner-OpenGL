@@ -223,6 +223,11 @@
     <ClInclude Include="src\FHL\Graphics\Vertex.h" />
     <ClInclude Include="src\FHL\Graphics\VertexArray.h" />
     <ClInclude Include="src\FHL\Graphics\View.h" />
+    <ClInclude Include="src\FHL\Maths\newVec2.h" />
+    <ClInclude Include="src\FHL\Maths\newVec3.h" />
+    <ClInclude Include="src\FHL\Maths\newVec4.h" />
+    <ClInclude Include="src\FHL\Maths\VecBase.h" />
+    <ClInclude Include="src\FHL\Maths\BoolVec.h" />
     <ClInclude Include="src\FHL\Maths\Constants.h" />
     <ClInclude Include="src\FHL\Maths\Mat4.h" />
     <ClInclude Include="src\FHL\Maths\mathsFuncs.h" />

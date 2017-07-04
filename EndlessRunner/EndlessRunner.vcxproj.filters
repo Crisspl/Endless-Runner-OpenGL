@@ -353,6 +353,21 @@
     <ClInclude Include="src\FHL\Maths\vectors.h">
       <Filter>Header Files\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="src\FHL\Maths\BoolVec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\VecBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\newVec2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\newVec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\newVec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\FHL\Graphics\Shaders\array_fs.glsl">
