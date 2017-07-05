@@ -20,9 +20,10 @@ namespace fhl
 
 		BoolVec() : m_data(0u) {}
 
-		template<typename ...Args, int = typename std::enable_if<sizeof...(Args) == _N, int>::type{}>
+		template<typename ...Args>
 		BoolVec(Args... _args) : BoolVec()
 		{
+			static_assert(sizeof...(Args) == _N, "Cannot initialize more than `Dimensions` bits");
 			initBits(bool(_args)...);
 		}
 
