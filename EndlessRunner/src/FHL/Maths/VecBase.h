@@ -44,7 +44,7 @@ namespace fhl { namespace internal
 		template<typename _U>
 		VecBase(const VecBase<_N, _U> & _other) { *this = _other; }
 
-		VecBase() : VecBase(0) {}
+		constexpr VecBase() : VecBase(0) {}
 
 		template<typename _U>
 		VecBase<_N, _T> & operator=(const VecBase<_N, _U> & _other)
@@ -137,7 +137,7 @@ namespace fhl { namespace internal
 			return *this;
 		}
 
-		double dot(VecBase<_N, _T> _other) const
+		double dot(const VecBase<_N, _T> & _other) const
 		{
 			double dot = 0.;
 			for (std::size_t i = 0; i < _N; i++)
