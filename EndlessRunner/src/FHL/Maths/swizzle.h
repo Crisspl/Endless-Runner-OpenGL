@@ -1,7 +1,9 @@
 #ifndef FHL_SWIZZLE_H
 #define FHL_SWIZZLE_H
 
-#include "vectors.h"
+#include <type_traits>
+
+#include <FHL/Maths/vectors.h>
 
 namespace fhl { namespace swizzle
 {
@@ -31,7 +33,7 @@ namespace fhl { namespace swizzle
 		struct allTrue<Cond> : std::integral_constant<bool, Cond> {};
 
 		template<>
-		struct allTrue<> : std::false_type {};
+		struct allTrue<> : std::true_type {};
 	}
 
 	enum VecDim
