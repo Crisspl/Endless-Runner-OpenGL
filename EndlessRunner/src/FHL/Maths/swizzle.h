@@ -10,19 +10,20 @@ namespace fhl { namespace swizzle
 
 	namespace impl
 	{
-		template<std::size_t DimsCount, typename _ValT>
+		template<std::size_t DimsCount, typename ValT>
 		struct VectorTypeForSize {};
 
-		template<typename _ValT>
-		struct VectorTypeForSize<2, _ValT> { using Type = Vec2<_ValT>; };
+		template<typename ValT>
+		struct VectorTypeForSize<2, ValT> { using Type = Vec2<ValT>; };
 
-		template<typename _ValT>
-		struct VectorTypeForSize<3, _ValT> { using Type = Vec3<_ValT>; };
+		template<typename ValT>
+		struct VectorTypeForSize<3, ValT> { using Type = Vec3<ValT>; };
 
-		template<typename _ValT>
-		struct VectorTypeForSize<4, _ValT> { using Type = Vec4<_ValT>; };
+		template<typename ValT>
+		struct VectorTypeForSize<4, ValT> { using Type = Vec4<ValT>; };
 
-
+		
+		/** @todo Use C++17 fold expressions instead */
 		template<bool...>
 		struct allTrue : std::false_type {};
 
@@ -49,7 +50,6 @@ namespace fhl { namespace swizzle
 	get(const VecT & _v)
 	{
 		static_assert(impl::allTrue<(Dims < VecT::Dimensions)...>::value, "Not enough vector dimensions to get the one(s) demanded");
-		static_assert(sizeof...(Dims) <= 4, "Cannot create a Vector of more than 4 dimensions");
 
 		return{ _v[Dims]... };
 	}
