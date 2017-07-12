@@ -1,6 +1,7 @@
 #include <FHL/Maths/Mat4.h>
 
 #include <cstring>
+
 #include <FHL/Maths/mathsFuncs.h>
 
 namespace fhl

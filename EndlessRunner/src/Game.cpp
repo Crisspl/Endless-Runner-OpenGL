@@ -6,6 +6,9 @@
 
 #include "Input.h"
 
+#include <iostream>
+#include <FHL/Utility/Compare.h>
+
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
 

@@ -1,7 +1,7 @@
 #ifndef FHL_DEBUG_H
 #define FHL_DEBUG_H
 
-#include <iostream>
+#include <ostream>
 
 namespace fhl
 {

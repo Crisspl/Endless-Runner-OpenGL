@@ -1,7 +1,7 @@
 #ifndef FHL_VEC4_H
 #define FHL_VEC4_H
 
-#include "Vec3.h"
+#include <FHL/Maths/Vec3.h>
 
 namespace fhl
 {

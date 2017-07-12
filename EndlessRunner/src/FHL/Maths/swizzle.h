@@ -25,16 +25,16 @@ namespace fhl { namespace swizzle
 		
 		/** @todo Use C++17 fold expressions instead */
 		template<bool...>
-		struct allTrue : std::false_type {};
+		struct AllTrue : std::false_type {};
 
 		template<bool FirstCond, bool... Conds>
-		struct allTrue<FirstCond, Conds...> : std::integral_constant<bool, FirstCond && allTrue<Conds...>::value> {};
+		struct AllTrue<FirstCond, Conds...> : std::integral_constant<bool, FirstCond && AllTrue<Conds...>::value> {};
 
 		template<bool Cond>
-		struct allTrue<Cond> : std::integral_constant<bool, Cond> {};
+		struct AllTrue<Cond> : std::integral_constant<bool, Cond> {};
 
 		template<>
-		struct allTrue<> : std::true_type {};
+		struct AllTrue<> : std::true_type {};
 	}
 
 	enum VecDim
@@ -49,7 +49,7 @@ namespace fhl { namespace swizzle
 	constexpr typename impl::VectorTypeForSize<sizeof...(Dims), typename VecT::valueType>::Type
 	get(const VecT & _v)
 	{
-		static_assert(impl::allTrue<(Dims < VecT::Dimensions)...>::value, "Not enough vector dimensions to get the one(s) demanded");
+		static_assert(impl::AllTrue<(Dims < VecT::Dimensions)...>::value, "Not enough vector dimensions to get the one(s) demanded");
 
 		return{ _v[Dims]... };
 	}

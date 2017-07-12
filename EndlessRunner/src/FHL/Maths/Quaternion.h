@@ -1,8 +1,8 @@
 #ifndef FHL_QUATERNION_H
 #define FHL_QUATERNION_H
 
-#include "vectors.h"
-#include "Mat4.h"
+#include <FHL/Maths/vectors.h>
+#include <FHL/Maths/Mat4.h>
 
 namespace fhl
 {

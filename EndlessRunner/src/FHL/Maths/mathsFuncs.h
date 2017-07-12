@@ -2,7 +2,8 @@
 #define FHL_MATHS_FUNCS
 
 #include <algorithm>
-#include "Constants.h"
+
+#include <FHL/Maths/Constants.h>
 
 namespace fhl
 {

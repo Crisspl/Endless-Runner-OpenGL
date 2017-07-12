@@ -8,7 +8,7 @@
 #include <ostream>
 #include <iterator>
 
-#include "BoolVec.h"
+#include <FHL/Maths/BoolVec.h>
 
 namespace fhl { namespace internal
 {

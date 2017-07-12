@@ -1,3 +1,3 @@
-#include "Vec2.h"
-#include "Vec3.h"
-#include "Vec4.h"
+#include <FHL/Maths/Vec2.h>
+#include <FHL/Maths/Vec3.h>
+#include <FHL/Maths/Vec4.h>
