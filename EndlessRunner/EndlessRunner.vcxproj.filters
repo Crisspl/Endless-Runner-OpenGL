@@ -368,6 +368,9 @@
     <ClInclude Include="src\FHL\Maths\newVec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Compare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\FHL\Graphics\Shaders\array_fs.glsl">

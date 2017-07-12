@@ -238,6 +238,7 @@
     <ClInclude Include="src\FHL\Maths\Vec4.h" />
     <ClInclude Include="src\FHL\Maths\vectors.h" />
     <ClInclude Include="src\FHL\Utility\Clock.h" />
+    <ClInclude Include="src\FHL\Utility\Compare.h" />
     <ClInclude Include="src\FHL\Utility\Debug.h" />
     <ClInclude Include="src\FHL\Utility\OrientedRect.h" />
     <ClInclude Include="src\FHL\Utility\Rect.h" />
