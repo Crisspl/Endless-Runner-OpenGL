@@ -23,6 +23,7 @@ Game::Game() :
    fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
    fhl::ResMgr::loadTexture("coinTex", "Resources/Tex/coin.png");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
+   SoundMgr::getSound("coinGatherSound").setVolume(25);
 
    m_hero.setPosition({200.f, (float)WIN_Y});
 }
@@ -117,7 +118,7 @@ void Game::update()
    for (auto & isl : m_vecIslands)
    {
 	   isl.update(dt);
-	   isl.move(-dt * 600.f);
+	   isl.move(-dt * 1200.f);
 
 	   auto & coins = isl.getCoins();
 
@@ -193,7 +194,7 @@ void Game::draw()
    if(m_sphere.getState() != Sphere::State_Idle)
 		m_renderer.renderToTex(m_sphere);
 
-	m_renderer.renderToTex(m_spr);
+	//m_renderer.renderToTex(m_spr);
 
    m_renderer.renderToScreen();
 

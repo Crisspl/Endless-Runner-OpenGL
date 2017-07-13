@@ -3,26 +3,38 @@
 
 #include <FHL/Utility/Rect.h>
 #include <FHL/Graphics/Sprite.h>
-#include <FHL/Maths/vectors.h>
+#include <FHL/Maths/Vec2.h>
+
+#include <vector>
 
 class AnimationMgr
 {
 public:
-   AnimationMgr(fhl::Sprite* _sprt, float _interval, fhl::Vec2f _fSize);
+	template<typename ...FramesPerState>
+	AnimationMgr::AnimationMgr(fhl::Sprite * _sprt, float _interval, fhl::Vec2u _size, FramesPerState... _framesPerState) :
+		m_ptrSprite(_sprt),
+		m_interval(_interval),
+		m_frameSize(_size),
+		isColumnwise(false),
+		m_framesPerState{ static_cast<std::size_t>(_framesPerState)... }
+	{}
 
 public:
-   void update(float _dt);
+	void update(float _dt);
 
-   AnimationMgr& setRow(std::size_t _r) { m_currentRow = _r; return *this; }
-   AnimationMgr& setFrameSize(fhl::Vec2f _size) { m_frameSize = _size; return *this; }
+	AnimationMgr & setState(std::size_t r) { m_currentState = r; m_frameCounter = 0; return *this; }
+	AnimationMgr & setFrameSize(const fhl::Vec2f & size) { m_frameSize = size; return *this; }
+	AnimationMgr & setColumnwise(bool cw) { isColumnwise = cw; return *this; }
 
 private:
-   fhl::Sprite* m_ptrSprite;
-   float m_currentFrameTime;
-   std::size_t m_currentRow;
-   std::size_t m_frameCounter;
-   float m_interval;
-   fhl::Vec2f m_frameSize;
+	fhl::Sprite * m_ptrSprite;
+	float m_currentFrameTime;
+	std::size_t m_currentState;
+	std::size_t m_frameCounter;
+	float m_interval;
+	fhl::Vec2u m_frameSize;
+	bool isColumnwise;
+	const std::vector<std::size_t> m_framesPerState;
 };
 
-#endif // ANIMATIONMGR_H
+#endif
