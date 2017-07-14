@@ -9,20 +9,10 @@ namespace fhl
 
 	 Mat4::Mat4(float _diagonal)
 	 {
-		 std::memset(m_elements, 0, 16 * sizeof(*m_elements));
+		 std::memset(m_cols, 0, 4 * sizeof(*m_cols));
 
-		 m_elements[0 + 0 * 4] = _diagonal;
-		 m_elements[1 + 1 * 4] = _diagonal;
-		 m_elements[2 + 2 * 4] = _diagonal;
-		 m_elements[3 + 3 * 4] = _diagonal;
-	 }
-
-	 Mat4::Mat4(Vec4f _c1, Vec4f _c2, Vec4f _c3, Vec4f _c4)
-	 {
-		 m_cols[0] = _c1;
-		 m_cols[1] = _c2;
-		 m_cols[2] = _c3;
-		 m_cols[3] = _c4;
+		 for (int i = 0; i < 4; i++)
+			 m_cols[i][i] = _diagonal;
 	 }
 
 	 Mat4 Mat4::operator+(const Mat4 & _other) const
@@ -30,7 +20,7 @@ namespace fhl
 		 Mat4 ret(*this);
 
 		 for (int i = 0; i < 16; i++)
-			 ret.m_elements[i] += _other.m_elements[i];
+			 ret[i] += _other[i];
 
 		 return ret;
 	 }
@@ -38,7 +28,7 @@ namespace fhl
 	 Mat4 & Mat4::operator+=(const Mat4 & _other)
 	 {
 		 for (int i = 0; i < 16; i++)
-			 m_elements[i] += _other.m_elements[i];
+			 (*this)[i] += _other[i];
 
 		 return *this;
 	 }
@@ -48,7 +38,7 @@ namespace fhl
 		 Mat4 ret(*this);
 
 		 for (int i = 0; i < 16; i++)
-			 ret.m_elements[i] -= _other.m_elements[i];
+			 ret[i] -= _other[i];
 
 		 return ret;
 	 }
@@ -56,7 +46,7 @@ namespace fhl
 	 Mat4 & Mat4::operator-=(const Mat4 & _other)
 	 {
 		 for (int i = 0; i < 16; i++)
-			 m_elements[i] -= _other.m_elements[i];
+			 (*this)[i] -= _other[i];
 
 		 return *this;
 	 }
@@ -66,7 +56,7 @@ namespace fhl
 		 Mat4 ret(*this);
 
 		 for (int i = 0; i < 16; i++)
-			 ret.m_elements[i] *= _n;
+			 ret[i] *= _n;
 
 		 return ret;
 	 }
@@ -85,8 +75,8 @@ namespace fhl
 			 {
 				 float sum = 0;
 				 for (int e = 0; e < 4; e++)
-					 sum += m_elements[i + e * 4] * _other.m_elements[e + j * 4];
-				 ret.m_elements[i + j * 4] = sum;
+					 sum += (*this)[i + e * 4] * _other[e + j * 4];
+				 ret[i + j * 4] = sum;
 			 }
 		 }
 		 return ret;
@@ -109,8 +99,8 @@ namespace fhl
 
 	 bool Mat4::operator==(const Mat4 & _other) const
 	 {
-		 for (int i = 0; i < 16; i++)
-			 if (m_elements[i] != _other.m_elements[i])
+		 for (int i = 0; i < 4; i++)
+			 if (m_cols[i] != _other.m_cols[i])
 				 return false;
 		 return true;
 	 }
@@ -124,7 +114,7 @@ namespace fhl
 	 {
 		 Vec4f row;
 		 for (int i = 0; i < 4; i++)
-			 row[i] = m_elements[_n + i * 4];
+			 row[i] = (*this)[_n + i * 4];
 
 		 return row;
 	 }
@@ -137,7 +127,7 @@ namespace fhl
 	 Mat4 & Mat4::setRow(size_t _n, Vec4f _r)
 	 {
 		 for (int i = 0; i < 4; i++)
-			 m_elements[_n + i * 4] = _r[i];
+			 (*this)[_n + i * 4] = _r[i];
 
 		 return *this;
 	 }
@@ -152,14 +142,14 @@ namespace fhl
 	 {
 		 Mat4 ret;
 
-		 ret.m_elements[0 + 0 * 4] = 2.f / (_right - _left);
-		 ret.m_elements[1 + 1 * 4] = 2.f / (_top - _bottom);
-		 ret.m_elements[2 + 2 * 4] = -2.f / (_far - _near);
-		 ret.setCol(3,
-			 { -((_right + _left) / (_right - _left)),
-				 (_top + _bottom) / (_top - _bottom),
-				 -((_far + _near) / (_far - _near)),
-				 1.f }
+		 ret[0 + 0 * 4] = 2.f / (_right - _left);
+		 ret[1 + 1 * 4] = 2.f / (_top - _bottom);
+		 ret[2 + 2 * 4] = -2.f / (_far - _near);
+		 ret.setCol(3, {
+			-((_right + _left) / (_right - _left)),
+			(_top + _bottom) / (_top - _bottom),
+			-((_far + _near) / (_far - _near)),
+			1.f }
 		 );
 
 		 return ret;
@@ -171,11 +161,11 @@ namespace fhl
 
 		 float t = std::tan(toRadians(_fov / 2.f));
 
-		 ret.m_elements[0 + 0 * 4] = 1.f / (_aspectRatio * t);
-		 ret.m_elements[1 + 1 * 4] = 1.f / t;
-		 ret.m_elements[2 + 2 * 4] = -(_far + _near) / (_far - _near);
-		 ret.m_elements[3 + 2 * 4] = -1.0f;
-		 ret.m_elements[2 + 3 * 4] = -2.f * _far * _near / (_far - _near);
+		 ret[0 + 0 * 4] = 1.f / (_aspectRatio * t);
+		 ret[1 + 1 * 4] = 1.f / t;
+		 ret[2 + 2 * 4] = -(_far + _near) / (_far - _near);
+		 ret[3 + 2 * 4] = -1.0f;
+		 ret[2 + 3 * 4] = -2.f * _far * _near / (_far - _near);
 
 		 return ret;
 	 }
@@ -214,9 +204,9 @@ namespace fhl
 	 {
 		 Mat4 ret(1.f);
 
-		 ret.m_elements[0 + 4 * 0] = _s.x();
-		 ret.m_elements[1 + 4 * 1] = _s.y();
-		 ret.m_elements[2 + 4 * 2] = _s.z();
+		 ret[0 + 4 * 0] = _s.x();
+		 ret[1 + 4 * 1] = _s.y();
+		 ret[2 + 4 * 2] = _s.z();
 
 		 return ret;
 	 }
@@ -287,8 +277,8 @@ namespace fhl
 	 Mat4 Mat4::invert(const Mat4 & _mat)
 	 {
 		 Mat4 inv;
-		 float * const e = inv.m_elements;
-		 const float * const m = _mat.m_elements;
+		 float * const e = &inv[0];
+		 const float * const m = _mat.data();
 
 		 e[0] = m[5] * m[10] * m[15] + m[9] * m[14] * m[7] + m[13] * m[6] * m[11] - (m[13] * m[10] * m[7] + m[9] * m[6] * m[15] + m[5] * m[14] * m[11]);
 		 e[4] = (m[1] * m[10] * m[15] + m[9] * m[14] * m[3] + m[13] * m[2] * m[11] - (m[13] * m[10] * m[3] + m[9] * m[2] * m[15] + m[1] * m[14] * m[11])) * -1.f;
