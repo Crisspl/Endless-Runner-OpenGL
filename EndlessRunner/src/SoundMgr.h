@@ -3,7 +3,8 @@
 
 #include <map>
 
-#include <SFML/Audio.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Audio/Sound.hpp>
 
 #include <FHL/Utility/Debug.h>
 

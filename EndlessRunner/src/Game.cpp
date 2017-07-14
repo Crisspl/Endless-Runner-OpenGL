@@ -25,6 +25,9 @@ Game::Game() :
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
    SoundMgr::getSound("coinGatherSound").setVolume(25);
 
+   m_bgMusic.openFromFile("Resources/Sounds/through_the_fire_n_flames.wav");
+   m_bgMusic.setLoop(true);
+
    m_hero.setPosition({200.f, (float)WIN_Y});
 }
 
@@ -65,15 +68,16 @@ void Game::initSystems()
 
 void Game::mainLoop()
 {
-   while(m_running)
-   {
-      dt =  1.f / 60.f;
+	m_bgMusic.play();
+	while (m_running)
+	{
+		dt = 1.f / 60.f;
 
-      handleEvents();
-      update();
-      draw();
-   }
-   SDL_Quit();
+		handleEvents();
+		update();
+		draw();
+	}
+	SDL_Quit();
 }
 
 void Game::handleEvents()
@@ -86,19 +90,28 @@ void Game::handleEvents()
                m_running = false;
                break;
            case SDL_KEYDOWN:
-               if(event.key.keysym.sym == SDLK_SPACE)
+               /*if(event.key.keysym.sym == SDLK_SPACE)
                   m_hero.changeState(Hero::State_Jump);
                if(event.key.keysym.sym == SDLK_e)
-               {
-                  m_vecIslands.emplace_back(fhl::Vec2f(1200, sup::getRand(200, 400)));
-               }
+                  m_vecIslands.emplace_back(fhl::Vec2f(1200, sup::getRand(200, 400)));*/
+			   switch (event.key.keysym.sym)
+			   {
+			   case SDLK_SPACE: m_hero.changeState(Hero::State_Jump); break;
+			   case SDLK_e: m_vecIslands.emplace_back(fhl::Vec2f(1200, sup::getRand(200, 400))); break;
+			   case SDLK_DOWN: 
+					if (m_bgMusic.getVolume() > 0.f) m_bgMusic.setVolume(m_bgMusic.getVolume() - 5.f);
+					break;
+			   case SDLK_UP:
+				   if (m_bgMusic.getVolume() < 100.f) m_bgMusic.setVolume(m_bgMusic.getVolume() + 5.f);
+				   break;
+			   }
                break;
            case SDL_MOUSEBUTTONDOWN:
-               if(m_sphere.getState() == Sphere::State_Idle)
-               {
-                  m_sphere.setDirection(countThrowDir());
-                  m_sphere.changeState(Sphere::State_Thrown);
-               }
+			   if (m_sphere.getState() == Sphere::State_Idle)
+			   {
+				   m_sphere.setDirection(countThrowDir());
+				   m_sphere.changeState(Sphere::State_Thrown);
+			   }
                break;
        }
    }
