@@ -9,20 +9,7 @@ namespace fhl { namespace swizzle
 {
 
 	namespace impl
-	{
-		template<std::size_t DimsCount, typename ValT>
-		struct VectorTypeForSize {};
-
-		template<typename ValT>
-		struct VectorTypeForSize<2, ValT> { using Type = Vec2<ValT>; };
-
-		template<typename ValT>
-		struct VectorTypeForSize<3, ValT> { using Type = Vec3<ValT>; };
-
-		template<typename ValT>
-		struct VectorTypeForSize<4, ValT> { using Type = Vec4<ValT>; };
-
-		
+	{	
 		/** @todo Use C++17 fold expressions instead */
 		template<bool...>
 		struct AllTrue : std::false_type {};
@@ -46,7 +33,7 @@ namespace fhl { namespace swizzle
 	};
 
 	template<VecDim ...Dims, typename VecT>
-	constexpr typename impl::VectorTypeForSize<sizeof...(Dims), typename VecT::valueType>::Type
+	constexpr typename VectorTypeForSize<sizeof...(Dims), typename VecT::valueType>::Type
 	get(const VecT & _v)
 	{
 		static_assert(impl::AllTrue<(Dims < VecT::Dimensions)...>::value, "Not enough vector dimensions to get the one(s) demanded");
