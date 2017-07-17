@@ -137,14 +137,14 @@ namespace fhl { namespace internal
 			return *this;
 		}
 
-		double dot(const VecBase<_N, _T> & _other) const
+		_T dot(const VecBase<_N, _T> & _other) const
 		{
-			double dot = 0.;
+			_T dot = 0;
 			for (std::size_t i = 0; i < _N; i++)
 				dot += m_data[i] * _other[i];
 			return dot;
 		}
-		constexpr double length() const { return std::sqrt(dot(*this)); }
+		constexpr _T length() const { return std::sqrt(dot(*this)); }
 		VecBase<_N, _T> normalized() const { return *this / length(); }
 
 		_T & operator[](std::size_t _idx) { return m_data[_idx]; }
