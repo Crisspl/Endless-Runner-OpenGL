@@ -20,13 +20,14 @@ Game::Game() :
 {
 	m_spr.setRotation(270.f).setPosition({ 400, 300 }).setOrigin(m_spr.getSize() / 2.f);
 
-   fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/island1.png");
+   fhl::ResMgr::loadTexture("islandTex", "Resources/Tex/tile.png");
    fhl::ResMgr::loadTexture("coinTex", "Resources/Tex/coin.png");
    SoundMgr::loadSound("Resources/Sounds/coin_gather_sound.wav", "coinGatherSound");
    SoundMgr::getSound("coinGatherSound").setVolume(25);
 
    m_bgMusic.openFromFile("Resources/Sounds/through_the_fire_n_flames.wav");
    m_bgMusic.setLoop(true);
+   m_bgMusic.setVolume(10.f);
 
    m_hero.setPosition({200.f, (float)WIN_Y});
 }
