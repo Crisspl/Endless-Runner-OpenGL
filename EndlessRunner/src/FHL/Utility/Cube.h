@@ -43,7 +43,7 @@ namespace fhl
 		virtual Cube & adjustX(float _offset);
 		virtual Cube & adjustY(float _offset);
 		virtual Cube & adjustZ(float _offset);
-		virtual Cube & move(const Vec3f & _offset);
+		virtual Cube & translate(const Vec3f & _offset);
 
 	private:
 		Vec3f m_size;

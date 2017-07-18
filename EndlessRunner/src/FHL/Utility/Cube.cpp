@@ -52,7 +52,7 @@ namespace fhl
 		return *this;
 	}
 
-	Cube & fhl::Cube::move(const Vec3f & _offset)
+	Cube & fhl::Cube::translate(const Vec3f & _offset)
 	{
 		for (Vec3f & vert : m_verts)
 			vert += _offset;
