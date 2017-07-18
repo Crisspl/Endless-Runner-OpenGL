@@ -6,7 +6,7 @@ namespace fhl
 {
 	bool Rect::contains(const Vec2f & _p) const
 	{
-		return (_p.x() < botLeft().x() + m_size.x() && _p.x() > botLeft().x()) && (_p.y() < botLeft().y() + m_size.y() && _p.y() > botLeft().y());
+		return (_p.x() < m_verts[BR].x() && _p.x() > getPosition().x()) && (_p.y() < m_verts[UR].y() && _p.y() > getPosition().y());
 	}
 
 	bool Rect::intersects(const Rect & _rect) const
@@ -36,7 +36,7 @@ namespace fhl
 		return{ min, max };
 	}
 
-	Rect & Rect::addWidth(float _width)
+	Rect & Rect::adjustX(float _width)
 	{
 		m_size.x() += _width;
 		m_verts[BR].x() += _width;
@@ -44,7 +44,7 @@ namespace fhl
 		return *this;
 	}
 
-	Rect & Rect::addHeight(float _height)
+	Rect & Rect::adjustY(float _height)
 	{
 		m_size.y() += _height;
 		m_verts[UL].y() += _height;
@@ -52,9 +52,9 @@ namespace fhl
 		return *this;
 	}
 
-	Rect & Rect::move(const Vec2f & _offset)
+	Rect & Rect::translate(const Vec2f & _offset)
 	{
-		for (auto& vert : m_verts)
+		for (Vec2f & vert : m_verts)
 			vert += _offset;
 		return *this;
 	}

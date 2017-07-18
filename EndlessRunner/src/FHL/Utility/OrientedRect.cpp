@@ -11,7 +11,7 @@ namespace fhl
 		applyTransformData(_data);
 	}
 
-	OrientedRect::OrientedRect(const Vec2f & _botLeft, const Vec2f & _size, const Vec2f & _origin, float _rot) : OrientedRect(_size, { _botLeft,{ 1, 1 }, _origin, _rot }) {}
+	OrientedRect::OrientedRect(const Vec2f & _botLeft, const Vec2f & _size, const Vec2f & _origin, float _rot) : OrientedRect(_size, { _botLeft, Vec2f::one(), _origin, _rot }) {}
 
 	bool OrientedRect::contains(const Vec2f & _p) const
 	{
@@ -33,7 +33,7 @@ namespace fhl
 		axes.insert(axes.begin(), m_axes.begin(), m_axes.end());
 		axes.insert(axes.begin(), _rect.getAxes().begin(), _rect.getAxes().end());
 
-		for (const Vec2f& axe : axes)
+		for (const Vec2f & axe : axes)
 		{
 			Projection p1 = this->project(axe);
 			Projection p2 = _rect.project(axe);
@@ -45,7 +45,7 @@ namespace fhl
 		return true;
 	}
 
-	Rect & OrientedRect::addWidth(float _width)
+	Rect & OrientedRect::adjustX(float _width)
 	{
 		m_size.x() += _width;
 		Vec2f offset = { _width * cos(m_radAngle), _width * sin(m_radAngle) };
@@ -54,7 +54,7 @@ namespace fhl
 		return *this;
 	}
 
-	Rect & OrientedRect::addHeight(float _height)
+	Rect & OrientedRect::adjustY(float _height)
 	{
 		m_size.y() += _height;
 		float angle = m_radAngle + toRadians(90.f);
@@ -64,7 +64,7 @@ namespace fhl
 		return *this;
 	}
 
-	Rect & OrientedRect::move(const Vec2f & _offset)
+	Rect & OrientedRect::translate(const Vec2f & _offset)
 	{
 		Vec2f x = { _offset.x() * cos(m_radAngle), _offset.x() * sin(m_radAngle) };
 		float angle = m_radAngle + toRadians(90.f);
@@ -72,13 +72,13 @@ namespace fhl
 
 		Vec2f offset = x + y;
 
-		return Rect::move(offset);
+		return Rect::translate(offset);
 	}
 
 	void OrientedRect::applyTransformData(const TransformData& _data)
 	{
 		rotate(_data.origin, _data.rotation);
-		Rect::move(_data.botLeft);
+		Rect::translate(_data.botLeft);
 
 		m_radAngle = toRadians(_data.rotation);
 
@@ -91,9 +91,9 @@ namespace fhl
 		float s = sin(angle);
 		float c = cos(angle);
 
-		move(-_ori);
+		translate(-_ori);
 
-		for (Vec2f& vert : m_verts)
+		for (Vec2f & vert : m_verts)
 		{
 			Vec2f nu;
 			nu.x() = vert.x() * c - vert.y() * s;
@@ -101,7 +101,7 @@ namespace fhl
 			vert = nu;
 		}
 
-		move(_ori);
+		translate(_ori);
 	}
 
 	void OrientedRect::calcAxes()

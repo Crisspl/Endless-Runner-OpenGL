@@ -21,9 +21,9 @@ namespace fhl {
 		 using Verts_t = std::array<Vec2f, 4>;
 
 	 public:
-		 enum VerticlePos /* Note Y axis can be inverted ! */
+		 enum VerticlePos : std::size_t /* Note Y axis can be inverted ! */
 		 {
-			 BL, // Bottom-left
+			 BL = 0, // Bottom-left
 			 BR, // Bottom-right
 			 UR, // Upper-right
 			 UL  // Upper-left
@@ -41,16 +41,16 @@ namespace fhl {
 		 virtual bool contains(const Vec2f & _p) const;
 		 virtual bool intersects(const Rect& _rect) const;
 
-		 Vec2f operator[](unsigned _i) const { return m_verts[_i]; }
+		 const Vec2f & operator[](std::size_t _i) const { return m_verts[_i]; }
 		 const Verts_t & getVerts() const { return m_verts; }
 
-		 Vec2f botLeft() const { return m_verts[BL]; }
-		 Vec2f getSize() const { return m_size; }
+		 const Vec2f & getPosition() const { return m_verts[BL]; }
+		 const Vec2f & getSize() const { return m_size; }
 		 Projection project(Vec2f _axis) const;
 
-		 virtual Rect & addWidth(float _width);
-		 virtual Rect & addHeight(float _height);
-		 virtual Rect & move(const Vec2f & _offset);
+		 virtual Rect & adjustX(float _width);
+		 virtual Rect & adjustY(float _height);
+		 virtual Rect & translate(const Vec2f & _offset);
 
 		 virtual const std::array<Vec2f, 2> & getAxes() const { return s_axes; }
 
