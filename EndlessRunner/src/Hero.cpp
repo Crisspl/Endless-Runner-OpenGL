@@ -34,8 +34,8 @@ std::shared_ptr<Collider> Hero::getCollider(CollideableObjType _objType)
 	//fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getSize(), m_heroSprite.getTransformData());
 	//fhl::Rect *rect = new fhl::OrientedRect(m_heroSprite.getTransformData().botLeft, m_heroSprite.getSize(), m_heroSprite.getOrigin(), m_heroSprite.getRotation());
 
-	rect->addHeight(-m_heroSprite.getSize().y() * 0.8f)
-		.move({ 0, m_heroSprite.getSize().y() * 0.8f });
+	rect->adjustY(-m_heroSprite.getSize().y() * 0.8f)
+		.translate({ 0, m_heroSprite.getSize().y() * 0.8f });
 
 	return std::shared_ptr<Collider>(new BoxCollider(rect));
 }

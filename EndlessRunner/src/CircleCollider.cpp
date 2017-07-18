@@ -26,7 +26,7 @@ bool CircleCollider::isCollision(const RectsCollider& _collider) const
    {
       const fhl::Rect& rect = _collider[i];
 	  fhl::Vec2f halfExtens = rect.getSize() / 2.f;
-	  fhl::Vec2f rectCenter = rect.botLeft() + halfExtens;
+	  fhl::Vec2f rectCenter = rect.getPosition() + halfExtens;
 	  fhl::Vec2f distanceVec = m_center - rectCenter;
 
 	  fhl::Vec2f clamped = fhl::clamp(distanceVec, -halfExtens, halfExtens);
