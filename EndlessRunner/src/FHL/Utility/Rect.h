@@ -9,7 +9,7 @@ namespace fhl {
 
 	 struct Projection
 	 {
-		  constexpr bool overlap(const Projection & _p)
+		  constexpr bool overlap(const Projection & _p) const
 		  {
 				return ((min > _p.min && min < _p.max) || (max < _p.max && max > _p.min));
 		  }
@@ -21,7 +21,7 @@ namespace fhl {
 		 using Verts_t = std::array<Vec2f, 4>;
 
 	 public:
-		 enum VerticlePos : std::size_t /* Note Y axis can be inverted ! */
+		 enum VerticlePos : std::size_t /* Note that Y axis can be inverted! */
 		 {
 			 BL = 0, // Bottom-left
 			 BR, // Bottom-right
@@ -30,7 +30,6 @@ namespace fhl {
 		 };
 
 	 public:
-		 Rect() : m_size{ Vec2f::zero() } {}
 		 Rect(const Vec2f & _botLeft, const Vec2f & _size) :
 			 m_size{ _size },
 			 m_verts{ { _botLeft, _botLeft + Vec2f(_size.x(), 0), _botLeft + _size, _botLeft + Vec2f(0, _size.y()) } } {}
