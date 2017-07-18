@@ -57,7 +57,7 @@ namespace fhl
 		return *this;
 	}
 
-	Mat4 Transformable3D::getTransform() const
+	Mat4f Transformable3D::getTransform() const
 	{
 		if (m_transformChanged)
 		{
@@ -68,7 +68,7 @@ namespace fhl
 		else return m_transform;
 	}
 
-	Mat4 Transformable3D::getMVP() const
+	Mat4f Transformable3D::getMVP() const
 	{
 		return
 			Configurator::projection() *
@@ -83,7 +83,7 @@ namespace fhl
 
 	RenderMatrices Transformable3D::createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const View & _view)
 	{
-		const Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _rotation);
+		const Mat4f transform = createTransformMatrix(_pos, _scale, _origin, _rotation);
 		return
 		{
 			 transform,
@@ -97,13 +97,13 @@ namespace fhl
 		return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, _rotation * m_rotation, getView());
 	}
 
-	Mat4 Transformable3D::createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
+	Mat4f Transformable3D::createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation)
 	{
 		return
-			Mat4::scale(_scale) *
-			Mat4::translate(_origin + (_pos - _origin) / _scale) *
-			_rotation.toMat4() *
-			Mat4::translate(-_origin);
+			Mat4f::scale(_scale) *
+			Mat4f::translate(_origin + (_pos - _origin) / _scale) *
+			_rotation.toMat4f() *
+			Mat4f::translate(-_origin);
 	}
 
 	View Transformable3D::getView() const

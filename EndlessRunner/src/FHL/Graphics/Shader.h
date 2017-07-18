@@ -53,7 +53,7 @@ namespace fhl
 		  Shader & setVec3f(const GLchar * _name, const Vec3f & _value);
 		  Shader & setVec4f(const GLchar * _name, const Vec4f & _value);
 		  Shader & setColor(const GLchar * _name, const Color & _value);
-		  Shader & setMat4(const GLchar * _name, const Mat4 & _matrix);
+		  Shader & setMat4f(const GLchar * _name, const Mat4f & _matrix);
 
 		  Shader & setLight(const GLchar * _name, const Light & _light);
 		  Shader & setLight(const GLchar * _name, const Light & _light, size_t _num);

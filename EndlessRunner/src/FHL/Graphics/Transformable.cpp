@@ -69,7 +69,7 @@ namespace fhl
 		};
 	}
 
-	Mat4 Transformable::getTransform() const
+	Mat4f Transformable::getTransform() const
 	{
 		if (m_transformChanged)
 		{
@@ -80,7 +80,7 @@ namespace fhl
 		else return m_transform;
 	}
 
-	Mat4 Transformable::getMVP() const
+	Mat4f Transformable::getMVP() const
 	{
 		if (m_mvpChanged)
 		{
@@ -101,7 +101,7 @@ namespace fhl
 
 	RenderMatrices Transformable::createRenderMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
 	{
-		const Mat4 transform = createTransformMatrix(_pos, _scale, _origin, _angle);
+		const Mat4f transform = createTransformMatrix(_pos, _scale, _origin, _angle);
 		return
 		{
 			 transform,
@@ -114,13 +114,13 @@ namespace fhl
 		return createRenderMatrices(m_position + _mvOffset, m_scale * _scaleMlt, m_origin, m_rotation + _angle);
 	}
 
-	Mat4 Transformable::createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
+	Mat4f Transformable::createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
 	{
 		return
-			Mat4::scale(Vec3f(_scale, 1)) *
-			Mat4::translate(Vec3f(_origin, 0) + Vec3f(_pos - _origin, 0) / Vec3f(_scale, 1)) *
-			Mat4::rotate(_angle, Vec3f::back()) *
-			Mat4::translate(Vec3f(-_origin, 0));
+			Mat4f::scale(Vec3f(_scale, 1)) *
+			Mat4f::translate(Vec3f(_origin, 0) + Vec3f(_pos - _origin, 0) / Vec3f(_scale, 1)) *
+			Mat4f::rotate(_angle, Vec3f::back()) *
+			Mat4f::translate(Vec3f(-_origin, 0));
 	}
 
 } // ns

@@ -1,7 +1,5 @@
 #include "AnimationMgr.h"
 
-
-
 void AnimationMgr::update(float _dt)
 {
 	if (!m_ptrSprite->getTexture())

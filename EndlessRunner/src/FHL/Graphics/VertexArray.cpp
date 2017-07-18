@@ -38,8 +38,8 @@ namespace fhl
 		 Shader & shader = *getShader();
 		 shader.use();
 
-		 shader.setMat4("projection", Configurator::projection())
-				.setMat4("view", Configurator::view());
+		 shader.setMat4f("projection", Configurator::projection())
+				.setMat4f("view", Configurator::view());
 
 		 m_vao.bind();
 		 glDrawArrays(m_mode, 0, m_vertices.size());

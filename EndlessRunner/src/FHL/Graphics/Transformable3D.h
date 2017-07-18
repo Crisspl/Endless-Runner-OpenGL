@@ -30,22 +30,22 @@ namespace fhl
 		Vec3f getScale() const { return m_scale; }
 		Vec3f getOrigin() const { return m_origin; }
 
-		Mat4 getTransform() const;
-		Mat4 getMVP() const;
+		Mat4f getTransform() const;
+		Mat4f getMVP() const;
 		RenderMatrices getMatrices() const;
 
 		static RenderMatrices createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const View & _view);
 		RenderMatrices calcModifiedRenderMatrices(const Vec3f & _mvOffset, const Vec3f & _scaleMlt, const Quaternion & _rotation) const;
 
 	private:
-		static Mat4 createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);
+		static Mat4f createTransformMatrix(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation);
 		View getView() const;
 
 	private:
 		Quaternion m_rotation;
 		Vec3f m_position, m_scale, m_origin;
 		std::string m_viewName;
-		mutable Mat4 m_transform;
+		mutable Mat4f m_transform;
 		mutable bool m_transformChanged;
 	};
 

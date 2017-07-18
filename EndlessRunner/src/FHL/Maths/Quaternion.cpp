@@ -55,9 +55,9 @@ namespace fhl
 		return toDegrees(arccos(m_xyzw.w())) * 2;
 	}
 
-	Mat4 Quaternion::toMat4() const
+	Mat4f Quaternion::toMat4f() const
 	{
-		Mat4 ret;
+		Mat4f ret;
 
 		const Vec4f & q = m_xyzw;
 		float xx = q.x() * q.x(), yy = q.y() * q.y(), zz = q.z() * q.z();

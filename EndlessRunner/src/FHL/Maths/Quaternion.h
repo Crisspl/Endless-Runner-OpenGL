@@ -23,7 +23,7 @@ namespace fhl
 		Vec3f getAxis() const;
 		float getAngle() const;
 		Vec4f asVec4() const { return m_xyzw; }
-		Mat4 toMat4() const;
+		Mat4f toMat4f() const;
 
 		float length() const;
 		float dot(const Quaternion & _other) const;

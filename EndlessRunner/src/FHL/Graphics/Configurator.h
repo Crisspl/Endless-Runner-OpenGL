@@ -20,11 +20,11 @@ namespace fhl
 		static void init(GLuint _width, GLuint _height);
 
 		static Vec2i viewportSize() { return m_vpSize; }
-		static const Mat4 & view() { return m_views[m_defViewName].matrix; }
+		static const Mat4f & view() { return m_views[m_defViewName].matrix; }
 		static const Vec3f & cameraPos() { return m_views[m_defViewName].cameraPos; }
 		static const View & global3DView() { return *m_currentGlobal3DView; }
 		static View getView(const std::string & _name);
-		static const Mat4 & projection() { return m_projection; }
+		static const Mat4f & projection() { return m_projection; }
 		constexpr static const char * getDefaultViewName() { return m_defViewName; }
 
 		static void setDefaultViewDistance(float _eyeZ);
@@ -41,7 +41,7 @@ namespace fhl
 	private:
 		static bool m_initialized;
 		static std::unique_ptr<internal::Buffer> m_rectShapeEbo;
-		static Mat4 m_projection;
+		static Mat4f m_projection;
 		static View * m_currentGlobal3DView;
 		static const GLuint m_rectShapeIndices[6];
 		static Vec2i m_vpSize;

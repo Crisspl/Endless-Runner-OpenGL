@@ -104,7 +104,7 @@ namespace fhl
 		 return setVec4f(_name, _value.asVec4());
 	 }
 
-	 Shader& Shader::setMat4(const GLchar* _name, const Mat4 & _matrix)
+	 Shader& Shader::setMat4f(const GLchar* _name, const Mat4f & _matrix)
 	 {
 		 use();
 		 glUniformMatrix4fv(glGetUniformLocation(getId(), _name), 1, GL_FALSE, _matrix.data());

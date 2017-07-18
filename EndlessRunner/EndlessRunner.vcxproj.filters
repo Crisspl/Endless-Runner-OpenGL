@@ -156,9 +156,6 @@
     <ClCompile Include="src\FHL\Maths\Quaternion.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\FHL\Maths\Mat4.cpp">
-      <Filter>Source Files\Maths</Filter>
-    </ClCompile>
     <ClCompile Include="src\FHL\Utility\OrientedRect.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
@@ -173,6 +170,9 @@
     </ClCompile>
     <ClCompile Include="src\FHL\Utility\Debug.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Utility\Cube.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +369,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\FHL\Utility\Compare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Maths\Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Cube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

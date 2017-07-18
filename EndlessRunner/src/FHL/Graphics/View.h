@@ -8,7 +8,7 @@ namespace fhl
 
 	struct View
 	{
-		Mat4 matrix;
+		Mat4f matrix;
 		Vec3f cameraPos;
 	};
 

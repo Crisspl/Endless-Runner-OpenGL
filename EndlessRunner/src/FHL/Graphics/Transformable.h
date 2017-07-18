@@ -37,20 +37,20 @@ namespace fhl
 		Vec2f getOrigin() const { return m_origin; }
 		TransformData getTransformData() const;
 
-		Mat4 getTransform() const;
-		Mat4 getMVP() const;
+		Mat4f getTransform() const;
+		Mat4f getMVP() const;
 		RenderMatrices getMatrices() const;
 
 		static RenderMatrices createRenderMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
 		RenderMatrices calcModifiedRenderMatrices(const Vec2f & _mvOffset, const Vec2f & _scaleMlt, float _angle) const;
 
 	private:
-		static Mat4 createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
+		static Mat4f createTransformMatrix(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle);
 
 	private:
 		float m_rotation;
 		Vec2f m_position, m_scale, m_origin;
-		mutable Mat4 m_transform, m_mvp;
+		mutable Mat4f m_transform, m_mvp;
 		mutable bool m_transformChanged, m_mvpChanged;
 	};
 

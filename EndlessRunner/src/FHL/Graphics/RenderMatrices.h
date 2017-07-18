@@ -17,7 +17,7 @@ namespace fhl
 				return !(*this == _other);
 		  }
 
-		  Mat4 transform, mvp;
+		  Mat4f transform, mvp;
 		  Vec3f cameraPosition;
 	 };
 }
