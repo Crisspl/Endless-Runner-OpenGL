@@ -22,12 +22,12 @@ namespace fhl
 		template<typename _U>
 		Vec2<_T> & operator=(const Vec2<_U> & _other) { internal::VecBase<2, _T>::operator=(_other); return *this; }
 
-		static constexpr Vec2<_T> up() { return{ 0, 1 }; }
-		static constexpr Vec2<_T> down() { return{ 0, -1 }; }
-		static constexpr Vec2<_T> right() { return{ 1, 0 }; }
-		static constexpr Vec2<_T> left() { return{ -1, 0 }; }
-		static constexpr Vec2<_T> zero() { return{ 0, 0 }; }
-		static constexpr Vec2<_T> one() { return{ 1, 1 }; }
+		static constexpr Vec2<_T> up(_T n = _T(1)) { return{ 0, n }; }
+		static constexpr Vec2<_T> down(_T n = _T(1)) { return{ 0, -n }; }
+		static constexpr Vec2<_T> right(_T n = _T(1)) { return{ n, 0 }; }
+		static constexpr Vec2<_T> left(_T n = _T(1)) { return{ -n, 0 }; }
+		static constexpr Vec2<_T> zero() { return Vec2<_T>(_T(0)); }
+		static constexpr Vec2<_T> one() { return Vec2<_T>(_T(1)); }
 
 		_T & x() { return (*this)[0]; }
 		constexpr _T x() const { return (*this)[0]; }

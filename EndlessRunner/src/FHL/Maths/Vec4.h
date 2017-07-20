@@ -25,8 +25,9 @@ namespace fhl
 		template<typename _U>
 		Vec4<_T> & operator=(const Vec4<_U> & _other) { internal::VecBase<4, _T>::operator=(_other); return *this; }
 
-		static constexpr Vec4<_T> zero() { return{ 0, 0, 0, 0 }; }
-		static constexpr Vec4<_T> one() { return{ 1, 1, 1, 1 }; }
+		static constexpr Vec4<_T> wAxis(_T n = _T(1)) { return{ 0, 0, 0, n }; }
+		static constexpr Vec4<_T> zero() { return Vec4<_T>(_T(0)); }
+		static constexpr Vec4<_T> one() { return Vec4<_T>(_T(1)); }
 
 		_T & x() { return (*this)[0]; }
 		constexpr _T x() const { return (*this)[0]; }
