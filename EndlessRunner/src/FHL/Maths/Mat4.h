@@ -34,7 +34,7 @@ namespace fhl
 		bool operator!=(const Mat4<_T> & _other) const;
 
 		Vec4<_T> getRow(std::size_t _n) const;
-		Vec4<_T> getCol(std::size_t _n) const;
+		constexpr Vec4<_T> getCol(std::size_t _n) const;
 
 		Mat4<_T> & setRow(std::size_t _n, Vec4<_T> _r);
 		Mat4<_T> & setCol(std::size_t _n, Vec4<_T> _c);
@@ -45,10 +45,10 @@ namespace fhl
 		static Mat4<_T> perspective(_T _fov, _T _aspectRatio, _T _near, _T _far);
 		static Mat4<_T> lookAt(const Vec3<_T> & _eye, const Vec3<_T> & _center, const Vec3<_T> & _up);
 
-		static Mat4<_T> translate(const Vec3<_T> & _t);
+		constexpr static Mat4<_T> translate(const Vec3<_T> & _t);
 		static Mat4<_T> translate(const Mat4<_T> & _mat, const Vec3<_T> & _t);
 
-		static Mat4<_T> scale(const Vec3<_T> & _s);
+		constexpr static Mat4<_T> scale(const Vec3<_T> & _s);
 		static Mat4<_T> scale(const Mat4<_T> & _mat, const Vec3<_T> & _s);
 
 		static Mat4<_T> rotate(_T _angle, const Vec3<_T> & _axe);

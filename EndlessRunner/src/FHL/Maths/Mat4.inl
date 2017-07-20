@@ -128,7 +128,7 @@ namespace fhl
 	}
 
 	template<typename _T>
-	inline Vec4<_T> Mat4<_T>::getCol(std::size_t _n) const
+	constexpr inline Vec4<_T> Mat4<_T>::getCol(std::size_t _n) const
 	{
 		return m_cols[_n];
 	}
@@ -202,12 +202,14 @@ namespace fhl
 	}
 
 	template<typename _T>
-	inline Mat4<_T> Mat4<_T>::translate(const Vec3<_T> & _t)
+	constexpr inline Mat4<_T> Mat4<_T>::translate(const Vec3<_T> & _t)
 	{
-		Mat4<_T> ret(1.f);
-		ret.setCol(3, Vec4<_T>(_t, 1.f));
-
-		return ret;
+		return Mat4<_T> {
+			Vec4<_T>{ Vec3<_T>::right(), _T(0) },
+			Vec4<_T>{ Vec3<_T>::up(), _T(0) },
+			Vec4<_T>{ Vec3<_T>::back(), _T(0) },
+			Vec4<_T>{ _t, _T(1) }
+		};
 	}
 
 	template<typename _T>
@@ -217,15 +219,14 @@ namespace fhl
 	}
 
 	template<typename _T>
-	inline Mat4<_T> Mat4<_T>::scale(const Vec3<_T> & _s)
+	constexpr inline Mat4<_T> Mat4<_T>::scale(const Vec3<_T> & _s)
 	{
-		Mat4<_T> ret(1.f);
-
-		ret[0 + 4 * 0] = _s.x();
-		ret[1 + 4 * 1] = _s.y();
-		ret[2 + 4 * 2] = _s.z();
-
-		return ret;
+		return Mat4<_T> {
+			Vec4<_T>{ Vec3<_T>::right(_s.x()), _T(0) },
+			Vec4<_T>{ Vec3<_T>::up(_s.y()), _T(0) },
+			Vec4<_T>{ Vec3<_T>::back(_s.z()), _T(0) },
+			Vec4<_T>::wAxis()
+		}
 	}
 
 	template<typename _T>
