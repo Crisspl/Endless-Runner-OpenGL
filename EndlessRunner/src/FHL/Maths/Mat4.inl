@@ -2,13 +2,14 @@ namespace fhl
 {
 
 	template<typename _T>
-	inline Mat4<_T>::Mat4(_T _diagonal)
-	{
-		std::memset(m_cols, 0, 4 * sizeof(*m_cols));
-
-		for (int i = 0; i < 4; i++)
-			m_cols[i][i] = _diagonal;
-	}
+	constexpr inline Mat4<_T>::Mat4(_T _diagonal) :
+		m_cols {
+			Vec4<_T>{ Vec3<_T>::right(_diagonal), _T(0) },
+			Vec4<_T>{ Vec3<_T>::up(_diagonal), _T(0) },
+			Vec4<_T>{ Vec3<_T>::back(_diagonal), _T(0) },
+			Vec4<_T>::wAxis(_diagonal)
+		}
+	{}
 
 	template<typename _T>
 	inline Mat4<_T> Mat4<_T>::operator+(const Mat4<_T> & _other) const

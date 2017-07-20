@@ -12,7 +12,7 @@ namespace fhl
 	template<typename _T>
 	struct Mat4
 	{
-		explicit Mat4(_T _diagonal = _T(1));
+		constexpr explicit Mat4(_T _diagonal = _T(1));
 		constexpr Mat4(const Vec4<_T> & _c1, const Vec4<_T> & _c2, const Vec4<_T> & _c3, const Vec4<_T> & _c4) : m_cols{ _c1, _c2, _c3, _c4 } {}
 
 		Mat4<_T> operator+(const Mat4<_T> & _other) const;
