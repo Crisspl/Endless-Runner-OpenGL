@@ -9,12 +9,13 @@
 "out vec2 TexCoords;\n"
 
 "uniform mat4 model;\n"
+"uniform mat4 inverseModel;\n"
 "uniform mat4 mvp;\n"
 
 "void main()\n"
 "{\n"
 	 "gl_Position = mvp * vec4(position, 1.0f);\n"
 	 "TexCoords = texCoords;\n"
-	 "Normal = mat3(transpose(inverse(model))) * normal; //it cuts off translation and rotation and also non-uniform scaling effect\n"
+	 "Normal = mat3(transpose(inverseModel)) * normal; //it cuts off translation and rotation and also non-uniform scaling effect\n"
 	 "FragPos = vec3(model * vec4(position, 1.f));\n"
 "}"

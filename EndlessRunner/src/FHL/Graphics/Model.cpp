@@ -10,8 +10,7 @@ namespace fhl
 {
 
 	Model::Model(ModelData & _data) :
-		UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString),
-			&ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
+		UsingShader(&ResMgr::loadShader(simpleShaderName, shaderSrcs::model_Vertex, shaderSrcs::model_Fragment, Shader::FromString), &ResMgr::loadShader(lightShaderName, shaderSrcs::model_LightVertex, shaderSrcs::model_LightFragment, Shader::FromString)),
 		m_modelData(&_data),
 		m_vaos(_data.getMeshes().size()),
 		m_color(Color::Black),
@@ -38,6 +37,7 @@ namespace fhl
 
 		shader.setMat4f("mvp", matrices.mvp)
 			.setMat4f("model", matrices.transform)
+			.setMat4f("inverseModel", matrices.inverseTransform)
 			.setVec3f("cameraPos", matrices.cameraPosition)
 			.setFloat("material.shininess", 5.f)
 			.setLights("light", lights.cbegin(), lights.cend())
@@ -121,4 +121,4 @@ namespace fhl
 		}
 	}
 
-} // ns
+}

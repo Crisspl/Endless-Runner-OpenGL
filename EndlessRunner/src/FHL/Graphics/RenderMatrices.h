@@ -5,6 +5,7 @@
 
 namespace fhl
 {
+
 	 struct RenderMatrices
 	 {
 		  bool operator==(const RenderMatrices & _other) const
@@ -17,9 +18,10 @@ namespace fhl
 				return !(*this == _other);
 		  }
 
-		  Mat4f transform, mvp;
+		  Mat4f transform, inverseTransform, mvp;
 		  Vec3f cameraPosition;
 	 };
+
 }
 
-#endif // FHL_RENDERMATRICES_H
+#endif

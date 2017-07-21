@@ -10,7 +10,7 @@ namespace fhl
 		m_position(0.f),
 		m_scale(1.f),
 		m_transformChanged(true)
-	{ }
+	{}
 
 	Transformable3D & Transformable3D::rotate(float _angle, const Vec3f & _axis)
 	{
@@ -78,7 +78,7 @@ namespace fhl
 
 	RenderMatrices Transformable3D::getMatrices() const
 	{
-		return{ getTransform(), getMVP(), getView().cameraPos };
+		return{ getTransform(), getTransform().inverted(), getMVP(), getView().cameraPos };
 	}
 
 	RenderMatrices Transformable3D::createRenderMatrices(const Vec3f & _pos, const Vec3f & _scale, const Vec3f & _origin, const Quaternion & _rotation, const View & _view)
@@ -87,6 +87,7 @@ namespace fhl
 		return
 		{
 			 transform,
+			 transform.inverted(),
 			 Configurator::projection() * _view.matrix * transform,
 			 _view.cameraPos
 		};
@@ -111,4 +112,4 @@ namespace fhl
 		return m_viewName.empty() ? Configurator::global3DView() : Configurator::getView(m_viewName);
 	}
 
-} // ns
+}

@@ -96,7 +96,7 @@ namespace fhl
 
 	RenderMatrices Transformable::getMatrices() const
 	{
-		return{ getTransform(), getMVP(), Configurator::cameraPos() };
+		return{ getTransform(), Mat4f(), getMVP(), Configurator::cameraPos() };
 	}
 
 	RenderMatrices Transformable::createRenderMatrices(const Vec2f & _pos, const Vec2f & _scale, const Vec2f & _origin, float _angle)
@@ -105,7 +105,9 @@ namespace fhl
 		return
 		{
 			 transform,
-			 Configurator::projection() * Configurator::view() * transform
+			 Mat4f(),
+			 Configurator::projection() * Configurator::view() * transform,
+			 Configurator::cameraPos()
 		};
 	}
 

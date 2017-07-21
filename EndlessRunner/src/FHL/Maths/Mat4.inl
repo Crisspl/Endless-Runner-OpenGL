@@ -227,7 +227,7 @@ namespace fhl
 			Vec4<_T>{ Vec3<_T>::up(_s.y()), _T(0) },
 			Vec4<_T>{ Vec3<_T>::back(_s.z()), _T(0) },
 			Vec4<_T>::wAxis()
-		}
+		};
 	}
 
 	template<typename _T>

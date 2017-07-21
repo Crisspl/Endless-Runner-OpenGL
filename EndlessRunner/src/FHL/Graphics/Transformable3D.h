@@ -45,10 +45,10 @@ namespace fhl
 		Quaternion m_rotation;
 		Vec3f m_position, m_scale, m_origin;
 		std::string m_viewName;
-		mutable Mat4f m_transform;
+		mutable Mat4f m_transform, m_inverseTransform;
 		mutable bool m_transformChanged;
 	};
 
-} // ns
+}
 
-#endif // FHL_TRANSFORMABLE3D_H
+#endif
