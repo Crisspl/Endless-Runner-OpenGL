@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{405CA4C9-CA4E-450F-86F3-D7677C8B6E44}</ProjectGuid>
+    <ProjectGuid>{CC92D506-A3EF-4E24-AF72-71FC51A3670D}</ProjectGuid>
     <RootNamespace>EndlessRunner</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -69,32 +69,29 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\EndlessRunner\src;D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SFML-2.4.0%28msvc%29\include;D:\Libs\SDL2\include;$(SolutionDir)FHL\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0%28msvc%29\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\EndlessRunner\src;D:\Libs\SDL2\include;D:\Libs\Assimp\include;D:\Libs\SFML-2.4.0(msvc)\include;D:\Libs\SOIL\src;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0(msvc)\lib;D:\Libs\SOIL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SFML-2.4.0%28msvc%29\include;D:\Libs\SDL2\include;$(SolutionDir)FHL\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0%28msvc%29\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Libs\GLEW\glew-1.13.0\include;D:\Libs\SOIL\src;D:\Libs\GLM;D:\Libs\SFML-2.4.0\include;D:\Libs\Assimp\include;D:\Libs\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SFML-2.4.0%28msvc%29\include;D:\Libs\SDL2\include;$(SolutionDir)FHL\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0%28msvc%29\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\Libs\GLEW\glew-1.13.0\include;D:\Libs\SOIL\src;D:\Libs\GLM;D:\Libs\SFML-2.4.0\include;D:\Libs\Assimp\include;D:\Libs\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libs\Assimp\lib;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0\lib;D:\Libs\SOIL\lib;D:\Libs\GLEW\glew-1.13.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Libs\SFML-2.4.0%28msvc%29\include;D:\Libs\SDL2\include;$(SolutionDir)FHL\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\;D:\Libs\SDL2\libsx86;D:\Libs\SFML-2.4.0%28msvc%29\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalOptions>/Qvec-report:1 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>assimp.lib;SOIL.lib;gdi32.lib;opengl32.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>fhl-d.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,25 +101,22 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-system-d.lib;sfml-audio-d.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>fhl-d.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalOptions>/Qvec-report:1 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>assimp.lib;SOIL.lib;gdi32.lib;opengl32.lib;SDL2-vs.lib;SDL2main-vs.lib;legacy_stdio_definitions.lib;sfml-main.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>fhl.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,7 +130,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>libassimp_vs.lib;libSOIL-vs.lib;gdi32.lib;opengl32.lib;glew32s.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-system.lib;sfml-audio.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fhl.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -146,35 +141,6 @@
     <ClCompile Include="src\Coin.cpp" />
     <ClCompile Include="src\Collideable.cpp" />
     <ClCompile Include="src\EndlessCliff.cpp" />
-    <ClCompile Include="src\FHL\GL\gl3w.c" />
-    <ClCompile Include="src\FHL\Graphics\Buffer.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Color.cpp" />
-    <ClCompile Include="src\FHL\Graphics\ColoredRect.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Configurator.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Light.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Mesh.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Model.cpp" />
-    <ClCompile Include="src\FHL\Graphics\ModelData.cpp" />
-    <ClCompile Include="src\FHL\Graphics\RenderConf.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Renderer.cpp" />
-    <ClCompile Include="src\FHL\Graphics\RenderTexture.cpp" />
-    <ClCompile Include="src\FHL\Graphics\ResMgr.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Shader.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Sizeable.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Sprite.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Texture.cpp" />
-    <ClCompile Include="src\FHL\Graphics\TexturedSizeable.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Transformable.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Transformable3D.cpp" />
-    <ClCompile Include="src\FHL\Graphics\UsingShader.cpp" />
-    <ClCompile Include="src\FHL\Graphics\Vao.cpp" />
-    <ClCompile Include="src\FHL\Graphics\VertexArray.cpp" />
-    <ClCompile Include="src\FHL\Maths\Quaternion.cpp" />
-    <ClCompile Include="src\FHL\Utility\Clock.cpp" />
-    <ClCompile Include="src\FHL\Utility\Cube.cpp" />
-    <ClCompile Include="src\FHL\Utility\Debug.cpp" />
-    <ClCompile Include="src\FHL\Utility\OrientedRect.cpp" />
-    <ClCompile Include="src\FHL\Utility\Rect.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Global.cpp" />
     <ClCompile Include="src\Hero.cpp" />
@@ -193,57 +159,6 @@
     <ClInclude Include="src\Collideable.h" />
     <ClInclude Include="src\Collider.h" />
     <ClInclude Include="src\EndlessCliff.h" />
-    <ClInclude Include="src\FHL\GL\gl3w.h" />
-    <ClInclude Include="src\FHL\GL\glcorearb.h" />
-    <ClInclude Include="src\FHL\Graphics\Buffer.h" />
-    <ClInclude Include="src\FHL\Graphics\Color.h" />
-    <ClInclude Include="src\FHL\Graphics\ColoredRect.h" />
-    <ClInclude Include="src\FHL\Graphics\Configurator.h" />
-    <ClInclude Include="src\FHL\Graphics\Light.h" />
-    <ClInclude Include="src\FHL\Graphics\Litable.h" />
-    <ClInclude Include="src\FHL\Graphics\Mesh.h" />
-    <ClInclude Include="src\FHL\Graphics\Model.h" />
-    <ClInclude Include="src\FHL\Graphics\ModelData.h" />
-    <ClInclude Include="src\FHL\Graphics\Renderable.h" />
-    <ClInclude Include="src\FHL\Graphics\RenderConf.h" />
-    <ClInclude Include="src\FHL\Graphics\Renderer.h" />
-    <ClInclude Include="src\FHL\Graphics\RenderMatrices.h" />
-    <ClInclude Include="src\FHL\Graphics\RenderTexture.h" />
-    <ClInclude Include="src\FHL\Graphics\ResMgr.h" />
-    <ClInclude Include="src\FHL\Graphics\Shader.h" />
-    <ClInclude Include="src\FHL\Graphics\ShaderSrcs.h" />
-    <ClInclude Include="src\FHL\Graphics\Sizeable.h" />
-    <ClInclude Include="src\FHL\Graphics\Sprite.h" />
-    <ClInclude Include="src\FHL\Graphics\Texture.h" />
-    <ClInclude Include="src\FHL\Graphics\TexturedSizeable.h" />
-    <ClInclude Include="src\FHL\Graphics\Transformable.h" />
-    <ClInclude Include="src\FHL\Graphics\Transformable3D.h" />
-    <ClInclude Include="src\FHL\Graphics\UsingShader.h" />
-    <ClInclude Include="src\FHL\Graphics\Vao.h" />
-    <ClInclude Include="src\FHL\Graphics\Vertex.h" />
-    <ClInclude Include="src\FHL\Graphics\VertexArray.h" />
-    <ClInclude Include="src\FHL\Graphics\View.h" />
-    <ClInclude Include="src\FHL\Maths\newVec2.h" />
-    <ClInclude Include="src\FHL\Maths\newVec3.h" />
-    <ClInclude Include="src\FHL\Maths\newVec4.h" />
-    <ClInclude Include="src\FHL\Maths\Plane.h" />
-    <ClInclude Include="src\FHL\Maths\VecBase.h" />
-    <ClInclude Include="src\FHL\Maths\BoolVec.h" />
-    <ClInclude Include="src\FHL\Maths\Constants.h" />
-    <ClInclude Include="src\FHL\Maths\Mat4.h" />
-    <ClInclude Include="src\FHL\Maths\mathsFuncs.h" />
-    <ClInclude Include="src\FHL\Maths\Quaternion.h" />
-    <ClInclude Include="src\FHL\Maths\swizzle.h" />
-    <ClInclude Include="src\FHL\Maths\Vec2.h" />
-    <ClInclude Include="src\FHL\Maths\Vec3.h" />
-    <ClInclude Include="src\FHL\Maths\Vec4.h" />
-    <ClInclude Include="src\FHL\Maths\vectors.h" />
-    <ClInclude Include="src\FHL\Utility\Clock.h" />
-    <ClInclude Include="src\FHL\Utility\Compare.h" />
-    <ClInclude Include="src\FHL\Utility\Cube.h" />
-    <ClInclude Include="src\FHL\Utility\Debug.h" />
-    <ClInclude Include="src\FHL\Utility\OrientedRect.h" />
-    <ClInclude Include="src\FHL\Utility\Rect.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Global.h" />
     <ClInclude Include="src\Hero.h" />
@@ -253,22 +168,6 @@
     <ClInclude Include="src\ScreenRenderer.h" />
     <ClInclude Include="src\SoundMgr.h" />
     <ClInclude Include="src\Sphere.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\FHL\Graphics\Shaders\array_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\array_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\modelLight_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\modelLight_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\model_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\model_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\rectLight_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\rectLight_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\rect_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\rect_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\spriteLight_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\spriteLight_vs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\sprite_fs.glsl" />
-    <None Include="src\FHL\Graphics\Shaders\sprite_vs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
