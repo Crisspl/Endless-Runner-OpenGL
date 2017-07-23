@@ -29,6 +29,8 @@ namespace fhl
 		static constexpr Vec2<_T> zero() { return Vec2<_T>(_T(0)); }
 		static constexpr Vec2<_T> one() { return Vec2<_T>(_T(1)); }
 
+		constexpr Vec2<_T> perpendicular() const { return {y(), -x()}; }
+
 		_T & x() { return (*this)[0]; }
 		constexpr _T x() const { return (*this)[0]; }
 

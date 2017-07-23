@@ -17,9 +17,8 @@ namespace fhl
 	{
 		for (short i = 0; i < 2; i++)
 		{
-			float dot = m_axes[i].dot(_p);
-			Projection p1 = { dot, dot };
-			Projection p2 = project(m_axes[i]);
+			const float dot = m_axes[i].dot(_p);
+			Projection p1 = { dot, dot }, p2 = project(m_axes[i]);
 			if (!p1.overlaps(p2) && !p2.overlaps(p1))
 				return false;
 		}
@@ -33,8 +32,7 @@ namespace fhl
 
 		for (const Vec2f & axis : axes)
 		{
-			Projection p1 = this->project(axis);
-			Projection p2 = _rect.project(axis);
+			Projection p1 = this->project(axis), p2 = _rect.project(axis);
 			if (!p1.overlaps(p2) && !p2.overlaps(p1))
 				return false;
 		}
@@ -44,7 +42,7 @@ namespace fhl
 	Rect & OrientedRect::adjustX(float _width)
 	{
 		m_size.x() += _width;
-		Vec2f offset = { _width * cos(m_radAngle), _width * sin(m_radAngle) };
+		const Vec2f offset = { _width * cos(m_radAngle), _width * std::sin(m_radAngle) };
 		m_verts[BR] += offset;
 		m_verts[UR] += offset;
 		return *this;
@@ -53,8 +51,8 @@ namespace fhl
 	Rect & OrientedRect::adjustY(float _height)
 	{
 		m_size.y() += _height;
-		float angle = m_radAngle + toRadians(90.f);
-		Vec2f offset = { _height * cos(angle), _height * sin(angle) };
+		const float angle = m_radAngle + toRadians(90.f);
+		const Vec2f offset = { _height * std::cos(angle), _height * std::sin(angle) };
 		m_verts[UL] += offset;
 		m_verts[UR] += offset;
 		return *this;
@@ -62,16 +60,16 @@ namespace fhl
 
 	Rect & OrientedRect::translate(const Vec2f & _offset)
 	{
-		Vec2f x = { _offset.x() * cos(m_radAngle), _offset.x() * sin(m_radAngle) };
-		float angle = m_radAngle + toRadians(90.f);
-		Vec2f y = { _offset.y() * cos(angle), _offset.y() * sin(angle) };
+		const Vec2f x = { _offset.x() * std::cos(m_radAngle), _offset.x() * std::sin(m_radAngle) };
+		const float angle = m_radAngle + toRadians(90.f);
+		const Vec2f y = { _offset.y() * std::cos(angle), _offset.y() * std::sin(angle) };
 
-		Vec2f offset = x + y;
+		const Vec2f offset = x + y;
 
 		return Rect::translate(offset);
 	}
 
-	void OrientedRect::applyTransformData(const TransformData& _data)
+	void OrientedRect::applyTransformData(const TransformData & _data)
 	{
 		rotate(_data.origin, _data.rotation);
 		Rect::translate(_data.botLeft);
@@ -81,13 +79,13 @@ namespace fhl
 		calcAxes();
 	}
 
-	void OrientedRect::rotate(const Vec2f & _ori, float _angle)
+	void OrientedRect::rotate(const Vec2f & _origin, float _angle)
 	{
-		float angle = toRadians(_angle);
-		float s = sin(angle);
-		float c = cos(angle);
+		const float angle = toRadians(_angle);
+		const float s = std::sin(angle);
+		const float c = std::cos(angle);
 
-		translate(-_ori);
+		translate(-_origin);
 
 		for (Vec2f & vert : m_verts)
 		{
@@ -97,15 +95,15 @@ namespace fhl
 			vert = nu;
 		}
 
-		translate(_ori);
+		translate(_origin);
 	}
 
 	void OrientedRect::calcAxes()
 	{
-		for (short i = 0; i < 2; i++)
+		for (int i = 0; i < 2; i++)
 		{
-			Vec2f edge = m_verts[i] - m_verts[i + 1];
-			m_axes[i] = Vec2f(edge.y(), -edge.x()).normalized();
+			const Vec2f edge = m_verts[i] - m_verts[i + 1];
+			m_axes[i] = edge.perpendicular().normalized();
 		}
 	}
 
