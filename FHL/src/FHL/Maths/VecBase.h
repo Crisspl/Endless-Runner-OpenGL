@@ -144,7 +144,8 @@ namespace fhl { namespace internal
 				dot += m_data[i] * _other[i];
 			return dot;
 		}
-		constexpr _T length() const { return std::sqrt(dot(*this)); }
+		_T length() const { return std::sqrt(squaredLength()); }
+		_T squaredLength() const { return dot(*this); }
 		VecBase<_N, _T> normalized() const { return *this / length(); }
 
 		_T & operator[](std::size_t _idx) { return m_data[_idx]; }
