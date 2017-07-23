@@ -65,7 +65,7 @@ private:
 	Hero * m_owner;
 	State m_currentState;
 
-	constexpr static fhl::Vec2u s_frameSize{ 39u, 37u };
+	constexpr static fhl::Vec2u s_frameSize{ 48u, 48u };
 };
 
 #endif // SPHERE_H

@@ -2,33 +2,30 @@
 #define COLLIDER_H
 
 class CircleCollider;
-class RectsCollider;
 class BoxCollider;
 
 class Collider
 {
 public:
-   enum Type
-   {
-      Circle,
-      Rects,
-      Box,
+	enum Type
+	{
+		Circle,
+		Box,
 
-      CountColliderTypes
-   };
+		CountColliderTypes
+	};
 
 protected:
-   Collider(Type _type) : type(_type){}
+	Collider(Type _type) : type(_type) {}
 
 public:
-   virtual ~Collider(){}
+	virtual ~Collider() {}
 
 public:
-   virtual bool isCollision(const CircleCollider& _collider) const = 0;
-   virtual bool isCollision(const RectsCollider& _collider) const = 0;
-   virtual bool isCollision(const BoxCollider& _collider) const = 0;
+	virtual bool isCollision(const CircleCollider& _collider) const = 0;
+	virtual bool isCollision(const BoxCollider& _collider) const = 0;
 
-   Type type;
+	Type type;
 };
 
 #endif // COLLIDER_H

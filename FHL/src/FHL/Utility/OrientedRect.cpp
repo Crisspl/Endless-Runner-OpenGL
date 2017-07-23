@@ -20,28 +20,24 @@ namespace fhl
 			float dot = m_axes[i].dot(_p);
 			Projection p1 = { dot, dot };
 			Projection p2 = project(m_axes[i]);
-			if (!p1.overlap(p2) && !p2.overlap(p1))
+			if (!p1.overlaps(p2) && !p2.overlaps(p1))
 				return false;
 		}
 		return true;
 	}
 
-	bool OrientedRect::intersects(const Rect & _rect) const
+	bool OrientedRect::overlaps(const Rect & _rect) const
 	{
-		std::vector<Vec2f> axes;
-
-		axes.insert(axes.begin(), m_axes.begin(), m_axes.end());
+		std::vector<Vec2f> axes(std::begin(_rect.getAxes()), std::end(_rect.getAxes()));
 		axes.insert(axes.begin(), _rect.getAxes().begin(), _rect.getAxes().end());
 
-		for (const Vec2f & axe : axes)
+		for (const Vec2f & axis : axes)
 		{
-			Projection p1 = this->project(axe);
-			Projection p2 = _rect.project(axe);
-
-			if (!p1.overlap(p2) && !p2.overlap(p1))
+			Projection p1 = this->project(axis);
+			Projection p2 = _rect.project(axis);
+			if (!p1.overlaps(p2) && !p2.overlaps(p1))
 				return false;
 		}
-
 		return true;
 	}
 

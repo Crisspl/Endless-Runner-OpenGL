@@ -16,7 +16,7 @@ namespace fhl
 		OrientedRect(const Vec2f & _botLeft, const Vec2f & _size, const Vec2f & _origin, float _rot);
 
 		bool contains(const Vec2f & _p) const override;
-		bool intersects(const Rect & _rect) const override;
+		bool overlaps(const Rect & _rect) const override;
 
 		Rect & adjustX(float _width) override;
 		Rect & adjustY(float _height) override;

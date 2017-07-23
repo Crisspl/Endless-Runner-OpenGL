@@ -18,7 +18,7 @@ namespace fhl
 			(_p.z() < m_verts[BRF].z() && _p.z() > getPosition().z());
 	}
 
-	bool Cube::intersects(const Cube & _other) const
+	bool Cube::overlaps(const Cube & _other) const
 	{
 		for (const Vec3f & vert : _other.getVerts())
 			if (contains(vert)) return true;

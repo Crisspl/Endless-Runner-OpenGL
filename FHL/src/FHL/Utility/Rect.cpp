@@ -1,5 +1,6 @@
 #include <FHL/Utility/Rect.h>
 
+#include <FHL/Utility/Circle.h>
 #include <FHL/Graphics/Transformable.h>
 
 namespace fhl
@@ -9,7 +10,7 @@ namespace fhl
 		return (_p.x() < m_verts[BR].x() && _p.x() > getPosition().x()) && (_p.y() < m_verts[UR].y() && _p.y() > getPosition().y());
 	}
 
-	bool Rect::intersects(const Rect & _rect) const
+	bool Rect::overlaps(const Rect & _rect) const
 	{
 		for (int i = 0; i < 4; i++)
 		{
@@ -19,7 +20,12 @@ namespace fhl
 		return false;
 	}
 
-	Projection Rect::project(Vec2f _axis) const
+	bool Rect::overlaps(const Circle & _circle) const
+	{
+		return _circle.overlaps(*this);
+	}
+
+	Projection Rect::project(const Vec2f & _axis) const
 	{
 		float min = m_verts[0].dot(_axis);
 		float max = min;

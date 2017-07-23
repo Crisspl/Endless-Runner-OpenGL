@@ -186,6 +186,9 @@
     <ClInclude Include="src\FHL\common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\FHL\Utility\Circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FHL\GL\gl3w.c">
@@ -274,6 +277,9 @@
     </ClCompile>
     <ClCompile Include="src\FHL\Utility\Clock.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FHL\Utility\Circle.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

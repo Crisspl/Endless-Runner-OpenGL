@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include "Collider.h"
-#include "RectsCollider.h"
 #include "CircleCollider.h"
 #include "BoxCollider.h"
 

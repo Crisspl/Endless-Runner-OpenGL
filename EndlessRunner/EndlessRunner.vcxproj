@@ -92,6 +92,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>fhl-d.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -102,6 +103,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>fhl-d.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,7 +118,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>fhl.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,7 +133,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>fhl.lib;SDL2-vs.lib;SDL2main-vs.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -146,7 +148,6 @@
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\Island.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\RectsCollider.cpp" />
     <ClCompile Include="src\ScreenRenderer.cpp" />
     <ClCompile Include="src\SoundMgr.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
@@ -164,7 +165,6 @@
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Island.h" />
-    <ClInclude Include="src\RectsCollider.h" />
     <ClInclude Include="src\ScreenRenderer.h" />
     <ClInclude Include="src\SoundMgr.h" />
     <ClInclude Include="src\Sphere.h" />

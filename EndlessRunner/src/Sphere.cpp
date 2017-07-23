@@ -9,8 +9,8 @@
      = &Sphere::stateName##_update;
 
 Sphere::Sphere(Hero * _owner) :
-	m_sprite(fhl::ResMgr::loadTexture("sphereTex", "Resources/Tex/bullet.png")),
-	m_animMgr(&m_sprite, 0.15f, s_frameSize, 5),
+	m_sprite(fhl::ResMgr::loadTexture("sphereTex", "Resources/Tex/bullet2.png")),
+	m_animMgr(&m_sprite, 0.08f, s_frameSize, 8),
 	m_startVelociy(30.f),
 	m_velocity(m_startVelociy),
 	m_owner(_owner),
@@ -25,7 +25,6 @@ Sphere::Sphere(Hero * _owner) :
 	m_sprite.setOrigin(m_sprite.getSize() / 2.f);
 
 	changeState(State_Idle);
-	m_animMgr.setColumnwise(true);
 }
 
 std::shared_ptr<Collider> Sphere::getCollider(CollideableObjType _objType)

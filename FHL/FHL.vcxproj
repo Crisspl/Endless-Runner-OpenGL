@@ -192,6 +192,7 @@
     <ClInclude Include="src\FHL\Utility\Compare.h" />
     <ClInclude Include="src\FHL\Utility\Cube.h" />
     <ClInclude Include="src\FHL\Utility\Debug.h" />
+    <ClInclude Include="src\FHL\Utility\Circle.h" />
     <ClInclude Include="src\FHL\Utility\OrientedRect.h" />
     <ClInclude Include="src\FHL\Utility\Rect.h" />
   </ItemGroup>
@@ -223,6 +224,7 @@
     <ClCompile Include="src\FHL\Utility\Clock.cpp" />
     <ClCompile Include="src\FHL\Utility\Cube.cpp" />
     <ClCompile Include="src\FHL\Utility\Debug.cpp" />
+    <ClCompile Include="src\FHL\Utility\Circle.cpp" />
     <ClCompile Include="src\FHL\Utility\OrientedRect.cpp" />
     <ClCompile Include="src\FHL\Utility\Rect.cpp" />
   </ItemGroup>

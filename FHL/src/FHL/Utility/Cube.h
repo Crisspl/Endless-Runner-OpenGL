@@ -33,7 +33,7 @@ namespace fhl
 
 	public:
 		virtual bool contains(const Vec3f & _p) const;
-		virtual bool intersects(const Cube & _other) const;
+		virtual bool overlaps(const Cube & _other) const;
 
 		const Vec3f & operator[](std::size_t _i) const { return m_verts[_i]; }
 		const Verts_t & getVerts() const { return m_verts; }

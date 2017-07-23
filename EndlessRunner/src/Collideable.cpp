@@ -12,8 +12,7 @@ bool Collideable::isCollision(Collideable& _colliding)
 			collided = myColliderPtr->isCollision(*convertedCollider); \
 		 }
 
-   if      _TRY(RectsCollider)
-   else if _TRY(CircleCollider)
+   if _TRY(CircleCollider)
    else if _TRY(BoxCollider)
 
 #undef _TRY

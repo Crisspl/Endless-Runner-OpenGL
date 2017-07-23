@@ -6,9 +6,6 @@
 
 #include "Input.h"
 
-#include <iostream>
-#include <FHL/Utility/Compare.h>
-
 SDL_Window* Game::m_window;
 SDL_GLContext Game::m_context;
 
@@ -174,7 +171,7 @@ void Game::update()
 
 	fhl::Light light = fhl::Light::spot(fhl::Vec3f(m_hero.getPosition(), 500.f), fhl::Vec3f::forward(), fhl::Color(129.f / 255, 240.f / 255, 232.f / 255), 2.5f, 1.6f, 1e-4f, 1e-6f);
 	fhl::Light light2 = fhl::Light::infinite({ -0.4f, 0.5f, -0.1f }, fhl::Color(118.f / 255, 196.f / 255, 245.f/ 255));
-	fhl::Light light3 = fhl::Light::spot(fhl::Vec3f(m_sphere.getPosition(), 500.f), fhl::Vec3f::forward(), fhl::Color(129.f / 255, 240.f / 255, 232.f / 255), 2.5f, 1.5f, 1e-4f, 1e-6f);
+	fhl::Light light3 = fhl::Light::spot(fhl::Vec3f(m_sphere.getPosition(), 500.f), fhl::Vec3f::forward(), fhl::Color::Yellow, 2.5f, .7f, 1e-4f, 1e-6f);
    std::vector<fhl::Light> lights;
 
    for (const Island & isl : m_vecIslands)
