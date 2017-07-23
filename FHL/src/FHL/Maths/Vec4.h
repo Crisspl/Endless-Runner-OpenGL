@@ -16,7 +16,7 @@ namespace fhl
 		constexpr explicit Vec4(_T _value = _T(0)) : internal::VecBase<4, _T>(_value) {}
 		constexpr Vec4(_T _x, _T _y, _T _z, _T _w) : internal::VecBase<4, _T>(_x, _y, _z, _w) {}
 		template<typename _U>
-		Vec4(const Vec4<_U> & _other) : internal::VecBase<4, _T>(static_cast<const internal::VecBase<4, _T> &>(_other)) {}
+		Vec4(const Vec4<_U> & _other) : internal::VecBase<4, _T>(static_cast<const internal::VecBase<4, _U> &>(_other)) {}
 		Vec4(const internal::VecBase<4, _T> & _other) : internal::VecBase<4, _T>(_other) {}
 		constexpr Vec4(const Vec2<_T> & _v1, const Vec2<_T> & _v2) : internal::VecBase<4, _T>(_v1.x(), _v1.y(), _v2.x(), _v2.y()) {}
 		constexpr Vec4(const Vec3<_T> & _v, _T _n) : internal::VecBase<4, _T>(_v.x(), _v.y(), _v.z(), _n) {}
