@@ -23,6 +23,7 @@ Hero::Hero() :
 
 	m_heroSprite.setSize(FRAME_SIZE);
 	m_heroSprite.setOrigin(m_heroSprite.getSize() * fhl::Vec2f(0.5f, 1));
+	m_heroSprite.setColor(fhl::Color::Magenta);
 
 	changeState(State_Move);
 	m_animMgr.setColumnwise(true);

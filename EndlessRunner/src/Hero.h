@@ -42,6 +42,7 @@ public:
 	void changeState(const State _newState);
 
 	fhl::Vec2f getPosition() const { return m_heroSprite.getPosition(); }
+	fhl::Vec2f getBulletIdlePos() const { return getPosition() - m_heroSprite.getOrigin() + fhl::Vec2f(m_heroSprite.getSize().x(), m_heroSprite.getSize().y() / 2.f); }
 	State getState() const { return m_currentState; }
 
 	void setPosition(fhl::Vec2f _pos) { m_heroSprite.setPosition(_pos); }

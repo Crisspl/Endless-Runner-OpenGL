@@ -62,7 +62,7 @@ void Sphere::changeState(const State _newState)
 
 void Sphere::Idle_onEnter(const Sphere::State _prevState)
 {
-	m_sprite.setPosition(m_owner->getPosition());
+	m_sprite.setPosition(m_owner->getBulletIdlePos());
 	m_velocity = 0;
 }
 
@@ -71,7 +71,7 @@ void Sphere::Idle_onExit(const Sphere::State _newState)
 
 void Sphere::Idle_update(float dt)
 {
-	m_sprite.setPosition(m_owner->getPosition());
+	m_sprite.setPosition(m_owner->getBulletIdlePos());
 }
 
 /* State Thrown Methods */
@@ -111,7 +111,7 @@ void Sphere::Return_update(float dt)
 	m_velocity -= m_startVelociy * dt;
 
 	fhl::Vec2f myPos = m_sprite.getPosition();
-	fhl::Vec2f ownerPos = m_owner->getPosition();
+	fhl::Vec2f ownerPos = m_owner->getBulletIdlePos();
 
 	fhl::Vec2f dir = (myPos - ownerPos).normalized();
 
