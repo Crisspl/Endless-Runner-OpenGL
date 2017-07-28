@@ -120,7 +120,7 @@ target_link_libraries(fhl ${ASSIMP_LIBRARY} ${SOIL_LIBRARIES} ${OPENGL_gl_LIBRAR
 
 if(MSVC)
 	target_compile_options(fhl PUBLIC "/Qvec-report:1") # msvc bug, for some reason it works fine with this option
-	add_definitions(/DFHL_DLL /DNOMINMAX)
+	add_definitions(/DFHL_DLL /DNOMINMAX /D_CRT_SECURE_NO_WARNINGS)
 else(MSVC)
 	add_definitions(-DFHL_DLL -DNOMINMAX)
 endif()
