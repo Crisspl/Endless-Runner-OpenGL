@@ -1,7 +1,6 @@
 #ifndef FHL_RENDERTEXTURE_H
 #define FHL_RENDERTEXTURE_H
 
-
 #include <algorithm>
 #include <functional>
 
@@ -12,9 +11,7 @@
 namespace fhl
 {
 
-	class FHL_API RenderTexture
-	{
-#define GEN_GL_OBJECT_TRAITS_CLASS(Name, Create, Destroy, BindTarget, Bind) \
+#define _FHL_GEN_GL_OBJECT_TRAITS_CLASS(Name, Create, Destroy, BindTarget, Bind) \
 struct Name \
 { \
 	static GLuint create() \
@@ -33,18 +30,19 @@ struct Name \
 	} \
 };
 
-GEN_GL_OBJECT_TRAITS_CLASS(GlRboTraits, glGenRenderbuffers, glDeleteRenderbuffers, GL_RENDERBUFFER, glBindRenderbuffer)
-GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers, GL_FRAMEBUFFER, glBindFramebuffer)
-
-#undef GEN_GL_OBJECT_TRAITS_CLASS
+	namespace impl
+	{
+		_FHL_GEN_GL_OBJECT_TRAITS_CLASS(GlRboTraits, glGenRenderbuffers, glDeleteRenderbuffers, GL_RENDERBUFFER, glBindRenderbuffer)
+		_FHL_GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers, GL_FRAMEBUFFER, glBindFramebuffer)
+#undef _FHL_GEN_GL_OBJECT_TRAITS_CLASS
 
 		template<typename _Traits>
 		struct GlObject
 		{
 			GlObject() : id(_Traits::create()) {}
 			GlObject(GlObject && _other) : id(_other) { _other.id = 0; }
-			GlObject & operator=(GlObject && _other) 
-			{ 
+			GlObject & operator=(GlObject && _other)
+			{
 				std::swap(id, _other.id);
 				return *this;
 			}
@@ -67,13 +65,17 @@ GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers,
 			void attachTexture(GLuint _texId) const { glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texId, 0); }
 			void attachRbo(GLuint _rboId) const { glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _rboId); }
 		};
+	}
 
+
+	class FHL_API RenderTexture
+	{
 	public:
 		explicit RenderTexture(Texture & _tex);
 		RenderTexture(const RenderTexture &) = delete;
 		RenderTexture & operator=(const RenderTexture &) = delete;
 
-		void clearColor(Color _color) const;
+		void clearColor(const Color & _color) const;
 		void renderToTex(Renderable & _renderable, const RenderConf & _conf = RenderConf::Default) const;
 		Texture & getTexture() { return m_tex; }
 
@@ -81,11 +83,11 @@ GEN_GL_OBJECT_TRAITS_CLASS(GlFboTraits, glGenFramebuffers, glDeleteFramebuffers,
 		void setUp();
 
 	private:
-		GlFbo m_fbo;
-		GlRbo m_rbo;
+		impl::GlFbo m_fbo;
+		impl::GlRbo m_rbo;
 		std::reference_wrapper<Texture> m_tex;
 	};
 
-} // ns
+}
 
-#endif // FHL_RENDERTEXTURE_H
+#endif
