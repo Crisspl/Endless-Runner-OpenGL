@@ -2,13 +2,13 @@
 #define FHL_VEC_BASE_H
 
 #include <type_traits>
-#include <functional>
 #include <algorithm>
 #include <cmath>
 #include <ostream>
 #include <iterator>
 
 #include <FHL/Maths/BoolVec.h>
+#include <FHL/Utility/Compare.h>
 
 namespace fhl { namespace internal
 {
@@ -54,31 +54,31 @@ namespace fhl { namespace internal
 			return *this;
 		}
 
-		constexpr BoolVec<_N> operator==(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator==(const VecBase<_N, _T> & _other) const
 		{
-			return getComparisonVector<std::equal_to<_T>>(_other, std::make_index_sequence<_N>{});
+			return getComparisonVector<EqualTo<_T>>(_other, std::make_index_sequence<_N>{});
 		}
-		constexpr BoolVec<_N> operator!=(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator!=(const VecBase<_N, _T> & _other) const
 		{
 			return ~(*this == _other);
 		}
 
-		constexpr BoolVec<_N> operator<(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator<(const VecBase<_N, _T> & _other) const
 		{
-			return getComparisonVector<std::less<_T>>(_other, std::make_index_sequence<_N>{});
+			return getComparisonVector<Less<_T>>(_other, std::make_index_sequence<_N>{});
 		}
-		constexpr BoolVec<_N> operator<=(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator<=(const VecBase<_N, _T> & _other) const
 		{
-			return getComparisonVector<std::less_equal<_T>>(_other, std::make_index_sequence<_N>{});
+			return getComparisonVector<LessEqual<_T>>(_other, std::make_index_sequence<_N>{});
 		}
 
-		constexpr BoolVec<_N> operator>(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator>(const VecBase<_N, _T> & _other) const
 		{
-			return getComparisonVector<std::greater<_T>>(_other, std::make_index_sequence<_N>{});
+			return getComparisonVector<Greater<_T>>(_other, std::make_index_sequence<_N>{});
 		}
-		constexpr BoolVec<_N> operator>=(const VecBase<_N, _T> & _other) const
+		BoolVec<_N> operator>=(const VecBase<_N, _T> & _other) const
 		{
-			return getComparisonVector<std::greater_equal<_T>>(_other, std::make_index_sequence<_N>{});
+			return getComparisonVector<GreaterEqual<_T>>(_other, std::make_index_sequence<_N>{});
 		}
 
 		VecBase<_N, _T> operator+(const VecBase<_N, _T> & _other) const { return VecBase<_N, _T>(*this) += _other; }
@@ -155,10 +155,10 @@ namespace fhl { namespace internal
 
 	private:
 		template<typename Op>
-		constexpr bool idxCompare(const VecBase<_N, _T> & _other, std::size_t _idx) const { return Op{}(m_data[_idx], _other[_idx]); }
+		/*constexpr */bool idxCompare(const VecBase<_N, _T> & _other, std::size_t _idx) const { return Op{}(m_data[_idx], _other[_idx]); }
 
 		template<typename Op, std::size_t... Is>
-		constexpr BoolVec<_N> getComparisonVector(const VecBase<_N, _T> & _other, std::index_sequence<Is...>) const
+		/*constexpr */BoolVec<_N> getComparisonVector(const VecBase<_N, _T> & _other, std::index_sequence<Is...>) const
 		{
 			return BoolVec<_N>(idxCompare<Op>(_other, Is)...);
 		}

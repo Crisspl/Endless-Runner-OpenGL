@@ -17,11 +17,11 @@ namespace fhl
 		constexpr Color(const Vec3f & _color);
 		Color(std::initializer_list<float> _rgba);
 
-		constexpr bool operator==(const Color & _other) const
+		bool operator==(const Color & _other) const
 		{
 			return asVec4() == _other.asVec4();
 		}
-		constexpr bool operator!=(const Color & _other) const
+		bool operator!=(const Color & _other) const
 		{
 			return !(*this == _other);
 		}
