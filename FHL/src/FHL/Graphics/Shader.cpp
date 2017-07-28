@@ -78,30 +78,16 @@ namespace fhl
 		 return *this;
 	 }
 
-	 Shader& Shader::setVec2f(const GLchar* _name, const Vec2f & _value)
+	 Shader & Shader::setUnsignedInt(const GLchar * _name, const GLuint _value)
 	 {
 		 use();
-		 glUniform2f(glGetUniformLocation(getId(), _name), _value.x(), _value.y());
-		 return *this;
-	 }
-
-	 Shader& Shader::setVec3f(const GLchar* _name, const Vec3f & _value)
-	 {
-		 use();
-		 glUniform3f(glGetUniformLocation(getId(), _name), _value.x(), _value.y(), _value.z());
-		 return *this;
-	 }
-
-	 Shader& Shader::setVec4f(const GLchar* _name, const Vec4f & _value)
-	 {
-		 use();
-		 glUniform4f(glGetUniformLocation(getId(), _name), _value.x(), _value.y(), _value.z(), _value.w());
+		 glUniform1ui(glGetUniformLocation(getId(), _name), _value);
 		 return *this;
 	 }
 
 	 Shader& Shader::setColor(const GLchar* _name, const Color & _value)
 	 {
-		 return setVec4f(_name, _value.asVec4());
+		 return setVec4(_name, _value.asVec4());
 	 }
 
 	 Shader& Shader::setMat4f(const GLchar* _name, const Mat4f & _matrix)
@@ -117,12 +103,12 @@ namespace fhl
 		 switch(_light.type)
 		 {
 #define COMMON_CALLS_FOR_POINT_AND_SPOT \
-setVec3f((name + ".position").c_str(), _light.position); \
+setVec3((name + ".position").c_str(), _light.position); \
 setFloat((name + ".linear").c_str(), _light.linear); \
 setFloat((name + ".quadratic").c_str(), _light.quadratic);
 
 			 case Light::Infinite:
-				 setVec3f((name + ".direction").c_str(), _light.direction);
+				 setVec3((name + ".direction").c_str(), _light.direction);
 				 break;
 			 case Light::Point:
 				 COMMON_CALLS_FOR_POINT_AND_SPOT
@@ -132,7 +118,7 @@ setFloat((name + ".quadratic").c_str(), _light.quadratic);
 				 const float cutOffAngle = clamp(_light.cutOffAngle, 0.f, 90.f);
 				 const float outerCutOff = std::min(cutOffAngle + 20.f, 90.f);
 				 COMMON_CALLS_FOR_POINT_AND_SPOT
-				 setVec3f((name + ".direction").c_str(), _light.direction);
+				 setVec3((name + ".direction").c_str(), _light.direction);
 				 setFloat((name + ".cutOff").c_str(), cos(toRadians(cutOffAngle)));
 				 setFloat((name + ".outerCutOff").c_str(), cos(toRadians(outerCutOff)));
 			 }break;

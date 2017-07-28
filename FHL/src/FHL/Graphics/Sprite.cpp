@@ -51,7 +51,7 @@ namespace fhl
 
 		  shader.setMat4f("mvp", matrices.mvp)
 				.setMat4f("model", matrices.transform)
-				.setVec3f("cameraPos", matrices.cameraPosition)
+				.setVec3("cameraPos", matrices.cameraPosition)
 				.setLights("light", lights.cbegin(), lights.cend());
 
 		  getVao().bind();

@@ -38,7 +38,7 @@ namespace fhl
 		shader.setMat4f("mvp", matrices.mvp)
 			.setMat4f("model", matrices.transform)
 			.setMat4f("inverseModel", matrices.inverseTransform)
-			.setVec3f("cameraPos", matrices.cameraPosition)
+			.setVec3("cameraPos", matrices.cameraPosition)
 			.setFloat("material.shininess", 5.f)
 			.setLights("light", lights.cbegin(), lights.cend())
 			.setBoolean("useColorOnly", m_useColorOnly)
