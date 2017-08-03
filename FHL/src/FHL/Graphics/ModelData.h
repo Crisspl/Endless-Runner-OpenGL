@@ -33,7 +33,7 @@ namespace fhl
 		void processNode(aiNode * _nodePtr, const aiScene * _scenePtr);
 		internal::Mesh processMesh(aiMesh * _meshPtr, const aiScene * _scenePtr);
 		void calcSize();
-		std::vector<internal::Mesh::Texture> loadMaterialTextures(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType, internal::Mesh::Texture::Type _texTypeName);
+		GLuint loadTexture(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType);
 
 	public:
 		const std::vector<internal::Mesh> & getMeshes() const { return m_meshes; }

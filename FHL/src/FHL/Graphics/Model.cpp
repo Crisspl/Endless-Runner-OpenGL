@@ -88,31 +88,21 @@ namespace fhl
 
 	void Model::renderMeshes() const
 	{
-		using MeshTexture = internal::Mesh::Texture;
-
 		const auto & meshes = m_modelData->getMeshes();
 		for (int i = 0; i < meshes.size(); i++)
 		{
-			GLbyte diffuseNr = 1, specularNr = 1;
-
-			for (int j = 0; j < meshes[i].textures.size(); j++)
-			{
-				glActiveTexture(GL_TEXTURE0 + j);
-
-				const auto & texture = meshes[i].textures[j];
-
-				const std::string name = MeshTexture::typeToString(texture.type);
-				const char number = (texture.type == MeshTexture::Type::Diffuse ? diffuseNr++ : specularNr++) + '0';
-
-				getShader()->setInt(("material." + name + number).c_str(), i);
-				glBindTexture(GL_TEXTURE_2D, texture.id);
-			}
+			glActiveTexture(GL_TEXTURE0);
+			getShader()->setInt("material.texture_diffuse", 0);
+			glBindTexture(GL_TEXTURE_2D, meshes[i].textures.diffuse);
+			glActiveTexture(GL_TEXTURE1);
+			getShader()->setInt("material.texture_specular", 1);
+			glBindTexture(GL_TEXTURE_2D, meshes[i].textures.specular);
 
 			m_vaos[i].bind();
 			glDrawElements(GL_TRIANGLES, meshes[i].indicesCount, GL_UNSIGNED_INT, 0);
 			m_vaos[i].unbind();
 
-			for (GLuint j = 0; j < meshes[i].textures.size(); j++)
+			for (GLuint j = 0; j < 2u; j++)
 			{
 				glActiveTexture(GL_TEXTURE0 + j);
 				glBindTexture(GL_TEXTURE_2D, 0);

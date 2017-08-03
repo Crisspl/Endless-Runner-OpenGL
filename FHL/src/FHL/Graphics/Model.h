@@ -58,6 +58,6 @@ namespace fhl
 		constexpr static const char * lightShaderName = "_FHL_modelLightShader";
 	};
 
-} // ns
+}
 
-#endif // FHL_MODEL_H
+#endif

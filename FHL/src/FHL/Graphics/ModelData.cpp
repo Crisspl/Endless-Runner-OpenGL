@@ -5,14 +5,28 @@
 #include <assimp/postprocess.h>
 
 #include <FHL/Graphics/ResMgr.h>
+#include <FHL/Utility/Debug.h>
 
 namespace fhl
 {
-	std::size_t ModelData::s_createdCount = 0;
+	namespace impl
+	{
+		const char * texTypeToString(aiTextureType _tt)
+		{
+			switch (_tt)
+			{
+			case aiTextureType_DIFFUSE: return "diffuse";
+			case aiTextureType_SPECULAR: return "specualar";
+			default: return "unknown";
+			}
+		}
+	}
+
+	std::size_t ModelData::s_createdCount{0u};
 
 	ModelData::ModelData(const std::string & _path) :
-		m_directory{ _path.substr(0, _path.find_last_of('/')) },
-		m_meshCount{ 0 }
+		m_directory{_path.substr(0, _path.find_last_of('/'))},
+		m_meshCount{0u}
 	{
 		load(_path);
 		calcSize();
@@ -54,7 +68,7 @@ namespace fhl
 	{
 		std::vector<internal::Mesh::Vertex> vertices;
 		std::vector<GLuint> indices;
-		std::vector<internal::Mesh::Texture> textures;
+		internal::Mesh::TexturesPair textures;
 
 		vertices.reserve(_meshPtr->mNumVertices);
 		for (GLuint i = 0; i < _meshPtr->mNumVertices; i++)
@@ -80,16 +94,16 @@ namespace fhl
 
 		if (_meshPtr->mMaterialIndex >= 0)
 		{
-			aiMaterial* materialPtr = _scenePtr->mMaterials[_meshPtr->mMaterialIndex];
-
-			std::vector<internal::Mesh::Texture> diffuseTexs = loadMaterialTextures(_meshPtr, materialPtr, aiTextureType_DIFFUSE, internal::Mesh::Texture::Type::Diffuse);
-			std::vector<internal::Mesh::Texture> specularTexs = loadMaterialTextures(_meshPtr, materialPtr, aiTextureType_SPECULAR, internal::Mesh::Texture::Type::Specular);
-
-			textures.insert(textures.end(), diffuseTexs.begin(), diffuseTexs.end());
-			textures.insert(textures.end(), specularTexs.begin(), specularTexs.end());
+			aiMaterial * materialPtr = _scenePtr->mMaterials[_meshPtr->mMaterialIndex];
+			textures = {
+				loadTexture(_meshPtr, materialPtr, aiTextureType_DIFFUSE),
+				loadTexture(_meshPtr, materialPtr, aiTextureType_SPECULAR)
+			};
+			/* If no specular texture was loaded, use diffuse one */
+			if (!textures.specular) textures.specular = textures.diffuse;
 		}
 
-		return internal::Mesh(vertices, indices, std::move(textures));
+		return internal::Mesh(vertices, indices, textures);
 	}
 
 	void ModelData::calcSize()
@@ -122,42 +136,23 @@ namespace fhl
 		};
 	}
 
-	std::vector<internal::Mesh::Texture> ModelData::loadMaterialTextures(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType, internal::Mesh::Texture::Type _texTypeName)
+	GLuint ModelData::loadTexture(aiMesh * _mesh, aiMaterial * _materialPtr, aiTextureType _texType)
 	{
-		std::vector<internal::Mesh::Texture> textures;
+		if (_materialPtr->GetTextureCount(_texType) > 1)
+			Debug::Log() << "FHL only supports one texture per type (diffuse, specular) per mesh. Only the first one was loaded.\n";
+		else if (_texType == aiTextureType_DIFFUSE && _materialPtr->GetTextureCount(_texType) == 0)
+			throw std::runtime_error{"No texture of diffuse type associated to model"};
 
-		for (GLuint i = 0; i < _materialPtr->GetTextureCount(_texType); i++)
-		{
-			aiString str;
-			_materialPtr->GetTexture(_texType, i, &str);
-			GLboolean loaded = false;
-			for (internal::Mesh::Texture & tex : textures)
-			{
-				if (tex.fileName == std::string{str.C_Str()})
-				{
-					textures.push_back(tex);
-					loaded = true;
-					break;
-				}
-			}
-
-			if (!loaded)
-			{
-				internal::Mesh::Texture texture;
-
-				std::string filePath = m_directory + '/' + str.C_Str();
-				std::string modelName = "_FHL_M" + std::to_string(s_createdCount);
-				std::string texName = modelName + '_' + std::to_string(m_meshCount++) + '_' +
-					internal::Mesh::Texture::typeToString(_texTypeName) + std::to_string(i);
-
-				texture.id = fhl::ResMgr::loadTexture(texName, filePath).setRepeated(true).getId();
-				texture.type = _texTypeName;
-				texture.fileName = std::string{str.C_Str()};
-				textures.push_back(texture);
-				m_texNames.push_back(std::move(texName));
-			}
-		}
-		return textures;
+		aiString fileName;
+		_materialPtr->GetTexture(_texType, 0u, &fileName);
+		const std::string filePath = m_directory + '/' + fileName.C_Str();
+		const std::string modelName = "_FHL_M" + std::to_string(s_createdCount);
+		const std::string texName = modelName + '_' + std::to_string(m_meshCount++) + '_' + impl::texTypeToString(_texType);
+		
+		GLuint id = ResMgr::loadTexture(texName, filePath).setRepeated(true).getId();
+		if (!id) ResMgr::removeTexture(texName);
+		else m_texNames.push_back(std::move(texName));
+		return id;
 	}
 
-} // ns
+}

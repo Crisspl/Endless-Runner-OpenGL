@@ -31,41 +31,23 @@ namespace internal
 			Vec2f texCoords;
 		};
 
-		struct Texture
+		struct TexturesPair
 		{
-			enum class Type
-			{
-				Diffuse,
-				Specular
-			};
-
-			static std::string typeToString(Type _t)
-			{
-				switch (_t)
-				{
-				case Type::Diffuse: return "texture_diffuse";
-				case Type::Specular: return "texture_specular";
-				default: return{};
-				}
-			}
-
-			GLuint id;
-			Type type;
-			std::string fileName;
+			GLuint diffuse, specular;
 		};
 
 	public:
-		Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, std::vector<Mesh::Texture> _textures);
+		Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, TexturesPair _textures);
 
 	private:
 		void setUp(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices);
 
-		std::vector<Mesh::Texture> textures;
+		TexturesPair textures;
 		std::size_t indicesCount;
 		tuple3pair_t minMaxVerts;
 		Buffer vbo, ebo;
 	};
 
-}} // ns
+}}
 
-#endif // FHL_MESH_H
+#endif

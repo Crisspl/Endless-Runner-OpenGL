@@ -6,8 +6,8 @@
 namespace fhl { namespace internal
 {
 
-	Mesh::Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, std::vector<Mesh::Texture> _textures)
-		: textures(std::move(_textures)),
+	Mesh::Mesh(const std::vector<Mesh::Vertex> & _vertices, const std::vector<GLuint> & _indices, TexturesPair _textures) :
+		textures(_textures),
 		indicesCount(_indices.size()),
 		vbo(Buffer::Target::ArrayBuffer, Buffer::Usage::StaticDraw),
 		ebo(Buffer::Target::ElementArrayBuffer, Buffer::Usage::StaticDraw)
@@ -41,4 +41,4 @@ namespace fhl { namespace internal
 #undef comp
 	}
 
-}} // ns
+}}
